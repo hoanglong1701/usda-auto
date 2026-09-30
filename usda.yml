@@ -1,0 +1,46 @@
+name: usda-auto
+
+on:
+  schedule:
+    # Mỗi 5 phút, 12:00-22:59 UTC, thứ Hai-thứ Sáu
+    # (phủ WASDE/Grain Stocks 16:00 UTC và Crop Progress 20:00-21:00 UTC)
+    - cron: "*/5 12-22 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Đăng lại dù không có kỳ mới (1 = có)"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usda-auto
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Chạy báo cáo
+        run: python src/main.py
+        env:
+          NASS_API_KEY: ${{ secrets.NASS_API_KEY }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          WP_PAGE_ID: ${{ secrets.WP_PAGE_ID }}
+          FORCE: ${{ github.event.inputs.force == '1' && '1' || '0' }}
+      - name: Lưu dữ liệu vào repo
+        if: always()
+        run: |
+          git config user.name "usda-bot"
+          git config user.email "usda-bot@users.noreply.github.com"
+          git add data state.json
+          git diff --cached --quiet || (git commit -m "Cập nhật dữ liệu USDA" && git push)
