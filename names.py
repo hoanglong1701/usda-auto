@@ -3,6 +3,13 @@
 # Thu tu quan trong: cum dai dat truoc cum ngan
 _MAP = [
     ("UNKNOWN", "Chưa xác định nước đến"),
+    ("KOREA, REPUBLIC", "Hàn Quốc"), ("BURMA", "Myanmar"), ("LAOS", "Lào"),
+    ("POLAND", "Ba Lan"), ("SWEDEN", "Thụy Điển"), ("NORWAY", "Na Uy"), ("DENMARK", "Đan Mạch"),
+    ("AUSTRIA", "Áo"), ("GREECE", "Hy Lạp"), ("SWITZERLAND", "Thụy Sĩ"), ("CYPRUS", "Síp"),
+    ("MALTA", "Malta"), ("ALBANIA", "Albania"), ("KUWAIT", "Kuwait"), ("QATAR", "Qatar"),
+    ("LEBANON", "Li-băng"), ("MOZAMBIQUE", "Mozambique"), ("SOMALIA", "Somalia"),
+    ("LIBERIA", "Liberia"), ("GAMBIA", "Gambia"), ("GUYANA", "Guyana"), ("SURINAM", "Suriname"),
+    ("TRINIDAD", "Trinidad và Tobago"), ("BAHAMAS", "Bahamas"), ("BARBADOS", "Barbados"),
     ("EUROPEAN UNION", "Liên minh châu Âu"),
     ("KOREA, SOUTH", "Hàn Quốc"), ("KOREA REP", "Hàn Quốc"), ("SOUTH KOREA", "Hàn Quốc"),
     ("CHINA", "Trung Quốc"), ("TAIWAN", "Đài Loan"), ("HONG KONG", "Hồng Kông"),
