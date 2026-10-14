@@ -11,9 +11,9 @@ PRE = re.compile(r'<pre id="gd-data"[^>]*>(.*?)</pre>', re.S)
 
 
 def _cfg():
-    base = os.environ.get("WP_URL", "").rstrip("/")
-    user = os.environ.get("WP_USER", "")
-    pw = os.environ.get("WP_APP_PASSWORD", "")
+    base = os.environ.get("WP_URL", "").strip().rstrip("/")
+    user = os.environ.get("WP_USER", "").strip()
+    pw = os.environ.get("WP_APP_PASSWORD", "").strip()
     return base, user, pw
 
 
@@ -45,7 +45,8 @@ def esc(t):
 def load(pid):
     """Tra ve dict trong #gd-data cua trang pid."""
     r = _sess().get(_url(pid), params={"context": "edit", "_fields": "content.raw"}, timeout=60)
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError("WordPress tra %d khi doc trang %d: %s" % (r.status_code, pid, r.text[:200].replace("\n", " ")))
     raw = r.json()["content"]["raw"]
     m = PRE.search(raw)
     if not m:
@@ -58,7 +59,8 @@ def save(pid, obj):
     content = ('<!-- wp:html -->\n<pre id="gd-data" style="display:none">'
                + esc(s) + '</pre>\n<!-- /wp:html -->')
     r = _sess().post(_url(pid), json={"content": content}, timeout=60)
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError("WordPress tra %d khi ghi trang %d: %s" % (r.status_code, pid, r.text[:200].replace("\n", " ")))
     # doc lai de chac chan ghi dung
     back = load(pid)
     if json.dumps(back, sort_keys=True) != json.dumps(obj, sort_keys=True):

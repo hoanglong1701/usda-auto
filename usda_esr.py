@@ -13,7 +13,7 @@ MY_END = {401: (8, 31), 801: (8, 31), 901: (9, 30), 902: (9, 30), 107: (5, 31), 
 
 
 def _get(path):
-    r = requests.get(API + path, headers={"X-Api-Key": os.environ["FAS_API_KEY"], "User-Agent": wp.UA}, timeout=90)
+    r = requests.get(API + path, headers={"X-Api-Key": os.environ["FAS_API_KEY"].strip(), "User-Agent": wp.UA}, timeout=90)
     r.raise_for_status()
     return r.json()
 
