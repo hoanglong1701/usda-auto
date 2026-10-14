@@ -2,7 +2,7 @@
 import re
 import datetime
 import requests
-from . import wp
+import wp
 
 URL = "https://www.ams.usda.gov/mnreports/wa_gr101.txt"
 PAGE = 801

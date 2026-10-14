@@ -5,8 +5,10 @@ import os
 import datetime
 import traceback
 
-from . import usda_esr, usda_insp, usda_prog
-from .names import unmapped
+import usda_esr
+import usda_insp
+import usda_prog
+from names import unmapped
 
 JOBS = {
     "esr": usda_esr.run,

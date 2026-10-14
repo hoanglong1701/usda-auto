@@ -54,7 +54,7 @@ jobs:
           fi
           if [ "$JOB" = "all" ]; then JOB="esr insp prog"; fi
           echo "Job: $JOB"
-          python -m gd.run $JOB
+          python run.py $JOB
       - name: Luu trang thai
         if: always()
         run: |

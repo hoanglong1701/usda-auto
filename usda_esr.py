@@ -2,8 +2,8 @@
 import os
 import datetime
 import requests
-from . import wp
-from .names import vn
+import wp
+from names import vn
 
 API = "https://api.fas.usda.gov/api/esr"
 PAGE = 801

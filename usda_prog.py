@@ -2,7 +2,7 @@
 import re
 import datetime
 import requests
-from . import wp
+import wp
 
 LIST_URL = "https://esmis.nal.usda.gov/publication/crop-progress"
 PAGE = 801
