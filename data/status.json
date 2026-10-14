@@ -1,20 +1,51 @@
 {
  "esr": {
-  "ok": false,
-  "at": "2026-10-14T09:47:58Z",
-  "error": "InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'SrbPeMbg14qMh1z8YKeKv3J7tyeDBXfJhAeRV3b9\\n'",
-  "trace": "rn request(\"get\", url, params=params, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 635, in request\n    prep = self.prepare_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 541, in prepare_request\n    p.prepare(\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/models.py\", line 440, in prepare\n    self.prepare_headers(headers)\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/models.py\", line 570, in prepare_headers\n    check_header_validity(header)\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/utils.py\", line 1095, in check_header_validity\n    _validate_header_part(header, value, 1)\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/utils.py\", line 1116, in _validate_header_part\n    raise InvalidHeader(\nrequests.exceptions.InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'SrbPeMbg14qMh1z8YKeKv3J7tyeDBXfJhAeRV3b9\\n'\n"
+  "ok": true,
+  "at": "2026-10-14T09:51:28Z",
+  "msg": "khong co bao cao moi; tuan 2026-10-01; ok"
  },
  "insp": {
-  "ok": false,
-  "at": "2026-10-14T09:47:58Z",
-  "error": "HTTPError: 401 Client Error: Unauthorized for url: https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/801?context=edit&_fields=content.raw",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 36, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/usda_insp.py\", line 113, in run\n    old = wp.load(PAGE).get(\"insp\", {})\n          ^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 48, in load\n    r.raise_for_status()\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/801?context=edit&_fields=content.raw\n"
+  "ok": true,
+  "at": "2026-10-14T09:51:37Z",
+  "msg": "da cap nhat tuan 2026-10-08"
  },
  "prog": {
-  "ok": false,
-  "at": "2026-10-14T09:48:06Z",
-  "error": "HTTPError: 401 Client Error: Unauthorized for url: https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/801?context=edit&_fields=content.raw",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 36, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/usda_prog.py\", line 111, in run\n    old = wp.load(PAGE).get(\"prog\", {})\n          ^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 48, in load\n    r.raise_for_status()\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/801?context=edit&_fields=content.raw\n"
- }
+  "ok": true,
+  "at": "2026-10-14T09:51:50Z",
+  "msg": "khong co bao cao moi (phat hanh 2026-10-05)"
+ },
+ "_ten_nuoc_chua_dich": [
+  "ALBANIA                        ",
+  "AMERICAN SAMOA                 ",
+  "AUSTRIA                        ",
+  "BAHAMAS, THE                   ",
+  "BARBADOS                       ",
+  "BURMA                          ",
+  "CYPRUS                         ",
+  "DENMARK                        ",
+  "FEDERATED STATES OF MICRONESIA ",
+  "GAMBIA, THE                    ",
+  "GREECE                         ",
+  "GUAM                           ",
+  "GUYANA                         ",
+  "KOREA, REPUBLIC OF             ",
+  "KUWAIT                         ",
+  "LAOS                           ",
+  "LEBANON                        ",
+  "LEEWARD-WINDWARD ISLANDS       ",
+  "LIBERIA                        ",
+  "MALTA & GOZO                   ",
+  "MOZAMBIQUE                     ",
+  "NORTHERN MARIANA ISLANDS       ",
+  "NORWAY                         ",
+  "POLAND                         ",
+  "QATAR                          ",
+  "SOMALIA                        ",
+  "SURINAM                        ",
+  "SWEDEN                         ",
+  "SWITZERLAND                    ",
+  "TRINIDAD AND TOBAGO            ",
+  "TURKS AND CAICOS ISLANDS       ",
+  "YUGOSLAVIA                     "
+ ]
 }
