@@ -36,9 +36,10 @@ FRED_SERIES = {
 YAHOO_SYMBOLS = {"GC=F": "Vang futures (COMEX)", "SI=F": "Bac futures (COMEX)"}
 
 CFTC_URLS = [
-    # f_disagg.txt = Disaggregated report: CHI co nong san/nang luong, KHONG co vang/bac (da kiem chung).
-    # deacot.txt = Legacy report (Futures Only): co TAT CA hang hoa, bao gom vang/bac tren COMEX.
-    ("legacy", "https://www.cftc.gov/dea/newcot/deacot.txt"),
+    # f_disagg.txt = Disaggregated report tuan hien tai: CHI co nong san/nang luong, KHONG co vang/bac
+    # (da kiem chung thuc te). File "deacot.txt" (Legacy, co vang/bac) la file LICH SU GOP TU 1986 -
+    # qua lon/cham, da thu va bi GitHub Actions timeout 10 phut, nen BO, chua dung duoc.
+    # Can tim dung file Legacy TUAN HIEN TAI (nho) truoc khi bat lai - de trong "notes" ben duoi.
     ("disaggregated", "https://www.cftc.gov/dea/newcot/f_disagg.txt"),
 ]
 WB_COMMODITY_PAGE = "https://www.worldbank.org/en/research/commodity-markets"
@@ -54,9 +55,9 @@ def _get(url, **kw):
 
 def fred_series(series_id, n_last=60):
     try:
-        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=90)
+        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=45)
     except requests.exceptions.ReadTimeout:
-        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=90)  # 1 lan thu lai
+        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=45)  # 1 lan thu lai
     rows = list(csv.reader(io.StringIO(r.text)))
     rows = rows[1:]  # bo header "DATE,<id>"
     pts = []
@@ -162,6 +163,9 @@ def run():
         "Lich kinh te ForexFactory/TradingView: can trinh duyet/JS, khong fetch duoc tu GitHub Actions.",
         "IMF DataMapper: IMF chan IP GitHub Actions (403) - van can tac vu Claude hang quy.",
         "NY Fed / BLS: chua co nguon CSV cong khai on dinh, de ban sau.",
+        "CFTC vang/bac: file Disaggregated (f_disagg.txt) KHONG co vang/bac; file Legacy day du " +
+        "(deacot.txt) co nhung qua lon/cham (da bi timeout 10 phut, da tat). Can tim dung file " +
+        "Legacy TUAN HIEN TAI (nho hon) tren cftc.gov truoc khi lam lai phan nay.",
     ]}
 
     out["fred"] = {}
