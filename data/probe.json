@@ -1,49 +1,16 @@
 {
  "asof": "2026-10-15",
- "errors": [
-  "fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
-  "fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
-  "fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
-  "fred/DTWEXBGS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
-  "fred/T10YIE: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
-  "fred/CPIAUCSL: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
- ],
+ "errors": [],
  "notes": [
   "Lich kinh te ForexFactory/TradingView: can trinh duyet/JS, khong fetch duoc tu GitHub Actions.",
   "IMF DataMapper: IMF chan IP GitHub Actions (403) - van can tac vu Claude hang quy.",
   "NY Fed / BLS: chua co nguon CSV cong khai on dinh, de ban sau.",
   "CFTC vang/bac: file Disaggregated (f_disagg.txt) KHONG co vang/bac; file Legacy day du (deacot.txt) co nhung qua lon/cham (da bi timeout 10 phut, da tat). Can tim dung file Legacy TUAN HIEN TAI (nho hon) tren cftc.gov truoc khi lam lai phan nay."
  ],
- "fred": {
-  "DGS10": {
-   "label": "Loi suat trai phieu My 10 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  },
-  "DGS2": {
-   "label": "Loi suat trai phieu My 2 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  },
-  "FEDFUNDS": {
-   "label": "Lai suat Fed Funds hieu dung",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  },
-  "DTWEXBGS": {
-   "label": "Chi so USD (broad, Fed)",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  },
-  "T10YIE": {
-   "label": "Breakeven lam phat 10 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  },
-  "CPIAUCSL": {
-   "label": "CPI My (chua dieu chinh mua vu)",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
-  }
- },
  "yahoo": {
   "GC=F": {
    "latest_date": "2026-10-15",
-   "latest_close": 4161.0,
+   "latest_close": 4159.7001953125,
    "series": [
     [
      "2026-10-12",
@@ -59,14 +26,14 @@
     ],
     [
      "2026-10-15",
-     4161.0
+     4159.7001953125
     ]
    ],
    "label": "Vang futures (COMEX)"
   },
   "SI=F": {
    "latest_date": "2026-10-15",
-   "latest_close": 56.30500030517578,
+   "latest_close": 56.27000045776367,
    "series": [
     [
      "2026-10-12",
@@ -82,7 +49,7 @@
     ],
     [
      "2026-10-15",
-     56.30500030517578
+     56.27000045776367
     ]
    ],
    "label": "Bac futures (COMEX)"
