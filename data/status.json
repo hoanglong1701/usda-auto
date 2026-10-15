@@ -57,5 +57,10 @@
   "ok": true,
   "at": "2026-10-15T04:51:59Z",
   "msg": "da cap nhat WASDE 2026-10"
+ },
+ "probe": {
+  "ok": true,
+  "at": "2026-10-15T06:03:24Z",
+  "msg": "ghi data/probe.json, 7 nguon loi: fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60); fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60); fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
  }
 }
