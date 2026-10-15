@@ -4,6 +4,7 @@ Cac muc con lai (World Bank GEP, OECD, WTO, loi binh chi tiet) van do tac vu Cla
 """
 import re
 import datetime
+import time
 import requests
 import wp
 
@@ -25,9 +26,18 @@ def vdate(d):
 
 
 def _get(url, **kw):
-    r = requests.get(url, headers={"User-Agent": UA, "Accept": "*/*"}, timeout=90, **kw)
-    r.raise_for_status()
-    return r
+    h = {"User-Agent": UA, "Accept": "application/json, text/plain, */*",
+         "Accept-Language": "en-US,en;q=0.9", "Referer": "https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/OEMDC/ADVEC/WEOWORLD",
+         "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin"}
+    last = None
+    for k in range(3):
+        r = requests.get(url, headers=h, timeout=90, **kw)
+        if r.status_code < 400:
+            return r
+        last = r
+        time.sleep(3)
+    last.raise_for_status()
+    return last
 
 
 # ---------------------------------------------------------------- IMF
@@ -329,7 +339,10 @@ def run():
             if fn(obj, today, notes):
                 changed = True
         except Exception as e:  # moi nguon doc lap
-            errs.append("%s: %s" % (fn.__name__, e))
+            if fn is update_imf:  # IMF co the chan may chu GitHub: canh bao, khong lam hong ca job
+                notes.append("CANH BAO IMF: %s" % str(e)[:120])
+            else:
+                errs.append("%s: %s" % (fn.__name__, e))
     if changed:
         obj["asof"] = today.isoformat()
         wp.save(PAGE, obj)
