@@ -13,10 +13,11 @@ on:
     - cron: "10 20,21 * * 2"
     - cron: "20 1 * * *"
     - cron: "30 8,10 * * 5"
+    - cron: "15 16,17,18 8-14 * *"
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde hoac all)"
         default: "all"
 
 concurrency:
@@ -52,10 +53,11 @@ jobs:
               "45 12 * * 4"|"30 13 * * 4"|"30 14 * * 4"|"30 0 * * 5") JOB=esr;;
               "30 17,19,23 * * 1"|"30 2 * * 2"|"30 17 * * 2") JOB=insp;;
               "10 20,21,22 * * 1"|"10 20,21 * * 2") JOB=prog;;
+              "15 16,17,18 8-14 * *") JOB=wasde;;
               *) JOB=orgs;;
             esac
           fi
-          if [ "$JOB" = "all" ]; then JOB="esr insp prog orgs"; fi
+          if [ "$JOB" = "all" ]; then JOB="esr insp prog orgs wasde"; fi
           echo "Job: $JOB"
           python run.py $JOB
       - name: Luu trang thai
