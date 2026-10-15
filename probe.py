@@ -3,35 +3,32 @@ Actions), ghi vao data/probe.json. KHONG ghi len WordPress - day la du lieu tho 
 (lich kinh te trang 176, cong cu dinh luong trang 478, Pink Sheet/Fed trang 111, theo doi tuoi du lieu)
 doc lai va xu ly tiep, khong tu dong dang web.
 
-Nguon da thu (fetch duoc thang bang requests, khong can JS):
- - FRED CSV: loi suat 10Y/2Y, Fed Funds, CPI, USD index, breakeven 10Y
- - Yahoo chart: GC=F (vang), SI=F (bac) - gia futures tuan gan nhat
- - CFTC f_disagg.txt: vi the COT vang/bac (Disaggregated Futures Only Report)
- - World Bank Pink Sheet (CMO-Historical-Data-Monthly.xlsx): gia vang/bac thang gan nhat
+Nguon da thu VA CHAY DUOC tren GitHub Actions (fetch bang requests, khong can JS):
+ - Yahoo chart: GC=F (vang), SI=F (bac) - gia futures gan nhat
+ - World Bank Pink Sheet (CMO-Historical-Data-Monthly.xlsx, tu tim link moi nhat tren trang Commodity
+   Markets vi hash trong URL doi hang thang): gia vang/bac thang gan nhat
 
-Nguon CHUA thu duoc tu GitHub (ghi ro trong "notes", van can tac vu Claude co trinh duyet):
- - Lich kinh te ForexFactory/TradingView: can JS render, khong co API cong khai on dinh
- - IMF DataMapper: IMF chan dia chi IP cua GitHub Actions (403), da biet tu truoc (xem orgs.py)
- - NY Fed / BLS: chua tim duoc endpoint CSV cong khai on dinh, de danh cho ban sau
+Nguon CHUA thu duoc / CHUA dung duoc tu GitHub (ghi ro trong "notes", van can tac vu Claude co trinh
+duyet nhu truoc):
+ - FRED (fredgraph.csv): may chu GitHub Actions bi fred.stlouisfed.org timeout 100% (da thu That, moi
+   series treo ~45s, ca job mat ~9 phut) - BO, khong goi tu job nay nua. 2 tac vu Claude da co san
+   (trigger "Cong cu dinh luong" va "Gia vang bac thang + Fed") van dung trinh duyet de lay FRED binh
+   thuong, khong anh huong.
+ - Lich kinh te ForexFactory/TradingView: can JS render, khong co API cong khai on dinh.
+ - IMF DataMapper: IMF chan dia chi IP cua GitHub Actions (403), da biet tu truoc (xem orgs.py).
+ - CFTC vi the vang/bac: file Disaggregated (f_disagg.txt) KHONG co vang/bac (da kiem chung); file
+   Legacy day du (deacot.txt, co vang/bac) qua lon/cham, da gay timeout, da BO. Can tim dung file
+   Legacy TUAN HIEN TAI (ban nho) truoc khi lam lai.
+ - NY Fed / BLS: chua tim duoc endpoint CSV cong khai on dinh, de danh cho ban sau.
 """
 import io
 import re
-import csv
 import json
 import datetime
 import requests
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-
-FRED_SERIES = {
-    "DGS10": "Loi suat trai phieu My 10 nam",
-    "DGS2": "Loi suat trai phieu My 2 nam",
-    "FEDFUNDS": "Lai suat Fed Funds hieu dung",
-    "DTWEXBGS": "Chi so USD (broad, Fed)",
-    "T10YIE": "Breakeven lam phat 10 nam",
-    "CPIAUCSL": "CPI My (chua dieu chinh mua vu)",
-}
 
 YAHOO_SYMBOLS = {"GC=F": "Vang futures (COMEX)", "SI=F": "Bac futures (COMEX)"}
 
@@ -51,23 +48,6 @@ def _get(url, **kw):
     r = requests.get(url, **kw)
     r.raise_for_status()
     return r
-
-
-def fred_series(series_id, n_last=60):
-    try:
-        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=45)
-    except requests.exceptions.ReadTimeout:
-        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=45)  # 1 lan thu lai
-    rows = list(csv.reader(io.StringIO(r.text)))
-    rows = rows[1:]  # bo header "DATE,<id>"
-    pts = []
-    for d, v in rows:
-        if v in (".", ""):
-            continue
-        pts.append([d, float(v)])
-    if not pts:
-        raise RuntimeError("FRED %s: khong co diem du lieu hop le" % series_id)
-    return {"latest_date": pts[-1][0], "latest_value": pts[-1][1], "series": pts[-n_last:]}
 
 
 def yahoo_quote(symbol):
@@ -167,14 +147,6 @@ def run():
         "(deacot.txt) co nhung qua lon/cham (da bi timeout 10 phut, da tat). Can tim dung file " +
         "Legacy TUAN HIEN TAI (nho hon) tren cftc.gov truoc khi lam lai phan nay.",
     ]}
-
-    out["fred"] = {}
-    for sid, label in FRED_SERIES.items():
-        try:
-            out["fred"][sid] = dict(fred_series(sid), label=label)
-        except Exception as e:  # noqa
-            out["fred"][sid] = {"label": label, "error": "%s: %s" % (type(e).__name__, e)}
-            out["errors"].append("fred/%s: %s" % (sid, e))
 
     out["yahoo"] = {}
     for sym, label in YAHOO_SYMBOLS.items():
