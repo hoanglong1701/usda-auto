@@ -60,7 +60,7 @@
  },
  "probe": {
   "ok": true,
-  "at": "2026-10-15T06:03:24Z",
-  "msg": "ghi data/probe.json, 7 nguon loi: fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60); fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60); fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+  "at": "2026-10-15T06:32:02Z",
+  "msg": "ghi data/probe.json, 6 nguon loi: fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45); fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45); fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
  }
 }

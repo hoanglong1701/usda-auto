@@ -1,49 +1,49 @@
 {
  "asof": "2026-10-15",
  "errors": [
-  "fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "fred/DTWEXBGS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "fred/T10YIE: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "fred/CPIAUCSL: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)",
-  "worldbank_pink_sheet: 404 Client Error: Not Found for url: https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-0050012025/related/CMO-Historical-Data-Monthly.xlsx"
+  "fred/DGS10: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
+  "fred/DGS2: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
+  "fred/FEDFUNDS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
+  "fred/DTWEXBGS: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
+  "fred/T10YIE: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)",
+  "fred/CPIAUCSL: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
  ],
  "notes": [
   "Lich kinh te ForexFactory/TradingView: can trinh duyet/JS, khong fetch duoc tu GitHub Actions.",
   "IMF DataMapper: IMF chan IP GitHub Actions (403) - van can tac vu Claude hang quy.",
-  "NY Fed / BLS: chua co nguon CSV cong khai on dinh, de ban sau."
+  "NY Fed / BLS: chua co nguon CSV cong khai on dinh, de ban sau.",
+  "CFTC vang/bac: file Disaggregated (f_disagg.txt) KHONG co vang/bac; file Legacy day du (deacot.txt) co nhung qua lon/cham (da bi timeout 10 phut, da tat). Can tim dung file Legacy TUAN HIEN TAI (nho hon) tren cftc.gov truoc khi lam lai phan nay."
  ],
  "fred": {
   "DGS10": {
    "label": "Loi suat trai phieu My 10 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   },
   "DGS2": {
    "label": "Loi suat trai phieu My 2 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   },
   "FEDFUNDS": {
    "label": "Lai suat Fed Funds hieu dung",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   },
   "DTWEXBGS": {
    "label": "Chi so USD (broad, Fed)",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   },
   "T10YIE": {
    "label": "Breakeven lam phat 10 nam",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   },
   "CPIAUCSL": {
    "label": "CPI My (chua dieu chinh mua vu)",
-   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=60)"
+   "error": "ReadTimeout: HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=45)"
   }
  },
  "yahoo": {
   "GC=F": {
    "latest_date": "2026-10-15",
-   "latest_close": 4160.2001953125,
+   "latest_close": 4161.0,
    "series": [
     [
      "2026-10-12",
@@ -59,14 +59,14 @@
     ],
     [
      "2026-10-15",
-     4160.2001953125
+     4161.0
     ]
    ],
    "label": "Vang futures (COMEX)"
   },
   "SI=F": {
    "latest_date": "2026-10-15",
-   "latest_close": 56.1349983215332,
+   "latest_close": 56.30500030517578,
    "series": [
     [
      "2026-10-12",
@@ -82,7 +82,7 @@
     ],
     [
      "2026-10-15",
-     56.1349983215332
+     56.30500030517578
     ]
    ],
    "label": "Bac futures (COMEX)"
@@ -90,14 +90,16 @@
  },
  "cftc_disagg": {
   "gold": {
-   "error": "khong tim thay dong GOLD trong f_disagg.txt"
+   "error": "khong tim thay dong GOLD trong file CFTC da thu (khong file nao co GOLD)"
   },
   "silver": {
-   "error": "khong tim thay dong SILVER trong f_disagg.txt"
+   "error": "khong tim thay dong SILVER trong file CFTC da thu (khong file nao co GOLD)"
   },
-  "_note": "Dong raw tu f_disagg.txt, CHUA parse thanh vi the rong cu the - tac vu Claude doc cot theo dung vi tri (dinh dang CFTC co the doi) roi tinh CG/CS."
+  "_note": "Dong raw tu bao cao CFTC (?), CHUA parse thanh vi the rong cu the - tac vu Claude doc cot theo dung vi tri (dinh dang CFTC co the doi) roi tinh CG/CS."
  },
  "worldbank_pink_sheet": {
-  "error": "HTTPError: 404 Client Error: Not Found for url: https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-0050012025/related/CMO-Historical-Data-Monthly.xlsx"
+  "latest_month_label": "2026M09",
+  "gold_usd_per_toz": 4319,
+  "silver_usd_per_toz": 64.6
  }
 }
