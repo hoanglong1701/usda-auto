@@ -49,9 +49,8 @@
   "YUGOSLAVIA                     "
  ],
  "orgs": {
-  "ok": false,
-  "at": "2026-10-15T03:41:46Z",
-  "error": "RuntimeError: Lịch: đã làm mới (24 dòng) | LOI: update_imf: 403 Client Error: Forbidden for url: https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 38, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/orgs.py\", line 338, in run\n    raise RuntimeError((\"%s | LOI: %s\") % (msg, \" | \".join(errs)) if changed else \" | \".join(errs))\nRuntimeError: Lịch: đã làm mới (24 dòng) | LOI: update_imf: 403 Client Error: Forbidden for url: https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH\n"
+  "ok": true,
+  "at": "2026-10-15T03:45:24Z",
+  "msg": "CANH BAO IMF: 403 Client Error: Forbidden for url: https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH"
  }
 }
