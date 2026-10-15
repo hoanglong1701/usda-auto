@@ -15,6 +15,7 @@ Nguon CHUA thu duoc tu GitHub (ghi ro trong "notes", van can tac vu Claude co tr
  - NY Fed / BLS: chua tim duoc endpoint CSV cong khai on dinh, de danh cho ban sau
 """
 import io
+import re
 import csv
 import json
 import datetime
@@ -34,8 +35,13 @@ FRED_SERIES = {
 
 YAHOO_SYMBOLS = {"GC=F": "Vang futures (COMEX)", "SI=F": "Bac futures (COMEX)"}
 
-CFTC_DISAGG_URL = "https://www.cftc.gov/dea/newcot/f_disagg.txt"
-WB_PINK_SHEET_URL = "https://thedocs.worldbank.org/en/doc/5d903e848db1d1b83e0ec8f744e55570-0050012025/related/CMO-Historical-Data-Monthly.xlsx"
+CFTC_URLS = [
+    # f_disagg.txt = Disaggregated report: CHI co nong san/nang luong, KHONG co vang/bac (da kiem chung).
+    # deacot.txt = Legacy report (Futures Only): co TAT CA hang hoa, bao gom vang/bac tren COMEX.
+    ("legacy", "https://www.cftc.gov/dea/newcot/deacot.txt"),
+    ("disaggregated", "https://www.cftc.gov/dea/newcot/f_disagg.txt"),
+]
+WB_COMMODITY_PAGE = "https://www.worldbank.org/en/research/commodity-markets"
 
 
 def _get(url, **kw):
@@ -47,7 +53,10 @@ def _get(url, **kw):
 
 
 def fred_series(series_id, n_last=60):
-    r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id})
+    try:
+        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=90)
+    except requests.exceptions.ReadTimeout:
+        r = _get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": series_id}, timeout=90)  # 1 lan thu lai
     rows = list(csv.reader(io.StringIO(r.text)))
     rows = rows[1:]  # bo header "DATE,<id>"
     pts = []
@@ -77,23 +86,52 @@ def yahoo_quote(symbol):
 
 
 def cftc_disagg():
-    r = _get(CFTC_DISAGG_URL)
-    lines = r.text.splitlines()
     out = {}
+    fetch_errors = []
+    found_in = None
+    lines = None
+    for label, url in CFTC_URLS:
+        try:
+            r = _get(url)
+            cand_lines = r.text.splitlines()
+        except Exception as e:  # noqa
+            fetch_errors.append("%s (%s): %s" % (label, url, e))
+            continue
+        has_gold = any(ln.upper().startswith("GOLD") or "- GOLD" in ln.upper()[:60] for ln in cand_lines[:2000])
+        if has_gold:
+            found_in = label
+            lines = cand_lines
+            break
+        if lines is None:
+            lines = cand_lines  # giu ban cuoi cung de bao loi neu khong co ban nao co GOLD
+    if lines is None:
+        out["gold"] = out["silver"] = {"error": "khong tai duoc file CFTC nao: %s" % "; ".join(fetch_errors)}
+        return out
     for key, pat in (("gold", "GOLD"), ("silver", "SILVER")):
-        row = next((ln for ln in lines if ln.upper().startswith(pat + " ") or ("- " + pat) in ln.upper()), None)
+        row = next((ln for ln in lines if ln.upper().startswith(pat) or ("- " + pat) in ln.upper()[:60]), None)
         if not row:
-            out[key] = {"error": "khong tim thay dong %s trong f_disagg.txt" % pat}
+            out[key] = {"error": "khong tim thay dong %s trong file CFTC da thu (%s)" % (
+                pat, found_in or "khong file nao co GOLD")}
             continue
         cols = [c.strip() for c in row.split(",")]
-        out[key] = {"raw_header": cols[0], "n_cols": len(cols), "raw_cols_tail": cols[-12:]}
-    out["_note"] = ("Dong raw tu f_disagg.txt, CHUA parse thanh vi the rong cu the - " +
+        out[key] = {"source_report": found_in, "raw_header": cols[0], "n_cols": len(cols), "raw_cols_tail": cols[-12:]}
+    out["_note"] = ("Dong raw tu bao cao CFTC (%s), CHUA parse thanh vi the rong cu the - " % (found_in or "?") +
                      "tac vu Claude doc cot theo dung vi tri (dinh dang CFTC co the doi) roi tinh CG/CS.")
     return out
 
 
+def wb_pink_sheet_url():
+    """Tim link xlsx moi nhat tren trang Commodity Markets (hash trong URL doi hang thang)."""
+    r = _get(WB_COMMODITY_PAGE)
+    m = re.search(r'https://thedocs\.worldbank\.org/[^"\']+CMO-Historical-Data-Monthly\.xlsx', r.text)
+    if not m:
+        raise RuntimeError("Khong tim thay link CMO-Historical-Data-Monthly.xlsx tren trang Commodity Markets")
+    return m.group(0)
+
+
 def wb_pink_sheet():
-    r = _get(WB_PINK_SHEET_URL)
+    url = wb_pink_sheet_url()
+    r = _get(url)
     import openpyxl
     wb = openpyxl.load_workbook(io.BytesIO(r.content), data_only=True, read_only=True)
     if "Monthly Prices" not in wb.sheetnames:
