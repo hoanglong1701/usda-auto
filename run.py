@@ -8,12 +8,14 @@ import traceback
 import usda_esr
 import usda_insp
 import usda_prog
+import orgs
 from names import unmapped
 
 JOBS = {
     "esr": usda_esr.run,
     "insp": usda_insp.run,
     "prog": usda_prog.run,
+    "orgs": orgs.run,
 }
 
 
