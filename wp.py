@@ -67,6 +67,23 @@ def save(pid, obj):
         raise RuntimeError("Doc lai trang %d khong khop du lieu vua ghi" % pid)
 
 
+def get_raw(pid):
+    """Tra ve toan bo content.raw cua trang pid (khong phai trang gd-data)."""
+    r = _sess().get(_url(pid), params={"context": "edit", "_fields": "content.raw"}, timeout=60)
+    if r.status_code >= 400:
+        raise RuntimeError("WordPress tra %d khi doc trang %d: %s" % (r.status_code, pid, r.text[:200].replace("\n", " ")))
+    return r.json()["content"]["raw"]
+
+
+def set_raw(pid, content):
+    """Ghi de toan bo content cua trang pid. Tra ve noi dung doc lai de nguoi goi
+    tu kiem tra (WordPress co the chuan hoa nhe whitespace nen khong so sanh byte-for-byte)."""
+    r = _sess().post(_url(pid), json={"content": content}, timeout=60)
+    if r.status_code >= 400:
+        raise RuntimeError("WordPress tra %d khi ghi trang %d: %s" % (r.status_code, pid, r.text[:200].replace("\n", " ")))
+    return get_raw(pid)
+
+
 def update_key(pid, key, value):
     """Chi thay mot khoa cua JSON, giu nguyen cac khoa con lai, dat asof = hom nay."""
     obj = load(pid)

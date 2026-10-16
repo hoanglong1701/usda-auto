@@ -12,6 +12,7 @@ import orgs
 import wasde
 import probe
 import fred
+import fred_monthly
 from names import unmapped
 
 JOBS = {
@@ -22,6 +23,7 @@ JOBS = {
     "wasde": wasde.run,
     "probe": probe.run,
     "fred_test": fred.run,
+    "fred_monthly": fred_monthly.run,
 }
 
 

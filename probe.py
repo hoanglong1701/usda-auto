@@ -138,6 +138,36 @@ def wb_pink_sheet():
     }
 
 
+def wb_pink_sheet_tail(n=8):
+    """n dong gan nhat cua sheet Monthly Prices, dang [{"m":"YYYY-MM","gold":...,"silver":...}, ...]
+    sap theo thoi gian tang dan. Dung cho job fred_monthly de biet cac thang moi can bo sung."""
+    url = wb_pink_sheet_url()
+    r = _get(url)
+    import openpyxl
+    wb = openpyxl.load_workbook(io.BytesIO(r.content), data_only=True, read_only=True)
+    ws = wb["Monthly Prices"]
+    rows = list(ws.iter_rows(values_only=True))
+    header_row_idx = None
+    for i, row in enumerate(rows[:10]):
+        if row and any(isinstance(c, str) and "gold" in c.lower() for c in row):
+            header_row_idx = i
+            break
+    if header_row_idx is None:
+        raise RuntimeError("Pink Sheet: khong tim thay dong tieu de co 'Gold'")
+    header = rows[header_row_idx]
+    gold_col = next(i for i, c in enumerate(header) if isinstance(c, str) and c.strip().lower().startswith("gold"))
+    silver_col = next(i for i, c in enumerate(header) if isinstance(c, str) and c.strip().lower().startswith("silver"))
+    data_rows = [row for row in rows[header_row_idx + 1:] if row and row[0] and str(row[0]).strip()]
+    out = []
+    for row in data_rows[-n:]:
+        lbl = str(row[0]).strip()  # vd "2026M09"
+        mm = re.match(r"(\d{4})M(\d{2})", lbl)
+        if not mm:
+            continue
+        out.append({"m": "%s-%s" % (mm.group(1), mm.group(2)), "gold": row[gold_col], "silver": row[silver_col]})
+    return out
+
+
 def run():
     out = {"asof": datetime.date.today().isoformat(), "errors": [], "notes": [
         "Lich kinh te ForexFactory/TradingView: can trinh duyet/JS, khong fetch duoc tu GitHub Actions.",
