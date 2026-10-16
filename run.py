@@ -11,6 +11,7 @@ import usda_prog
 import orgs
 import wasde
 import probe
+import fred
 from names import unmapped
 
 JOBS = {
@@ -20,6 +21,7 @@ JOBS = {
     "orgs": orgs.run,
     "wasde": wasde.run,
     "probe": probe.run,
+    "fred_test": fred.run,
 }
 
 

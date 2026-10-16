@@ -45,6 +45,7 @@ jobs:
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
           FAS_API_KEY: ${{ secrets.FAS_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           INPUT_JOB: ${{ github.event.inputs.job }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
