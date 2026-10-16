@@ -37,5 +37,10 @@
   "ok": true,
   "at": "2026-10-16T05:45:54Z",
   "msg": "ghi data/probe.json, tat ca nguon OK"
+ },
+ "fred_test": {
+  "ok": true,
+  "at": "2026-10-16T10:00:06Z",
+  "msg": "FRED API: 6/6 chuoi lay duoc"
  }
 }
