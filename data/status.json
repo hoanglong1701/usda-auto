@@ -42,5 +42,10 @@
   "ok": true,
   "at": "2026-10-16T10:00:06Z",
   "msg": "FRED API: 6/6 chuoi lay duoc"
+ },
+ "fred_monthly": {
+  "ok": true,
+  "at": "2026-10-16T10:04:58Z",
+  "msg": "chua co thang moi de bo sung (HX dang den 2026-09)"
  }
 }
