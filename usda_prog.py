@@ -95,10 +95,19 @@ def parse(text):
 def latest_url():
     r = requests.get(LIST_URL, timeout=60, headers={"User-Agent": wp.UA})
     r.raise_for_status()
-    m = re.search(r'href="([^"]+\.txt)"', r.text)
-    if not m:
+    matches = re.findall(r'href="([^"]+\.txt)"', r.text)
+    if not matches:
         raise RuntimeError("Khong thay link .txt")
-    u = m.group(1)
+
+    # QUAN TRONG: link ban moi nhat KHONG chac nam dau tien trong HTML (da gap thuc te
+    # 19/10/2026 - ban "Oct 19" nam cuoi danh sach, khien script cu lay nham ban "Oct 13" cu).
+    # Moi file co dang .../release-files/<id_tang_dan_theo_thoi_gian>/progNNNN.txt - chon theo
+    # id lon nhat (dang tin cay hon vi tri trong trang) de chac chan lay dung ban moi nhat.
+    def release_id(u):
+        m = re.search(r'release-files/(\d+)/', u)
+        return int(m.group(1)) if m else -1
+
+    u = max(matches, key=release_id)
     if u.startswith("/"):
         u = "https://esmis.nal.usda.gov" + u
     return u
