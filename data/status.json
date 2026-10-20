@@ -6,7 +6,7 @@
  },
  "insp": {
   "ok": false,
-  "at": "2026-10-19T21:37:11Z",
+  "at": "2026-10-20T01:57:10Z",
   "error": "RuntimeError: WordPress tra 500 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"<h1>Error establishing a Redis connection<\\/h1>\\n<p>To disable Redis, delete the <code>object-cache.php<\\/code> file in the <code>\\/wp-content\\/<\\/code> directory.<\\/p>\\n\",",
   "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 46, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/usda_insp.py\", line 113, in run\n    old = wp.load(PAGE).get(\"insp\", {})\n          ^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 49, in load\n    raise RuntimeError(\"WordPress tra %d khi doc trang %d: %s\" % (r.status_code, pid, r.text[:200].replace(\"\\n\", \" \")))\nRuntimeError: WordPress tra 500 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"<h1>Error establishing a Redis connection<\\/h1>\\n<p>To disable Redis, delete the <code>object-cache.php<\\/code> file in the <code>\\/wp-content\\/<\\/code> directory.<\\/p>\\n\",\n"
  },
