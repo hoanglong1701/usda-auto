@@ -14,6 +14,7 @@ import probe
 import fred
 import fred_monthly
 import yeu_to
+import dinh_luong
 from names import unmapped
 
 JOBS = {
@@ -26,6 +27,8 @@ JOBS = {
     "fred_test": fred.run,
     "fred_monthly": fred_monthly.run,
     "yeu_to": yeu_to.run,
+    "dinh_luong": dinh_luong.run,
+    "dinh_luong_thu": dinh_luong.run_dry,
 }
 
 
