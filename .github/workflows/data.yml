@@ -16,10 +16,11 @@ on:
     - cron: "15 16,17,18 8-14 * *"
     - cron: "10 1 * * *"
     - cron: "25 10 6 * *"
+    - cron: "40 0 * * 2-6"
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to hoac all)"
         default: "all"
 
 concurrency:
@@ -59,10 +60,11 @@ jobs:
               "15 16,17,18 8-14 * *") JOB=wasde;;
               "10 1 * * *") JOB=probe;;
               "25 10 6 * *") JOB=fred_monthly;;
+              "40 0 * * 2-6") JOB=yeu_to;;
               *) JOB=orgs;;
             esac
           fi
-          if [ "$JOB" = "all" ]; then JOB="esr insp prog orgs wasde probe"; fi
+          if [ "$JOB" = "all" ]; then JOB="esr insp prog orgs wasde probe yeu_to"; fi
           echo "Job: $JOB"
           python run.py $JOB
       - name: Luu trang thai
