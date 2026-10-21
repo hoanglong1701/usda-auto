@@ -53,5 +53,10 @@
   "ok": true,
   "at": "2026-10-21T04:23:31Z",
   "msg": "da cap nhat trang 111: vang 4.143 (2026-10-20)"
+ },
+ "dinh_luong_thu": {
+  "ok": true,
+  "at": "2026-10-21T09:03:28Z",
+  "msg": "chay thu (khong ghi): them 2026-10-16; sua 0 diem; giu nguyen CPI, C_*, ev, nf"
  }
 }
