@@ -1,0 +1,72 @@
+{
+ "asof": "2026-10-21",
+ "gold": {
+  "date": "2026-10-20",
+  "close": 4142.60009765625,
+  "month_ago": [
+   "2026-09-18",
+   4424.89990234375
+  ],
+  "record_close": [
+   "2026-01-29",
+   5318.39990234375
+  ],
+  "record_high": [
+   "2026-01-29",
+   5586.2001953125
+  ]
+ },
+ "silver": {
+  "date": "2026-10-20",
+  "close": 57.70600128173828,
+  "month_ago": [
+   "2026-09-18",
+   66.55599975585938
+  ]
+ },
+ "ratio": 71.7880290722418,
+ "fred": {
+  "DGS10": {
+   "date": "2026-10-19",
+   "value": 5.15,
+   "month_ago": [
+    "2026-09-18",
+    5.01
+   ]
+  },
+  "DFII10": {
+   "date": "2026-10-19",
+   "value": 2.8,
+   "month_ago": [
+    "2026-09-18",
+    2.68
+   ]
+  },
+  "DTWEXBGS": {
+   "date": "2026-10-16",
+   "value": 121.4048,
+   "month_ago": [
+    "2026-09-16",
+    118.9206
+   ]
+  },
+  "DFEDTARL": {
+   "date": "2026-10-20",
+   "value": 3.75,
+   "month_ago": [
+    "2026-09-20",
+    3.75
+   ]
+  },
+  "DFEDTARU": {
+   "date": "2026-10-20",
+   "value": 4.0,
+   "month_ago": [
+    "2026-09-20",
+    4.0
+   ]
+  }
+ },
+ "fred_errors": {},
+ "html": "<!-- gd:so-lieu-vang:start -->\n<p class=\"wp-block-paragraph\"><strong>Cập nhật ngày 21/10/2026</strong> (số liệu tự động, giá đóng cửa phiên 20/10). Giá vàng thế giới (hợp đồng tương lai COMEX) quanh 4.143 USD/oz, giảm 6,4% so với một tháng trước và thấp hơn 22,1% so với mức đóng cửa cao kỷ lục 5.318 USD/oz (29/01/2026). Bạc quanh 57,71 USD/oz (giảm 13,3% trong một tháng), tỷ lệ vàng/bạc khoảng 72 lần.</p>\n<p class=\"wp-block-paragraph\">Lợi suất trái phiếu Mỹ kỳ hạn 10 năm 5,15% (19/10; tăng 0,14 điểm % so với một tháng trước), lợi suất thực 10 năm 2,80%, chỉ số USD rộng của Fed 121,4 (16/10; tăng 2,1% trong một tháng), lãi suất mục tiêu của Fed 3,75–4,00%.</p>\n<p class=\"has-small-font-size wp-block-paragraph\"><em>Nguồn: Yahoo Finance (COMEX GC=F, SI=F), FRED (DGS10, DFII10, DTWEXBGS, DFEDTARL/DFEDTARU). Đoạn số liệu tự động cập nhật mỗi sáng thứ Ba–thứ Bảy; phần nhận định bên dưới do GDHH247 biên soạn hằng tuần.</em></p>\n<!-- gd:so-lieu-vang:end -->"
+}
