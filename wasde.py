@@ -1,6 +1,8 @@
 """USDA WASDE (esmis .txt) -> trang 801, khoa wasde: so lieu My va the gioi cua ngo, dau tuong, lua mi.
 
 Moi chi tieu co 2 gia tri: [thang truoc, thang nay] cua nien vu moi (cot cuoi cung cua bang).
+wasde.hist: toi da 6 ky WASDE gan nhat cua CUNG nien vu (dien tich thu hoach, nang suat, san luong cua My)
+de trang 299 ve bieu do so sanh qua tung ky. Ky nao da co trong hist cu thi dung lai, khong tai lai.
 """
 import re
 import datetime
@@ -56,6 +58,7 @@ def us_block(L, title, sub=None):
             raise RuntimeError("WASDE: khong thay muc " + sub)
     b = a + 45
     d = {
+        "area": row(L, r"Area Harvested", a, b),
         "yield": row(L, r"Yield per Harvested Acre", a, b),
         "prod": row(L, r"Production", a, b),
         "end": row(L, r"Ending Stocks", a, b),
@@ -114,24 +117,92 @@ def parse(text):
     return D
 
 
-def latest_url():
-    r = requests.get(LIST_URL, timeout=60, headers={"User-Agent": wp.UA})
-    r.raise_for_status()
-    m = re.search(r'href="([^"]+wasde\d+\.txt)"', r.text)
-    if not m:
+# Ban dinh chinh co hau to v2, v3... (vd. wasde0526v2.txt) - mau cu "wasde\d+\.txt" bo sot cac ban nay
+TXT_LINK = re.compile(r'href="([^"]+wasde\d{4}(?:v\d+)?\.txt)"')
+CROPS = ("ngo", "dau_tuong", "lua_mi")
+HIST_N = 6
+
+
+def report_urls(pages=2):
+    """Link .txt cac ky WASDE, moi nhat truoc."""
+    out = []
+    for p in range(pages):
+        r = requests.get(LIST_URL, params={"page": p} if p else None, timeout=60, headers={"User-Agent": wp.UA})
+        r.raise_for_status()
+        for u in TXT_LINK.findall(r.text):
+            u = "https://esmis.nal.usda.gov" + u if u.startswith("/") else u
+            if u not in out:
+                out.append(u)
+    if not out:
         raise RuntimeError("Khong thay link WASDE .txt")
-    u = m.group(1)
-    if u.startswith("/"):
-        u = "https://esmis.nal.usda.gov" + u
-    return u
+    return out
+
+
+def latest_url():
+    return report_urls(pages=1)[0]
+
+
+def parse_hist(text):
+    """Doc gon cho ky cu: chi dien tich/nang suat/san luong My (cot cuoi = nien vu moi).
+    Ky thang 5 moi co 1 cot cho nien vu moi nen khong dung duoc parse() day du."""
+    L = text.replace("\r", "").split("\n")
+    m = re.search(r"WASDE - \d+ - \d+\s+([A-Z][a-z]+)\s+(\d{4})", text)
+    if not m:
+        raise RuntimeError("WASDE: khong thay thang/nam bao cao")
+    mon = "%s-%02d" % (m.group(2), ["January", "February", "March", "April", "May", "June", "July", "August",
+                                    "September", "October", "November", "December"].index(m.group(1)) + 1)
+    a = find(L, r"U\.S\. Wheat Supply and Use")
+    my = re.search(r"(\d{4}/\d{2}) Proj", "\n".join(L[a:a + 12]))
+    D = {"mon": mon, "my": my.group(1) if my else None}
+    for k, title, sub in (("ngo", r"U\.S\. Feed Grain and Corn Supply and Use", "CORN"),
+                          ("dau_tuong", r"U\.S\. Soybeans and Products Supply and Use", None),
+                          ("lua_mi", r"U\.S\. Wheat Supply and Use", None)):
+        s = find(L, title)
+        if sub:
+            s = find(L, r"^\s*%s\s*$" % sub, s)
+        if s < 0:
+            raise RuntimeError("WASDE: khong thay bang " + title)
+        D[k] = {m_: row(L, lab, s, s + 45, need=1) for m_, lab in
+                (("area", r"Area Harvested"), ("yield", r"Yield per Harvested Acre"), ("prod", r"Production"))}
+    return D
+
+
+def hist_entry(D):
+    e = {"mon": D["mon"], "my": D["my"]}
+    for k in CROPS:
+        e[k] = {m: D[k][m][-1] for m in ("area", "yield", "prod")}
+    return e
+
+
+def build_hist(D, old_hist, urls=None):
+    """6 ky gan nhat cua nien vu D['my']; ky da co trong old_hist thi dung lai."""
+    have = {h["mon"]: h for h in (old_hist or []) if h.get("my") == D["my"]}
+    have[D["mon"]] = hist_entry(D)
+    if len(have) < HIST_N:
+        for u in (urls or report_urls()):
+            if len(have) >= HIST_N:
+                break
+            try:
+                d = parse_hist(requests.get(u, timeout=90, headers={"User-Agent": wp.UA}).text)
+            except Exception:  # noqa - ky cu khong doc duoc thi bo qua, khong lam hong ca job
+                continue
+            if d["my"] != D["my"]:
+                if d["mon"] < D["mon"]:
+                    break      # da lui sang nien vu truoc
+                continue
+            have.setdefault(d["mon"], hist_entry(d))
+    return [have[m] for m in sorted(have)][-HIST_N:]
 
 
 def run():
-    t = requests.get(latest_url(), timeout=90, headers={"User-Agent": wp.UA}).text
+    urls = report_urls()
+    t = requests.get(urls[0], timeout=90, headers={"User-Agent": wp.UA}).text
     D = parse(t)
     if not wp.enabled():
-        return "chua cau hinh WordPress; da parse %s" % D["mon"]
+        D["hist"] = build_hist(D, [], urls)
+        return "chua cau hinh WordPress; da parse %s, hist %s" % (D["mon"], [h["mon"] for h in D["hist"]])
     old = wp.load(PAGE).get("wasde", {})
+    D["hist"] = build_hist(D, old.get("hist"), urls)
     if old == {**old, **D} and old:
         return "khong co bao cao moi (%s)" % D["mon"]
     D["at"] = datetime.date.today().isoformat()
