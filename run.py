@@ -13,6 +13,7 @@ import wasde
 import probe
 import fred
 import fred_monthly
+import yeu_to
 from names import unmapped
 
 JOBS = {
@@ -24,6 +25,7 @@ JOBS = {
     "probe": probe.run,
     "fred_test": fred.run,
     "fred_monthly": fred_monthly.run,
+    "yeu_to": yeu_to.run,
 }
 
 
