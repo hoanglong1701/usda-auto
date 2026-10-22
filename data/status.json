@@ -68,5 +68,10 @@
   "ok": true,
   "at": "2026-10-22T08:52:20Z",
   "msg": "da ghi trang 1519: LME 2026-10-21; USGS 2026; PSD ca phe 2026; bao cao 13 muc"
+ },
+ "ns_enso": {
+  "ok": true,
+  "at": "2026-10-22T11:48:30Z",
+  "msg": "da ghi trang 1526: WB den 2026-09; ONI 2026-08=2.16; 34 dot ENSO; futures 2026-10-22"
  }
 }
