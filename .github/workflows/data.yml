@@ -25,7 +25,7 @@ on:
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn, ns_enso hoac all)"
         default: "all"
 
 concurrency:
@@ -69,7 +69,7 @@ jobs:
               "25 10 6 * *") JOB=fred_monthly;;
               "40 0 * * 2-6") JOB=yeu_to;;
               "15 1 * * 2,3") JOB=dinh_luong;;
-              "50 22 * * 1-5") JOB=kl_nlcn;;
+              "50 22 * * 1-5") JOB="kl_nlcn ns_enso";;
               *) JOB=orgs;;
             esac
           fi
