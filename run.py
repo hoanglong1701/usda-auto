@@ -16,6 +16,7 @@ import fred_monthly
 import yeu_to
 import dinh_luong
 import kl_nlcn
+import ns_enso
 from names import unmapped
 
 JOBS = {
@@ -31,6 +32,7 @@ JOBS = {
     "dinh_luong": dinh_luong.run,
     "dinh_luong_thu": dinh_luong.run_dry,
     "kl_nlcn": kl_nlcn.run,
+    "ns_enso": ns_enso.run,
 }
 
 
