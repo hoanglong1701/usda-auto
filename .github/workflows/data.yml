@@ -18,10 +18,14 @@ on:
     - cron: "25 10 6 * *"
     - cron: "40 0 * * 2-6"
     - cron: "15 1 * * 2,3"
+    - cron: "50 22 * * 1-5"
+  push:
+    paths:
+      - data/bao_cao.json
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn hoac all)"
         default: "all"
 
 concurrency:
@@ -51,8 +55,10 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           INPUT_JOB: ${{ github.event.inputs.job }}
           SCHEDULE: ${{ github.event.schedule }}
+          EVENT: ${{ github.event_name }}
         run: |
           JOB="$INPUT_JOB"
+          if [ "$EVENT" = "push" ]; then JOB=kl_nlcn; fi
           if [ -z "$JOB" ]; then
             case "$SCHEDULE" in
               "45 12 * * 4"|"30 13 * * 4"|"30 14 * * 4"|"30 0 * * 5") JOB=esr;;
@@ -63,6 +69,7 @@ jobs:
               "25 10 6 * *") JOB=fred_monthly;;
               "40 0 * * 2-6") JOB=yeu_to;;
               "15 1 * * 2,3") JOB=dinh_luong;;
+              "50 22 * * 1-5") JOB=kl_nlcn;;
               *) JOB=orgs;;
             esac
           fi
