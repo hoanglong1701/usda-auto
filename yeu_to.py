@@ -29,6 +29,7 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 FRED_API = "https://api.stlouisfed.org/fred/series/observations"
 UTC = datetime.timezone.utc
 VN = datetime.timezone(datetime.timedelta(hours=7))
+FRED_CACHE = os.path.join("data", "yeu_to_fred_last.json")
 
 
 def _now():
@@ -163,6 +164,22 @@ def collect():
                                  "month_ago": [ago[0].isoformat(), ago[1]] if ago else None}
         except Exception as e:  # noqa
             data["fred_errors"][sid] = "%s: %s" % (type(e).__name__, e)
+
+    # FRED hay bao tri (tra trang HTML): luu bo so FRED lay duoc gan nhat, lan sau loi thi dung lai.
+    # Moi so van kem ngay cua no tren trang nen khong gay hieu nham la so moi.
+    try:
+        cache = json.load(open(FRED_CACHE, encoding="utf-8"))
+    except Exception:  # noqa
+        cache = {}
+    if data["fred"]:
+        cache.update(data["fred"])
+        os.makedirs("data", exist_ok=True)
+        with open(FRED_CACHE, "w", encoding="utf-8") as fh:
+            json.dump(cache, fh, ensure_ascii=False, indent=1)
+    for sid in list(data["fred_errors"]):
+        if sid in cache:
+            data["fred"][sid] = cache[sid]
+            data.setdefault("fred_cu", []).append(sid)
     return data
 
 
@@ -224,7 +241,9 @@ def run():
     with open(os.path.join("data", "yeu_to.json"), "w", encoding="utf-8") as fh:
         json.dump(dict(data, html=html), fh, ensure_ascii=False, indent=1)
 
-    warn = ("; CANH BAO FRED: %s" % data["fred_errors"]) if data["fred_errors"] else ""
+    warn = ("; CANH BAO FRED loi %s%s" % (sorted(data["fred_errors"]),
+                                         (", dung so cu cho " + ",".join(data["fred_cu"])) if data.get("fred_cu") else ""))\
+        if data["fred_errors"] else ""
     if not wp.enabled():
         print(html)
         return "chay thu (khong co WP_*), vang %s ngay %s%s" % (data["gold"]["close"], data["gold"]["date"], warn)
