@@ -1,0 +1,135 @@
+{
+ "cap_nhat": "2026-10-22",
+ "ds": [
+  {
+   "sp": "cu", "nhom": "kl", "org": "ICSG",
+   "ten": "Dự báo thị trường đồng 2026–2027",
+   "ngay": "2026-10-14", "xu_huong": "du",
+   "so": [["Cân đối đồng tinh luyện 2026", "+104 nghìn tấn (dư)"], ["Cân đối 2027", "+368 nghìn tấn (dư)"], ["Sản lượng mỏ", "+1,3% (2026), +3,1% (2027)"], ["Sản lượng tinh luyện", "+0,4% (2026), +3,4% (2027)"], ["Tiêu thụ đồng tinh luyện", "+1,5% (2026), +2,5% (2027)"]],
+   "y": "Thị trường dư cung nhẹ năm 2026 (khoảng 0,4% tiêu thụ) và dư nhiều hơn năm 2027 khi nhà máy luyện ở Indonesia, Ấn Độ, EU tăng công suất. Nguồn tinh quặng vẫn thiếu, mỏ Grasberg và Kamoa-Kakula chưa hồi phục hẳn.",
+   "ke_tiep": "Bản tin tháng khoảng ngày 20 hằng tháng; dự báo tiếp theo tháng 4/2027",
+   "link": "https://icsg.org/press-releases/",
+   "nguon": ["https://www.miningweekly.com/article/icsg-sees-global-refined-copper-surplus-widening-in-2027-2026-10-14", "https://mining.com.au/icsg-sees-global-refined-copper-surplus-widening-in-2027/"]
+  },
+  {
+   "sp": "al", "nhom": "kl", "org": "IAI",
+   "ten": "Sản lượng nhôm nguyên sinh thế giới",
+   "ngay": "2026-07", "xu_huong": "thieu",
+   "so": [["Sản lượng tháng 6/2026", "5,98 triệu tấn (−1,5% so với cùng kỳ)"], ["Bình quân mỗi ngày", "199,3 nghìn tấn"], ["Cả năm 2025", "73,78 triệu tấn (+1,1%)"]],
+   "y": "Nguồn cung nhôm đi xuống so với cùng kỳ do gián đoạn sản xuất ở vùng Vịnh (khoảng 9% công suất thế giới). Trung Quốc gần chạm trần 45 triệu tấn/năm nên khó bù phần thiếu hụt.",
+   "ke_tiep": "IAI công bố số liệu tháng khoảng ngày 20 hằng tháng",
+   "link": "https://international-aluminium.org/statistics/primary-aluminium-production/",
+   "nguon": ["https://www.sunsirs.com/commodity-news/petail-34604.html", "https://aluminium-journal.com/strong-start-for-metal-prices-in-2026"]
+  },
+  {
+   "sp": "zn", "nhom": "kl", "org": "ILZSG",
+   "ten": "Dự báo thị trường kẽm (phiên họp tháng 10/2026)",
+   "ngay": "2026-10-19", "xu_huong": "thieu",
+   "so": [["Cân đối kẽm tinh luyện 2026", "−88 nghìn tấn (thiếu)"], ["Cân đối 2027", "+25 nghìn tấn (dư)"], ["Sản lượng kẽm tinh luyện 2027", "14,21 triệu tấn (+2%)"], ["Tiêu thụ 2027", "14,19 triệu tấn (+1,2%)"], ["Sản lượng mỏ 2027", "12,78 triệu tấn (+3%)"]],
+   "y": "Năm 2026 thiếu hụt (tháng 4 dự báo thiếu 19 nghìn tấn, nay nâng lên 88 nghìn tấn), sang 2027 chuyển sang dư nhẹ khi sản lượng mỏ tăng. Nhu cầu Trung Quốc chậm lại, chỉ +0,3% năm 2027.",
+   "ke_tiep": "Bản tin tháng khoảng ngày 20; dự báo tiếp theo tháng 4/2027",
+   "link": "https://www.ilzsg.org/press-releases/",
+   "nguon": ["https://www.indexbox.io/blog/ilzsg-forecasts-zinc-and-lead-market-surpluses-for-2027/"]
+  },
+  {
+   "sp": "pb", "nhom": "kl", "org": "ILZSG",
+   "ten": "Dự báo thị trường chì (phiên họp tháng 10/2026)",
+   "ngay": "2026-10-19", "xu_huong": "du",
+   "so": [["Cân đối chì tinh luyện 2026", "+90 nghìn tấn (dư)"], ["Cân đối 2027", "+163 nghìn tấn (dư)"], ["Sản lượng chì tinh luyện 2027", "14,08 triệu tấn (+1,5%)"], ["Tiêu thụ 2027", "13,92 triệu tấn (+1%)"], ["Sản lượng mỏ 2027", "4,58 triệu tấn (+2,9%)"]],
+   "y": "Chì tiếp tục dư cung và khoản dư nới rộng năm 2027 vì nguồn cung tăng nhanh hơn tiêu thụ.",
+   "ke_tiep": "Bản tin tháng khoảng ngày 20; dự báo tiếp theo tháng 4/2027",
+   "link": "https://www.ilzsg.org/press-releases/",
+   "nguon": ["https://www.indexbox.io/blog/ilzsg-forecasts-zinc-and-lead-market-surpluses-for-2027/"]
+  },
+  {
+   "sp": "ni", "nhom": "kl", "org": "INSG",
+   "ten": "Dự báo thị trường niken (tháng 10/2026)",
+   "ngay": "2026-10", "xu_huong": "du",
+   "so": [["Cân đối 2026", "+19 nghìn tấn (dư), tháng 4 dự báo thiếu 32 nghìn tấn"], ["Cân đối 2027", "+70 nghìn tấn (dư)"], ["Tiêu thụ 2026", "3,85 triệu tấn (+7,6%)"], ["Sản lượng 2026", "3,87 triệu tấn"], ["Sản lượng 2027", "4,07 triệu tấn, tiêu thụ khoảng 4,0 triệu tấn"]],
+   "y": "Dự báo đảo chiều từ thiếu sang dư nhờ sản lượng Indonesia cao hơn kỳ vọng. Nhu cầu từ thép không gỉ còn tăng, còn pin xe điện tăng chậm do cạnh tranh từ pin LFP. Hạn ngạch khai thác (RKAB) của Indonesia vẫn là biến số lớn nhất.",
+   "ke_tiep": "Bản tin tháng cuối mỗi tháng; dự báo tiếp theo tháng 4/2027",
+   "link": "https://insg.org/",
+   "nguon": ["https://www.mining.com/web/global-nickel-market-set-for-surplus-this-year-and-next-insg-says", "https://www.petromindo.com/news/article/global-nickel-surplus-seen-widening-to-70-000-tons-in-2027-insg"]
+  },
+  {
+   "sp": "sn", "nhom": "kl", "org": "ITA",
+   "ten": "Triển vọng cung cầu thiếc",
+   "ngay": "2026-10", "xu_huong": "thieu",
+   "so": [["Nhu cầu 2026–2035", "+22%"], ["Nguồn cung tinh luyện 2026–2035", "+16%"], ["Năm 2026 (Coface)", "sản lượng +3%, nhu cầu +3,5%: thiếu hụt"]],
+   "y": "Nhu cầu thiếc (hàn linh kiện điện tử, bán dẫn, trung tâm dữ liệu) tăng nhanh hơn nguồn cung. Nguồn cung bị giới hạn ở Myanmar và CHDC Congo nên thị trường dự báo thiếu hụt kéo dài.",
+   "ke_tiep": "ITA cập nhật tin hằng tuần, báo cáo chuyên sâu theo quý",
+   "link": "https://www.internationaltin.org/",
+   "nguon": ["https://www.indexbox.io/blog/tin-demand-to-outpace-supply-by-2035-industry-forum-told/", "https://www.coface.com/news-economy-and-insights/tin-is-riding-high-on-the-metals-market-s-latest-surge"]
+  },
+  {
+   "sp": "cf", "nhom": "nl", "org": "ICO",
+   "ten": "Báo cáo thị trường cà phê tháng 9/2026",
+   "ngay": "2026-10", "xu_huong": "du",
+   "so": [["Sản lượng 2025/26", "183,6 triệu bao (+4,4%)"], ["Tiêu thụ 2025/26", "180,6 triệu bao (−0,8%)"], ["Cân đối 2025/26", "dư 3,0 triệu bao, lần đầu sau 4 năm thiếu"], ["Giá chỉ số ICO tháng 9", "262,18 US cent/lb (−8,7% so với tháng 8)"], ["Xuất khẩu nhân xanh tháng 8", "10,94 triệu bao (+15,6%)"]],
+   "y": "Vụ Brazil kỷ lục đưa thị trường sang dư cung và kéo giá giảm. Robusta chiếm 43,1% sản lượng thế giới, tỷ trọng arabica trong xuất khẩu lần đầu xuống dưới 60%.",
+   "ke_tiep": "ICO ra báo cáo hằng tháng, khoảng tuần đầu tháng",
+   "link": "https://ico.org/resources/coffee-market-report-statistics-section/",
+   "nguon": ["https://www.ico.org/documents/cy2025-26/cmr-0926-e.pdf"]
+  },
+  {
+   "sp": "cf", "nhom": "nl", "org": "USDA",
+   "ten": "Coffee: World Markets and Trade (tháng 6/2026)",
+   "ngay": "2026-06", "xu_huong": "du",
+   "so": [["Sản lượng thế giới 2026/27", "189,7 triệu bao (+6%, kỷ lục)"], ["Brazil 2026/27", "71,9 triệu bao"], ["Tiêu thụ", "179,7 triệu bao (kỷ lục)"], ["Xuất khẩu", "131,4 triệu bao (kỷ lục)"], ["Tồn kho cuối vụ", "26,3 triệu bao (+1,9 triệu)"]],
+   "y": "USDA dự báo sản lượng kỷ lục ở Brazil, Việt Nam, Ethiopia, Uganda. Tồn kho tăng lại nhưng vẫn dưới mức trung bình dài hạn.",
+   "ke_tiep": "Hai lần/năm: tháng 6 và tháng 12 (bản tiếp theo tháng 12/2026)",
+   "link": "https://apps.fas.usda.gov/psdonline/circulars/coffee.pdf",
+   "nguon": ["https://www.barchart.com/story/news/3431105/coffee-prices-fall-as-usda-predicts-6-increase-in-global-coffee-production"]
+  },
+  {
+   "sp": "cf", "nhom": "nl", "org": "CONAB",
+   "ten": "Vụ cà phê Brazil 2026, đợt khảo sát thứ 3",
+   "ngay": "2026-09-24", "xu_huong": "du",
+   "so": [["Tổng sản lượng", "67,61 triệu bao (+19,6%, kỷ lục)"], ["Arabica", "48,2 triệu bao (+34,8%)"], ["Conilon (robusta)", "19,4 triệu bao (−6,6%)"], ["Năng suất", "34,6 bao/ha (+13,8%)"], ["Tiến độ thu hoạch", "99%"]],
+   "y": "Năm được mùa của arabica (chu kỳ 2 năm) giúp Brazil đạt kỷ lục, cao hơn 4,5 triệu bao so với năm 2020. Minas Gerais chiếm hơn một nửa sản lượng.",
+   "ke_tiep": "Đợt khảo sát thứ 4 khoảng tháng 12/2026",
+   "link": "https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/safras/safra-de-cafe",
+   "nguon": ["https://agenciagov.ebc.com.br/noticias/202609/producao-de-cafe-e-estimada-em-67-6-milhoes-de-sacas-influenciada-por-bienalidade-positiva-em-2026"]
+  },
+  {
+   "sp": "cf", "nhom": "nl", "org": "Cecafé",
+   "ten": "Xuất khẩu cà phê Brazil tháng 9/2026",
+   "ngay": "2026-10-09", "xu_huong": "du",
+   "so": [["Tháng 9/2026", "3,894 triệu bao (+3,1%)"], ["Kim ngạch tháng 9", "1,282 tỷ USD (−7,1%)"], ["Quý đầu niên vụ (7–9/2026)", "11,21 triệu bao (+15,5%)"], ["Sang Mỹ tháng 9", "625 nghìn bao (+86,4%)"], ["Arabica / robusta tháng 9", "2,77 triệu bao (−7,1%) / 0,81 triệu bao (+65,1%)"]],
+   "y": "Xuất khẩu sang Mỹ phục hồi mạnh sau khi Mỹ bỏ thuế với cà phê Brazil từ tháng 7. Robusta tăng mạnh, arabica giảm.",
+   "ke_tiep": "Cecafé công bố khoảng ngày 10 hằng tháng",
+   "link": "https://www.cecafe.com.br/publicacoes/relatorio-de-exportacoes/",
+   "nguon": ["https://www.cecafe.com.br/sem-categoria/exportacao-cafe-39-mi-sacas-setembro-20261009/"]
+  },
+  {
+   "sp": "su", "nhom": "nl", "org": "ISO",
+   "ten": "Triển vọng thị trường đường quý (tháng 8/2026)",
+   "ngay": "2026-08", "xu_huong": "thieu",
+   "so": [["Cân đối 2025/26", "dư 1,1 triệu tấn (tháng 5: dư 2,2 triệu tấn)"], ["Cân đối 2026/27", "thiếu 0,2 triệu tấn"], ["Tiêu thụ 2025/26 / 2026/27", "179,6 / 180,4 triệu tấn"], ["Giá ISA bình quân tháng 8", "17,4 US cent/lb"]],
+   "y": "Khoản dư 2025/26 thu hẹp, 2026/27 chuyển sang thiếu nhẹ dù Brazil được giả định ưu tiên làm đường thay ethanol. El Niño là rủi ro lớn nhất cho sản lượng. Eo biển Hormuz đóng làm xáo trộn dòng thương mại đường vùng Vịnh, giá dầu cao đẩy chi phí sản xuất.",
+   "ke_tiep": "Hằng quý: tháng 2, 5, 8, 11 (bản tiếp theo tháng 11/2026)",
+   "link": "https://www.isosugar.org/publications/3/quarterly-market-outlook",
+   "nguon": ["https://isosugar.org/publication/460/quarterly-market-outlook---august-2026"]
+  },
+  {
+   "sp": "su", "nhom": "nl", "org": "USDA",
+   "ten": "Sugar: World Markets and Trade (tháng 5/2026)",
+   "ngay": "2026-05", "xu_huong": "du",
+   "so": [["Sản lượng thế giới 2026/27", "184,9 triệu tấn (−1,2 triệu tấn)"], ["Xuất khẩu", "62,3 triệu tấn"], ["Tồn kho cuối vụ", "44,4 triệu tấn (tăng nhẹ)"]],
+   "y": "Sản lượng giảm ở Brazil, EU, Mỹ, Thái Lan, chỉ Ấn Độ tăng. Tồn kho thế giới vẫn cao, tập trung ở Thái Lan, Ấn Độ, Trung Quốc.",
+   "ke_tiep": "Hai lần/năm: tháng 5 và tháng 11 (bản tiếp theo tháng 11/2026)",
+   "link": "https://apps.fas.usda.gov/psdonline/circulars/sugar.pdf",
+   "nguon": ["https://apps.fas.usda.gov/psdonline/circulars/sugar.pdf"]
+  },
+  {
+   "sp": "su", "nhom": "nl", "org": "UNICA",
+   "ten": "Ép mía Trung Nam Brazil vụ 2026/27",
+   "ngay": "", "xu_huong": "trung",
+   "so": [["Tỷ lệ mía làm đường dự kiến vụ 2026/27 (USDA)", "48% đường, 52% ethanol"]],
+   "y": "Số liệu nửa tháng của UNICA chưa công khai đầy đủ trong mùa vụ này. Mục này được cập nhật khi có số mới.",
+   "ke_tiep": "UNICA công bố mỗi nửa tháng trong mùa ép (tháng 4 đến tháng 11)",
+   "link": "https://unicadata.com.br/",
+   "nguon": ["https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Sugar+Annual_Brasilia_Brazil_BR2026-0020.pdf"]
+  }
+ ]
+}
