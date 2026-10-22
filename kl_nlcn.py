@@ -29,7 +29,7 @@ NAMES = {"UNITED STATES": "Mỹ", "CONGO (KINSHASA)": "CHDC Congo", "KAZAKHSTAN"
          "LAOS": "Lào", "BURMA": "Myanmar", "OTHER COUNTRIES": "Các nước khác",
          "KOREA, REPUBLIC OF": "Hàn Quốc", "UNITED ARAB EMIRATES": "UAE"}
 PSD = {"cf": "0711100", "su": "0612000"}
-PSD_ATTR = {"sx": 28, "tt": 125, "xk": 88, "nk": 57, "tk": 176}
+PSD_ATTR = {"sx": 28, "tt": 125, "xk": 88, "nk": 57, "tk": 176, "dk": 20}
 
 
 def ten(s):
@@ -186,6 +186,9 @@ def psd():
                 for a, aid in PSD_ATTR.items():
                     if r.get("attributeId") == aid:
                         v[a] = r.get("value")
+            # duong khong co dong Domestic Consumption: tinh tu can doi
+            if v["tt"] is None and None not in (v["dk"], v["sx"], v["nk"], v["xk"], v["tk"]):
+                v["tt"] = v["dk"] + v["sx"] + v["nk"] - v["xk"] - v["tk"]
             if v["sx"]:
                 years.insert(0, my)
                 rows.insert(0, v)
