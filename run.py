@@ -15,6 +15,7 @@ import fred
 import fred_monthly
 import yeu_to
 import dinh_luong
+import kl_nlcn
 from names import unmapped
 
 JOBS = {
@@ -29,6 +30,7 @@ JOBS = {
     "yeu_to": yeu_to.run,
     "dinh_luong": dinh_luong.run,
     "dinh_luong_thu": dinh_luong.run_dry,
+    "kl_nlcn": kl_nlcn.run,
 }
 
 
