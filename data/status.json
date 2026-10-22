@@ -51,8 +51,8 @@
  },
  "yeu_to": {
   "ok": true,
-  "at": "2026-10-21T04:23:31Z",
-  "msg": "da cap nhat trang 111: vang 4.143 (2026-10-20)"
+  "at": "2026-10-22T02:52:59Z",
+  "msg": "da cap nhat trang 111: vang 4.150 (2026-10-21); CANH BAO FRED: {'DGS10': 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)', 'DFII10': 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)', 'DTWEXBGS': 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)', 'DFEDTARL': 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)', 'DFEDTARU': 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)'}"
  },
  "dinh_luong_thu": {
   "ok": true,
