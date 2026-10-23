@@ -41,12 +41,44 @@ def _get(url, **kw):
 
 
 # ---------------------------------------------------------------- IMF
+# API SDMX moi cua IMF (api.imf.org): khong bi chan nhu DataMapper (www.imf.org tra 403 tu 10/2026).
+# Ma nhom nuoc khac DataMapper: the gioi G001, cac nen kinh te phat trien G110, khu vuc euro G163.
+IMF_SDMX = ("https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF.RES/WEO/+/%s.NGDP_RPCH+PCPIPCH.A")
+SDMX_CODE = {"WEOWORLD": "G001", "ADVEC": "G110", "EURO": "G163"}
+
+
+def imf_sdmx():
+    """Tra ve (tang truong {ma DataMapper: {nam: gt}}, lam phat the gioi {nam: gt})."""
+    import csv
+    import io
+    codes = [SDMX_CODE.get(c, c) for c in IMF_KEYS.values()]
+    r = requests.get(IMF_SDMX % "+".join(codes), timeout=120,
+                     headers={"User-Agent": UA, "Accept": "application/vnd.sdmx.data+csv;version=2.0.0"})
+    r.raise_for_status()
+    back = {v: k for k, v in SDMX_CODE.items()}
+    d, inf = {}, {}
+    for x in csv.DictReader(io.StringIO(r.text)):
+        if not x.get("OBS_VALUE"):
+            continue
+        c = back.get(x["COUNTRY"], x["COUNTRY"])
+        if x["INDICATOR"] == "NGDP_RPCH":
+            d.setdefault(c, {})[x["TIME_PERIOD"]] = float(x["OBS_VALUE"])
+        elif x["INDICATOR"] == "PCPIPCH" and c == "WEOWORLD":
+            inf[x["TIME_PERIOD"]] = float(x["OBS_VALUE"])
+    if "WEOWORLD" not in d or not inf:
+        raise RuntimeError("API IMF thieu so lieu the gioi")
+    return d, inf
+
+
 def imf_series(old):
     y0 = old["y0"]
     n = len(old["g"])
     years = [str(y0 + k) for k in range(n)]
-    d = _get(IMF_URL % "NGDP_RPCH").json()["values"]["NGDP_RPCH"]
-    inf = _get(IMF_URL % "PCPIPCH").json()["values"]["PCPIPCH"]["WEOWORLD"]
+    try:
+        d, inf = imf_sdmx()
+    except Exception:  # noqa  du phong: DataMapper (thuong bi chan voi may chu GitHub)
+        d = _get(IMF_URL % "NGDP_RPCH").json()["values"]["NGDP_RPCH"]
+        inf = _get(IMF_URL % "PCPIPCH").json()["values"]["PCPIPCH"]["WEOWORLD"]
     out = {}
     for k, code in IMF_KEYS.items():
         row = d[code]

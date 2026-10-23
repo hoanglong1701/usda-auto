@@ -22,6 +22,8 @@ import sua_trang_gia
 import sua_khoi_enso
 import lam_nong_cache
 import chan_doan
+import lich_kt
+import anh_chuyen_muc
 from names import unmapped
 
 JOBS = {
@@ -44,6 +46,9 @@ JOBS = {
     "sua_khoi_enso": sua_khoi_enso.run,
     "lam_nong_cache": lam_nong_cache.run,
     "chan_doan": chan_doan.run,
+    "lich_kt": lich_kt.run,
+    "lich_kt_thu": lich_kt.run_dry,
+    "anh_chuyen_muc": anh_chuyen_muc.run,
 }
 
 
