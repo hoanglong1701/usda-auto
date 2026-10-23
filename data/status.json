@@ -74,5 +74,10 @@
   "ok": true,
   "at": "2026-10-23T00:59:18Z",
   "msg": "da ghi trang 1526: WB den 2026-09; ONI 2026-08=2.16; 34 dot ENSO; futures 2026-10-23"
+ },
+ "gia_vn_thu": {
+  "ok": true,
+  "at": "2026-10-23T03:30:22Z",
+  "msg": "chay thu OK: vang SJC (theo Phú Quý) 138000000/141800000 (QT 4019.4), bac 1852000/1909000 (QT 54.122), ty gia 25835, 257/258 diem so sanh; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; loi: {\"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}"
  }
 }
