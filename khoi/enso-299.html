@@ -1,0 +1,164 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="dinh-luong-enso">Phân tích định lượng: giá nông sản và El Niño, La Niña từ 1970</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<style>
+#gden{font-family:inherit;color:#222;margin:8px 0 24px}
+#gden h4{margin:4px 0 2px;font-size:16px}
+#gden .en-sub{font-size:13px;color:#666;margin:0 0 10px;line-height:1.5}
+#gden .en-box{border:1px solid #e6dede;border-radius:10px;padding:14px;background:#fff;margin:12px 0}
+#gden .en-now{border-left:5px solid #c00000;background:#fff7f7}
+#gden .en-now b.big{font-size:20px}
+#gden .en-tw{overflow-x:auto}
+#gden table{border-collapse:collapse;width:100%;font-size:14px;min-width:620px}
+#gden th,#gden td{padding:6px 8px;border-bottom:1px solid #eee;text-align:right;white-space:nowrap}
+#gden th:first-child,#gden td:first-child{text-align:left}
+#gden th{background:#faf7f7;font-weight:600;color:#444}
+#gden .up{color:#0a7a3d}#gden .dn{color:#c00000}
+#gden td.cu{background:#eaf6ee}#gden td.cd{background:#fdecec}
+#gden .en-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;align-items:center}
+#gden .en-row button{border:1px solid #d9d2d2;background:#fff;color:#222;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+#gden .en-row button.on{background:#c00000;border-color:#c00000;color:#fff;font-weight:600}
+#gden .en-row select{padding:5px 8px;border:1px solid #cfd5dc;border-radius:6px;font-size:14px;background:#fff;color:#222}
+#gden .en-row label{font-size:14px;display:inline-flex;gap:6px;align-items:center}
+#gden svg{width:100%;height:auto;display:block}
+#gden .en-lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;margin:8px 0 0}
+#gden .en-lg span{display:inline-flex;align-items:center;gap:5px}
+#gden .en-lg b{width:11px;height:11px;border-radius:3px;display:inline-block}
+#gden .en-tip{font-size:13px;color:#333;min-height:20px;margin:6px 0 0}
+#gden .en-note{font-size:13px;color:#666;margin:8px 0 0;line-height:1.55}
+#gden .en-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+#gden .en-grid div{border:1px solid #eee;border-radius:8px;padding:10px;font-size:14px;line-height:1.5}
+#gden .en-grid b{display:block;margin-bottom:4px}
+</style>
+<div id="gden">
+<p class="en-sub">Biến động giá đậu tương, ngô, lúa mì, gạo, cà phê arabica, cà phê robusta, đường theo các đợt El Niño, La Niña và các sự kiện thời tiết đặc biệt từ năm 1970. Giá futures hiện tại theo sàn CBOT (đậu tương, ngô, lúa mì, gạo) và ICE (cà phê, đường).</p>
+<div class="en-box en-now" id="gden-now"><p class="en-sub">Đang tải số liệu…</p></div>
+
+<h4>Giá futures hiện tại</h4>
+<div class="en-box en-tw" id="gden-fut"></div>
+
+<h4>Giá dài hạn và chỉ số ENSO</h4>
+<p class="en-sub">Nền đỏ nhạt là các đợt El Niño, nền xanh nhạt là La Niña. Cột phía dưới là chỉ số ONI: trên +0,5 là El Niño, dưới −0,5 là La Niña. Đường nét đứt đánh dấu sự kiện thời tiết đặc biệt ảnh hưởng tới mặt hàng đang chọn. Di chuột hoặc chạm vào biểu đồ để xem số liệu từng tháng.</p>
+<div class="en-box">
+<div class="en-row" id="gden-pb"></div>
+<div class="en-row"><span style="font-size:14px">Từ năm</span> <select id="gden-y"></select> <label><input type="checkbox" id="gden-log"> Thang logarit</label></div>
+<div id="gden-ch"></div>
+<p class="en-tip" id="gden-tip"></p>
+<div class="en-lg"><span><b style="background:#c00000"></b>Giá tháng (<i id="gden-dv"></i>)</span><span><b style="background:#f6d4d4"></b>El Niño</span><span><b style="background:#d6e6f5"></b>La Niña</span><span><b style="background:#888"></b>Sự kiện thời tiết</span></div>
+</div>
+
+<h4>Biến động giá trước và sau khi đợt ENSO bắt đầu</h4>
+<p class="en-sub">Trung bình phần trăm thay đổi giá trong 3, 6, 12 tháng trước tháng đầu tiên của mỗi đợt (giá đã phản ánh kỳ vọng thời tiết chưa) và 3, 6, 12 tháng sau đó, so với các giai đoạn trung tính (không có El Niño hay La Niña) cùng độ dài.</p>
+<div class="en-box"><div class="en-row" id="gden-wb"></div><div id="gden-tb"></div><div class="en-lg"><span><b style="background:#c00000"></b>Đợt El Niño</span><span><b style="background:#2f6db3"></b>Đợt La Niña</span><span><b style="background:#bdb6a0"></b>Trung tính</span></div><div class="en-tw" id="gden-tbt" style="margin-top:10px"></div></div>
+
+<h4>Từng đợt El Niño, La Niña</h4>
+<p class="en-sub">Phần trăm thay đổi giá của từng đợt theo khung thời gian đang chọn, tính quanh tháng đợt bắt đầu. Ô xanh là giá tăng, ô đỏ là giá giảm.</p>
+<div class="en-box"><div class="en-row" id="gden-wb2"></div><div class="en-row" id="gden-db"></div><div class="en-tw" id="gden-dt"></div></div>
+
+<h4>Sự kiện thời tiết đặc biệt</h4>
+<p class="en-sub">Thay đổi giá từ tháng trước sự kiện tới 3 tháng và 12 tháng sau, chỉ tính các mặt hàng chịu ảnh hưởng trực tiếp.</p>
+<div class="en-box en-tw" id="gden-sk"></div>
+
+<h4>Mức độ tương quan</h4>
+<p class="en-sub">Hệ số tương quan giữa ONI trung bình 12 tháng và biến động giá 12 tháng, với độ trễ 0, 3, 6 tháng. Hệ số từ −1 đến +1; trị tuyệt đối dưới 0,2 là tương quan yếu.</p>
+<div class="en-box en-tw" id="gden-tq"></div>
+
+<div class="en-box">
+<h4>Cơ chế tác động chính</h4>
+<div class="en-grid">
+<div><b>El Niño</b>Khô hạn ở Đông Nam Á, Ấn Độ, Úc: rủi ro cho robusta Việt Nam và Indonesia, gạo Thái Lan và Ấn Độ, mía đường Ấn Độ và Thái Lan, lúa mì Úc. Mưa nhiều ở Argentina, nam Brazil thường có lợi cho đậu tương và ngô Nam Mỹ.</div>
+<div><b>La Niña</b>Khô hạn ở Argentina, nam Brazil và phía nam nước Mỹ: rủi ro cho đậu tương, ngô Nam Mỹ và lúa mì vụ đông của Mỹ. Mưa nhiều ở Đông Nam Á, Úc thường thuận cho gạo, robusta, mía đường châu Á.</div>
+<div><b>Sương giá, hạn hán cục bộ</b>Sương giá ở Brazil (1975, 1994, 2021) tác động mạnh và nhanh tới giá cà phê; hạn hán ở Mỹ (1983, 1988, 2012) đẩy giá ngô, đậu tương.</div>
+</div>
+</div>
+<p class="en-note" id="gden-nt"></p>
+</div>
+<script>
+(function(){
+var P=fetch("/index.php/wp-json/wp/v2/pages/1526?_fields=content.rendered").then(function(r){return r.json()}).then(function(j){var d=new DOMParser().parseFromString(j.content.rendered,"text/html");return JSON.parse(d.getElementById("gd-data").textContent)});
+function E(x){return document.getElementById("gden-"+x)}
+function nf(n,d){if(n===null||n===undefined)return "–";return Number(n).toLocaleString("vi-VN",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}
+function pc(v){if(v===null||v===undefined)return "–";return '<span class="'+(v>0?"up":(v<0?"dn":""))+'">'+(v>0?"+":"")+nf(v,1)+"%</span>"}
+function cell(v){if(v===null||v===undefined)return "<td>–</td>";return '<td class="'+(v>0?"cu":(v<0?"cd":""))+'">'+(v>0?"+":"")+nf(v,1)+"%</td>"}
+function mi(s){return parseInt(s.slice(0,4),10)*12+parseInt(s.slice(5,7),10)-1}
+function ms(n){var m=n%12+1;return (m<10?"0":"")+m+"/"+Math.floor(n/12)}
+var MUA=["12–2","1–3","2–4","3–5","4–6","5–7","6–8","7–9","8–10","9–11","10–12","11–1"];
+function muc(v){var a=Math.abs(v);return a>=2?"rất mạnh":(a>=1.5?"mạnh":(a>=1?"vừa":"yếu"))}
+P.then(function(D){
+var SP=D.sp,M0=mi(D.y0),TEN={};SP.forEach(function(s){TEN[s[0]]=s[1]});
+var ol=D.oni_last,ov=ol[1],om=parseInt(ol[0].slice(5,7),10);
+var st=ov>=0.5?"El Niño "+muc(ov):(ov<=-0.5?"La Niña "+muc(ov):"Trung tính");
+var an=D.dot.filter(function(e){return e.t==="el"}).filter(function(e){return !e.dd}).filter(function(e){return e.peak>=2}).map(function(e){return e.start.slice(0,4)});
+var tx='<b class="big">'+st+'</b><p class="en-sub" style="margin:6px 0 0">Chỉ số ONI kỳ tháng '+MUA[om-1]+"/"+ol[0].slice(0,4)+": <b>"+(ov>0?"+":"")+nf(ov,2)+"</b>.";
+if(ov>=1.5){tx+=" Các đợt El Niño rất mạnh trước đây bắt đầu vào các năm "+an.join(", ")+"; bảng bên dưới cho thấy giá từng mặt hàng đã biến động thế nào trong các đợt đó."}
+if(ov<=-1){tx+=" Xem bảng các đợt La Niña bên dưới để so sánh."}
+tx+=" Nguồn chỉ số: NOAA (Mỹ).</p>";E("now").innerHTML=tx;
+var F=D.fut||{},h='<table><tr><th>Hợp đồng</th><th>Giá</th><th>Đơn vị</th><th>1 tuần</th><th>1 tháng</th><th>Từ đầu năm</th><th>1 năm</th><th>Ngày</th></tr>';
+SP.forEach(function(s){var f=F[s[0]];if(f){h+="<tr><td><b>"+f.ten+"</b></td><td>"+nf(f.gia,2)+"</td><td>"+f.dv+"</td><td>"+pc(f.w1)+"</td><td>"+pc(f.m1)+"</td><td>"+pc(f.ytd)+"</td><td>"+pc(f.y1)+"</td><td>"+f.ngay.slice(8,10)+"/"+f.ngay.slice(5,7)+"</td></tr>"}
+else{var g=D.gia[s[0]],n=g.length;h+="<tr><td><b>Robusta (giá tháng World Bank)</b></td><td>"+nf(g[n-1],0)+"</td><td>"+s[2]+"</td><td>–</td><td>"+pc(g[n-2]?(g[n-1]/g[n-2]-1)*100:null)+"</td><td>–</td><td>"+pc(g[n-13]?(g[n-1]/g[n-13]-1)*100:null)+"</td><td>"+ms(M0+n-1)+"</td></tr>"}});
+h+='</table><p class="en-note">Giá hợp đồng liên tục gần nhất, giống mã ZS1!, ZC1!, ZW1!, ZR1!, KC1!, SB1! trên TradingView. Đường giao dịch trên sàn ICE US (không có ở CBOT). Robusta ICE châu Âu chưa có nguồn dữ liệu ngày công khai nên dùng giá tháng của World Bank.</p>';E("fut").innerHTML=h;
+var cur=SP[0][0],y0=1970,lg=false;
+var ys=E("y");[1970,1980,1990,2000,2010,2015,2020].forEach(function(y){var o=document.createElement("option");o.value=y;o.textContent=y;ys.appendChild(o)});
+ys.onchange=function(){y0=parseInt(ys.value,10);ch()};E("log").onchange=function(){lg=E("log").checked;ch()};
+function pbtn(){var pb=E("pb");pb.innerHTML="";SP.forEach(function(s){var b=document.createElement("button");b.type="button";b.textContent=s[1];if(s[0]===cur)b.className="on";b.onclick=function(){cur=s[0];pbtn();ch()};pb.appendChild(b)})}
+function ch(){var el=E("ch"),W=el.getBoundingClientRect().width||700;if(W>860)W=860;var nar=W<600;
+E("dv").textContent=SP.filter(function(z){return z[0]===cur})[0][2];
+var g=D.gia[cur],o=D.oni,a=Math.max(0,(y0-1970)*12),b=g.length;var L=nar?44:56,R=10,T=12,H1=nar?220:280,G=26,H2=nar?70:90,Hs=T+H1+G+H2+22;var pw=W-L-R;
+var mn=1e12,mx=0;for(var i=a;i<b;i++){if(g[i]!==null){if(g[i]<mn)mn=g[i];if(g[i]>mx)mx=g[i]}}
+if(lg){mn=Math.log(mn*0.95);mx=Math.log(mx*1.05)}else{mn=0;mx=mx*1.05}
+function X(i){return L+(i-a+0.5)/(b-a)*pw}
+function Y(v){var t=lg?Math.log(v):v;return T+H1-(t-mn)/(mx-mn)*H1}
+var s='<svg viewBox="0 0 '+W+" "+Hs+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';
+D.dot.forEach(function(e){var p=mi(e.start)-M0,q=mi(e.end)-M0;if(q<a)return;if(p<a)p=a;var x1=L+(p-a)/(b-a)*pw,x2=L+(q-a+1)/(b-a)*pw;s+='<rect x="'+x1.toFixed(1)+'" y="'+T+'" width="'+Math.max(1,x2-x1).toFixed(1)+'" height="'+H1+'" fill="'+(e.t==="el"?"#f6d4d4":"#d6e6f5")+'"/>'});
+var tk=[];if(lg){for(var k=0;k<=4;k++){tk.push(Math.exp(mn+(mx-mn)*k/4))}}else{var r0=mx/4,p0=Math.pow(10,Math.floor(Math.log(r0)/Math.LN10)),q0=r0/p0,sp0=(q0>5?10:(q0>2?5:(q0>1?2:1)))*p0;mx=Math.ceil(mx/sp0)*sp0;for(var v0=0;v0<=mx+sp0/2;v0+=sp0){tk.push(v0)}}
+tk.forEach(function(vv){var yy=Y(vv);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy.toFixed(1)+'" y2="'+yy.toFixed(1)+'" stroke="#e8e4e4"/><text x="'+(L-5)+'" y="'+(yy+4).toFixed(1)+'" text-anchor="end">'+nf(vv,vv<100?(vv===0?0:1):0)+'</text>'});
+var step=(b-a)>300?120:((b-a)>120?60:12);for(var i2=a;i2<b;i2++){var mm=M0+i2;if(mm%step===0){var xx=X(i2);s+='<line x1="'+xx.toFixed(1)+'" x2="'+xx.toFixed(1)+'" y1="'+(T+H1)+'" y2="'+(T+H1+4)+'" stroke="#999"/><text x="'+xx.toFixed(1)+'" y="'+(T+H1+16)+'" text-anchor="middle">'+Math.floor(mm/12)+'</text>'}}
+(D.su_kien||[]).forEach(function(e,n){if(e.ah.indexOf(cur)<0)return;var p=mi(e.thang)-M0;if(p<a)return;var xx=X(p);s+='<line x1="'+xx.toFixed(1)+'" x2="'+xx.toFixed(1)+'" y1="'+T+'" y2="'+(T+H1)+'" stroke="#666" stroke-dasharray="4 3"/><text x="'+(xx+3).toFixed(1)+'" y="'+(T+11)+'" font-size="10" fill="#333">'+e.thang.slice(0,4)+'</text>'});
+var path="",pen=false;for(var i3=a;i3<b;i3++){if(g[i3]===null){pen=false;continue}path+=(pen?"L":"M")+X(i3).toFixed(1)+" "+Y(g[i3]).toFixed(1)+" ";pen=true}
+s+='<path d="'+path+'" fill="none" stroke="#c00000" stroke-width="1.6"/>';
+var oy=T+H1+G,mid=oy+H2/2,sc=H2/2/3;s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+mid+'" y2="'+mid+'" stroke="#bbb"/><text x="'+(L-5)+'" y="'+(oy+8)+'" text-anchor="end">+3</text><text x="'+(L-5)+'" y="'+(mid+4)+'" text-anchor="end">0</text><text x="'+(L-5)+'" y="'+(oy+H2)+'" text-anchor="end">−3</text><text x="'+L+'" y="'+(oy-4)+'" font-size="10">ONI</text>';
+var bw=Math.max(0.6,pw/(b-a));for(var i4=a;i4<Math.min(b,o.length);i4++){var v=o[i4];if(v===null)continue;var hh=Math.min(3,Math.abs(v))*sc;var c=v>=0.5?"#c00000":(v<=-0.5?"#2f6db3":"#bbb");s+='<rect x="'+(X(i4)-bw/2).toFixed(1)+'" y="'+(v>=0?mid-hh:mid).toFixed(1)+'" width="'+bw.toFixed(2)+'" height="'+hh.toFixed(1)+'" fill="'+c+'"/>'}
+s+='<line id="gden-cur" x1="0" x2="0" y1="'+T+'" y2="'+(oy+H2)+'" stroke="#222" stroke-width="0.8" visibility="hidden"/>';
+s+='<rect id="gden-hit" x="'+L+'" y="'+T+'" width="'+pw+'" height="'+(oy+H2-T)+'" fill="transparent"/></svg>';el.innerHTML=s;
+var hit=document.getElementById("gden-hit"),cl=document.getElementById("gden-cur"),sv=el.querySelector("svg");
+function mv(ev){var r=sv.getBoundingClientRect(),cx=(ev.touches?ev.touches[0].clientX:ev.clientX);var xs=(cx-r.left)/r.width*W;var i5=Math.round(a+(xs-L)/pw*(b-a)-0.5);if(i5<a)i5=a;if(i5>=b)i5=b-1;cl.setAttribute("x1",X(i5));cl.setAttribute("x2",X(i5));cl.setAttribute("visibility","visible");
+var ov2=o[i5];E("tip").innerHTML="<b>"+ms(M0+i5)+"</b>: "+TEN[cur]+" "+nf(g[i5],g[i5]<100?1:0)+" "+SP.filter(function(z){return z[0]===cur})[0][2]+" · ONI "+(ov2===null||ov2===undefined?"–":(ov2>0?"+":"")+nf(ov2,2))}
+hit.addEventListener("mousemove",mv);hit.addEventListener("touchstart",mv,{passive:true});hit.addEventListener("touchmove",mv,{passive:true});
+E("tip").textContent=""}
+pbtn();ch();
+function GB3(el,items,cols){var W=el.getBoundingClientRect().width||700;if(W>860)W=860;var nar=W<600;var H=300,L=44,R=8,T=16,B=nar?64:30,pw=W-L-R,ph=H-T-B;var mx=0,mn=0;items.forEach(function(x){x.v.forEach(function(v){if(v!==null){if(v>mx)mx=v;if(v<mn)mn=v}})});
+var st=Math.pow(10,Math.floor(Math.log(Math.max(mx-mn,1))/Math.LN10)),stp=(mx-mn)/st>5?2*st:st;if((mx-mn)/stp<3)stp=stp/2;var top=Math.ceil(mx/stp)*stp,bot=Math.floor(mn/stp)*stp;if(top===bot)top=bot+stp;
+function Y(v){return T+(top-v)/(top-bot)*ph}var gw=pw/items.length,bw=Math.min(gw*0.26,22);var s='<svg viewBox="0 0 '+W+" "+H+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';
+for(var g=bot;g<=top+stp/2;g+=stp){var yy=Y(g);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy.toFixed(1)+'" y2="'+yy.toFixed(1)+'" stroke="'+(Math.abs(g)<1e-9?"#999":"#e8e4e4")+'"/><text x="'+(L-5)+'" y="'+(yy+4).toFixed(1)+'" text-anchor="end">'+nf(g,0)+'%</text>'}
+items.forEach(function(x,i){var cx=L+gw*i+gw/2;x.v.forEach(function(v,j){if(v===null)return;var bx=cx+(j-1.5)*bw+(j-1)*1,y1=Y(Math.max(v,0)),y2=Y(Math.min(v,0));s+='<rect x="'+bx.toFixed(1)+'" y="'+y1.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(0.5,y2-y1).toFixed(1)+'" rx="2" fill="'+cols[j]+'"><title>'+x.k+": "+nf(v,1)+'%</title></rect>';if(!nar){s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(v>=0?y1-3:y2+11).toFixed(1)+'" text-anchor="middle" font-size="9.5">'+nf(v,1)+'</text>'}});
+var ty=H-B+14;s+=nar?'<text transform="translate('+cx.toFixed(1)+','+ty+') rotate(-35)" text-anchor="end">'+x.k+'</text>':'<text x="'+cx.toFixed(1)+'" y="'+ty+'" text-anchor="middle">'+x.k+'</text>'});s+='</svg>';el.innerHTML=s}
+var WIN=[["b12","Trước 12 tháng",-12],["b6","Trước 6 tháng",-6],["b3","Trước 3 tháng",-3],["a3","Sau 3 tháng",3],["a6","Sau 6 tháng",6],["a12","Sau 12 tháng",12]],win="a12";
+function WL(){return WIN.filter(function(x){return x[0]===win})[0]}
+function TB(){return (D.tbw?D.tbw[win]:null)||D.tb}
+function EC(e){return (e.w?e.w[win]:null)||e.c}
+function wbtn(){if(!D.tbw)return;["wb","wb2"].forEach(function(id){var c=E(id);c.innerHTML='<span style="font-size:14px">Khung thời gian:</span>';WIN.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[1];if(x[0]===win)b.className="on";b.onclick=function(){win=x[0];wbtn();tb();tbt();dt()};c.appendChild(b)})})}
+function tb(){var T0=TB();GB3(E("tb"),SP.map(function(s){var t=T0[s[0]];return {k:s[1],v:[t.el,t.la,t.neu]}}),["#c00000","#2f6db3","#bdb6a0"])}
+function tbt(){var T0=TB(),wl=WL()[1].toLowerCase();var t2='<table><tr><th>Mặt hàng</th><th>El Niño: TB</th><th>Trung vị</th><th>Số đợt giá tăng</th><th>La Niña: TB</th><th>Trung vị</th><th>Số đợt giá tăng</th><th>Trung tính: TB</th></tr>';
+SP.forEach(function(s){var t=T0[s[0]];t2+="<tr><td>"+s[1]+"</td><td>"+pc(t.el)+"</td><td>"+pc(t.el_tv)+"</td><td>"+(t.el_tang===null?"–":t.el_tang+"% / "+t.n_el+" đợt")+"</td><td>"+pc(t.la)+"</td><td>"+pc(t.la_tv)+"</td><td>"+(t.la_tang===null?"–":t.la_tang+"% / "+t.n_la+" đợt")+"</td><td>"+pc(t.neu)+"</td></tr>"});
+E("tbt").innerHTML=t2+'</table><p class="en-note">Thay đổi giá '+wl+(WL()[2]<0?" tính đến":" kể từ")+' tháng đầu tiên của đợt. Cột trung tính là thay đổi giá trung bình trong cùng độ dài ở các tháng không có El Niño, La Niña.</p>'}
+wbtn();tb();tbt();
+var mode="manh";function dt(){var db=E("db");db.innerHTML="";var wn=WL()[2],LM=mi(D.wb_last);[["manh","Đợt mạnh và rất mạnh"],["el","Tất cả El Niño"],["la","Tất cả La Niña"]].forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[1];if(x[0]===mode)b.className="on";b.onclick=function(){mode=x[0];dt()};db.appendChild(b)});
+var t='<table><tr><th>Đợt</th><th>Thời gian</th><th>ONI đỉnh</th>';SP.forEach(function(s){t+="<th>"+s[1]+"</th>"});t+="</tr>";
+D.dot.slice().reverse().forEach(function(e){
+if(mode==="manh"){if(e.peak<1.5)return}else{if(e.t!==mode)return}
+t+="<tr><td>"+(e.t==="el"?"El Niño":"La Niña")+" "+e.muc+(e.ht?" (đang hình thành)":(e.dd?" (đang diễn ra)":""))+(e.den?(wn>0?(mi(e.start)+wn>LM?"<br><small>giá tính đến "+e.den.slice(5,7)+"/"+e.den.slice(0,4)+"</small>":""):""):"")+"</td><td>"+e.start.slice(5,7)+"/"+e.start.slice(0,4)+" – "+e.end.slice(5,7)+"/"+e.end.slice(0,4)+"</td><td>"+(e.t==="el"?"+":"−")+nf(e.peak,2)+"</td>";var c0=EC(e);SP.forEach(function(s){t+=cell(c0[s[0]])});t+="</tr>"});
+E("dt").innerHTML=t+'</table><p class="en-note">Khung đang chọn: '+WL()[1].toLowerCase()+(wn<0?" tính đến":" kể từ")+' tháng đợt bắt đầu. Ô trống là đợt chưa đủ số liệu giá.</p>'}
+dt();
+var sk='<table><tr><th>Thời điểm</th><th>Sự kiện</th><th>Mặt hàng</th><th>Sau 3 tháng</th><th>Sau 12 tháng</th></tr>';
+(D.su_kien||[]).slice().reverse().forEach(function(e){e.ah.forEach(function(k,i){sk+="<tr>"+(i===0?'<td rowspan="'+e.ah.length+'">'+e.thang.slice(5,7)+"/"+e.thang.slice(0,4)+'</td><td rowspan="'+e.ah.length+'" style="white-space:normal;text-align:left">'+e.mo_ta+"</td>":"")+"<td>"+TEN[k]+"</td>"+cell(e.c3[k])+cell(e.c12[k])+"</tr>"})});
+E("sk").innerHTML=sk+"</table>";
+var tq='<table><tr><th>Mặt hàng</th><th>Không trễ</th><th>Trễ 3 tháng</th><th>Trễ 6 tháng</th></tr>';SP.forEach(function(s){var q=D.tq[s[0]];tq+="<tr><td>"+s[1]+"</td><td>"+nf(q.l0,2)+"</td><td>"+nf(q.l3,2)+"</td><td>"+nf(q.l6,2)+"</td></tr>"});
+E("tq").innerHTML=tq+'</table><p class="en-note">Tương quan tổng thể yếu: giá nông sản chịu tác động của nhiều yếu tố khác (USD, giá dầu, chính sách xuất khẩu, tồn kho, đầu cơ). Tác động của ENSO thể hiện rõ hơn ở từng đợt mạnh và từng vùng trồng cụ thể.</p>';
+E("nt").textContent="Nguồn: giá tháng của World Bank (Pink Sheet) từ 1970, quy về đơn vị niêm yết của sàn: US cent/giạ cho đậu tương, ngô, lúa mì (như CBOT), USD/cwt cho gạo (như CBOT), US cent/lb cho cà phê arabica và đường (như ICE US), USD/tấn cho cà phê robusta (như ICE châu Âu). Giá World Bank là giá hàng giao xuất khẩu nên có thể chênh với giá hợp đồng tương lai: đậu tương, ngô là giá giao tại cảng vịnh Mexico; lúa mì là SRW Mỹ; gạo là gạo Thái 5% tấm (CBOT giao dịch thóc Mỹ). Giá futures CBOT, ICE qua Yahoo Finance. Chỉ số ONI của NOAA. Đợt ENSO xác định khi ONI vượt ±0,5 ít nhất 5 kỳ liên tiếp. Giá danh nghĩa, chưa trừ lạm phát. Số liệu cập nhật đến "+ms(M0+D.gia[SP[0][0]].length-1)+". Nội dung tham khảo, không phải khuyến nghị đầu tư.";
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){ch();tb()},150)});
+}).catch(function(){E("now").innerHTML='<p class="en-sub">Chưa tải được số liệu, bạn vui lòng tải lại trang.</p>'});
+})();
+</script>
+<!-- /wp:html -->
