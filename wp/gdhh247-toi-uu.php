@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
- * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server.
- * Version: 1.4.0
+ * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
+ * Version: 1.5.0
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -192,6 +192,172 @@ add_action( 'transition_post_status', function ( $new_status, $old_status, $post
 		do_action( 'cache_enabler_clear_page_cache_by_post', 112 );
 	}
 }, 10, 3 );
+
+/* ---------------------------------------------------------------------------
+ * 2b. Ảnh đại diện tự động cho bài chưa có ảnh: ảnh đầu tiên trong bài (biểu đồ khuyến nghị),
+ *     nếu không có thì ảnh mặc định của chuyên mục (tải lên với tên gdhh247-chuyen-muc-*).
+ *     Chỉ áp dụng ngoài trang quản trị, không ghi vào cơ sở dữ liệu.
+ * ------------------------------------------------------------------------- */
+
+const GDHH_CAT_THUMB = array(
+	4 => 'gdhh247-chuyen-muc-kim-loai',
+	5 => 'gdhh247-chuyen-muc-nong-san',
+	6 => 'gdhh247-chuyen-muc-nang-luong',
+	7 => 'gdhh247-chuyen-muc-vi-mo',
+	9 => 'gdhh247-chuyen-muc-khuyen-nghi',
+);
+
+function gdhh_attachment_by_slug( $slug ) {
+	static $cache = array();
+	if ( ! isset( $cache[ $slug ] ) ) {
+		$ids            = get_posts( array(
+			'post_type'        => 'attachment',
+			'post_status'      => 'inherit',
+			'name'             => $slug,
+			'fields'           => 'ids',
+			'numberposts'      => 1,
+			'suppress_filters' => true,
+		) );
+		$cache[ $slug ] = $ids ? (int) $ids[0] : 0;
+	}
+	return $cache[ $slug ];
+}
+
+/* _thumbnail_id thật trong cơ sở dữ liệu (đọc cache meta, không qua filter để tránh vòng lặp). */
+function gdhh_real_thumb( $post_id ) {
+	$meta = wp_cache_get( $post_id, 'post_meta' );
+	if ( false === $meta ) {
+		update_meta_cache( 'post', array( $post_id ) );
+		$meta = wp_cache_get( $post_id, 'post_meta' );
+	}
+	return isset( $meta['_thumbnail_id'][0] ) ? (int) $meta['_thumbnail_id'][0] : 0;
+}
+
+function gdhh_auto_thumb( $post_id ) {
+	$post = get_post( $post_id );
+	if ( ! $post || 'post' !== $post->post_type ) {
+		return 0;
+	}
+	if ( preg_match( '/wp-image-(\d+)/', $post->post_content, $m ) && wp_attachment_is_image( (int) $m[1] ) ) {
+		return (int) $m[1];
+	}
+	foreach ( wp_get_post_categories( $post_id ) as $cid ) {
+		if ( isset( GDHH_CAT_THUMB[ $cid ] ) ) {
+			$id = gdhh_attachment_by_slug( GDHH_CAT_THUMB[ $cid ] );
+			if ( $id ) {
+				return $id;
+			}
+		}
+	}
+	return 0;
+}
+
+add_filter( 'get_post_metadata', function ( $value, $object_id, $meta_key, $single ) {
+	if ( '_thumbnail_id' !== $meta_key || is_admin() || gdhh_real_thumb( $object_id ) ) {
+		return $value;
+	}
+	$id = gdhh_auto_thumb( $object_id );
+	if ( ! $id ) {
+		return $value;
+	}
+	return $single ? $id : array( $id );
+}, 10, 4 );
+
+/* Ảnh tự động chỉ dùng cho danh sách bài, chia sẻ mạng xã hội, schema; không chèn banner đầu bài. */
+add_filter( 'astra_featured_image_enabled', function ( $enabled ) {
+	if ( is_singular( 'post' ) && ! gdhh_real_thumb( get_queried_object_id() ) ) {
+		return false;
+	}
+	return $enabled;
+} );
+
+/* ---------------------------------------------------------------------------
+ * 2c. WebP: giữ nguyên ảnh gốc JPG/PNG (bài đăng, chia sẻ không đổi), tạo thêm bản .webp cùng tên
+ *     cho ảnh gốc và các cỡ thu nhỏ, rồi đổi đường dẫn trong nội dung sang .webp khi bản đó tồn tại.
+ *     Ảnh cũ được chuyển dần qua WP-Cron, mỗi lượt 20 ảnh.
+ * ------------------------------------------------------------------------- */
+
+function gdhh_webp_path( $file ) {
+	return preg_replace( '/\.(jpe?g|png)$/i', '.webp', $file );
+}
+
+function gdhh_make_webp( $file ) {
+	$out = gdhh_webp_path( $file );
+	if ( $out === $file || file_exists( $out ) || ! file_exists( $file ) ) {
+		return;
+	}
+	$ed = wp_get_image_editor( $file );
+	if ( is_wp_error( $ed ) ) {
+		return;
+	}
+	$ed->set_quality( 80 );
+	$res = $ed->save( $out, 'image/webp' );
+	/* Bỏ bản WebP nếu không nhỏ hơn ảnh gốc. */
+	if ( ! is_wp_error( $res ) && file_exists( $out ) && filesize( $out ) >= filesize( $file ) ) {
+		@unlink( $out ); // phpcs:ignore
+	}
+}
+
+function gdhh_webp_attachment( $att_id, $meta = null ) {
+	$file = get_attached_file( $att_id );
+	if ( ! $file || ! preg_match( '/\.(jpe?g|png)$/i', $file ) ) {
+		return;
+	}
+	gdhh_make_webp( $file );
+	$meta = $meta ? $meta : wp_get_attachment_metadata( $att_id );
+	if ( ! empty( $meta['sizes'] ) ) {
+		foreach ( $meta['sizes'] as $s ) {
+			gdhh_make_webp( path_join( dirname( $file ), $s['file'] ) );
+		}
+	}
+}
+
+add_filter( 'wp_generate_attachment_metadata', function ( $meta, $att_id ) {
+	if ( wp_image_editor_supports( array( 'mime_type' => 'image/webp' ) ) ) {
+		gdhh_webp_attachment( $att_id, $meta );
+	}
+	return $meta;
+}, 20, 2 );
+
+add_filter( 'wp_content_img_tag', function ( $tag ) {
+	static $up = null;
+	if ( null === $up ) {
+		$up = wp_get_upload_dir();
+	}
+	return preg_replace_callback( '#' . preg_quote( $up['baseurl'], '#' ) . '/[^"\'\s,]+\.(?:jpe?g|png)#i', function ( $m ) use ( $up ) {
+		$path = $up['basedir'] . substr( $m[0], strlen( $up['baseurl'] ) );
+		return file_exists( gdhh_webp_path( $path ) ) ? gdhh_webp_path( $m[0] ) : $m[0];
+	}, $tag );
+} );
+
+/* Chuyển dần ảnh cũ sang WebP. */
+add_action( 'init', function () {
+	if ( ! wp_next_scheduled( 'gdhh_webp_batch' ) && get_option( 'gdhh_webp_done' ) !== '1' ) {
+		wp_schedule_event( time() + 60, 'hourly', 'gdhh_webp_batch' );
+	}
+} );
+
+add_action( 'gdhh_webp_batch', function () {
+	if ( ! wp_image_editor_supports( array( 'mime_type' => 'image/webp' ) ) ) {
+		return;
+	}
+	$last = (int) get_option( 'gdhh_webp_last', 0 );
+	global $wpdb;
+	$ids = $wpdb->get_col( $wpdb->prepare(
+		"SELECT ID FROM {$wpdb->posts} WHERE post_type = 'attachment' AND post_mime_type IN ('image/jpeg','image/png') AND ID > %d ORDER BY ID ASC LIMIT 20",
+		$last
+	) );
+	if ( ! $ids ) {
+		update_option( 'gdhh_webp_done', '1', false );
+		wp_clear_scheduled_hook( 'gdhh_webp_batch' );
+		do_action( 'cache_enabler_clear_complete_cache' );
+		return;
+	}
+	foreach ( $ids as $id ) {
+		gdhh_webp_attachment( (int) $id );
+	}
+	update_option( 'gdhh_webp_last', (int) end( $ids ), false );
+} );
 
 /* ---------------------------------------------------------------------------
  * 3. Shortcode [gdhh_tin_moi so="30"]: danh sách tin nhanh render sẵn trong HTML
