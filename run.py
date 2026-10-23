@@ -20,6 +20,8 @@ import ns_enso
 import gia_vn
 import sua_trang_gia
 import sua_khoi_enso
+import lam_nong_cache
+import chan_doan
 from names import unmapped
 
 JOBS = {
@@ -40,6 +42,8 @@ JOBS = {
     "gia_vn_thu": gia_vn.run_dry,
     "sua_trang_gia": sua_trang_gia.run,
     "sua_khoi_enso": sua_khoi_enso.run,
+    "lam_nong_cache": lam_nong_cache.run,
+    "chan_doan": chan_doan.run,
 }
 
 
