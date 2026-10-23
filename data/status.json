@@ -89,5 +89,10 @@
   "ok": true,
   "at": "2026-10-23T03:42:03Z",
   "msg": "da sua trang 111 (203491 -> 203684 ky tu) va trang 31 (887 -> 22172 ky tu); ban cu luu data/backup"
+ },
+ "sua_khoi_enso": {
+  "ok": true,
+  "at": "2026-10-23T09:14:07Z",
+  "msg": "da thay khoi ENSO trang 299 (180728 -> 182428 ky tu); ban cu luu data/backup"
  }
 }
