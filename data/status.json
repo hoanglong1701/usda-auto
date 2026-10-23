@@ -65,13 +65,14 @@
   "msg": "da ghi trang 478 den tuan 2026-10-16: them 2026-10-16; sua 0 diem; giu nguyen CPI, C_*, ev, nf"
  },
  "kl_nlcn": {
-  "ok": true,
-  "at": "2026-10-22T08:52:20Z",
-  "msg": "da ghi trang 1519: LME 2026-10-21; USGS 2026; PSD ca phe 2026; bao cao 13 muc"
+  "ok": false,
+  "at": "2026-10-23T00:58:45Z",
+  "error": "SSLError: HTTPSConnectionPool(host='www.westmetall.com', port=443): Max retries exceeded with url: /en/markdaten.php?action=table&field=LME_Cu_cash&year=2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+  "trace": "2, in _wm_year\n    r = requests.get(\"https://www.westmetall.com/en/markdaten.php\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/api.py\", line 87, in get\n    return request(\"get\", url, params=params, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/adapters.py\", line 727, in send\n    raise SSLError(e, request=request)\nrequests.exceptions.SSLError: HTTPSConnectionPool(host='www.westmetall.com', port=443): Max retries exceeded with url: /en/markdaten.php?action=table&field=LME_Cu_cash&year=2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))\n"
  },
  "ns_enso": {
   "ok": true,
-  "at": "2026-10-22T11:48:30Z",
-  "msg": "da ghi trang 1526: WB den 2026-09; ONI 2026-08=2.16; 34 dot ENSO; futures 2026-10-22"
+  "at": "2026-10-23T00:59:18Z",
+  "msg": "da ghi trang 1526: WB den 2026-09; ONI 2026-08=2.16; 34 dot ENSO; futures 2026-10-23"
  }
 }
