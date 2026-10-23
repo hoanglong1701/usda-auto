@@ -1,5 +1,5 @@
 {
- "asof": "2026-10-22",
+ "asof": "2026-10-23",
  "errors": [],
  "notes": [
   "Lich kinh te ForexFactory/TradingView: can trinh duyet/JS, khong fetch duoc tu GitHub Actions.",
@@ -9,8 +9,8 @@
  ],
  "yahoo": {
   "GC=F": {
-   "latest_date": "2026-10-22",
-   "latest_close": 4086.0,
+   "latest_date": "2026-10-23",
+   "latest_close": 4038.39990234375,
    "series": [
     [
      "2026-10-19",
@@ -26,14 +26,18 @@
     ],
     [
      "2026-10-22",
-     4086.0
+     4060.39990234375
+    ],
+    [
+     "2026-10-23",
+     4038.39990234375
     ]
    ],
    "label": "Vang futures (COMEX)"
   },
   "SI=F": {
-   "latest_date": "2026-10-22",
-   "latest_close": 55.904998779296875,
+   "latest_date": "2026-10-23",
+   "latest_close": 54.494998931884766,
    "series": [
     [
      "2026-10-19",
@@ -49,7 +53,11 @@
     ],
     [
      "2026-10-22",
-     55.904998779296875
+     54.763999938964844
+    ],
+    [
+     "2026-10-23",
+     54.494998931884766
     ]
    ],
    "label": "Bac futures (COMEX)"
