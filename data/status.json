@@ -26,7 +26,7 @@
  ],
  "orgs": {
   "ok": true,
-  "at": "2026-10-23T12:14:28Z",
+  "at": "2026-10-23T13:42:22Z",
   "msg": "khong thay doi"
  },
  "wasde": {
@@ -102,8 +102,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-23T12:20:37Z",
-  "msg": "43 trang, lan 1 tb 1039 ms, lan 2 tb 925 ms, 43/43 trang co cache"
+  "at": "2026-10-23T13:42:27Z",
+  "msg": "43 trang, lan 1 tb 1480 ms, lan 2 tb 993 ms, 43/43 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
