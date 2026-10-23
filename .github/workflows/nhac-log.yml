@@ -1,0 +1,21 @@
+name: GDHH247 nhac nhap Log khuyen nghi
+
+# Sang thu Bay 9h gio VN: neu qua 7 ngay chua co lenh moi trong Log khuyen nghi thi job do,
+# GitHub gui email nhac cho chu repo.
+on:
+  schedule:
+    - cron: "0 2 * * 6"
+  workflow_dispatch:
+
+jobs:
+  nhac:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Kiem tra Log khuyen nghi
+        run: python nhac_log.py
