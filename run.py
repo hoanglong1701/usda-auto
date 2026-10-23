@@ -17,6 +17,7 @@ import yeu_to
 import dinh_luong
 import kl_nlcn
 import ns_enso
+import gia_vn
 from names import unmapped
 
 JOBS = {
@@ -33,6 +34,8 @@ JOBS = {
     "dinh_luong_thu": dinh_luong.run_dry,
     "kl_nlcn": kl_nlcn.run,
     "ns_enso": ns_enso.run,
+    "gia_vn": gia_vn.run,
+    "gia_vn_thu": gia_vn.run_dry,
 }
 
 
