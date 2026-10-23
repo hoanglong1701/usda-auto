@@ -21,11 +21,13 @@ PAGE = 1526
 UA = {"User-Agent": wp.UA}
 Y0 = 1970
 # key, ten, cot World Bank, he so doi don vi, don vi hien thi, ma futures, ten futures
+# Doi USD/tan cua World Bank ve don vi niem yet cua san: 1 gia dau tuong, lua mi = 27,2155 kg;
+# 1 gia ngo = 25,4012 kg; 1 cwt = 100 lb = 45,3592 kg
 SP = [
-    ("dau_tuong", "Đậu tương", ["Soybeans"], 1.0, "USD/tấn", "ZS=F", "CBOT đậu tương (ZS)", "US cent/giạ"),
-    ("ngo", "Ngô", ["Maize"], 1.0, "USD/tấn", "ZC=F", "CBOT ngô (ZC)", "US cent/giạ"),
-    ("lua_mi", "Lúa mì", ["Wheat, US SRW", "Wheat, US HRW"], 1.0, "USD/tấn", "ZW=F", "CBOT lúa mì SRW (ZW)", "US cent/giạ"),
-    ("gao", "Gạo", ["Rice, Thai 5%"], 1.0, "USD/tấn", "ZR=F", "CBOT gạo thô (ZR)", "USD/cwt"),
+    ("dau_tuong", "Đậu tương", ["Soybeans"], 2.72155, "US cent/giạ", "ZS=F", "CBOT đậu tương (ZS)", "US cent/giạ"),
+    ("ngo", "Ngô", ["Maize"], 2.54012, "US cent/giạ", "ZC=F", "CBOT ngô (ZC)", "US cent/giạ"),
+    ("lua_mi", "Lúa mì", ["Wheat, US SRW", "Wheat, US HRW"], 2.72155, "US cent/giạ", "ZW=F", "CBOT lúa mì SRW (ZW)", "US cent/giạ"),
+    ("gao", "Gạo", ["Rice, Thai 5%"], 0.0453592, "USD/cwt", "ZR=F", "CBOT gạo thô (ZR)", "USD/cwt"),
     ("arabica", "Cà phê arabica", ["Coffee, Arabica"], 100 / 2.20462, "US cent/lb", "KC=F", "ICE US arabica (KC)", "US cent/lb"),
     ("robusta", "Cà phê robusta", ["Coffee, Robusta"], 1000.0, "USD/tấn", None, "ICE châu Âu robusta (RC)", "USD/tấn"),
     ("duong", "Đường", ["Sugar, world"], 100 / 2.20462, "US cent/lb", "SB=F", "ICE US đường số 11 (SB)", "US cent/lb"),
@@ -187,30 +189,42 @@ def corr(a, b):
     return round(sum((x - mx) * (y - my) for x, y in p) / (sx * sy), 2) if sx and sy else None
 
 
+# khung thoi gian quanh thang bat dau dot ENSO: am = truoc (tu N thang truoc den thang bat dau), duong = sau
+WIN = [("b12", -12), ("b6", -6), ("b3", -3), ("a3", 3), ("a6", 6), ("a12", 12)]
+
+
+def wchg(s, d, n):
+    if n < 0:
+        return chg(s, _s(_m(d) + n), d)
+    return chg(s, d, _s(_m(d) + n))
+
+
+def r1(v):
+    return round(v, 1) if v is not None else None
+
+
 def analyse(px, o, eps):
     months = sorted(o)
     state = {}
     for e in eps:
         for n in range(_m(e["start"]), _m(e["end"]) + 1):
             state[_s(n)] = e["t"]
-    res = {"tb": {}, "tq": {}, "dot": []}
+    res = {"tbw": {w: {} for w, _ in WIN}, "tq": {}, "dot": []}
     for key, *_ in SP:
         s = px[key]
-        allc = [chg(s, d, _s(_m(d) + 12)) for d in s]
-        el = [chg(s, e["start"], _s(_m(e["start"]) + 12)) for e in eps if e["t"] == "el"]
-        la = [chg(s, e["start"], _s(_m(e["start"]) + 12)) for e in eps if e["t"] == "la"]
-        neu = [chg(s, d, _s(_m(d) + 12)) for d in s if d not in state]
-        up_el = [v for v in el if v is not None]
-        up_la = [v for v in la if v is not None]
-        res["tb"][key] = {
-            "el": round(mean(el), 1) if mean(el) is not None else None,
-            "la": round(mean(la), 1) if mean(la) is not None else None,
-            "neu": round(mean(neu), 1) if mean(neu) is not None else None,
-            "all": round(mean(allc), 1) if mean(allc) is not None else None,
-            "el_tv": med(up_el), "la_tv": med(up_la), "neu_tv": med(neu),
-            "el_tang": round(100 * sum(1 for v in up_el if v > 0) / len(up_el)) if up_el else None,
-            "la_tang": round(100 * sum(1 for v in up_la if v > 0) / len(up_la)) if up_la else None,
-            "n_el": len(up_el), "n_la": len(up_la)}
+        for w, wn in WIN:
+            allc = [wchg(s, d, wn) for d in s]
+            el = [wchg(s, e["start"], wn) for e in eps if e["t"] == "el"]
+            la = [wchg(s, e["start"], wn) for e in eps if e["t"] == "la"]
+            neu = [wchg(s, d, wn) for d in s if d not in state]
+            up_el = [v for v in el if v is not None]
+            up_la = [v for v in la if v is not None]
+            res["tbw"][w][key] = {
+                "el": r1(mean(el)), "la": r1(mean(la)), "neu": r1(mean(neu)), "all": r1(mean(allc)),
+                "el_tv": med(up_el), "la_tv": med(up_la), "neu_tv": med(neu),
+                "el_tang": round(100 * sum(1 for v in up_el if v > 0) / len(up_el)) if up_el else None,
+                "la_tang": round(100 * sum(1 for v in up_la if v > 0) / len(up_la)) if up_la else None,
+                "n_el": len(up_el), "n_la": len(up_la)}
         # tuong quan: ONI tb 12 thang vs bien dong gia 12 thang sau do tre L thang
         tq = {}
         for lag in (0, 3, 6):
@@ -226,17 +240,23 @@ def analyse(px, o, eps):
                 yb.append(chg(s, _s(m0 - 12 + lag), _s(m0 + lag)))
             tq["l%d" % lag] = corr(xa, yb)
         res["tq"][key] = tq
+    res["tb"] = res["tbw"]["a12"]
     for e in eps:
         row = {"t": e["t"], "start": e["start"], "end": e["end"], "peak": e["peak"], "muc": e["muc"],
-               "dd": e["dang_dien_ra"], "ht": e["hinh_thanh"], "c": {}}
-        for key, *_ in SP:
-            end = _s(_m(e["start"]) + 12)
-            if e["dang_dien_ra"] and end not in px[key]:
-                # dot dang dien ra: tinh tu dau dot den thang co gia moi nhat
-                end = max(px[key])
-                row["den"] = end
-            v = chg(px[key], e["start"], end)
-            row["c"][key] = round(v, 1) if v is not None else None
+               "dd": e["dang_dien_ra"], "ht": e["hinh_thanh"], "w": {w: {} for w, _ in WIN}}
+        for w, wn in WIN:
+            for key, *_ in SP:
+                if wn < 0:
+                    v = wchg(px[key], e["start"], wn)
+                else:
+                    end = _s(_m(e["start"]) + wn)
+                    if e["dang_dien_ra"] and end not in px[key]:
+                        # dot dang dien ra: tinh tu dau dot den thang co gia moi nhat
+                        end = max(px[key])
+                        row["den"] = end
+                    v = chg(px[key], e["start"], end)
+                row["w"][w][key] = r1(v)
+        row["c"] = row["w"]["a12"]
         res["dot"].append(row)
     sk = []
     for d, mo_ta, ah in SU_KIEN:
