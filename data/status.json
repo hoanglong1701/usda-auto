@@ -84,5 +84,10 @@
   "ok": true,
   "at": "2026-10-23T03:32:54Z",
   "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 138000000/141800000, bac 1849000/1906000, ty gia 25835; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
+ },
+ "sua_trang_gia": {
+  "ok": true,
+  "at": "2026-10-23T03:42:03Z",
+  "msg": "da sua trang 111 (203491 -> 203684 ky tu) va trang 31 (887 -> 22172 ky tu); ban cu luu data/backup"
  }
 }
