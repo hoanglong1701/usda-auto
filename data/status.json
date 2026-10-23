@@ -79,5 +79,10 @@
   "ok": true,
   "at": "2026-10-23T03:30:22Z",
   "msg": "chay thu OK: vang SJC (theo Phú Quý) 138000000/141800000 (QT 4019.4), bac 1852000/1909000 (QT 54.122), ty gia 25835, 257/258 diem so sanh; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; loi: {\"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}"
+ },
+ "gia_vn": {
+  "ok": true,
+  "at": "2026-10-23T03:32:54Z",
+  "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 138000000/141800000, bac 1849000/1906000, ty gia 25835; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
  }
 }
