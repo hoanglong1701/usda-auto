@@ -26,7 +26,7 @@
  ],
  "orgs": {
   "ok": true,
-  "at": "2026-10-23T06:05:35Z",
+  "at": "2026-10-23T12:06:25Z",
   "msg": "CANH BAO IMF: 403 Client Error: Forbidden for url: https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH"
  },
  "wasde": {
@@ -97,7 +97,12 @@
  },
  "chan_doan": {
   "ok": true,
-  "at": "2026-10-23T10:33:04Z",
+  "at": "2026-10-23T12:06:20Z",
   "msg": "wp/gdhh247-toi-uu.php: cu phap OK | plugin: akismet 5.7.2 inactive; cache-enabler 1.8.17 active; classic-editor 1.7.0 active; hello 1.7.2 inactive; litespeed-cache 7.9.1 inactive; paid-member-subscriptions 3.1.0 active; seo-by-rank-math 1.0.280 active; redis-cache 3.0.0 active"
+ },
+ "lam_nong_cache": {
+  "ok": true,
+  "at": "2026-10-23T12:06:37Z",
+  "msg": "43 trang, lan 1 tb 1547 ms, lan 2 tb 1169 ms, 43/43 trang co cache"
  }
 }
