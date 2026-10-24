@@ -80,9 +80,10 @@
   "msg": "chay thu OK: vang SJC (theo Phú Quý) 138000000/141800000 (QT 4019.4), bac 1852000/1909000 (QT 54.122), ty gia 25835, 257/258 diem so sanh; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; loi: {\"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}"
  },
  "gia_vn": {
-  "ok": true,
-  "at": "2026-10-23T14:08:46Z",
-  "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 138000000/142000000, bac 1842000/1899000, ty gia 25815; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
+  "ok": false,
+  "at": "2026-10-24T07:58:54Z",
+  "error": "RuntimeError: Thieu nguon cot loi: {\"gold-api XAU\": \"HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolutionError(\\\"HTTPSConnection(host='api.gold\", \"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 71, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_vn.py\", line 242, in run\n    obj, notes, err = collect()\n                      ^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_vn.py\", line 195, in collect\n    raise RuntimeError(\"Thieu nguon cot loi: %s\" % json.dumps(err, ensure_ascii=False))\nRuntimeError: Thieu nguon cot loi: {\"gold-api XAU\": \"HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolutionError(\\\"HTTPSConnection(host='api.gold\", \"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}\n"
  },
  "sua_trang_gia": {
   "ok": true,
@@ -101,8 +102,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-24T06:00:39Z",
-  "msg": "43 trang, lan 1 tb 1070 ms, lan 2 tb 1076 ms, 43/43 trang co cache"
+  "at": "2026-10-24T07:59:02Z",
+  "msg": "23 trang, lan 1 tb 1549 ms, lan 2 tb 1266 ms, 23/23 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
