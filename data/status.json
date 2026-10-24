@@ -101,8 +101,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-24T01:09:53Z",
-  "msg": "43 trang, lan 1 tb 996 ms, lan 2 tb 928 ms, 43/43 trang co cache"
+  "at": "2026-10-24T04:48:46Z",
+  "msg": "43 trang, lan 1 tb 1688 ms, lan 2 tb 1332 ms, 43/43 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -116,7 +116,7 @@
  },
  "lich_kt": {
   "ok": true,
-  "at": "2026-10-23T17:29:39Z",
+  "at": "2026-10-24T04:48:14Z",
   "msg": "khong thay doi"
  }
 }
