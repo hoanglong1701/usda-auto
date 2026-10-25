@@ -101,8 +101,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-25T06:15:59Z",
-  "msg": "43 trang, lan 1 tb 994 ms, lan 2 tb 894 ms, 43/43 trang co cache"
+  "at": "2026-10-25T23:42:20Z",
+  "msg": "43 trang, lan 1 tb 1549 ms, lan 2 tb 1240 ms, 43/43 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -116,7 +116,7 @@
  },
  "lich_kt": {
   "ok": true,
-  "at": "2026-10-24T04:48:14Z",
-  "msg": "khong thay doi"
+  "at": "2026-10-25T23:41:48Z",
+  "msg": "dung khung Tuần 26/10 – 30/10/2026 (20 dong)"
  }
 }
