@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.5.2
+ * Version: 1.5.3
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -104,12 +104,14 @@ add_action( 'wp_head', function () {
 add_action( 'wp_footer', function () {
 	?>
 <script id="gdhh-watermark-js">(function(){
-var SEL='.entry-content svg,.entry-content canvas,.entry-content iframe,.entry-content img,.entry-content table,.ast-article-single img,.ast-blog-featured-section img,.post-thumb img';
+var DASH='.entry-content div[id^="gd"],.entry-content div[class^="gd"]';
+var SEL=DASH+',.entry-content svg,.entry-content canvas,.entry-content iframe,.entry-content img,.entry-content table,.ast-article-single img,.ast-blog-featured-section img,.post-thumb img';
 var BO='header,footer,nav,#masthead,.site-header,.site-footer,.ast-mobile-header-wrap,.gdwm,.gdwm-off,button,.wp-block-buttons';
 var L=[];
 function bad(e){
 	if(e.closest(BO)){return true}
-	if(e.parentElement&&e.parentElement.closest('svg')){return true}
+	var p=e.parentElement;
+	if(p&&(p.closest('svg')||p.closest(DASH))){return true}
 	if(e.tagName==='IMG'){var s=(e.currentSrc||e.src||'')+' '+(e.alt||'')+' '+e.className;if(/logo|icon|avatar|gravatar|emoji|qr|zalo/i.test(s)){return true}}
 	if(e.tagName==='TABLE'&&e.rows.length<3){return true}
 	return false;
@@ -134,7 +136,7 @@ function place(o){
 	w.className=r.height>600?'gdwm gdwm-t':'gdwm';
 }
 function scan(){
-	L=L.filter(function(o){if(o.e.isConnected){return true}o.w.remove();return false});
+	L=L.filter(function(o){if(!o.e.isConnected){o.w.remove();return false}if(!o.w.isConnected){o.h.appendChild(o.w)}return true});
 	var a=document.querySelectorAll(SEL);
 	for(var i=0;i<a.length;i++){
 		var e=a[i];
