@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.5.1
+ * Version: 1.5.2
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -76,6 +76,84 @@ add_action( 'wp_head', function () {
 		. '.ast-header-break-point .main-header-menu .sub-menu .menu-link{padding-top:9px!important;padding-bottom:9px!important;line-height:1.4!important}'
 		. '.ast-header-break-point .main-header-menu .ast-menu-toggle{height:46px!important;top:0!important}'
 		. '</style>';
+}, 99 );
+
+/* Watermark mờ (logo + chữ GDHH247) phủ lên mọi đồ thị, bảng số liệu, widget và ảnh lớn trong nội dung để ảnh
+ * chụp màn hình luôn mang dấu GDHH247. Lớp phủ nằm trên, không nhận chuột, không đổi bố cục trang; đồ thị vẽ lại
+ * bằng JS được quét lại mỗi 1,5 giây. Thêm class "gdwm-off" vào khối nào muốn bỏ watermark. */
+add_action( 'wp_head', function () {
+	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400">'
+		. '<g transform="translate(330 200) rotate(-24) translate(-295 -70)" fill="#6e6e6e" stroke="#6e6e6e">'
+		. '<circle cx="70" cy="70" r="58" fill="none" stroke-width="12"/>'
+		. '<path d="M44 96A34 34 0 1 1 98 92" fill="none" stroke-width="13"/>'
+		. '<path d="M38 104L118 24" fill="none" stroke-width="11"/>'
+		. '<path d="M104 12L142 0L130 38Z" stroke="none"/>'
+		. '<text x="150" y="98" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" stroke="none">GDHH247</text>'
+		. '<text x="154" y="136" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="5" stroke="none">PROFESSIONAL SERVICES</text>'
+		. '</g></svg>';
+	echo '<style id="gdhh-watermark">'
+		. '.gdwm{position:absolute;pointer-events:none;z-index:3;overflow:hidden}'
+		. '.gdwm:before{content:"";position:absolute;inset:0;margin:auto;max-width:620px;max-height:380px;'
+		. 'background:url("data:image/svg+xml,' . rawurlencode( $svg ) . '") center/contain no-repeat;opacity:.1}'
+		. '.gdwm.gdwm-t:before{max-width:none;max-height:none;background-size:min(88%,520px) auto;background-repeat:no-repeat repeat;background-position:center 40px}'
+		. '.gdwm span{position:absolute;right:6px;bottom:3px;font:600 10px/1.2 Arial,sans-serif;color:rgba(80,80,80,.45);white-space:nowrap}'
+		. '@media print{.gdwm:before{opacity:.15}}'
+		. '</style>';
+}, 99 );
+
+add_action( 'wp_footer', function () {
+	?>
+<script id="gdhh-watermark-js">(function(){
+var SEL='.entry-content svg,.entry-content canvas,.entry-content iframe,.entry-content img,.entry-content table,.ast-article-single img,.ast-blog-featured-section img,.post-thumb img';
+var BO='header,footer,nav,#masthead,.site-header,.site-footer,.ast-mobile-header-wrap,.gdwm,.gdwm-off,button,.wp-block-buttons';
+var L=[];
+function bad(e){
+	if(e.closest(BO)){return true}
+	if(e.parentElement&&e.parentElement.closest('svg')){return true}
+	if(e.tagName==='IMG'){var s=(e.currentSrc||e.src||'')+' '+(e.alt||'')+' '+e.className;if(/logo|icon|avatar|gravatar|emoji|qr|zalo/i.test(s)){return true}}
+	if(e.tagName==='TABLE'&&e.rows.length<3){return true}
+	return false;
+}
+function host(e){
+	var p=e.parentElement;
+	while(p&&p!==document.body){
+		var c=getComputedStyle(p);
+		if(c.position!=='static'){return p}
+		if(/auto|scroll|hidden/.test(c.overflowX+c.overflowY)){p.style.position='relative';return p}
+		p=p.parentElement;
+	}
+	return document.body;
+}
+function place(o){
+	var e=o.e,w=o.w,r=e.getBoundingClientRect();
+	if(r.width<200||r.height<110){w.style.display='none';return}
+	var t,l;
+	if(o.h===document.body&&getComputedStyle(document.body).position==='static'){t=r.top+window.pageYOffset;l=r.left+window.pageXOffset}
+	else{var hr=o.h.getBoundingClientRect();t=r.top-hr.top-o.h.clientTop+o.h.scrollTop;l=r.left-hr.left-o.h.clientLeft+o.h.scrollLeft}
+	w.style.cssText='display:block;top:'+t+'px;left:'+l+'px;width:'+r.width+'px;height:'+r.height+'px';
+	w.className=r.height>600?'gdwm gdwm-t':'gdwm';
+}
+function scan(){
+	L=L.filter(function(o){if(o.e.isConnected){return true}o.w.remove();return false});
+	var a=document.querySelectorAll(SEL);
+	for(var i=0;i<a.length;i++){
+		var e=a[i];
+		if(e.__gdwm||bad(e)){continue}
+		var r=e.getBoundingClientRect();
+		if(r.width<200||r.height<110){continue}
+		var w=document.createElement('div');w.className='gdwm';w.setAttribute('aria-hidden','true');
+		w.innerHTML='<span>© GDHH247 · giaodichhanghoa247.vn</span>';
+		var h=host(e);h.appendChild(w);e.__gdwm=1;L.push({e:e,w:w,h:h});
+	}
+	L.forEach(place);
+}
+var q=0;function later(){if(!q){q=1;requestAnimationFrame(function(){q=0;L.forEach(place)})}}
+window.addEventListener('resize',later);
+document.addEventListener('scroll',function(ev){if(ev.target!==document){later()}},true);
+window.addEventListener('load',scan);
+scan();setInterval(scan,1500);
+})();</script>
+	<?php
 }, 99 );
 
 /* Bỏ các thẻ head không cần thiết. */
