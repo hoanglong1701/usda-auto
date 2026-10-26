@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.5.0
+ * Version: 1.5.1
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -66,6 +66,18 @@ add_action( 'wp_enqueue_scripts', 'gdhh_dequeue_assets', 999 );
 add_action( 'wp_print_styles', 'gdhh_dequeue_assets', 1 );
 add_action( 'wp_print_footer_scripts', 'gdhh_dequeue_assets', 1 );
 
+/* Menu trên điện thoại: Astra đặt chiều cao 100% cho dòng menu cấp 1 và CSS tùy biến (khung xổ xuống của
+ * bản máy tính) cắt phần thừa, làm dòng cha cao bất thường và che mất mục con. Trả về dạng danh sách dọc gọn. */
+add_action( 'wp_head', function () {
+	echo '<style id="gdhh-menu-mobile">'
+		. '.ast-header-break-point .main-header-menu>.menu-item>.menu-link{height:auto!important;padding-top:12px!important;padding-bottom:12px!important;line-height:1.4!important}'
+		. '.ast-header-break-point .main-header-menu .menu-item{flex-direction:column;justify-content:flex-start!important}'
+		. '.ast-header-break-point .main-header-menu .sub-menu{flex-shrink:0!important;overflow:visible!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0 0 6px!important;background:transparent!important}'
+		. '.ast-header-break-point .main-header-menu .sub-menu .menu-link{padding-top:9px!important;padding-bottom:9px!important;line-height:1.4!important}'
+		. '.ast-header-break-point .main-header-menu .ast-menu-toggle{height:46px!important;top:0!important}'
+		. '</style>';
+}, 99 );
+
 /* Bỏ các thẻ head không cần thiết. */
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rsd_link' );
@@ -98,16 +110,26 @@ add_filter( 'rank_math/json_ld', function ( $data ) {
 	return $data;
 }, 99 );
 
+/* Trang dữ liệu ẩn: các ID cố định ở trên, hoặc trang có slug bắt đầu bằng du-lieu- (job GitHub tự tạo, vd du-lieu-cot). */
+function gdhh_is_data_page( $id = 0 ) {
+	$id = $id ? (int) $id : ( is_page() ? (int) get_queried_object_id() : 0 );
+	if ( ! $id ) {
+		return false;
+	}
+	return in_array( $id, GDHH_DATA_PAGES, true )
+		|| ( 'page' === get_post_type( $id ) && 0 === strpos( (string) get_post_field( 'post_name', $id ), 'du-lieu-' ) );
+}
+
 /* Trang dữ liệu ẩn: noindex + X-Robots-Tag (phòng khi Rank Math bị đổi cấu hình). */
 add_action( 'template_redirect', function () {
-	if ( is_page( GDHH_DATA_PAGES ) ) {
+	if ( gdhh_is_data_page() ) {
 		header( 'X-Robots-Tag: noindex, nofollow', true );
 	}
 } );
 
 /* Rank Math: trang dữ liệu ẩn luôn noindex trong thẻ meta (khớp với X-Robots-Tag ở trên). */
 add_filter( 'rank_math/frontend/robots', function ( $robots ) {
-	if ( is_page( GDHH_DATA_PAGES ) ) {
+	if ( gdhh_is_data_page() ) {
 		$robots['index']  = 'noindex';
 		$robots['follow'] = 'nofollow';
 	}
@@ -115,7 +137,7 @@ add_filter( 'rank_math/frontend/robots', function ( $robots ) {
 } );
 
 /* Trang cũ 32–35 chỉ có 1 câu "đang hoàn thiện": chuyển hướng 301 sang trang phân tích tương ứng. */
-const GDHH_REDIRECTS = array( 32 => 300, 33 => 299, 34 => 301, 35 => 302 );
+const GDHH_REDIRECTS = array( 32 => 300, 33 => 299, 34 => 301, 35 => 302, 28 => 21 ); /* 28: Tin tức nhanh cũ (tĩnh, 24/9) về trang chủ */
 
 add_action( 'template_redirect', function () {
 	foreach ( GDHH_REDIRECTS as $from => $to ) {
@@ -129,8 +151,8 @@ add_action( 'template_redirect', function () {
 /* Sitemap: bỏ trang dữ liệu ẩn, trang đã chuyển hướng và trang mẫu. */
 add_filter( 'rank_math/sitemap/entry', function ( $url, $type, $object ) {
 	if ( 'post' === $type && isset( $object->ID ) ) {
-		$skip = array_merge( GDHH_DATA_PAGES, array_keys( GDHH_REDIRECTS ), array( 2 ) );
-		if ( in_array( (int) $object->ID, $skip, true ) ) {
+		$skip = array_merge( array_keys( GDHH_REDIRECTS ), array( 2 ) );
+		if ( in_array( (int) $object->ID, $skip, true ) || gdhh_is_data_page( $object->ID ) ) {
 			return false;
 		}
 	}
@@ -144,6 +166,20 @@ add_filter( 'rank_math/frontend/title', function ( $title ) {
 	}
 	return $title;
 } );
+
+/* Chạy một lần: trang Năng lượng (302) đã có nội dung đầy đủ, cho phép Google lập chỉ mục. */
+add_action( 'init', function () {
+	if ( get_option( 'gdhh_seo_302' ) === '1.5.1' ) {
+		return;
+	}
+	update_post_meta( 302, 'rank_math_title', 'Phân tích năng lượng: cung cầu dầu thô, khí tự nhiên, top 10 quốc gia' );
+	update_post_meta( 302, 'rank_math_description', 'Top 10 quốc gia sản xuất, tiêu thụ, xuất nhập khẩu dầu thô và khí tự nhiên, dầu thô xuất đi đâu, báo cáo OPEC, IEA, EIA, vị thế COT và các tuyến vận chuyển năng lượng quan trọng.' );
+	update_post_meta( 302, 'rank_math_robots', array( 'index' ) );
+	update_option( 'gdhh_seo_302', '1.5.1', false );
+	if ( class_exists( '\RankMath\Sitemap\Cache' ) ) {
+		\RankMath\Sitemap\Cache::invalidate_storage();
+	}
+}, 21 );
 
 /* Chạy một lần: tiêu đề, mô tả, robots cho trang 300–302 và mô tả 5 chuyên mục. Đổi khóa để chạy lại. */
 add_action( 'init', function () {
