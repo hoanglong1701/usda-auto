@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.5.3
+ * Version: 1.6.0
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -473,6 +473,281 @@ add_action( 'gdhh_webp_batch', function () {
 		gdhh_webp_attachment( (int) $id );
 	}
 	update_option( 'gdhh_webp_last', (int) end( $ids ), false );
+} );
+
+/* ---------------------------------------------------------------------------
+ * 2d. In watermark GDHH247 thẳng vào file ảnh (JPG/PNG) để ảnh tải về cũng mang dấu.
+ *     Trước khi ghi đè, mọi file (ảnh gốc, các cỡ, bản .webp) được chép nguyên vào thư mục
+ *     gdhh-anh-goc nằm ngoài public_html (không truy cập được từ web), cùng cấu trúc năm/tháng.
+ *     Ảnh mới: in ngay khi tải lên (trước bước tạo WebP). Ảnh cũ: WP-Cron mỗi giờ 10 ảnh,
+ *     hoặc gọi REST /gdhh/v1/watermark (quản trị viên) để chạy nhanh. Bỏ qua logo, icon, QR,
+ *     ảnh thương hiệu gdhh247-* và ảnh nhỏ hơn 300x200. Hai file PNG dấu nằm cạnh file này.
+ * ------------------------------------------------------------------------- */
+
+function gdhh_wm_backup_dir() {
+	$out = dirname( untrailingslashit( ABSPATH ) ) . '/gdhh-anh-goc';
+	if ( @is_dir( $out ) || @wp_mkdir_p( $out ) ) { // phpcs:ignore
+		return $out;
+	}
+	/* Dự phòng: trong uploads nhưng chặn truy cập web. */
+	$up  = wp_get_upload_dir();
+	$out = $up['basedir'] . '/gdhh-anh-goc';
+	if ( wp_mkdir_p( $out ) && ! file_exists( $out . '/.htaccess' ) ) {
+		file_put_contents( $out . '/.htaccess', "Require all denied\nDeny from all\n" );
+		file_put_contents( $out . '/index.php', '<?php // Silence.' );
+	}
+	return $out;
+}
+
+/* Chép file vào thư mục sao lưu (chỉ lần đầu, không ghi đè bản gốc đã lưu). */
+function gdhh_wm_backup( $file ) {
+	$up  = wp_get_upload_dir();
+	$rel = ltrim( substr( $file, strlen( $up['basedir'] ) ), '/' );
+	if ( 0 !== strpos( $file, $up['basedir'] ) || '' === $rel ) {
+		return false;
+	}
+	$dst = gdhh_wm_backup_dir() . '/' . $rel;
+	if ( file_exists( $dst ) ) {
+		return true;
+	}
+	wp_mkdir_p( dirname( $dst ) );
+	return @copy( $file, $dst ) && filesize( $dst ) === filesize( $file ); // phpcs:ignore
+}
+
+function gdhh_wm_marks() {
+	static $m = null;
+	if ( null === $m ) {
+		$m = false;
+		$a = __DIR__ . '/gdhh-watermark.png';
+		$b = __DIR__ . '/gdhh-watermark-goc.png';
+		if ( function_exists( 'imagecreatefrompng' ) && file_exists( $a ) && file_exists( $b ) ) {
+			$m = array( imagecreatefrompng( $a ), imagecreatefrompng( $b ) );
+		}
+	}
+	return $m;
+}
+
+/* Thu nhỏ ảnh dấu (giữ kênh trong suốt). */
+function gdhh_wm_scale( $src, $w ) {
+	$h   = max( 1, (int) round( imagesy( $src ) * $w / imagesx( $src ) ) );
+	$dst = imagecreatetruecolor( $w, $h );
+	imagealphablending( $dst, false );
+	imagesavealpha( $dst, true );
+	imagefill( $dst, 0, 0, imagecolorallocatealpha( $dst, 0, 0, 0, 127 ) );
+	imagecopyresampled( $dst, $src, 0, 0, 0, 0, $w, $h, imagesx( $src ), imagesy( $src ) );
+	return $dst;
+}
+
+/* In dấu vào một file. Trả về 'ok', 'nho' (ảnh nhỏ, để nguyên) hoặc 'loi'. */
+function gdhh_wm_stamp( $file ) {
+	$marks = gdhh_wm_marks();
+	if ( ! $marks || ! file_exists( $file ) ) {
+		return 'loi';
+	}
+	$info = @getimagesize( $file ); // phpcs:ignore
+	if ( ! $info ) {
+		return 'loi';
+	}
+	list( $w, $h ) = $info;
+	if ( $w < 300 || $h < 200 ) {
+		return 'nho';
+	}
+	wp_raise_memory_limit( 'image' );
+	if ( IMAGETYPE_JPEG === $info[2] ) {
+		$im = @imagecreatefromjpeg( $file ); // phpcs:ignore
+	} elseif ( IMAGETYPE_PNG === $info[2] ) {
+		$im = @imagecreatefrompng( $file ); // phpcs:ignore
+	} else {
+		return 'loi';
+	}
+	if ( ! $im ) {
+		return 'loi';
+	}
+	if ( ! imageistruecolor( $im ) ) {
+		imagepalettetotruecolor( $im );
+	}
+	imagealphablending( $im, true );
+	imagesavealpha( $im, true );
+
+	/* Dấu chính rộng 70% ảnh (tối đa 1000px), ở giữa; ảnh cao thì lặp theo chiều dọc. */
+	$big  = gdhh_wm_scale( $marks[0], (int) min( 1000, round( $w * 0.7 ) ) );
+	$bw   = imagesx( $big );
+	$bh   = imagesy( $big );
+	$x    = (int) ( ( $w - $bw ) / 2 );
+	$step = (int) round( $bh * 1.15 );
+	if ( $h > $bh * 1.8 ) {
+		$n  = (int) floor( ( $h - $bh ) / $step ) + 1;
+		$y0 = (int) ( ( $h - ( ( $n - 1 ) * $step + $bh ) ) / 2 );
+		for ( $i = 0; $i < $n; $i++ ) {
+			imagecopy( $im, $big, $x, $y0 + $i * $step, 0, 0, $bw, $bh );
+		}
+	} else {
+		imagecopy( $im, $big, $x, (int) ( ( $h - $bh ) / 2 ), 0, 0, $bw, $bh );
+	}
+	imagedestroy( $big );
+
+	/* Dòng chữ nhỏ góc dưới phải. */
+	$tag = gdhh_wm_scale( $marks[1], (int) max( 140, min( 320, round( $w * 0.3 ) ) ) );
+	imagecopy( $im, $tag, $w - imagesx( $tag ) - 6, $h - imagesy( $tag ) - 4, 0, 0, imagesx( $tag ), imagesy( $tag ) );
+	imagedestroy( $tag );
+
+	$tmp = $file . '.gdwm-tmp';
+	$ok  = IMAGETYPE_JPEG === $info[2] ? imagejpeg( $im, $tmp, 88 ) : imagepng( $im, $tmp, 6 );
+	imagedestroy( $im );
+	if ( ! $ok || ! @rename( $tmp, $file ) ) { // phpcs:ignore
+		@unlink( $tmp ); // phpcs:ignore
+		return 'loi';
+	}
+	return 'ok';
+}
+
+function gdhh_wm_skip( $file ) {
+	return (bool) preg_match( '/(logo|icon|favicon|avatar|qr|zalo|gdhh247-)/i', wp_basename( $file ) );
+}
+
+/* Danh sách file của một ảnh: bản gốc chưa thu nhỏ (nếu có), file chính, các cỡ. */
+function gdhh_wm_files( $att_id, $meta ) {
+	$file = get_attached_file( $att_id );
+	if ( ! $file ) {
+		return array();
+	}
+	$dir   = dirname( $file );
+	$files = array( $file );
+	if ( ! empty( $meta['original_image'] ) ) {
+		$files[] = path_join( $dir, $meta['original_image'] );
+	}
+	if ( ! empty( $meta['sizes'] ) ) {
+		foreach ( $meta['sizes'] as $s ) {
+			$files[] = path_join( $dir, $s['file'] );
+		}
+	}
+	return array_values( array_unique( $files ) );
+}
+
+/* In dấu cho một ảnh. $fresh = true khi vừa tải lên (chưa có .webp). */
+function gdhh_wm_attachment( $att_id, $meta = null, $fresh = false ) {
+	if ( get_post_meta( $att_id, '_gdhh_wm', true ) ) {
+		return 'da-co';
+	}
+	$mime = get_post_mime_type( $att_id );
+	if ( ! in_array( $mime, array( 'image/jpeg', 'image/png' ), true ) ) {
+		return 'khong-ho-tro';
+	}
+	$meta  = $meta ? $meta : wp_get_attachment_metadata( $att_id );
+	$files = gdhh_wm_files( $att_id, $meta );
+	if ( ! $files || gdhh_wm_skip( $files[0] ) ) {
+		update_post_meta( $att_id, '_gdhh_wm', 'bo-qua' );
+		return 'bo-qua';
+	}
+	if ( ! gdhh_wm_marks() ) {
+		return 'thieu-gd';
+	}
+	/* Sao lưu toàn bộ trước, lỗi một file là dừng, không đụng gì. */
+	foreach ( $files as $f ) {
+		$webp = gdhh_webp_path( $f );
+		if ( ( file_exists( $f ) && ! gdhh_wm_backup( $f ) ) || ( file_exists( $webp ) && ! gdhh_wm_backup( $webp ) ) ) {
+			return 'loi-sao-luu';
+		}
+	}
+	$kq = array();
+	foreach ( $files as $f ) {
+		$r = file_exists( $f ) ? gdhh_wm_stamp( $f ) : 'thieu';
+		$kq[] = $r;
+		/* Bản .webp đang được trang trỏ tới: tạo lại từ ảnh đã in dấu (ghi đè, kể cả khi không nhỏ hơn). */
+		if ( 'ok' === $r && ! $fresh && file_exists( gdhh_webp_path( $f ) ) ) {
+			$ed = wp_get_image_editor( $f );
+			if ( ! is_wp_error( $ed ) ) {
+				$ed->set_quality( 80 );
+				$ed->save( gdhh_webp_path( $f ), 'image/webp' );
+			}
+		}
+	}
+	update_post_meta( $att_id, '_gdhh_wm', in_array( 'loi', $kq, true ) ? 'loi' : '1' );
+	return implode( ',', $kq );
+}
+
+/* Khôi phục ảnh gốc từ thư mục sao lưu. */
+function gdhh_wm_restore( $att_id ) {
+	$up    = wp_get_upload_dir();
+	$bak   = gdhh_wm_backup_dir();
+	$n     = 0;
+	$files = gdhh_wm_files( $att_id, wp_get_attachment_metadata( $att_id ) );
+	foreach ( $files as $f ) {
+		foreach ( array( $f, gdhh_webp_path( $f ) ) as $g ) {
+			$src = $bak . '/' . ltrim( substr( $g, strlen( $up['basedir'] ) ), '/' );
+			if ( file_exists( $src ) && @copy( $src, $g ) ) { // phpcs:ignore
+				$n++;
+			}
+		}
+	}
+	/* Đánh dấu để lượt chạy sau không in lại. */
+	update_post_meta( $att_id, '_gdhh_wm', 'khoi-phuc' );
+	return $n;
+}
+
+/* Ảnh mới tải lên: in dấu trước bước tạo WebP (ưu tiên 20). */
+add_filter( 'wp_generate_attachment_metadata', function ( $meta, $att_id ) {
+	gdhh_wm_attachment( $att_id, $meta, true );
+	return $meta;
+}, 15, 2 );
+
+function gdhh_wm_batch( $n ) {
+	global $wpdb;
+	$ids = $wpdb->get_col( $wpdb->prepare(
+		"SELECT p.ID FROM {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key = '_gdhh_wm'
+		WHERE p.post_type = 'attachment' AND p.post_mime_type IN ('image/jpeg','image/png') AND m.meta_id IS NULL
+		ORDER BY p.ID ASC LIMIT %d",
+		$n
+	) );
+	$out = array();
+	foreach ( $ids as $id ) {
+		$out[ $id ] = gdhh_wm_attachment( (int) $id );
+	}
+	return $out;
+}
+
+add_action( 'init', function () {
+	if ( ! wp_next_scheduled( 'gdhh_wm_batch' ) && get_option( 'gdhh_wm_done' ) !== '1' ) {
+		wp_schedule_event( time() + 120, 'hourly', 'gdhh_wm_batch' );
+	}
+} );
+
+add_action( 'gdhh_wm_batch', function () {
+	if ( ! gdhh_wm_marks() ) {
+		return;
+	}
+	if ( ! gdhh_wm_batch( 10 ) ) {
+		update_option( 'gdhh_wm_done', '1', false );
+		wp_clear_scheduled_hook( 'gdhh_wm_batch' );
+	}
+} );
+
+/* REST cho quản trị viên: GET xem trạng thái; ?n=10 chạy một lượt; ?khoi_phuc=ID trả lại ảnh gốc. */
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'gdhh/v1', '/watermark', array(
+		'methods'             => 'GET',
+		'permission_callback' => function () {
+			return current_user_can( 'manage_options' );
+		},
+		'callback'            => function ( $req ) {
+			global $wpdb;
+			$res = array(
+				'gd'       => function_exists( 'imagecreatefromjpeg' ) && function_exists( 'imagecreatefrompng' ),
+				'dau'      => (bool) gdhh_wm_marks(),
+				'sao_luu'  => gdhh_wm_backup_dir(),
+			);
+			if ( $req['khoi_phuc'] ) {
+				$res['khoi_phuc'] = gdhh_wm_restore( (int) $req['khoi_phuc'] );
+			} elseif ( $req['n'] ) {
+				$res['lam'] = gdhh_wm_batch( min( 30, max( 1, (int) $req['n'] ) ) );
+			}
+			$res['con_lai'] = (int) $wpdb->get_var(
+				"SELECT COUNT(*) FROM {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key = '_gdhh_wm'
+				WHERE p.post_type = 'attachment' AND p.post_mime_type IN ('image/jpeg','image/png') AND m.meta_id IS NULL"
+			);
+			return $res;
+		},
+	) );
 } );
 
 /* ---------------------------------------------------------------------------
