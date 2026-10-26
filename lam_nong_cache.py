@@ -15,7 +15,7 @@ TRANG = [
     "/index.php/phan-tich-nong-san/", "/index.php/phan-tich-kim-loai/", "/index.php/phan-tich-nguyen-lieu-cong-nghiep/",
     "/index.php/khuyen-nghi-ket-qua-khuyen-nghi/", "/index.php/tong-quat-kinh-te-the-gioi/",
     "/index.php/category/kim-loai/", "/index.php/category/nong-san/", "/index.php/category/nang-luong/",
-    "/index.php/category/tin-tuc-vi-mo/", "/index.php/category/khuyen-nghi/",
+    "/index.php/category/tin-tuc-vi-mo/", "/index.php/category/khuyen-nghi/", "/index.php/phan-tich-nang-luong/",
 ]
 # trinh duyet that (Cache Enabler khong phan biet thiet bi, nhung gui UA nhu nguoi doc)
 HDR = {"User-Agent": wp.UA, "Accept": "text/html", "Accept-Encoding": "gzip"}

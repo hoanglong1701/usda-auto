@@ -75,6 +75,15 @@ def get_raw(pid):
     return r.json()["content"]["raw"]
 
 
+def backup_raw(pid, raw):
+    """Luu noi dung cu cua trang vao data/backup/trang<id>_<ngay>.html truoc khi ghi de."""
+    os.makedirs(os.path.join("data", "backup"), exist_ok=True)
+    p = os.path.join("data", "backup", "trang%d_%s.html" % (pid, datetime.date.today().isoformat()))
+    if not os.path.exists(p):
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(raw)
+
+
 def set_raw(pid, content):
     """Ghi de toan bo content cua trang pid. Tra ve noi dung doc lai de nguoi goi
     tu kiem tra (WordPress co the chuan hoa nhe whitespace nen khong so sanh byte-for-byte)."""
