@@ -1,0 +1,7013 @@
+[
+ {
+  "id": 36,
+  "title": {
+   "raw": "Trang chủ",
+   "rendered": "Trang chủ"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 21,
+  "parent": 0,
+  "menu_order": 1,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/36",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=36"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/21"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/36"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/36"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/36"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/36"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 116,
+  "title": {
+   "raw": "Trang chủ",
+   "rendered": "Trang chủ"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 21,
+  "parent": 0,
+  "menu_order": 1,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/116",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=116"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/21"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/116"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/116"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/116"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/116"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 49,
+  "title": {
+   "raw": "Đăng nhập",
+   "rendered": "Đăng nhập"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/dang-nhap-thanh-vien/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 11,
+  "parent": 40,
+  "menu_order": 1,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/49",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=49"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/49"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/49"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/49"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/49"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 42,
+  "title": {
+   "raw": "Kim loại",
+   "rendered": "Kim loại"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/kim-loai/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 32,
+  "parent": 37,
+  "menu_order": 1,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/42",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=42"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/32"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/42"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/42"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/42"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/42"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 46,
+  "title": {
+   "raw": "Khuyến nghị giao dịch",
+   "rendered": "Khuyến nghị giao dịch"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/?page_id=29",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 29,
+  "parent": 39,
+  "menu_order": 1,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/46",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=46"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/29"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/46"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/46"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/46"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/46"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 117,
+  "title": {
+   "raw": "Phân tích thị trường",
+   "rendered": "Phân tích thị trường"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-thi-truong/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 106,
+  "parent": 0,
+  "menu_order": 2,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/117",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=117"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/106"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/117"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/117"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/117"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/117"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 50,
+  "title": {
+   "raw": "Đăng ký",
+   "rendered": "Đăng ký"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/dang-ky-thanh-vien/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 8,
+  "parent": 40,
+  "menu_order": 2,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/50",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=50"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/8"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/50"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/50"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/50"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/50"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 47,
+  "title": {
+   "raw": "Dashboard tổng hợp",
+   "rendered": "Dashboard tổng hợp"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/dashboard-tong-hop/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 30,
+  "parent": 39,
+  "menu_order": 2,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/47",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=47"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/30"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/47"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/47"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/47"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/47"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 37,
+  "title": {
+   "raw": "Phân tích thị trường",
+   "rendered": "Phân tích thị trường"
+  },
+  "status": "publish",
+  "url": "#",
+  "attr_title": "",
+  "description": "",
+  "type": "custom",
+  "type_label": "Link tùy chọn",
+  "object": "custom",
+  "object_id": 37,
+  "parent": 0,
+  "menu_order": 2,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/37",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=37"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/37"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/37"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/37"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/37"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 43,
+  "title": {
+   "raw": "Nông sản",
+   "rendered": "Nông sản"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/nong-san/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 33,
+  "parent": 37,
+  "menu_order": 2,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/43",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=43"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/33"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/43"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/43"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/43"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/43"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 38,
+  "title": {
+   "raw": "Tin tức nhanh",
+   "rendered": "Tin tức nhanh"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/tin-tuc-nhanh/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 28,
+  "parent": 0,
+  "menu_order": 3,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/38",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=38"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/28"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/38"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/38"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/38"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/38"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 44,
+  "title": {
+   "raw": "Nguyên liệu công nghiệp",
+   "rendered": "Nguyên liệu công nghiệp"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/nguyen-lieu-cong-nghiep/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 34,
+  "parent": 37,
+  "menu_order": 3,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/44",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=44"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/34"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/44"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/44"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/44"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/44"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 48,
+  "title": {
+   "raw": "Giá thế giới trực tuyến",
+   "rendered": "Giá thế giới trực tuyến"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/gia-the-gioi-truc-tuyen/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 31,
+  "parent": 39,
+  "menu_order": 3,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/48",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=48"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/31"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/48"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/48"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/48"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/48"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 237,
+  "title": {
+   "raw": "Tin tức nhanh",
+   "rendered": "Tin tức nhanh"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/tin-tuc-nhanh/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 28,
+  "parent": 117,
+  "menu_order": 3,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/237",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=237"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/28"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/237"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/237"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/237"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/237"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 39,
+  "title": {
+   "raw": "Khuyến nghị & Dashboard",
+   "rendered": "Khuyến nghị &#038; Dashboard"
+  },
+  "status": "publish",
+  "url": "#",
+  "attr_title": "",
+  "description": "",
+  "type": "custom",
+  "type_label": "Link tùy chọn",
+  "object": "custom",
+  "object_id": 39,
+  "parent": 0,
+  "menu_order": 4,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/39",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=39"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/39"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/39"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/39"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/39"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 119,
+  "title": {
+   "raw": "Tổng hợp các báo cáo",
+   "rendered": "Tổng hợp các báo cáo"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-thi-truong/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 106,
+  "parent": 117,
+  "menu_order": 4,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/119",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=119"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/106"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/119"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/119"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/119"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/119"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 45,
+  "title": {
+   "raw": "Năng lượng (sắp mở lại)",
+   "rendered": "Năng lượng (sắp mở lại)"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/nang-luong/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 35,
+  "parent": 37,
+  "menu_order": 4,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/45",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=45"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/35"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/45"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/45"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/45"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/45"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 1200,
+  "title": {
+   "raw": "Tổng quát về kinh tế thế giới",
+   "rendered": "Tổng quát về kinh tế thế giới"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/tong-quat-kinh-te-the-gioi/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 1199,
+  "parent": 117,
+  "menu_order": 5,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/1200",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=1200"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/1199"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/1200"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/1200"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/1200"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/1200"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 40,
+  "title": {
+   "raw": "Đăng ký / Đăng nhập",
+   "rendered": "Đăng ký / Đăng nhập"
+  },
+  "status": "publish",
+  "url": "#",
+  "attr_title": "",
+  "description": "",
+  "type": "custom",
+  "type_label": "Link tùy chọn",
+  "object": "custom",
+  "object_id": 40,
+  "parent": 0,
+  "menu_order": 5,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/40",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=40"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/40"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/40"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/40"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/40"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 59,
+  "title": {
+   "raw": "Zalo",
+   "rendered": "Zalo"
+  },
+  "status": "publish",
+  "url": "https://zalo.me/0921996911",
+  "attr_title": "",
+  "description": "",
+  "type": "custom",
+  "type_label": "Link tùy chọn",
+  "object": "custom",
+  "object_id": 59,
+  "parent": 0,
+  "menu_order": 6,
+  "target": "_blank",
+  "classes": [
+   "gdhh-social-icon",
+   "gdhh-social-zalo"
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/59",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=59"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/59"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/59"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/59"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/59"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 121,
+  "title": {
+   "raw": "Phân tích chuyên sâu",
+   "rendered": "Phân tích chuyên sâu"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-chuyen-sau/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 107,
+  "parent": 0,
+  "menu_order": 6,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/121",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=121"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/107"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/121"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/121"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/121"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/121"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 41,
+  "title": {
+   "raw": "Gói Subscription",
+   "rendered": "Gói Subscription"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/pricing/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 18,
+  "parent": 0,
+  "menu_order": 6,
+  "target": "",
+  "classes": [
+   "gdhh-cta-btn"
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 3,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/41",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=41"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/18"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/41"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/41"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/41"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/41"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 122,
+  "title": {
+   "raw": "Nông sản",
+   "rendered": "Nông sản"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-nong-san/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 299,
+  "parent": 121,
+  "menu_order": 7,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/122",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=122"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/299"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/122"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/122"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/122"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/122"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 123,
+  "title": {
+   "raw": "Kim loại",
+   "rendered": "Kim loại"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-kim-loai/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 300,
+  "parent": 121,
+  "menu_order": 8,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/123",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=123"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/300"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/123"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/123"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/123"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/123"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 304,
+  "title": {
+   "raw": "Nguyên liệu công nghiệp",
+   "rendered": "Nguyên liệu công nghiệp"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-nguyen-lieu-cong-nghiep/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 301,
+  "parent": 121,
+  "menu_order": 9,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/304",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=304"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/301"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/304"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/304"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/304"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/304"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 305,
+  "title": {
+   "raw": "Năng lượng",
+   "rendered": "Năng lượng"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/phan-tich-nang-luong/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 302,
+  "parent": 121,
+  "menu_order": 10,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/305",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=305"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/302"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/305"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/305"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/305"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/305"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 306,
+  "title": {
+   "raw": "Khuyến nghị",
+   "rendered": "Khuyến nghị"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/khuyen-nghi-ket-qua-khuyen-nghi/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 303,
+  "parent": 121,
+  "menu_order": 11,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/306",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=306"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/303"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/306"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/306"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/306"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/306"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 124,
+  "title": {
+   "raw": "Vàng bạc vật chất",
+   "rendered": "Vàng bạc vật chất"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/kim-loai-quy/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 111,
+  "parent": 0,
+  "menu_order": 12,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/124",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=124"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/111"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/124"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/124"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/124"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/124"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 125,
+  "title": {
+   "raw": "Kiến thức đầu tư",
+   "rendered": "Kiến thức đầu tư"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/kien-thuc-dau-tu/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 112,
+  "parent": 0,
+  "menu_order": 13,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/125",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=125"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/112"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/125"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/125"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/125"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/125"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 126,
+  "title": {
+   "raw": "Về GDHH247",
+   "rendered": "Về GDHH247"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/ve-gdhh247/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 113,
+  "parent": 0,
+  "menu_order": 14,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/126",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=126"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/113"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/126"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/126"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/126"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/126"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 127,
+  "title": {
+   "raw": "Giới thiệu GDHH247",
+   "rendered": "Giới thiệu GDHH247"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/dong-hanh-cung-giao-dich-hang-hoa-247/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 79,
+  "parent": 126,
+  "menu_order": 15,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/127",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=127"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/79"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/127"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/127"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/127"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/127"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 128,
+  "title": {
+   "raw": "Trở thành đối tác",
+   "rendered": "Trở thành đối tác"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/tuyen-dung-doi-tac-kinh-doanh-doi-ngu-gdhh247/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 78,
+  "parent": 126,
+  "menu_order": 16,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/128",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=128"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/78"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/128"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/128"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/128"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/128"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 129,
+  "title": {
+   "raw": "Liên hệ",
+   "rendered": "Liên hệ"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/lien-he-ho-tro/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 80,
+  "parent": 126,
+  "menu_order": 17,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/129",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=129"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/80"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/129"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/129"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/129"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/129"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 130,
+  "title": {
+   "raw": "Mở tài khoản GDHH",
+   "rendered": "Mở tài khoản GDHH"
+  },
+  "status": "publish",
+  "url": "https://giaodichhanghoa247.vn/index.php/mo-tai-khoan-gdhh/",
+  "attr_title": "",
+  "description": "",
+  "type": "post_type",
+  "type_label": "Trang",
+  "object": "page",
+  "object_id": 114,
+  "parent": 126,
+  "menu_order": 18,
+  "target": "",
+  "classes": [
+   ""
+  ],
+  "xfn": [
+   ""
+  ],
+  "invalid": false,
+  "meta": {
+   "site-sidebar-layout": "default",
+   "site-content-layout": "",
+   "ast-site-content-layout": "default",
+   "site-content-style": "default",
+   "site-sidebar-style": "default",
+   "ast-global-header-display": "",
+   "ast-banner-title-visibility": "",
+   "ast-main-header-display": "",
+   "ast-hfb-above-header-display": "",
+   "ast-hfb-below-header-display": "",
+   "ast-hfb-mobile-header-display": "",
+   "site-post-title": "",
+   "ast-breadcrumbs-content": "",
+   "ast-featured-img": "",
+   "footer-sml-layout": "",
+   "ast-disable-related-posts": "",
+   "theme-transparent-header-meta": "",
+   "adv-header-id-meta": "",
+   "stick-header-meta": "",
+   "header-above-stick-meta": "",
+   "header-main-stick-meta": "",
+   "header-below-stick-meta": "",
+   "astra-migrate-meta-layouts": "default",
+   "ast-page-background-enabled": "default",
+   "ast-page-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-5)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   },
+   "ast-content-background-meta": {
+    "desktop": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "tablet": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    },
+    "mobile": {
+     "background-color": "var(--ast-global-color-4)",
+     "background-image": "",
+     "background-repeat": "repeat",
+     "background-position": "center center",
+     "background-size": "auto",
+     "background-attachment": "scroll",
+     "background-type": "",
+     "background-media": "",
+     "overlay-type": "",
+     "overlay-color": "",
+     "overlay-opacity": "",
+     "overlay-gradient": ""
+    }
+   }
+  },
+  "menus": 8,
+  "_links": {
+   "self": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/130",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/types/nav_menu_item"
+    }
+   ],
+   "wp:term": [
+    {
+     "taxonomy": "nav_menu",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menus?post=130"
+    }
+   ],
+   "wp:menu-item-object": [
+    {
+     "post_type": "page",
+     "embeddable": true,
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/pages/114"
+    }
+   ],
+   "wp:action-publish": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/130"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/130"
+    }
+   ],
+   "wp:action-create-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/130"
+    }
+   ],
+   "wp:action-assign-menus": [
+    {
+     "href": "https://giaodichhanghoa247.vn/index.php/wp-json/wp/v2/menu-items/130"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ }
+]

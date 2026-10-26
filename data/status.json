@@ -101,8 +101,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-26T04:01:34Z",
-  "msg": "44 trang, lan 1 tb 1583 ms, lan 2 tb 1057 ms, 44/44 trang co cache"
+  "at": "2026-10-26T04:15:48Z",
+  "msg": "44 trang, lan 1 tb 1055 ms, lan 2 tb 1194 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -118,5 +118,25 @@
   "ok": true,
   "at": "2026-10-25T23:41:48Z",
   "msg": "dung khung Tuần 26/10 – 30/10/2026 (20 dong)"
+ },
+ "sua_menu_trang": {
+  "ok": true,
+  "at": "2026-10-26T04:07:41Z",
+  "msg": "106: 25925 -> 24549 ky tu | 107: 115917 -> 118133 ky tu | 112: them id tieu de | menu: 20 muc, them 3 muc Kien thuc dau tu"
+ },
+ "nang_luong": {
+  "ok": true,
+  "at": "2026-10-26T04:08:18Z",
+  "msg": "EIA 2025, STEO 2026-10-06; Comtrade 2025; ghi trang 1634; dung trang 302"
+ },
+ "tuyen_duong": {
+  "ok": true,
+  "at": "2026-10-26T04:14:55Z",
+  "msg": "299 da chen; 301 da chen"
+ },
+ "cot": {
+  "ok": true,
+  "at": "2026-10-26T04:15:10Z",
+  "msg": "COT tuan 2026-10-20, 18 hop dong; ghi trang 1639 (moi tao); chen khoi COT trang 299; chen khoi COT trang 300; chen khoi COT trang 301; chen khoi COT trang 111; chen khoi COT trang 302"
  }
 }

@@ -1,0 +1,112 @@
+<!-- wp:paragraph -->
+<p>Phân tích chuyên sâu nhóm kim loại công nghiệp: đồng, nhôm, kẽm, chì, niken, thiếc. Số liệu giá và tồn kho LME cập nhật tự động mỗi ngày giao dịch; tóm tắt báo cáo cung cầu của các tổ chức chuyên ngành cập nhật khi có báo cáo mới.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<style>
+#gdkl{font-family:inherit;color:#222;margin:8px 0 24px}
+#gdkl h3{font-size:20px;margin:26px 0 6px}
+#gdkl .kl-sub{font-size:13px;color:#666;margin:0 0 10px;line-height:1.5}
+#gdkl .kl-box{border:1px solid #e6dede;border-radius:10px;padding:14px;background:#fff;margin:10px 0}
+#gdkl .kl-tw{overflow-x:auto}
+#gdkl table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+#gdkl th,#gdkl td{padding:7px 8px;border-bottom:1px solid #eee;text-align:left}
+#gdkl .kl-num th,#gdkl .kl-num td{text-align:right;white-space:nowrap}
+#gdkl .kl-num th:first-child,#gdkl .kl-num td:first-child{text-align:left}
+#gdkl th{background:#faf7f7;font-weight:600;color:#444}
+#gdkl .up{color:#0a7a3d}#gdkl .dn{color:#c00000}
+#gdkl .kl-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+#gdkl .kl-row button{border:1px solid #d9d2d2;background:#fff;color:#222;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+#gdkl .kl-row button.on{background:#c00000;border-color:#c00000;color:#fff;font-weight:600}
+#gdkl .kl-row.kl-m button.on{background:#1f2d3d;border-color:#1f2d3d}
+#gdkl svg{width:100%;height:auto;display:block}
+#gdkl .kl-lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;margin:8px 0 0}
+#gdkl .kl-lg span{display:inline-flex;align-items:center;gap:5px}
+#gdkl .kl-lg b{width:11px;height:11px;border-radius:3px;display:inline-block}
+#gdkl .kl-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+#gdkl .kl-card{border:1px solid #e6dede;border-radius:10px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:8px}
+#gdkl .kl-card h4{margin:0;font-size:17px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+#gdkl .kl-org{font-size:12px;border-radius:999px;padding:2px 8px;background:#1f2d3d;color:#fff;font-weight:600}
+#gdkl .kl-tr{font-size:12px;border-radius:999px;padding:2px 8px;font-weight:600}
+#gdkl .kl-tr.du{background:#e7f0fa;color:#1d4f8a}#gdkl .kl-tr.thieu{background:#fde8e8;color:#a40000}#gdkl .kl-tr.trung{background:#eee;color:#555}
+#gdkl .kl-rn{font-size:13px;color:#666;margin:0}
+#gdkl .kl-card dl{margin:0;font-size:14px}
+#gdkl .kl-card dl div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed #eee}
+#gdkl .kl-card dt{color:#555}#gdkl .kl-card dd{margin:0;font-weight:600;text-align:right}
+#gdkl .kl-card p{margin:0;font-size:14px;line-height:1.55}
+#gdkl .kl-nx{font-size:13px;color:#666}
+#gdkl .kl-card a{font-size:13px;color:#c00000}
+#gdkl .kl-note{font-size:13px;color:#666;margin:8px 0 0;line-height:1.5}
+@media(max-width:560px){#gdkl .kl-cards{grid-template-columns:1fr}}
+</style>
+<div id="gdkl">
+<h3>Giá và tồn kho trên sàn LME</h3>
+<p class="kl-sub">Giá thanh toán ngay (cash) đơn vị USD/tấn, tồn kho trong hệ thống kho LME đơn vị tấn. Tồn kho giảm liên tục thường cho thấy nguồn cung sẵn có trên sàn đang thắt lại; tồn kho tăng mạnh là dấu hiệu dư hàng.</p>
+<div class="kl-box kl-tw" id="gdkl-lme"><p class="kl-sub">Đang tải số liệu…</p></div>
+<div class="kl-box"><div class="kl-row" id="gdkl-lb"></div><h4 id="gdkl-lt" style="margin:6px 0 2px;font-size:16px"></h4><p class="kl-sub" id="gdkl-ls"></p><div id="gdkl-lc"></div><div class="kl-lg" id="gdkl-ll"></div></div>
+
+<h3>Báo cáo cung cầu mới nhất</h3>
+<p class="kl-sub">Tóm tắt các báo cáo cân đối cung cầu của tổ chức nghiên cứu chuyên ngành: ICSG (đồng), IAI (nhôm), ILZSG (kẽm, chì), INSG (niken), ITA (thiếc). Dư cung là sản lượng lớn hơn tiêu thụ, thiếu hụt là ngược lại.</p>
+<div class="kl-cards" id="gdkl-bc"><p class="kl-sub">Đang tải…</p></div>
+
+<h3>Top 10 nước sản xuất</h3>
+<p class="kl-sub">Mỗi nước 2 cột: năm trước và năm gần nhất theo Cục Khảo sát Địa chất Mỹ (USGS). Đồng có thêm lựa chọn sản lượng tinh luyện, nhôm là sản lượng luyện nhôm nguyên sinh.</p>
+<div class="kl-box"><div class="kl-row" id="gdkl-mb"></div><div class="kl-row kl-m" id="gdkl-mm"></div><h4 id="gdkl-mt" style="margin:6px 0 2px;font-size:16px"></h4><p class="kl-sub" id="gdkl-ms"></p><div id="gdkl-mc"></div><div class="kl-lg" id="gdkl-ml"></div></div>
+
+<h3>Lịch công bố báo cáo cung cầu</h3>
+<div class="kl-box kl-tw"><table>
+<tr><th>Báo cáo</th><th>Kim loại</th><th>Tần suất</th><th>Thời điểm</th></tr>
+<tr><td><a href="https://icsg.org/press-releases/" target="_blank" rel="noopener">ICSG Copper Bulletin, Forecast</a></td><td>Đồng</td><td>Tháng; dự báo 2 lần/năm</td><td>Khoảng ngày 20; dự báo tháng 4, 10</td></tr>
+<tr><td><a href="https://international-aluminium.org/statistics/primary-aluminium-production/" target="_blank" rel="noopener">IAI Primary Aluminium Production</a></td><td>Nhôm</td><td>Tháng</td><td>Khoảng ngày 20</td></tr>
+<tr><td><a href="https://www.ilzsg.org/press-releases/" target="_blank" rel="noopener">ILZSG Monthly Bulletin, Forecast</a></td><td>Kẽm, chì</td><td>Tháng; dự báo 2 lần/năm</td><td>Giữa đến cuối tháng; dự báo tháng 4, 10</td></tr>
+<tr><td><a href="https://insg.org/" target="_blank" rel="noopener">INSG Nickel Bulletin, Market Forecast</a></td><td>Niken</td><td>Tháng; dự báo 2 lần/năm</td><td>Cuối tháng; dự báo tháng 4, 10</td></tr>
+<tr><td><a href="https://www.internationaltin.org/" target="_blank" rel="noopener">ITA Market Review</a></td><td>Thiếc</td><td>Quý</td><td>Theo quý</td></tr>
+<tr><td><a href="https://www.usgs.gov/centers/national-minerals-information-center" target="_blank" rel="noopener">USGS Mineral Commodity Summaries</a></td><td>Cả 6 kim loại</td><td>Năm</td><td>Tháng 1–2</td></tr>
+<tr><td><a href="https://www.iea.org/reports/global-critical-minerals-outlook-2024" target="_blank" rel="noopener">IEA Global Critical Minerals Outlook</a></td><td>Đồng, niken</td><td>Năm</td><td>Tháng 5–6</td></tr>
+<tr><td><a href="https://www.lme.com/en/market-data/reports-and-data/warehouse-and-stocks-reports" target="_blank" rel="noopener">LME Warehouse Stocks</a></td><td>Cả 6 kim loại</td><td>Ngày</td><td>Mỗi ngày giao dịch</td></tr>
+</table></div>
+<p class="kl-note" id="gdkl-nt">Nguồn: giá và tồn kho LME tổng hợp qua Westmetall; sản lượng theo USGS Mineral Commodity Summaries; báo cáo cung cầu theo thông cáo của ICSG, IAI, ILZSG, INSG, ITA và tin báo chí trích dẫn. Nội dung tham khảo, không phải khuyến nghị đầu tư.</p>
+</div>
+<script>
+(function(){
+var PID=1519;
+var P=window.__gdKlP;if(!P){P=window.__gdKlP=fetch("/index.php/wp-json/wp/v2/pages/"+PID+"?_fields=content.rendered").then(function(r){return r.json()}).then(function(j){var d=new DOMParser().parseFromString(j.content.rendered,"text/html");return JSON.parse(d.getElementById("gd-data").textContent)})}
+function E(x){return document.getElementById("gdkl-"+x)}
+function nf(n,d){if(n===null||n===undefined)return "–";return Number(n).toLocaleString("vi-VN",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}
+function pc(a,b){if(!a||!b)return null;return (a/b-1)*100}
+function cl(v){if(v===null)return "–";var c=v>0?"up":(v<0?"dn":"");return '<span class="'+c+'">'+(v>0?"+":"")+nf(v,1)+"%</span>"}
+function dm(s){if(!s)return "";if(s.length===7)return "tháng "+s.slice(5,7)+"/"+s.slice(0,4);return s.slice(8,10)+"/"+s.slice(5,7)+"/"+s.slice(0,4)}
+function GB(el,items,ca,cb,dec){var W=el.getBoundingClientRect().width||640;if(W>760)W=760;var nar=W<600;var H=300;var L=46,R=8,T=18,B=nar?70:30,pw=W-L-R,ph=H-T-B;var mv=0;items.forEach(function(x){if(x.a>mv)mv=x.a;if(x.b>mv)mv=x.b});if(mv<=0)mv=1;var st=Math.pow(10,Math.floor(Math.log(mv)/Math.LN10));var nn=mv/st;var stp=nn>5?2*st:(nn>2?st:(nn>1?st/2:st/5));var top=Math.ceil(mv/stp)*stp;var gw=pw/items.length,bw=Math.min(gw*(cb?0.36:0.6),cb?30:22);var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';for(var g=0;g<=top+stp/2;g+=stp){var yy=T+ph-g/top*ph;s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="#e8e4e4"/><text x="'+(L-5)+'" y="'+(yy+4)+'" text-anchor="end">'+nf(g,stp<1?1:0)+'</text>'}
+var every=Math.ceil(items.length/(nar?7:13));
+items.forEach(function(x,i){var cx=L+gw*i+gw/2;var qs=cb?[[x.a,ca,-1],[x.b,cb,1]]:[[x.a,ca,0]];qs.forEach(function(q){var v=q[0]>0?q[0]:0;var hh=v/top*ph;var bx=q[2]<0?cx-bw-1:(q[2]>0?cx+1:cx-bw/2);s+='<rect x="'+bx.toFixed(1)+'" y="'+(T+ph-hh).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+hh.toFixed(1)+'" rx="2" fill="'+q[1]+'"><title>'+x.k+": "+nf(v,dec)+'</title></rect>';if(cb){if(!nar){s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(T+ph-hh-3).toFixed(1)+'" text-anchor="middle" font-size="10">'+nf(v,dec)+'</text>'}}});
+var ty=T+ph+14;if(cb||i%every===0||i===items.length-1){s+=nar?'<text transform="translate('+cx.toFixed(1)+','+ty+') rotate(-40)" text-anchor="end">'+x.k+'</text>':'<text x="'+cx.toFixed(1)+'" y="'+ty+'" text-anchor="middle">'+x.k+'</text>'}});s+='</svg>';el.innerHTML=s}
+function btns(el,list,cur,fn){el.innerHTML="";list.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[1];if(x[0]===cur)b.className="on";b.onclick=function(){fn(x[0])};el.appendChild(b)})}
+var MN=[["cu","Đồng"],["al","Nhôm"],["zn","Kẽm"],["pb","Chì"],["ni","Niken"],["sn","Thiếc"]];
+var TR={du:"Dư cung",thieu:"Thiếu hụt",trung:"Chưa rõ"};
+P.then(function(D){
+var L=D.lme||{};
+var h='<table class="kl-num"><tr><th>Kim loại</th><th>Giá cash</th><th>1 tuần</th><th>Từ đầu năm</th><th>Tồn kho LME</th><th>4 tuần</th><th>So với 1 năm trước</th></tr>';
+MN.forEach(function(m){var x=L[m[0]];if(!x)return;var n=x.p.length,y0=x.last[0].slice(0,4),iy=-1;for(var i=0;i<n;i++){if(x.d[i].slice(0,4)<y0)iy=i}
+h+='<tr><td><b>'+m[1]+'</b></td><td>'+nf(x.last[1])+'</td><td>'+cl(pc(x.last[1],x.p[n-2]))+'</td><td>'+cl(iy<0?null:pc(x.last[1],x.p[iy]))+'</td><td>'+nf(x.last[2])+'</td><td>'+cl(pc(x.last[2],x.s[n-5]))+'</td><td>'+cl(n>52?pc(x.last[2],x.s[n-53]):null)+'</td></tr>'});
+h+='</table><p class="kl-note">Phiên gần nhất: '+(L.cu?dm(L.cu.last[0]):"")+'. Tuần tính theo phiên cuối mỗi tuần.</p>';E("lme").innerHTML=h;
+var cm="cu";function dl(k){cm=k;btns(E("lb"),MN,cm,dl);var x=L[k];if(!x)return;var n=x.s.length,a=Math.max(0,n-52),it=[];for(var i=a;i<n;i++){it.push({k:x.d[i].slice(8,10)+"/"+x.d[i].slice(5,7),a:x.s[i]/1000})}
+var nm2=MN.filter(function(z){return z[0]===k})[0][1];E("lt").textContent="Tồn kho "+nm2.toLowerCase()+" trên LME 52 tuần gần nhất (nghìn tấn)";E("ls").textContent="Giá cash hiện tại "+nf(x.last[1])+" USD/tấn; 52 tuần trước "+nf(x.p[a])+" USD/tấn. Tồn kho hiện tại "+nf(x.last[2])+" tấn, 52 tuần trước "+nf(x.s[a])+" tấn.";
+GB(E("lc"),it,"#c00000",null,k==="sn"?2:0);E("ll").innerHTML='<span><b style="background:#c00000"></b>Tồn kho cuối tuần</span>'}
+dl(cm);
+var bc=((D.bc||{}).ds||[]).filter(function(x){return x.nhom==="kl"});var o="";
+MN.forEach(function(m){bc.filter(function(x){return x.sp===m[0]}).forEach(function(x){o+='<div class="kl-card"><h4>'+m[1]+' <span class="kl-org">'+x.org+'</span> <span class="kl-tr '+x.xu_huong+'">'+(TR[x.xu_huong]||"")+'</span></h4><p class="kl-rn">'+x.ten+(x.ngay?" · "+dm(x.ngay):"")+'</p><dl>';(x.so||[]).forEach(function(r){o+='<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>'});o+='</dl><p>'+x.y+'</p><p class="kl-nx">Kỳ tới: '+x.ke_tiep+'</p><p><a href="'+x.link+'" target="_blank" rel="noopener">Trang báo cáo gốc</a>';(x.nguon||[]).forEach(function(u,i){o+=' · <a href="'+u+'" target="_blank" rel="noopener nofollow">Nguồn '+(i+1)+'</a>'});o+='</p></div>'})});
+E("bc").innerHTML=o||'<p class="kl-sub">Chưa có báo cáo.</p>';
+var M=(D.mcs||{}).m||{},mk="cu",grp="chinh";function dm2(k,g){mk=k;grp=g||"chinh";if(!M[mk])return;btns(E("mb"),MN,mk,function(z){dm2(z,"chinh")});var mm=E("mm");if(mk==="cu"){btns(mm,[["chinh","Khai thác mỏ"],["tinh_luyen","Tinh luyện"]],grp,function(z){dm2("cu",z)})}else{mm.innerHTML=""}
+var t=M[mk],g=t[grp],u=(mk==="ni"||mk==="sn")?"nghìn tấn":"nghìn tấn";var nm2=MN.filter(function(z){return z[0]===mk})[0][1];var kind=mk==="al"?"luyện nhôm nguyên sinh":(grp==="tinh_luyen"?"tinh luyện":"khai thác mỏ");
+var sb=0;g.top.forEach(function(r){sb+=r[2]||0});E("mt").textContent="Top 10 nước sản xuất "+nm2.toLowerCase()+" ("+kind+"), "+u;E("ms").textContent="Thế giới năm "+t.y[1]+": "+nf(g.world[1],mk==="sn"?0:0)+" "+u+"; top 10 chiếm "+nf(sb/g.world[1]*100,1)+"%. Năm "+t.y[1]+" là số ước tính.";
+GB(E("mc"),g.top.map(function(r){return {k:r[0],a:r[1]||0,b:r[2]||0}}),"#cfc6a8","#c00000",mk==="sn"?1:0);E("ml").innerHTML='<span><b style="background:#cfc6a8"></b>Năm '+t.y[0]+'</span><span><b style="background:#c00000"></b>Năm '+t.y[1]+' (ước tính)</span>'}
+dm2(mk,grp);
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){dl(cm);dm2(mk,grp)},150)});
+}).catch(function(){E("lme").innerHTML='<p class="kl-sub">Chưa tải được số liệu, bạn vui lòng tải lại trang.</p>'});
+})();
+</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p><em>Nội dung tham khảo, không phải khuyến nghị mua/bán cụ thể. Giao dịch hàng hóa phái sinh có rủi ro cao, nhà đầu tư tự chịu trách nhiệm với quyết định giao dịch của mình.</em></p>
+<!-- /wp:paragraph -->

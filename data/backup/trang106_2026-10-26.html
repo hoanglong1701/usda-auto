@@ -1,0 +1,139 @@
+<!-- wp:html -->
+<script>(function(){if(window.__gdShim){return}window.__gdShim=1;var of=window.fetch,q={},tm=null,cache={},A=String.fromCharCode(38);function mk(p){return new Response(JSON.stringify({content:{rendered:p.content.rendered},modified:p.modified}),{status:200,headers:{"Content-Type":"application/json"}})}function go(){var ids=Object.keys(q),loc=q;q={};tm=null;of("/index.php/wp-json/wp/v2/pages?include="+ids.join(",")+A+"per_page=100"+A+"_fields=id,modified,content.rendered"+A+"gdb="+Date.now(),{credentials:"omit"}).then(function(r){return r.json()}).then(function(a){a.forEach(function(p){cache[p.id]=p});ids.forEach(function(id){loc[id].forEach(function(c){if(cache[id]){c[0](mk(cache[id]))}else{c[1](new Error("nf"))}})})}).catch(function(e){ids.forEach(function(id){loc[id].forEach(function(c){c[1](e)})})})}window.fetch=function(u,o){var s=(typeof u==="string")?u:(u!=null?(u.url?u.url:""):"");var k="wp-json/wp/v2/pages/",i=s.indexOf(k);if(i<0){return of.apply(this,arguments)}var j=i+k.length,d="";while(j<s.length){var ch=s.charAt(j);if(ch>="0"){if(ch<="9"){d+=ch;j++;continue}}break}if(d===""){return of.apply(this,arguments)}if(s.charAt(j)!=="?"){return of.apply(this,arguments)}var meth=(o?(o.method?o.method:"GET"):"GET").toUpperCase();if(meth!=="GET"){return of.apply(this,arguments)}if(s.indexOf("context=edit")>-1){return of.apply(this,arguments)}return new Promise(function(res,rej){if(cache[d]){res(mk(cache[d]));return}if(!q[d]){q[d]=[]}q[d].push([res,rej]);if(!tm){tm=setTimeout(go,40)}})}})();</script>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>Tổng hợp thông tin thị trường hằng ngày: tin tức nhanh, lịch sự kiện trong tuần và các báo cáo tổng hợp.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">Tin tức nhanh</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<div class="gd-nl"><style>.gd-nl{max-width:1000px;margin:0 auto;font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;color:#111;text-align:left}.gd-nl *{box-sizing:border-box}.gd-nl-n{font-size:13px;color:#555;margin:0 0 8px;text-align:right}.gd-nl-box{background:#fff;border:1px solid #e6dede;border-radius:12px;box-shadow:0 2px 14px rgba(200,0,0,.12);max-height:540px;overflow-y:auto}.gd-nl a.gd-nl-r span{border:0!important;border-bottom:0!important;box-shadow:none!important;text-decoration:none!important}.gd-nl a.gd-nl-r{display:grid;grid-template-columns:56px 52px 104px 1fr;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid #f0e8e8;color:#111}.gd-nl a.gd-nl-r:last-child{border-bottom:0}.gd-nl a.gd-nl-r,.gd-nl a.gd-nl-r:hover,.gd-nl a.gd-nl-r *{text-decoration:none!important;border-bottom-style:solid}.gd-nl a.gd-nl-r:hover{background:#fff5f5}.gd-nl a.gd-nl-r:hover .gd-nl-h{color:#c80000}.gd-nl-t{font-weight:700;font-size:13px}.gd-nl-d{font-size:13px;color:#555}.gd-nl-k{justify-self:start;background:#c80000;color:#fff;border-radius:999px;padding:1px 9px;font-size:11px;font-weight:700;white-space:nowrap}.gd-nl-h{font-size:15px;font-weight:500;line-height:1.4}.gd-nl-e{padding:18px;text-align:center;color:#555;font-size:14px;margin:0}@media(max-width:640px){.gd-nl a.gd-nl-r{grid-template-columns:auto auto 1fr;gap:4px 10px;padding:10px 14px}.gd-nl-k{justify-self:end}.gd-nl-h{grid-column:1/-1}}</style><p class="gd-nl-n" id="gd-nl-n"></p><div class="gd-nl-box" id="gd-nl"><p class="gd-nl-e">Đang tải tin...</p></div>
+<script>(function(){var g=document.getElementById('gd-nl');if(!g)return;var C={4:'Kim loại',5:'Nông sản',6:'Năng lượng',7:'Vĩ mô'};var A=String.fromCharCode(38);function z(n){return(n<10?'0':'')+n}
+fetch('/index.php/wp-json/wp/v2/posts?categories=4,5,6,7'+A+'per_page=100'+A+'_fields=id,link,title,date_gmt,categories',{credentials:'omit'}).then(function(r){return r.json()}).then(function(a){if(!a||!a.length){g.innerHTML='<p class="gd-nl-e">Chưa có tin mới.</p>';return}
+var o='';a.forEach(function(p){var d=new Date(p.date_gmt+'Z');var v=new Date(d.getTime()+25200000);var tm=z(v.getUTCHours())+':'+z(v.getUTCMinutes());var dt=z(v.getUTCDate())+'/'+z(v.getUTCMonth()+1);var k=C[p.categories[0]]||'';
+o+='<a class="gd-nl-r" href="'+p.link+'"><span class="gd-nl-t">'+tm+'</span><span class="gd-nl-d">'+dt+'</span><span class="gd-nl-k">'+k+'</span><span class="gd-nl-h">'+p.title.rendered+'</span></a>'});
+g.innerHTML=o;document.getElementById('gd-nl-n').textContent=a.length+' tin gần nhất, giờ Việt Nam. Cuộn để xem thêm.'}).catch(function(){g.innerHTML='<p class="gd-nl-e">Chưa tải được tin, mời xem mục Tin tức nhanh.</p>'})})();</script></div>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">Lịch sự kiện</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<div class="gdhh-cal"><style>.gdhh-cal{--surface:#fff;--brand-tint:#ffdcdc;--ink:#111;--ink-muted:#555;--line:#e6dede;--line-strong:#8a8080;--brand:#c80000;--on-brand:#fff;--shadow:0 2px 14px rgba(200,0,0,.16);max-width:1000px;margin:0 auto;font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;color:var(--ink);text-align:left}.gdhh-cal *{box-sizing:border-box}.gdhh-cal .gc-eyebrow{text-align:center;margin:0 0 10px;font:700 12px/16px Roboto,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}.gdhh-cal .gc-title{text-align:center;margin:0 0 18px;font:900 40px/46px Roboto,sans-serif;text-transform:uppercase;letter-spacing:-.5px}.gdhh-cal .gc-title span{display:block}.gdhh-cal .l1{color:var(--brand)}.gdhh-cal .l2{color:var(--ink)}.gdhh-cal .gc-wrap{border-radius:12px;box-shadow:var(--shadow);overflow:hidden;background:#fff}.gdhh-cal .gc-scroll{overflow-x:auto}.gdhh-cal table.gc-table{width:100%;border-collapse:collapse;margin:0;border:0;font:400 15px/22px Roboto,sans-serif;color:var(--ink)}.gdhh-cal .gc-table th{background:var(--brand);color:#fff;font:700 14px/20px Roboto,sans-serif;padding:12px 14px;text-align:center;white-space:nowrap;border:0}.gdhh-cal .gc-table td{border:1px solid var(--line);padding:10px 14px;vertical-align:middle;background:#fff}.gdhh-cal .gc-table tbody:first-of-type tr:first-child td{border-top:2px solid var(--line-strong)}.gdhh-cal .gc-table td.d{text-align:center;font-weight:700;width:104px}.gdhh-cal .dw{display:block;font:700 12px/16px Roboto,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-muted);margin-bottom:2px}.gdhh-cal .gc-table td.t{text-align:center;font:700 15px/22px "Roboto Mono",ui-monospace,Menlo,monospace;width:84px;white-space:nowrap}.gdhh-cal .gc-table td.g{text-align:center;font-weight:700;width:132px}.gdhh-cal .gc-table td.x b{font-weight:700}.gdhh-cal .gc-table tr.imp td.t,.gdhh-cal .gc-table tr.imp td.g,.gdhh-cal .gc-table tr.imp td.x{color:var(--brand)}.gdhh-cal .gc-bar{text-align:right;margin:0 0 10px}.gdhh-cal .gc-bar button{font:700 14px/1 Roboto,sans-serif;padding:10px 18px;border-radius:999px;border:1.5px solid var(--brand);background:#fff;color:var(--brand);cursor:pointer}.gdhh-cal .gc-bar button.on,.gdhh-cal .gc-bar button:hover{background:var(--brand);color:#fff}.gdhh-cal .gc-note{margin:14px 0 0;font:400 13px/20px Roboto,sans-serif;color:var(--ink-muted)}.gdhh-cal .gc-table tbody+tbody tr:first-child td{border-top:2px solid var(--line-strong)}@media(max-width:720px){.gdhh-cal .gc-title{font-size:30px;line-height:36px}.gdhh-cal .gc-table,.gdhh-cal .gc-table tbody{display:block}.gdhh-cal .gc-table thead{display:none}.gdhh-cal .gc-table tr{display:grid;grid-template-columns:68px 1fr;gap:2px 12px;padding:10px 14px;border-top:1px solid var(--line)}.gdhh-cal .gc-table td{border:0!important;padding:0}.gdhh-cal .gc-table td.d{grid-column:1/-1;text-align:left;width:auto;background:var(--brand-tint);margin:-10px -14px 8px;padding:8px 14px;display:flex;gap:8px;align-items:baseline}.gdhh-cal .dw{margin:0}.gdhh-cal .gc-table td.t{order:1;width:auto;text-align:left}.gdhh-cal .gc-table td.x{order:2}.gdhh-cal .gc-table td.g{order:3;grid-column:2;width:auto;text-align:left;font:700 12px/18px Roboto,sans-serif;color:var(--ink-muted)}.gdhh-cal .gc-table tr.imp td.g{color:var(--ink-muted)}}</style><div class="gc-title"><span class="l1">Lịch sự kiện</span><span class="l2" id="gc-w"></span></div><div class="gc-bar"><button type="button" id="gc-f">Lọc các sự kiện quan trọng</button></div><div class="gc-wrap"><div class="gc-scroll" id="gc-root"></div></div><p class="gc-note" id="gc-note"></p></div><script>(function(){var F={"w":"Tuần 05 – 09/10/2026","n":"Chữ đỏ là tin quan trọng. Báo cáo COT (CFTC) công bố lúc 02h30 sáng Thứ Bảy 10/10. Nguồn: Investing.com, USDA, EIA.","D":[["05/10","Thứ Hai","20h45","Tin tức chung","<b>PMI dịch vụ Mỹ (S&amp;P Global)</b> – Đo sức khỏe ngành dịch vụ Mỹ, tác động tới USD và kỳ vọng lãi suất.",1],["05/10","Thứ Hai","21h00","Tin tức chung","<b>PMI phi sản xuất ISM (Mỹ)</b> – Khảo sát ngành dịch vụ Mỹ, đo tăng trưởng và áp lực giá.",1],["05/10","Thứ Hai","22h00","Nông sản","<b>Thanh tra xuất khẩu nông sản Mỹ</b> – Khối lượng ngũ cốc, đậu tương thực xuất trong tuần.",0],["06/10","Thứ Ba","03h00","Nông sản","<b>Tiến độ thu hoạch của USDA</b> – Tiến độ thu hoạch đậu tương, ngô, bông so với trung bình 5 năm.",0],["06/10","Thứ Ba","23h00","Dầu thô, ngô","<b>Triển vọng năng lượng ngắn hạn (EIA)</b> – Dự báo giá dầu và sản lượng ethanol, ảnh hưởng cầu ngô.",0],["07/10","Thứ Tư","21h30","Dầu thô, ngô","<b>Báo cáo năng lượng hàng tuần (EIA)</b> – Tồn kho dầu thô Mỹ và sản lượng ethanol trong tuần.",0],["08/10","Thứ Năm","01h00","Tin tức chung","<b>Biên bản họp FOMC</b> – Chi tiết thảo luận về lãi suất của Fed trong kỳ họp 15–16/9.",1],["08/10","Thứ Năm","19h30","Tin tức chung","<b>Đơn xin trợ cấp thất nghiệp lần đầu (Mỹ)</b> – Theo dõi sức khỏe thị trường lao động Mỹ theo tuần.",1],["08/10","Thứ Năm","19h30","Nông sản","<b>Doanh số xuất khẩu hàng tuần của USDA</b> – Doanh số bán nông sản Mỹ ra thế giới, nhất là đơn từ Trung Quốc.",0],["09/10","Thứ Sáu","23h00","Nông sản","<b>Báo cáo cung cầu WASDE và sản lượng (USDA)</b> – Cân đối cung cầu Mỹ và thế giới: năng suất, sản lượng, tồn kho.",1]]},w=document.getElementById('gc-w'),r=document.getElementById('gc-root'),nt=document.getElementById('gc-note');var fl=0,cur=null,fb=document.getElementById("gc-f");function R(n){cur=n;w.textContent=n.w;nt.textContent=n.n;var G=[],M={};n.D.forEach(function(e){if(fl?!e[5]:0)return;var k=e[0]+'|'+e[1];if(!M[k]){M[k]=[];G.push(k)}M[k].push(e)});var h='<table class="gc-table"><thead><tr><th>Ngày</th><th>Thời gian</th><th>Nhóm ngành</th><th>Diễn giải ngắn gọn</th></tr></thead>';G.forEach(function(k){var a=M[k],p=k.split('|');h+='<tbody>';a.forEach(function(e,i){h+='<tr'+(e[5]?' class="imp"':'')+'>'+(i?'':'<td class="d" rowspan="'+a.length+'"><span class="dw">'+p[1]+'</span>'+p[0]+'</td>')+'<td class="t">'+e[2]+'</td><td class="g">'+e[3]+'</td><td class="x">'+e[4]+'</td></tr>'});h+='</tbody>'});r.innerHTML=h+'</table>'}fb.onclick=function(){fl=fl?0:1;fb.textContent=fl?"Hiện tất cả sự kiện":"Lọc các sự kiện quan trọng";fb.className=fl?"on":"";R(cur)};R(F);fetch('/index.php/wp-json/wp/v2/pages/176?_fields=content.rendered&t='+Date.now()).then(function(x){return x.json()}).then(function(j){return JSON.parse(new DOMParser().parseFromString(j.content.rendered,'text/html').getElementById('gd-data').textContent)}).then(function(n){if(n&&n.D&&n.D.length&&n.w)R(n)}).catch(function(){})})();</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">Tổng hợp các báo cáo</h2>
+<!-- /wp:heading -->
+
+<!-- wp:html -->
+<style>
+#gdbc{font-family:inherit;color:#222;margin:8px 0 24px}
+#gdbc .bc-k{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 4px}
+#gdbc .bc-kc{border:1px solid #e6dede;border-radius:10px;padding:10px;background:#fff}
+#gdbc .bc-kc small{display:block;color:#666;font-size:12px}
+#gdbc .bc-kc b{font-size:22px;display:block;margin:2px 0}
+#gdbc .bc-kc span{font-size:12px;color:#777}
+#gdbc .bc-nt{font-size:12.5px;color:#666;margin:4px 0 12px;line-height:1.5}
+#gdbc .bc-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+#gdbc .bc-row button{border:1px solid #d9d2d2;background:#fff;color:#222;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+#gdbc .bc-row button.on{background:#c00000;border-color:#c00000;color:#fff;font-weight:600}
+#gdbc .bc-m button.on{background:#1f2d3d;border-color:#1f2d3d}
+#gdbc .bc-box{border:1px solid #e6dede;border-radius:10px;padding:14px;background:#fff;margin:10px 0}
+#gdbc h4{margin:0 0 6px;font-size:17px}
+#gdbc .bc-sum{font-size:14.5px;line-height:1.6;color:#333;margin:0 0 10px}
+#gdbc .bc-cap{font-size:13px;color:#666;margin:0 0 6px}
+#gdbc svg{width:100%;height:auto;display:block}
+#gdbc .bc-tip{min-height:20px;font-size:13px;color:#222;margin:4px 0}
+#gdbc .bc-lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;margin:6px 0 0}
+#gdbc .bc-lg span{display:inline-flex;align-items:center;gap:5px}
+#gdbc .bc-lg b{width:11px;height:11px;border-radius:3px;display:inline-block}
+#gdbc .bc-more{border:1px solid #c00000;background:#fff;color:#c00000;border-radius:999px;padding:7px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin:6px 0 0}
+#gdbc .bc-dt{max-height:0;overflow:hidden;transition:none}#gdbc .bc-dt.open{max-height:none;overflow:visible;margin-top:10px}
+#gdbc .bc-dt p{font-size:14.5px;line-height:1.6;margin:0 0 8px}
+#gdbc .bc-tw{overflow-x:auto}
+#gdbc table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+#gdbc th,#gdbc td{padding:7px 8px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+#gdbc th{background:#faf6f6;font-size:13px;font-weight:600}
+#gdbc .bc-chip{display:inline-block;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;white-space:nowrap}
+#gdbc .ok{background:#e3f4e8;color:#1b7f3b}#gdbc .ex{background:#eeeeee;color:#555}
+#gdbc .bc-org{font-weight:700;white-space:nowrap}
+@media(max-width:640px){#gdbc .bc-k{grid-template-columns:repeat(2,1fr)}}
+</style>
+<div id="gdbc">
+<h4>Dự báo tăng trưởng GDP toàn cầu năm 2026 của các tổ chức</h4>
+<div class="bc-k" id="bc-k"></div>
+<p class="bc-nt">Mỗi tổ chức công bố ở thời điểm và phương pháp tổng hợp khác nhau (IMF dùng tỷ trọng sức mua, World Bank dùng tỷ giá thị trường) nên con số không so sánh trực tiếp được.</p>
+<div class="bc-row" id="bc-p"></div>
+<div class="bc-box"><h4 id="bc-ti"></h4><p class="bc-sum" id="bc-su"></p><div class="bc-row bc-m" id="bc-mb"></div><p class="bc-cap" id="bc-cap"></p><div id="bc-ch"></div><div class="bc-tip" id="bc-tip"></div><div class="bc-lg" id="bc-lg"></div><button type="button" class="bc-more" id="bc-mo">Đọc thêm ▾</button><div class="bc-dt" id="bc-dt"></div></div>
+<h4>Lịch báo cáo sắp tới</h4>
+<div class="bc-box"><div class="bc-tw" id="bc-cal"></div><p class="bc-cap" style="margin-top:8px" id="bc-cu"></p><p class="bc-cap">Lịch được kiểm tra và cập nhật tự động hằng tuần từ trang công bố chính thức của từng tổ chức. Mục "Dự kiến" là kỳ công bố thường lệ, chờ tổ chức xác nhận ngày cụ thể.</p></div>
+</div>
+<script>
+(function(){
+var D=null,org="imf",md={imf:"g",wb:"g",oecd:"g",wto:"g",fao:"f"},opn=false;
+var E=function(i){return document.getElementById("bc-"+i)};
+function f1(x){return (Math.round(x*10)/10).toFixed(1).replace(".",",")}
+function dmy(s){return s.slice(8,10)+"/"+s.slice(5,7)+"/"+s.slice(0,4)}
+var NM={imf:"IMF",wb:"World Bank",oecd:"OECD",wto:"WTO",fao:"FAO"};
+var C1="#1f2d3d",C2="#c00000",C3="#1f6fb2",C4="#e08e0b",C5="#2e8b57",C6="#7a4fb5";
+function W(){var w=E("ch").getBoundingClientRect().width||640;return w>820?820:w}
+function axis(mn,mx){var st=1;var r=mx-mn;if(r>40)st=10;else if(r>16)st=5;else if(r>8)st=2;else if(r>4)st=1;else st=0.5;var a=Math.floor(mn/st)*st,b=Math.ceil(mx/st)*st;return [a,b,st]}
+function bars(items,ttl){var w=W(),h=w>480?280:230,L=38,R=8,T=18,B=28,pw=w-L-R,ph=h-T-B;var vs=items.map(function(x){return x.v});var mn=Math.min(0,Math.min.apply(null,vs)),mx=Math.max(0,Math.max.apply(null,vs));var a=axis(mn,mx);var lo=a[0],hi=a[1],st=a[2];
+ function Y(v){return T+ph-(v-lo)/(hi-lo)*ph}
+ var s='<svg viewBox="0 0 '+w+" "+h+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';
+ for(var g=lo;g<=hi+st/2;g+=st){s+='<line x1="'+L+'" x2="'+(w-R)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#e8e4e4"/><text x="'+(L-5)+'" y="'+(Y(g)+4)+'" text-anchor="end">'+f1(g)+"</text>"}
+ var n=items.length,bw=pw/n;items.forEach(function(x,i){var x0=L+i*bw;var y0=Y(0),y1=Y(x.v);var top=Math.min(y0,y1),hh=Math.abs(y1-y0);s+='<rect x="'+(x0+bw*0.18).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+(bw*0.64).toFixed(1)+'" height="'+Math.max(hh,1).toFixed(1)+'" fill="'+(x.fc?C2:C1)+'"/>';if(n<=16)s+='<text x="'+(x0+bw/2)+'" y="'+(x.v>=0?top-4:top+hh+11)+'" text-anchor="middle" font-size="10.5" fill="#222">'+f1(x.v)+"</text>";if(n<=16||i%2===0)s+='<text x="'+(x0+bw/2)+'" y="'+(h-9)+'" text-anchor="middle">'+x.l+"</text>"});
+ s+="</svg>";E("ch").innerHTML=s;E("tip").textContent="";E("lg").innerHTML='<span><b style="background:'+C1+'"></b>Số thực tế</span><span><b style="background:'+C2+'"></b>Dự báo</span>';E("cap").textContent=ttl}
+function groups(cats,ser,ttl){var w=W(),h=w>480?280:240,L=38,R=8,T=18,B=28,pw=w-L-R,ph=h-T-B;var mx=0;ser.forEach(function(q){q.v.forEach(function(x){if(x>mx)mx=x})});var a=axis(0,mx);var hi=a[1],st=a[2];function Y(v){return T+ph-v/hi*ph}
+ var s='<svg viewBox="0 0 '+w+" "+h+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';for(var g=0;g<=hi+st/2;g+=st){s+='<line x1="'+L+'" x2="'+(w-R)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#e8e4e4"/><text x="'+(L-5)+'" y="'+(Y(g)+4)+'" text-anchor="end">'+f1(g)+"</text>"}
+ var n=cats.length,gw=pw/n,k=ser.length;cats.forEach(function(c,i){var x0=L+i*gw;ser.forEach(function(q,j){var bw=gw*0.8/k;var x=x0+gw*0.1+j*bw;var y=Y(q.v[i]);s+='<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+(bw-3).toFixed(1)+'" height="'+(Y(0)-y).toFixed(1)+'" fill="'+q.c+'"/><text x="'+(x+(bw-3)/2)+'" y="'+(y-4)+'" text-anchor="middle" font-size="10.5" fill="#222">'+f1(q.v[i])+"</text>"});s+='<text x="'+(x0+gw/2)+'" y="'+(h-9)+'" text-anchor="middle">'+c+"</text>"});
+ s+="</svg>";E("ch").innerHTML=s;E("tip").textContent="";E("lg").innerHTML=ser.map(function(q){return '<span><b style="background:'+q.c+'"></b>'+q.n+"</span>"}).join("");E("cap").textContent=ttl}
+function lines(ser,lab,ttl,fmt){var w=W(),h=w>480?300:240,L=38,R=10,T=12,B=26,pw=w-L-R,ph=h-T-B;var mn=1e9,mx=-1e9;ser.forEach(function(q){q.v.forEach(function(x){if(x<mn)mn=x;if(x>mx)mx=x})});var a=axis(mn,mx);var lo=a[0],hi=a[1],st=a[2];var n=ser[0].v.length;function X(i){return L+i/(n-1)*pw}function Y(v){return T+ph-(v-lo)/(hi-lo)*ph}
+ var s='<svg viewBox="0 0 '+w+" "+h+'" xmlns="http://www.w3.org/2000/svg" font-size="11" fill="#555">';for(var g=lo;g<=hi+st/2;g+=st){s+='<line x1="'+L+'" x2="'+(w-R)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#e8e4e4"/><text x="'+(L-5)+'" y="'+(Y(g)+4)+'" text-anchor="end">'+(st<1?f1(g):Math.round(g))+"</text>"}
+ for(var i=0;i<n;i++){var t=lab(i);if(t)s+='<text x="'+X(i)+'" y="'+(h-8)+'" text-anchor="middle">'+t+"</text>"}
+ ser.forEach(function(q){var p="";q.v.forEach(function(x,i){p+=(i?"L":"M")+X(i).toFixed(1)+" "+Y(x).toFixed(1)});s+='<path d="'+p+'" fill="none" stroke="'+q.c+'" stroke-width="'+(q.t||2)+'"/>'});
+ s+='<line id="bc-cx" x1="0" x2="0" y1="'+T+'" y2="'+(T+ph)+'" stroke="#999" stroke-dasharray="3 3" style="display:none"/></svg>';E("ch").innerHTML=s;
+ E("lg").innerHTML=ser.map(function(q){return '<span><b style="background:'+q.c+'"></b>'+q.n+"</span>"}).join("");E("cap").textContent=ttl;E("tip").textContent="Rê chuột hoặc chạm vào biểu đồ để xem số liệu từng thời điểm.";
+ var sv=E("ch").firstChild,cx=document.getElementById("bc-cx");function mv(e){var r=sv.getBoundingClientRect();var px=(e.touches?e.touches[0].clientX:e.clientX)-r.left;var u=px/r.width*w;var i=Math.round((u-L)/pw*(n-1));if(i<0)i=0;if(i>n-1)i=n-1;cx.setAttribute("x1",X(i));cx.setAttribute("x2",X(i));cx.style.display="block";E("tip").innerHTML="<b>"+lab(i,1)+"</b>: "+ser.map(function(q){return q.n+" "+fmt(q.v[i])}).join(" · ")}
+ sv.addEventListener("mousemove",mv);sv.addEventListener("touchmove",mv);sv.addEventListener("touchstart",mv)}
+function chart(){var m=md[org],R=D.rep[org];var mb="";
+ if(org==="imf"){var d=D.imf,y0=d.y0;var it=function(arr){return arr.map(function(v,i){return {l:String(y0+i).slice(2),v:v,fc:y0+i>=2026}})};
+  mb=[["g","Tăng trưởng toàn cầu"],["i","Lạm phát toàn cầu"],["c","Theo nước"]];
+  if(m==="g")bars(it(d.g),"Tăng trưởng GDP thế giới (%), năm 2018 đến 2031 (từ 2026 là dự báo của "+d.upd+")");
+  else if(m==="i")bars(it(d.i),"Lạm phát giá tiêu dùng bình quân thế giới (%), từ 2026 là dự báo của "+d.upd);
+  else lines([{n:"Thế giới",c:C1,v:d.g,t:3},{n:"Mỹ",c:C2,v:d.us},{n:"Khu vực euro",c:C3,v:d.eu},{n:"Trung Quốc",c:C4,v:d.cn},{n:"Ấn Độ",c:C5,v:d.ind},{n:"Việt Nam",c:C6,v:d.vn}],function(i,f){return f?String(y0+i)+(y0+i>=2026?" (dự báo)":""):((y0+i)%2===0?String(y0+i):"")},"Tăng trưởng GDP theo nước (%), từ 2026 là dự báo của "+d.upd,function(x){return f1(x)+"%"})}
+ else if(org==="wb"){var d=D.wb;var arr=d.h.concat(d.f).map(function(p){return {l:String(p[0]),v:p[1],fc:p[0]>=2026}});mb=[["g","Tăng trưởng toàn cầu"]];bars(arr,"Tăng trưởng GDP thế giới (%), số thực tế 2019–2025 theo World Bank và dự báo 2026 của "+d.upd)}
+ else if(org==="oecd"){var d=D.oecd;mb=[["g","Dự báo 2026 và 2027"]];groups(["Thế giới","Mỹ","Khu vực euro","Trung Quốc"],[{n:"2026",c:C1,v:[d.w[0],d.us[0],d.ea[0],d.cn[0]]},{n:"2027",c:C2,v:[d.w[1],d.us[1],d.ea[1],d.cn[1]]}],"Dự báo tăng trưởng GDP (%) của "+d.upd)}
+ else if(org==="wto"){var d=D.wto;mb=[["g","Khối lượng thương mại"]];groups(d.m.map(function(p){return String(p[0])+(p[0]>=2026?" (dự báo)":"")}),[{n:"Thương mại hàng hóa",c:C1,v:d.m.map(function(p){return p[1]})},{n:"Thương mại dịch vụ",c:C2,v:d.svc.map(function(p){return p[1]})}],"Tăng trưởng khối lượng thương mại thế giới (%), "+d.upd+". Kịch bản bất lợi: hàng hóa 2026 chỉ "+f1(d.down)+"%")}
+ else{var d=D.fao;var y0=+d.y0.slice(0,4),m0=+d.y0.slice(5,7);var lab=function(i,f){var t=(m0-1+i);var yy=y0+Math.floor(t/12),mm=t%12+1;if(f)return (mm<10?"0":"")+mm+"/"+yy;return mm===1?String(yy):""};
+  mb=[["f","Chỉ số chung"],["all","Các nhóm hàng"]];var fm=function(x){return f1(x)};
+  if(m==="f")lines([{n:"Chỉ số giá lương thực",c:C2,v:d.f,t:2.5}],lab,"Chỉ số giá lương thực FAO, 2014–2016 = 100, từ tháng 1/2019 đến "+lab(d.f.length-1,1),fm);
+  else lines([{n:"Ngũ cốc",c:C4,v:d.c},{n:"Dầu thực vật",c:C5,v:d.o},{n:"Đường",c:C6,v:d.s},{n:"Thịt",c:C2,v:d.m},{n:"Sữa",c:C3,v:d.d}],lab,"Các nhóm hàng trong chỉ số giá lương thực FAO, 2014–2016 = 100",fm)}
+ var h="";mb.forEach(function(x){h+='<button type="button" class="'+(x[0]===m?"on":"")+'" data-m="'+x[0]+'">'+x[1]+"</button>"});E("mb").innerHTML=h;E("mb").style.display=mb.length>1?"flex":"none"}
+function info(){var R=D.rep[org];E("ti").textContent=R.n;E("su").textContent=R.hl[0];
+ var h="";for(var i=1;i<R.hl.length;i++)h+="<p>"+R.hl[i]+"</p>";
+ h+='<div class="bc-tw"><table><thead><tr><th>Báo cáo</th><th>Nội dung</th><th>Lần công bố gần nhất</th><th>Kỳ tiếp theo</th></tr></thead><tbody>';R.rp.forEach(function(r){h+="<tr><td><b>"+r[0]+"</b></td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3]+"</td></tr>"});h+="</tbody></table></div>";
+ h+='<p style="margin-top:10px"><a href="'+R.home+'" target="_blank" rel="noopener">Xem nguồn chính thức của '+NM[org]+" ›</a></p>";E("dt").innerHTML=h;
+ E("dt").className="bc-dt"+(opn?" open":"");E("mo").textContent=opn?"Thu gọn ▴":"Đọc thêm ▾";
+ var p="";Object.keys(NM).forEach(function(k){p+='<button type="button" class="'+(k===org?"on":"")+'" data-o="'+k+'">'+NM[k]+"</button>"});E("p").innerHTML=p}
+function kpi(){var k=[["IMF",D.imf.g[8],"WEO tháng 4/2026"],["OECD",D.oecd.w[0],"Tháng 9/2026"],["WTO",D.wto.gdp||2.8,"Tháng 3/2026"],["World Bank",D.wb.f[0][1],"GEP tháng 6/2026"]];
+ E("k").innerHTML=k.map(function(x){return '<div class="bc-kc"><small>'+x[0]+'</small><b>'+f1(x[1])+'%</b><span>'+x[2]+"</span></div>"}).join("")}
+function cal(){var t=new Date();var iso=t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);var L=D.cal.filter(function(r){return r[0]>=iso}).sort(function(a,b){return a[0]<b[0]?-1:(a[0]>b[0]?1:0)}).slice(0,10);
+ var h='<table><thead><tr><th>Thời điểm</th><th>Tổ chức</th><th>Báo cáo</th><th>Trạng thái</th></tr></thead><tbody>';L.forEach(function(r){h+="<tr><td>"+r[1]+'</td><td class="bc-org">'+r[2]+"</td><td>"+r[3]+'</td><td><span class="bc-chip '+(r[4]==="c"?"ok":"ex")+'">'+(r[4]==="c"?"Đã xác nhận":"Dự kiến")+"</span></td></tr>"});h+="</tbody></table>";E("cal").innerHTML=h;E("cu").textContent="Cập nhật lịch: "+dmy(D.asof)}
+function draw(){kpi();info();chart();cal()}
+document.getElementById("gdbc").addEventListener("click",function(e){var b=e.target.closest?e.target.closest("button"):null;if(!b)return;if(b.getAttribute("data-o")){org=b.getAttribute("data-o");opn=false;draw()}else if(b.getAttribute("data-m")){md[org]=b.getAttribute("data-m");chart()}else if(b.id==="bc-mo"){opn=!opn;E("dt").className="bc-dt"+(opn?" open":"");E("mo").textContent=opn?"Thu gọn ▴":"Đọc thêm ▾"}});
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){if(D)chart()},150)});
+fetch("/index.php/wp-json/wp/v2/pages/847?_fields=content.rendered,modified").then(function(r){return r.json()}).then(function(j){D=JSON.parse(new DOMParser().parseFromString(j.content.rendered,"text/html").getElementById("gd-data").textContent);draw()}).catch(function(){E("su").textContent="Chưa tải được dữ liệu, bạn vui lòng tải lại trang."});
+})();
+</script>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<p class="gd-disc" style="max-width:1100px;margin:24px auto 0;padding:12px 16px;background:#f5f7fa;border-left:3px solid #c9d2dc;color:#5b6572;font-size:13px;line-height:1.6;">Nội dung tham khảo, không phải khuyến nghị đầu tư. Giao dịch hàng hóa phái sinh có rủi ro cao, nhà đầu tư tự chịu trách nhiệm quyết định của mình.</p>
+<!-- /wp:html -->
