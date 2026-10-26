@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.6.0
+ * Version: 1.6.1
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -591,7 +591,7 @@ function gdhh_wm_stamp( $file ) {
 	imagecopy( $im, $tag, $w - imagesx( $tag ) - 6, $h - imagesy( $tag ) - 4, 0, 0, imagesx( $tag ), imagesy( $tag ) );
 	imagedestroy( $tag );
 
-	$tmp = $file . '.gdwm-tmp';
+	$tmp = $file . '.gdwm-' . uniqid();
 	$ok  = IMAGETYPE_JPEG === $info[2] ? imagejpeg( $im, $tmp, 88 ) : imagepng( $im, $tmp, 6 );
 	imagedestroy( $im );
 	if ( ! $ok || ! @rename( $tmp, $file ) ) { // phpcs:ignore
@@ -691,19 +691,65 @@ add_filter( 'wp_generate_attachment_metadata', function ( $meta, $att_id ) {
 	return $meta;
 }, 15, 2 );
 
+/* Khóa để WP-Cron và REST không xử lý cùng lúc (INSERT IGNORE là thao tác nguyên tử; khóa quá 10 phút coi như treo). */
+function gdhh_wm_lock() {
+	global $wpdb;
+	$now = time();
+	$wpdb->query( $wpdb->prepare( "INSERT IGNORE INTO {$wpdb->options} (option_name, option_value, autoload) VALUES ('gdhh_wm_khoa', %s, 'no')", $now ) );
+	if ( $wpdb->rows_affected ) {
+		return true;
+	}
+	$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->options} SET option_value = %s WHERE option_name = 'gdhh_wm_khoa' AND option_value < %d", $now, $now - 600 ) );
+	return (bool) $wpdb->rows_affected;
+}
+
+function gdhh_wm_unlock() {
+	global $wpdb;
+	$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name = 'gdhh_wm_khoa'" );
+}
+
+/* Một lượt ảnh cũ. Bỏ qua ảnh mới tải lên dưới 10 phút (phần đó do bước tải lên lo). */
 function gdhh_wm_batch( $n ) {
 	global $wpdb;
-	$ids = $wpdb->get_col( $wpdb->prepare(
-		"SELECT p.ID FROM {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key = '_gdhh_wm'
-		WHERE p.post_type = 'attachment' AND p.post_mime_type IN ('image/jpeg','image/png') AND m.meta_id IS NULL
-		ORDER BY p.ID ASC LIMIT %d",
-		$n
-	) );
+	if ( ! gdhh_wm_lock() ) {
+		return false;
+	}
 	$out = array();
-	foreach ( $ids as $id ) {
-		$out[ $id ] = gdhh_wm_attachment( (int) $id );
+	try {
+		$ids = $wpdb->get_col( $wpdb->prepare(
+			"SELECT p.ID FROM {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key = '_gdhh_wm'
+			WHERE p.post_type = 'attachment' AND p.post_mime_type IN ('image/jpeg','image/png') AND m.meta_id IS NULL
+			AND p.post_date_gmt < UTC_TIMESTAMP() - INTERVAL 10 MINUTE
+			ORDER BY p.ID ASC LIMIT %d",
+			$n
+		) );
+		foreach ( $ids as $id ) {
+			$out[ $id ] = gdhh_wm_attachment( (int) $id );
+		}
+	} finally {
+		gdhh_wm_unlock();
 	}
 	return $out;
+}
+
+/* Trả mọi ảnh đã in về bản gốc rồi xóa đánh dấu để in lại từ đầu (dùng khi cần sửa dấu). */
+function gdhh_wm_redo_all() {
+	global $wpdb;
+	if ( ! gdhh_wm_lock() ) {
+		return false;
+	}
+	$n = 0;
+	try {
+		$ids = $wpdb->get_col( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_gdhh_wm' AND meta_value IN ('1','loi')" );
+		foreach ( $ids as $id ) {
+			gdhh_wm_restore( (int) $id );
+			delete_post_meta( (int) $id, '_gdhh_wm' );
+			$n++;
+		}
+	} finally {
+		gdhh_wm_unlock();
+	}
+	return $n;
 }
 
 add_action( 'init', function () {
@@ -716,7 +762,8 @@ add_action( 'gdhh_wm_batch', function () {
 	if ( ! gdhh_wm_marks() ) {
 		return;
 	}
-	if ( ! gdhh_wm_batch( 10 ) ) {
+	$r = gdhh_wm_batch( 10 );
+	if ( array() === $r ) {
 		update_option( 'gdhh_wm_done', '1', false );
 		wp_clear_scheduled_hook( 'gdhh_wm_batch' );
 	}
@@ -736,7 +783,9 @@ add_action( 'rest_api_init', function () {
 				'dau'      => (bool) gdhh_wm_marks(),
 				'sao_luu'  => gdhh_wm_backup_dir(),
 			);
-			if ( $req['khoi_phuc'] ) {
+			if ( 'tat-ca' === $req['lam_lai'] ) {
+				$res['lam_lai'] = gdhh_wm_redo_all();
+			} elseif ( $req['khoi_phuc'] ) {
 				$res['khoi_phuc'] = gdhh_wm_restore( (int) $req['khoi_phuc'] );
 			} elseif ( $req['n'] ) {
 				$res['lam'] = gdhh_wm_batch( min( 30, max( 1, (int) $req['n'] ) ) );
