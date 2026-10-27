@@ -36,7 +36,7 @@
  },
  "probe": {
   "ok": true,
-  "at": "2026-10-26T06:01:49Z",
+  "at": "2026-10-27T06:11:37Z",
   "msg": "ghi data/probe.json, tat ca nguon OK"
  },
  "fred_test": {
@@ -101,8 +101,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-27T05:35:18Z",
-  "msg": "44 trang, lan 1 tb 1273 ms, lan 2 tb 1076 ms, 44/44 trang co cache"
+  "at": "2026-10-27T06:11:38Z",
+  "msg": "24 trang, lan 1 tb 1571 ms, lan 2 tb 1559 ms, 24/24 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
