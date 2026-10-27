@@ -11,9 +11,10 @@
   "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 80, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/usda_insp.py\", line 111, in run\n    insp = parse(fetch())\n                 ^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/usda_insp.py\", line 106, in fetch\n    r.raise_for_status()\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/models.py\", line 1167, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://www.ams.usda.gov/mnreports/wa_gr101.txt\n"
  },
  "prog": {
-  "ok": true,
-  "at": "2026-10-26T23:48:49Z",
-  "msg": "da cap nhat phat hanh 2026-10-26, tuan 2026-10-25"
+  "ok": false,
+  "at": "2026-10-27T23:43:40Z",
+  "error": "ConnectionError: HTTPSConnectionPool(host='esmis.nal.usda.gov', port=443): Max retries exceeded with url: /publication/crop-progress (Caused by NameResolutionError(\"HTTPSConnection(host='esmis.nal.usda.gov', port=443): Failed to resolve 'esmis.nal.usda.gov' ([Errno -3] Temporary failure in name resolution)\"))",
+  "trace": "= requests.get(LIST_URL, timeout=60, headers={\"User-Agent\": wp.UA})\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/api.py\", line 87, in get\n    return request(\"get\", url, params=params, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/adapters.py\", line 729, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='esmis.nal.usda.gov', port=443): Max retries exceeded with url: /publication/crop-progress (Caused by NameResolutionError(\"HTTPSConnection(host='esmis.nal.usda.gov', port=443): Failed to resolve 'esmis.nal.usda.gov' ([Errno -3] Temporary failure in name resolution)\"))\n"
  },
  "_ten_nuoc_chua_dich": [
   "AMERICAN SAMOA                 ",
@@ -102,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-27T21:24:49Z",
-  "msg": "24 trang, lan 1 tb 1048 ms, lan 2 tb 902 ms, 24/24 trang co cache"
+  "at": "2026-10-27T23:43:50Z",
+  "msg": "24 trang, lan 1 tb 1367 ms, lan 2 tb 1481 ms, 24/24 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
