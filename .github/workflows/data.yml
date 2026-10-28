@@ -27,13 +27,14 @@ on:
     - cron: "0 2 * * 1"
     - cron: "30 3 12,25 * *"
     - cron: "40 2,5 * * *"
+    - cron: "30 23 * * 1-5"
   push:
     paths:
       - data/bao_cao.json
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn, ns_enso, gia_vn, gia_vn_thu, lam_nong_cache, chan_doan, lich_kt, lich_kt_thu, anh_chuyen_muc, sua_menu_trang, cot, cot_thu, nang_luong, tuyen_duong, gia_ca_phe hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn, ns_enso, gia_vn, gia_vn_thu, lam_nong_cache, chan_doan, lich_kt, lich_kt_thu, anh_chuyen_muc, sua_menu_trang, cot, cot_thu, nang_luong, tuyen_duong, gia_ca_phe, gia_fob hoac all)"
         default: "all"
 
 concurrency:
@@ -83,6 +84,7 @@ jobs:
               "0 21 * * 5"|"0 2 * * 1") JOB=cot;;
               "30 3 12,25 * *") JOB=nang_luong;;
               "40 2,5 * * *") JOB=gia_ca_phe;;
+              "30 23 * * 1-5") JOB=gia_fob;;
               *) JOB=orgs;;
             esac
           fi
