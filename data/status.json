@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-28T09:28:10Z",
-  "msg": "45 trang, lan 1 tb 1196 ms, lan 2 tb 1178 ms, 45/45 trang co cache"
+  "at": "2026-10-28T11:36:34Z",
+  "msg": "45 trang, lan 1 tb 1141 ms, lan 2 tb 1020 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -143,8 +143,8 @@
  },
  "gia_ca_phe": {
   "ok": true,
-  "at": "2026-10-28T03:04:28Z",
-  "msg": "Gia ca phe 2026-10-28: 4 vung, TB 88,725 d/kg, 4 dong the gioi"
+  "at": "2026-10-28T11:35:59Z",
+  "msg": "RSS khong co bai gia ca phe, giu du lieu 2026-10-28"
  },
  "gia_fob_thu": {
   "ok": true,
