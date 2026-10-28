@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-28T06:55:21Z",
-  "msg": "45 trang, lan 1 tb 1147 ms, lan 2 tb 1012 ms, 45/45 trang co cache"
+  "at": "2026-10-28T08:01:22Z",
+  "msg": "45 trang, lan 1 tb 1140 ms, lan 2 tb 979 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -145,5 +145,10 @@
   "ok": true,
   "at": "2026-10-28T03:04:28Z",
   "msg": "Gia ca phe 2026-10-28: 4 vung, TB 88,725 d/kg, 4 dong the gioi"
+ },
+ "gia_fob_thu": {
+  "ok": true,
+  "at": "2026-10-28T08:01:19Z",
+  "msg": "da in 11 muc"
  }
 }
