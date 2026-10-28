@@ -112,7 +112,10 @@ def tinh(raw):
         arr = []
         for i in range(n):
             g = gdp.get(k, {}).get(Y0 + i)
-            arr.append(so(no[k][i] * g / 100 / 1000, 2) if (g is not None and no[k][i] is not None) else usd_cu[k][i])
+            if g is not None:
+                # API SDMX tra GDP theo USD; DataMapper cu tra theo ty USD -> doi ra nghin ty USD
+                g = g / 1e12 if g > 1e6 else g / 1e3
+            arr.append(so(no[k][i] * g / 100, 2) if (g is not None and no[k][i] is not None) else usd_cu[k][i])
         usd[k] = arr
     return [(s1, e1, no, no_cu), (s2, e2, usd, usd_cu), (s3, e3, bd, bd_cu)]
 
@@ -133,8 +136,9 @@ def run():
     if all(js(m) == js(c) for _, _, m, c in khoi):
         return "IMF chua co so moi, trang 111 giu nguyen"
     dem, mx = lech(khoi[0][2], khoi[0][3])
-    if mx > 40:
-        raise RuntimeError("No cong thay doi bat thuong (toi %.1f diem %% GDP), khong ghi: %s" % (mx, "; ".join(tom)))
+    dem2, mx2 = lech(khoi[1][2], khoi[1][3])
+    if mx > 40 or mx2 > 10:
+        raise RuntimeError("So lieu thay doi bat thuong, khong ghi: %s" % "; ".join(tom))
     new = raw
     for s, e, moi, _ in sorted(khoi, key=lambda x: -x[0]):
         new = new[:s] + js(moi) + new[e:]
