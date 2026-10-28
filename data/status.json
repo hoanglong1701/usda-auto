@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-28T01:46:03Z",
-  "msg": "44 trang, lan 1 tb 1246 ms, lan 2 tb 1048 ms, 44/44 trang co cache"
+  "at": "2026-10-28T03:04:40Z",
+  "msg": "45 trang, lan 1 tb 1762 ms, lan 2 tb 928 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -140,5 +140,10 @@
   "ok": true,
   "at": "2026-10-26T04:15:10Z",
   "msg": "COT tuan 2026-10-20, 18 hop dong; ghi trang 1639 (moi tao); chen khoi COT trang 299; chen khoi COT trang 300; chen khoi COT trang 301; chen khoi COT trang 111; chen khoi COT trang 302"
+ },
+ "gia_ca_phe": {
+  "ok": true,
+  "at": "2026-10-28T03:04:28Z",
+  "msg": "Gia ca phe 2026-10-28: 4 vung, TB 88,725 d/kg, 4 dong the gioi"
  }
 }
