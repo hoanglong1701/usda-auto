@@ -28,6 +28,7 @@ import sua_menu_trang
 import cot
 import nang_luong
 import tuyen_duong
+import gia_ca_phe
 from names import unmapped
 
 JOBS = {
@@ -58,6 +59,7 @@ JOBS = {
     "cot_thu": cot.run_dry,
     "nang_luong": nang_luong.run,
     "tuyen_duong": tuyen_duong.run,
+    "gia_ca_phe": gia_ca_phe.run,
 }
 
 
