@@ -30,6 +30,7 @@ import nang_luong
 import tuyen_duong
 import gia_ca_phe
 import gia_fob
+import imf_no_cong
 from names import unmapped
 
 JOBS = {
@@ -63,6 +64,8 @@ JOBS = {
     "gia_ca_phe": gia_ca_phe.run,
     "gia_fob": gia_fob.run,
     "gia_fob_thu": gia_fob.thu,
+    "imf_no_cong": imf_no_cong.run,
+    "imf_no_cong_thu": imf_no_cong.run_dry,
 }
 
 
