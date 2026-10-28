@@ -28,8 +28,8 @@
  ],
  "orgs": {
   "ok": true,
-  "at": "2026-10-27T06:24:30Z",
-  "msg": "khong thay doi"
+  "at": "2026-10-28T06:55:09Z",
+  "msg": "Lịch: đã làm mới (23 dòng)"
  },
  "wasde": {
   "ok": true,
@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-28T06:48:42Z",
-  "msg": "45 trang, lan 1 tb 1138 ms, lan 2 tb 965 ms, 45/45 trang co cache"
+  "at": "2026-10-28T06:55:21Z",
+  "msg": "45 trang, lan 1 tb 1147 ms, lan 2 tb 1012 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
