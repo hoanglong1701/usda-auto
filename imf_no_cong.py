@@ -47,8 +47,8 @@ def so(v, nd):
     return int(v) if v == int(v) else v
 
 
-def chuoi(imf, cu, n, nd, lo, hi, ten):
-    """Mang n nam tu Y0 cho tung nuoc; nam cu thieu so thi giu so tren web."""
+def chuoi(imf, cu, n, nd, lo, hi, ten, thieu):
+    """Mang n nam tu Y0 cho tung nuoc; nam IMF khong co so thi giu so tren web va ghi vao thieu."""
     out = {}
     for k in KEYS:
         row = imf.get(k, {})
@@ -57,10 +57,9 @@ def chuoi(imf, cu, n, nd, lo, hi, ten):
             y = Y0 + i
             v = row.get(y)
             if v is None:
-                old = (cu.get(k) or [None] * n)[i]
+                arr.append((cu.get(k) or [None] * n)[i])
                 if y >= NAM_BAT_BUOC:
-                    raise RuntimeError("IMF thieu %s %s nam %d" % (ten, k, y))
-                arr.append(old)
+                    thieu.setdefault("%s %s" % (ten, k), []).append(y)
                 continue
             if not lo <= v <= hi:
                 raise RuntimeError("%s %s nam %d bat thuong: %s" % (ten, k, y, v))
@@ -99,8 +98,14 @@ def tinh(raw):
     s3, e3, bd_cu = doc_khoi(raw, 'id="gdbd"', "D")
     n = len(no_cu["USA"])
     imf = lay_imf()
-    no = chuoi(imf["GGXWDG_NGDP"], no_cu, n, 1, 0, 400, "no cong")
-    bd = chuoi(imf["GGXCNL_NGDP"], bd_cu, n, 1, -40, 20, "can can ngan sach")
+    thieu = {}
+    no = chuoi(imf["GGXWDG_NGDP"], no_cu, n, 1, 0, 400, "no cong", thieu)
+    bd = chuoi(imf["GGXCNL_NGDP"], bd_cu, n, 1, -40, 20, "can can ngan sach", thieu)
+    # nhom nuoc (the gioi, khu vuc euro) co the khong co mot so nam; cac nuoc le phai du
+    le = [t for t in thieu if not t.endswith(("WEOWORLD", "EURO"))]
+    if le:
+        raise RuntimeError("IMF thieu so lieu: " + "; ".join("%s %s" % (t, thieu[t]) for t in le))
+    tinh.thieu = ["%s %d-%d" % (t, min(v), max(v)) for t, v in thieu.items()]
     gdp = imf["NGDPD"]
     usd = {}
     for k in KEYS:
@@ -123,6 +128,8 @@ def run():
     for ten, (_, _, moi, cu) in zip(("no %GDP", "no USD", "ngan sach"), khoi):
         dem, mx = lech(moi, cu)
         tom.append("%s %d o doi (max %.1f)" % (ten, dem, mx))
+    if tinh.thieu:
+        tom.append("giu so cu do IMF khong co: " + ", ".join(tinh.thieu))
     if all(js(m) == js(c) for _, _, m, c in khoi):
         return "IMF chua co so moi, trang 111 giu nguyen"
     dem, mx = lech(khoi[0][2], khoi[0][3])
@@ -148,4 +155,6 @@ def run_dry():
         out.append("%s %d o doi (max %.2f)" % (ten, dem, mx))
         for k in ("USA", "CHN", "WEOWORLD"):
             print(ten, k, "cu:", cu[k][-8:], "moi:", moi[k][-8:])
+    if tinh.thieu:
+        out.append("giu so cu do IMF khong co: " + ", ".join(tinh.thieu))
     return "chay thu, khong ghi: " + "; ".join(out)
