@@ -29,6 +29,7 @@ import cot
 import nang_luong
 import tuyen_duong
 import gia_ca_phe
+import gia_fob
 from names import unmapped
 
 JOBS = {
@@ -60,6 +61,7 @@ JOBS = {
     "nang_luong": nang_luong.run,
     "tuyen_duong": tuyen_duong.run,
     "gia_ca_phe": gia_ca_phe.run,
+    "gia_fob_thu": gia_fob.thu,
 }
 
 
