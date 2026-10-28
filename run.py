@@ -61,6 +61,7 @@ JOBS = {
     "nang_luong": nang_luong.run,
     "tuyen_duong": tuyen_duong.run,
     "gia_ca_phe": gia_ca_phe.run,
+    "gia_fob": gia_fob.run,
     "gia_fob_thu": gia_fob.thu,
 }
 

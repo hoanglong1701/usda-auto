@@ -10,6 +10,8 @@ PAGE = 801
 CODES = {"ngo": 401, "dau_tuong": 801, "kho_dau": 901, "dau_dau": 902, "lua_mi": 107, "gao": 1505}
 # thang/ngay ket thuc nien vu
 MY_END = {401: (8, 31), 801: (8, 31), 901: (9, 30), 902: (9, 30), 107: (5, 31), 1505: (7, 31)}
+# thang bat dau nien vu cua My: ngo, dau tuong 9; kho dau, dau dau 10; lua mi 6; gao 8
+MY_START = {401: 9, 801: 9, 901: 10, 902: 10, 107: 6, 1505: 8}
 
 
 def _get(path):
@@ -53,8 +55,11 @@ def build_cur(code, my, wk, agg):
 
 
 def pick_year(code, cmap):
-    y = datetime.date.today().year
-    for my in (y + 1, y):
+    """Nien vu dang dien ra theo ngay bat dau cua tung mat hang (ESR danh so nien vu theo nam ket thuc).
+    Khong thu nien vu sau truoc: USDA ghi nhan hop dong ban cho vu moi tu truoc khi vu do bat dau."""
+    t = datetime.date.today()
+    cur = t.year + 1 if t.month >= MY_START[code] else t.year
+    for my in (cur, cur - 1):
         got = agg_for(code, my, cmap)
         if got:
             return my, got
