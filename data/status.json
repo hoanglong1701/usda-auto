@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-28T09:15:24Z",
-  "msg": "45 trang, lan 1 tb 2397 ms, lan 2 tb 1395 ms, 45/45 trang co cache"
+  "at": "2026-10-28T09:20:08Z",
+  "msg": "45 trang, lan 1 tb 1329 ms, lan 2 tb 1327 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -157,9 +157,8 @@
   "msg": "FOB lua mi 2026-10 (6 nuoc), ngo 2026-10-06 (4 nuoc), GrainsPrices 22 dong; ky han: ngo contango, dau contango, kho backwardation, dd contango, mi contango, mic contango"
  },
  "imf_no_cong_thu": {
-  "ok": false,
-  "at": "2026-10-28T09:15:18Z",
-  "error": "RuntimeError: IMF thieu no cong WEOWORLD nam 2010",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 88, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/imf_no_cong.py\", line 144, in run_dry\n    khoi = tinh(raw)\n           ^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/imf_no_cong.py\", line 102, in tinh\n    no = chuoi(imf[\"GGXWDG_NGDP\"], no_cu, n, 1, 0, 400, \"no cong\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/imf_no_cong.py\", line 62, in chuoi\n    raise RuntimeError(\"IMF thieu %s %s nam %d\" % (ten, k, y))\nRuntimeError: IMF thieu no cong WEOWORLD nam 2010\n"
+  "ok": true,
+  "at": "2026-10-28T09:20:02Z",
+  "msg": "chay thu, khong ghi: no %GDP 0 o doi (max 0.00); no USD 341 o doi (max 164150602972.16); ngan sach 0 o doi (max 0.00); giu so cu do IMF khong co: no cong WEOWORLD 2010-2031, can can ngan sach WEOWORLD 2010-2031"
  }
 }
