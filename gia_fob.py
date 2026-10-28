@@ -4,10 +4,13 @@
 - FOB lua mi va ngo: ban tin "Grain: World Markets and Trade" cua USDA FAS (so lieu cua Hoi dong Ngu coc
   Quoc te IGC), hang thang. Ban tin hat co dau chi co bieu do (khong co so) nen chua co FOB dau tuong,
   kho dau, dau dau theo cang.
+- FOB theo cang cho ca dau tuong, kho dau, dau dau va ngo, lua mi Nga/Ukraine: bang cong khai cua
+  GrainsPrices.com (ban mien phi tre khoang 3 thang).
 - Duong cong ky han: gia cuoi cua cac hop dong CBOT (Yahoo Finance) trong khoang 15 thang toi.
 Che do thu() in noi dung cac trang co bang gia trong PDF de kiem tra bo cuc.
 """
 import io
+import html
 import re
 import datetime
 import requests
@@ -41,6 +44,24 @@ LUA_MI = [("Argentina", "Argentina"), ("Australia", "Úc"), ("Canada", "Canada")
           ("Russia", "Nga"), ("United States", "Mỹ")]
 NGO = [(r"Argentina, Up River", "Argentina (Up River)"), (r"Brazil, Paranagu\S*", "Brazil (Paranaguá)"),
        (r"Ukraine\*?", "Ukraine"), (r"U\.S\. 3YC, Gulf", "Mỹ (vùng Vịnh)")]
+
+GP_URL = "https://grainsprices.com/markets/fob"
+# (dau ten khu vuc tren trang, dau ten mat hang, ten hien thi)
+GP = {
+    "ngo": [("FOB US Gulf", "Corn", "Mỹ (vùng Vịnh)"), ("FOB Brazil", "Corn", "Brazil (Paranaguá)"),
+            ("FOB Argentina", "Corn", "Argentina"), ("FOB Ukraine", "Corn", "Ukraine"),
+            ("FOB Russia", "Corn", "Nga (Biển Đen)")],
+    "dau": [("FOB Brazil", "Soybeans", "Brazil (Paranaguá)"), ("FOB US Gulf", "Soybeans", "Mỹ (vùng Vịnh)"),
+            ("FOB Argentina", "Soybeans", "Argentina"), ("FOB Ukraine", "Soybeans", "Ukraine")],
+    "kho": [("FOB Argentina", "Soybean Meal", "Argentina"), ("FOB Brazil", "Soybean Meal", "Brazil (Paranaguá)"),
+            ("FOB US Gulf", "Soybean Meal", "Mỹ (vùng Vịnh)")],
+    "dd": [("FOB Argentina", "Soybean Oil", "Argentina"), ("FOB Brazil", "Soybean Oil", "Brazil (Paranaguá)"),
+           ("FOB Netherlands", "Soybean Oil", "Hà Lan (Rotterdam)")],
+    "mi": [("FOB Russia", "Wheat 12.5%", "Nga (12,5% đạm)"), ("FOB France", "Wheat 12%", "EU (Pháp, 12% đạm)"),
+           ("FOB US Gulf", "Wheat SRW", "Mỹ (SRW)"), ("FOB US Gulf", "Wheat HRW", "Mỹ (HRW 12%)"),
+           ("FOB Ukraine", "Wheat 12.5%", "Ukraine (12,5% đạm)"), ("FOB Argentina", "Wheat 12.5%", "Argentina (12,5% đạm)"),
+           ("FOB Australia", "Wheat Premium", "Úc (APW1)")],
+}
 
 
 def trang_pdf(url):
@@ -91,6 +112,46 @@ def doc_ngo(ps):
                 rows.append([vn] + [so(x) for x in r.groups()])
         return ngay, rows
     return [], []
+
+
+def bo_the(s):
+    return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+
+
+def doc_gp():
+    """Bang FOB cua GrainsPrices: moi khu vuc la mot <thead> (o dau la ten khu vuc) roi cac dong
+    ten mat hang, gia USD/tan, thay doi, duong cong, ngay ('Jul, 28 2026')."""
+    r = requests.get(GP_URL, headers=UA, timeout=60)
+    r.raise_for_status()
+    bang = {}
+    for khoi in r.text.split("<thead>")[1:]:
+        m = re.search(r"<th[^>]*>([^<]+)</th>", khoi)
+        if not m:
+            continue
+        rows = []
+        for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", khoi, re.S):
+            td = [bo_the(x) for x in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
+            if len(td) < 5 or not so(td[1]):
+                continue
+            try:
+                ngay = datetime.datetime.strptime(td[4], "%b, %d %Y").date().isoformat()
+            except ValueError:
+                ngay = None
+            rows.append((td[0], so(td[1]), so(td[2]), ngay))
+        bang[html.unescape(m.group(1)).strip()] = rows
+    out = {}
+    for k, ds in GP.items():
+        rows = []
+        for kv, sp, vn in ds:
+            for ten_kv, rs in bang.items():
+                if ten_kv.startswith(kv):
+                    for t, g, c, d in rs:
+                        if t.startswith(sp):
+                            rows.append([vn, g, c, d])
+                            break
+                    break
+        out[k] = rows
+    return out
 
 
 def hop_dong(goc, thang_giao, so_thang=15):
@@ -159,6 +220,16 @@ def run():
         obj["ngo"] = {"ngay": ngay_ngo, "gia": ngo}
     else:
         notes.append("khong doc duoc FOB ngo")
+    so_gp = 0
+    try:
+        gp = doc_gp()
+        so_gp = sum(len(v) for v in gp.values())
+        if so_gp:
+            obj["gp"] = gp
+        else:
+            notes.append("khong doc duoc GrainsPrices")
+    except Exception as e:  # noqa
+        notes.append("GrainsPrices: %s" % e)
 
     kh = {}
     for k, (goc, tg, ten, dv) in KY_HAN.items():
@@ -177,8 +248,9 @@ def run():
     obj["asof"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ")
     wp.save(pid, obj)
     tom = ", ".join("%s %s" % (k, v["kq"]["loai"]) for k, v in kh.items())
-    return "FOB lua mi %s (%d nuoc), ngo %s (%d nuoc); ky han: %s%s" % (
-        k_mi, len(mi), ngay_ngo[0] if ngay_ngo else "-", len(ngo), tom, ("; " + "; ".join(notes)) if notes else "")
+    return "FOB lua mi %s (%d nuoc), ngo %s (%d nuoc), GrainsPrices %d dong; ky han: %s%s" % (
+        k_mi, len(mi), ngay_ngo[0] if ngay_ngo else "-", len(ngo), so_gp, tom,
+        ("; " + "; ".join(notes)) if notes else "")
 
 
 def thu():
