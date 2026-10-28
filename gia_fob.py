@@ -115,7 +115,7 @@ def doc_ngo(ps):
 
 
 def bo_the(s):
-    return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", "", s)).split())
 
 
 def doc_gp():
