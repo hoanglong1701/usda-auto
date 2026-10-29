@@ -34,7 +34,8 @@ TEN = {156: "Trung Quốc", 484: "Mexico", 392: "Nhật Bản", 410: "Hàn Quố
        8: "Albania", 434: "Libya", 729: "Sudan", 24: "Angola", 120: "Cameroon", 466: "Mali", 854: "Burkina Faso",
        562: "Niger", 148: "Chad", 646: "Rwanda", 108: "Burundi", 450: "Madagascar", 480: "Mauritius", 132: "Cabo Verde",
        388: "Jamaica", 780: "Trinidad và Tobago", 332: "Haiti", 192: "Cuba", 558: "Nicaragua",
-       84: "Belize", 242: "Fiji", 598: "Papua New Guinea", 96: "Brunei", 626: "Đông Timor"}
+       84: "Belize", 242: "Fiji", 598: "Papua New Guinea", 96: "Brunei", 626: "Đông Timor", 251: "Pháp", 381: "Ý",
+       757: "Thụy Sĩ", 579: "Na Uy", 711: "Nam Phi"}
 # cac nuoc nhap khau lon co the vao top 3 (ma M49 Comtrade)
 CAND = [156, 484, 392, 410, 704, 360, 608, 528, 724, 276, 380, 250, 56, 620, 616, 826, 792, 818, 12, 504, 788, 682, 364,
         368, 784, 50, 586, 699, 764, 458, 490, 702, 170, 604, 218, 152, 320, 222, 340, 188, 214, 32, 76, 124, 842, 643, 710,
@@ -60,7 +61,10 @@ def ct(freq, **params):
     raise RuntimeError("Comtrade qua tai")
 
 
-def kg(x):
+def kg(x, uoc=True):
+    """Khoi luong kg; uoc=False thi bo khoi luong do Comtrade uoc (vd Ai Cap: cung mot don gia cho moi nguon)."""
+    if not uoc and (x.get("isNetWgtEstimated") or x.get("isQtyEstimated")):
+        return 0.0
     if x.get("netWgt"):
         return float(x["netWgt"])
     if x.get("qtyUnitCode") == 8 and x.get("qty"):
@@ -91,7 +95,7 @@ def xep_hang(hs):
         for x in rows:
             q = kg(x)
             if q:
-                ds.append((q / 1e9, x["reporterCode"], False))
+                ds.append((q / 1e9, x["reporterCode"], not kg(x, False)))
             elif gia and gt(x):
                 ds.append((gt(x) / gia / 1e9, x["reporterCode"], True))
         ds.sort(reverse=True)
@@ -100,46 +104,57 @@ def xep_hang(hs):
 
 
 def theo_xuat_xu(rows, nhap, hs, period, freq):
-    """rows cua nuoc nhap theo doi tac -> {doi tac: [gia tri USD, kg, doi_ung?]}; bu khoi luong bang so lieu nuoc xuat."""
+    """rows cua nuoc nhap theo doi tac -> {doi tac: [gia tri USD, kg, doi_ung?, kg uoc, gia tri ung voi kg]}; bu khoi
+    luong bang so lieu nuoc xuat. kg uoc (Comtrade tu uoc) chi dung cho ty trong, khong tinh don gia."""
     d = {}
     for x in rows:
         c = x.get("partnerCode")
         if not c or str(x.get("cmdCode")) != hs:
             continue
-        v = d.setdefault(c, [0.0, 0.0, False])
+        v = d.setdefault(c, [0.0, 0.0, False, 0.0, 0.0])
         v[0] += gt(x)
-        v[1] += kg(x)
+        v[3] += kg(x)
+        if kg(x, False):
+            v[1] += kg(x, False)
+            v[4] += gt(x)
     tong = sum(v[0] for v in d.values())
     thieu = [c for c, v in d.items() if not v[1] and v[0] > tong * 0.01]
     if thieu:
         for x in ct(freq, reporterCode=",".join(map(str, thieu)), partnerCode=nhap, period=period, cmdCode=hs, flowCode="X"):
             c = x.get("reporterCode")
-            if c in d and kg(x):
-                d[c][1] += kg(x)
+            if c in d and kg(x, False):
+                d[c][1] += kg(x, False)
                 d[c][2] = True
+                d[c][4] = d[c][0]
     return d
 
 
 def bang(d):
-    """[[nuoc, nghin tan, % khoi luong, USD/tan CIF, doi_ung]] xep theo khoi luong, them dong Khac."""
-    tq = sum(v[1] for v in d.values() if v[1])
+    """[[nuoc, nghin tan, % khoi luong, USD/tan CIF, doi_ung]] xep theo khoi luong, them dong Khac.
+    Nguon chi co khoi luong uoc: van tinh ty trong nhung khong co don gia."""
+    kl = {c: max(v[1], v[3]) for c, v in d.items()}
+    tq = sum(kl.values())
     if tq <= 0:
         return []
-    out, kv, kq = [], 0.0, 0.0
-    for c, (v, q, du) in sorted(d.items(), key=lambda kv_: -kv_[1][1]):
-        if not q:
+    out, kv, kq, kk = [], 0.0, 0.0, 0.0
+    for c in sorted(d, key=lambda c_: -kl[c_]):
+        _, q, du, _, v = d[c]
+        k = kl[c]
+        if not k:
             continue
-        if q / tq < KL_MIN or len(out) >= 6:
-            kv += v
-            kq += q
+        if k / tq < KL_MIN or len(out) >= 6:
+            kk += k
+            if q:
+                kv += v
+                kq += q
             continue
         g = v / q * 1000 if q else None
         if g is not None and not 50 <= g <= 6000:
             g = None
-        out.append([ten(c), round(q / 1e6, 1), round(q / tq * 100, 1), round(g) if g else None, 1 if du else 0])
-    if kq:
-        g = kv / kq * 1000
-        out.append(["Khác", round(kq / 1e6, 1), round(kq / tq * 100, 1), round(g) if 50 <= g <= 6000 else None, 0])
+        out.append([ten(c), round(k / 1e6, 1), round(k / tq * 100, 1), round(g) if g else None, 1 if du else 0])
+    if kk > 0:
+        g = kv / kq * 1000 if kq else 0
+        out.append(["Khác", round(kk / 1e6, 1), round(kk / tq * 100, 1), round(g) if 50 <= g <= 6000 else None, 0])
     return out
 
 
@@ -155,6 +170,15 @@ def thang_moi(nhap_list, cmds):
             out.setdefault(x["reporterCode"], m)
         if len(out) == len(nhap_list):
             break
+    # vai nuoc (vd Trung Quoc) chi bao theo doi tac, khong co dong tong the gioi
+    for c in nhap_list:
+        if c in out:
+            continue
+        for n in range(2, 18):
+            m = thang_lui(ym, n)
+            if any(x.get("partnerCode") for x in ct("M", reporterCode=c, period=m, cmdCode=",".join(cmds), flowCode="M")):
+                out[c] = m
+                break
     return out
 
 
@@ -181,13 +205,17 @@ def lay():
                         thang[(c, m)] = ct("M", reporterCode=c, period=m, cmdCode=",".join(h for h, _ in SP.values()),
                                            flowCode="M")
                     for k, v in theo_xuat_xu(thang[(c, m)], c, hs, m, "M").items():
-                        g = gop.setdefault(k, [0.0, 0.0, False])
+                        g = gop.setdefault(k, [0.0, 0.0, False, 0.0, 0.0])
                         g[0] += v[0]
                         g[1] += v[1]
                         g[2] = g[2] or v[2]
+                        g[3] += max(v[1], v[3])
+                        g[4] += v[4]
                 rows3 = bang(gop)
                 if rows3:
                     m3 = {"tu": thang_lui(moi[c], 2), "den": moi[c], "rows": rows3}
+            if uoc and nam:  # tong theo nguon (co khoi luong doi ung) sat hon uoc theo don gia trung vi
+                tr = sum(r[1] for r in nam) / 1000
             ds.append({"nuoc": ten(c), "ma": c, "kl": round(tr, 2), "uoc": 1 if uoc else 0, "nam": nam, "m3": m3})
         res[sp] = {"ten": tsp, "hs": hs, "y": y, "top": ds}
     return res
