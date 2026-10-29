@@ -52,9 +52,10 @@
   "msg": "chua co thang moi de bo sung (HX dang den 2026-09)"
  },
  "yeu_to": {
-  "ok": true,
-  "at": "2026-10-28T06:16:23Z",
-  "msg": "da cap nhat trang 111: vang 4.075 (2026-10-27)"
+  "ok": false,
+  "at": "2026-10-29T06:27:08Z",
+  "error": "ReadTimeout: HTTPSConnectionPool(host='giaodichhanghoa247.vn', port=443): Read timed out. (read timeout=60)",
+  "trace": " another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 91, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/yeu_to.py\", line 251, in run\n    raw = wp.get_raw(PAGE_ID)\n          ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 72, in get_raw\n    r = _sess().get(_url(pid), params={\"context\": \"edit\", \"_fields\": \"content.raw\"}, timeout=60)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 671, in get\n    return self.request(\"GET\", url, params=params, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/requests/adapters.py\", line 742, in send\n    raise ReadTimeout(e, request=request)\nrequests.exceptions.ReadTimeout: HTTPSConnectionPool(host='giaodichhanghoa247.vn', port=443): Read timed out. (read timeout=60)\n"
  },
  "dinh_luong_thu": {
   "ok": true,
@@ -103,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T06:01:03Z",
-  "msg": "45 trang, lan 1 tb 1191 ms, lan 2 tb 995 ms, 45/45 trang co cache"
+  "at": "2026-10-29T06:28:12Z",
+  "msg": "25 trang, lan 1 tb 1987 ms, lan 2 tb 1466 ms, 25/25 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
