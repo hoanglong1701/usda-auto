@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T04:38:58Z",
-  "msg": "45 trang, lan 1 tb 3484 ms, lan 2 tb 1240 ms, 45/45 trang co cache"
+  "at": "2026-10-29T04:45:44Z",
+  "msg": "45 trang, lan 1 tb 1170 ms, lan 2 tb 1112 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -164,7 +164,13 @@
  },
  "wto_thue_thu": {
   "ok": true,
-  "at": "2026-10-29T04:38:58Z",
-  "msg": "da do 17 chi tieu thue, goi duoc du lieu HS: khong"
+  "at": "2026-10-29T04:45:32Z",
+  "msg": "chay thu, khong ghi"
+ },
+ "wto_thue": {
+  "ok": false,
+  "at": "2026-10-29T04:45:36Z",
+  "error": "RuntimeError: Thue Hàn Quốc ngo bat thuong: 428.7",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 91, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wto_thue.py\", line 65, in run\n    raise RuntimeError(\"Thue %s %s bat thuong: %s\" % (ten, sp, v))\nRuntimeError: Thue Hàn Quốc ngo bat thuong: 428.7\n"
  }
 }
