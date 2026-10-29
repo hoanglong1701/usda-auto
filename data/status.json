@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T04:49:13Z",
-  "msg": "45 trang, lan 1 tb 1716 ms, lan 2 tb 3675 ms, 1/45 trang co cache"
+  "at": "2026-10-29T06:01:03Z",
+  "msg": "45 trang, lan 1 tb 1191 ms, lan 2 tb 995 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -117,10 +117,9 @@
   "msg": "gdhh247-chuyen-muc-kim-loai -> 1593; gdhh247-chuyen-muc-nong-san -> 1594; gdhh247-chuyen-muc-nang-luong -> 1595; gdhh247-chuyen-muc-vi-mo -> 1596; gdhh247-chuyen-muc-khuyen-nghi -> 1597"
  },
  "lich_kt": {
-  "ok": false,
-  "at": "2026-10-28T18:31:32Z",
-  "error": "RuntimeError: WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 88, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/lich_kt.py\", line 249, in run\n    wp.save(PAGE, obj)\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 65, in save\n    back = load(pid)\n           ^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 49, in load\n    raise RuntimeError(\"WordPress tra %d khi doc trang %d: %s\" % (r.status_code, pid, r.text[:200].replace(\"\\n\", \" \")))\nRuntimeError: WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}\n"
+  "ok": true,
+  "at": "2026-10-29T06:00:30Z",
+  "msg": "khong thay doi"
  },
  "sua_menu_trang": {
   "ok": true,
