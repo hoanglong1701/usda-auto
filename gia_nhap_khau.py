@@ -49,13 +49,14 @@ def ten(c):
 
 
 def ct(freq, **params):
+    # API xem truoc chan khi goi day hon ~1 lan/3 giay; goi deu tay nhanh hon la de bi 429 roi cho
     for k in range(5):
         r = requests.get(CT % freq, params=params, headers=UA, timeout=90)
         if r.status_code == 429:
-            time.sleep(8 * (k + 1))
+            time.sleep(5 * (k + 1))
             continue
         r.raise_for_status()
-        time.sleep(1.5)
+        time.sleep(3.5)
         return [x for x in r.json().get("data", []) if not x.get("partner2Code") and x.get("customsCode") in (None, "C00")
                 and x.get("motCode") in (None, 0)]
     raise RuntimeError("Comtrade qua tai")
