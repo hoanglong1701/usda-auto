@@ -123,8 +123,9 @@ def theo_xuat_xu(rows, nhap, hs, period, freq):
     if thieu:
         for x in ct(freq, reporterCode=",".join(map(str, thieu)), partnerCode=nhap, period=period, cmdCode=hs, flowCode="X"):
             c = x.get("reporterCode")
-            if c in d and kg(x, False):
-                d[c][1] += kg(x, False)
+            # khoi luong nuoc xuat co the gan co "uoc" nhung van theo tung lo hang, khong phai don gia chung
+            if c in d and kg(x):
+                d[c][1] += kg(x)
                 d[c][2] = True
                 d[c][4] = d[c][0]
     return d

@@ -257,7 +257,7 @@ def tt_1791(d):
             dong.sort()
             out.append("%s về %s (FOB mới nhất cộng cước biển, thuế nhập khẩu%s): %s; rẻ nhất là %s, đắt nhất %s cao hơn %s."
                        % (tsp, nc, ", VAT" if vat else "", "; ".join("%s %s USD/tấn" % (t, n0(g)) for g, t in dong),
-                          dong[0][1], dong[-1][1], pc((dong[-1][0] / dong[0][0] - 1) * 100)))
+                          dong[0][1], dong[-1][1], n1((dong[-1][0] / dong[0][0] - 1) * 100) + "%"))
     for sp, v in ((d.get("gnk") or {}).get("sp") or {}).items():
         top = v.get("top") or []
         if top:
