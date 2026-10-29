@@ -61,7 +61,8 @@ def run():
         for sp, pc in HS.items():
             if pc in got:
                 v, nam = got[pc]
-                if not 0 <= v <= 200:
+                # thue ngoai han ngach co the rat cao (vi du ngo Han Quoc ~429%)
+                if not 0 <= v <= 1000:
                     raise RuntimeError("Thue %s %s bat thuong: %s" % (ten, sp, v))
                 hang[sp] = [v, nam]
         if hang:
