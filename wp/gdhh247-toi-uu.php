@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
- * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP.
- * Version: 1.6.1
+ * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP, watermark, tóm tắt số liệu bằng chữ, URL không /index.php/, IndexNow, LiteSpeed Cache.
+ * Version: 1.7.0
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -306,6 +306,7 @@ add_action( 'template_redirect', function () {
 add_action( 'transition_post_status', function ( $new_status, $old_status, $post ) {
 	if ( 'post' === $post->post_type && ( 'publish' === $new_status || 'publish' === $old_status ) ) {
 		do_action( 'cache_enabler_clear_page_cache_by_post', 112 );
+		do_action( 'litespeed_purge_post', 112 );
 	}
 }, 10, 3 );
 
@@ -797,6 +798,160 @@ add_action( 'rest_api_init', function () {
 			return $res;
 		},
 	) );
+} );
+
+/* ---------------------------------------------------------------------------
+ * 2e. Tóm tắt số liệu bằng chữ: job GitHub tom_tat ghi trường "tt" vào trang dữ liệu;
+ *     in ra HTML cuối trang hiển thị để Google và công cụ AI đọc được (biểu đồ vẽ bằng JS).
+ * ------------------------------------------------------------------------- */
+
+/* Trang hiển thị => các trang dữ liệu có tóm tắt. */
+const GDHH_TT_MAP = array(
+	31  => array( 178 ),
+	106 => array( 847, 176 ),
+	107 => array( 1519 ),
+	109 => array( 227 ),
+	111 => array( 178 ),
+	299 => array( 1526, 801, 1791 ),
+	300 => array( 1519 ),
+	301 => array( 1519 ),
+	303 => array( 227 ),
+);
+
+function gdhh_data_json( $pid ) {
+	static $cache = array();
+	if ( ! array_key_exists( $pid, $cache ) ) {
+		$cache[ $pid ] = null;
+		$raw           = (string) get_post_field( 'post_content', $pid );
+		if ( preg_match( '#<pre id="gd-data"[^>]*>(.*?)</pre>#s', $raw, $m ) ) {
+			$j = json_decode( html_entity_decode( $m[1], ENT_QUOTES | ENT_HTML5, 'UTF-8' ), true );
+			if ( is_array( $j ) ) {
+				$cache[ $pid ] = $j;
+			}
+		}
+	}
+	return $cache[ $pid ];
+}
+
+add_filter( 'the_content', function ( $html ) {
+	if ( ! is_page() || ! in_the_loop() || ! is_main_query() ) {
+		return $html;
+	}
+	$id = get_the_ID();
+	if ( ! isset( GDHH_TT_MAP[ $id ] ) ) {
+		return $html;
+	}
+	$ps = array();
+	foreach ( GDHH_TT_MAP[ $id ] as $src ) {
+		$d = gdhh_data_json( $src );
+		if ( empty( $d['tt'] ) || ! is_array( $d['tt'] ) ) {
+			continue;
+		}
+		$tt = $d['tt'];
+		if ( isset( $tt[ (string) $id ] ) && is_array( $tt[ (string) $id ] ) ) {
+			$tt = $tt[ (string) $id ];
+		} elseif ( ! isset( $tt[0] ) ) {
+			continue;
+		}
+		foreach ( $tt as $p ) {
+			if ( is_string( $p ) && '' !== $p ) {
+				$ps[] = '<p>' . esc_html( $p ) . '</p>';
+			}
+		}
+	}
+	if ( ! $ps ) {
+		return $html;
+	}
+	return $html . '<section class="gdhh-tt gdwm-off" style="margin:24px 0 8px;padding:14px 16px;border:1px solid #e6dede;border-radius:10px;background:#fcfafa;font-size:14px;line-height:1.6;color:#333">'
+		. '<h2 style="font-size:17px;margin:0 0 8px">Tóm tắt số liệu mới nhất</h2>' . implode( '', $ps ) . '</section>';
+}, 20 );
+
+/* Trang dữ liệu đổi => xóa cache các trang hiển thị dùng nó. */
+add_action( 'post_updated', function ( $post_id ) {
+	foreach ( GDHH_TT_MAP as $show => $srcs ) {
+		if ( in_array( (int) $post_id, $srcs, true ) ) {
+			do_action( 'litespeed_purge_post', $show );
+			do_action( 'cache_enabler_clear_page_cache_by_post', $show );
+		}
+	}
+} );
+
+/* ---------------------------------------------------------------------------
+ * 2f. URL không có /index.php/ (đổi một lần). .htaccess chuyển hướng 301 địa chỉ cũ; REST cũ
+ *     /index.php/wp-json/ vẫn chạy cho các khối JS và job GitHub.
+ * ------------------------------------------------------------------------- */
+
+add_action( 'init', function () {
+	if ( get_option( 'gdhh_permalink_170' ) === '1' ) {
+		return;
+	}
+	global $wp_rewrite;
+	$cur = (string) get_option( 'permalink_structure' );
+	if ( 0 === strpos( $cur, '/index.php/' ) ) {
+		$wp_rewrite->set_permalink_structure( substr( $cur, strlen( '/index.php' ) ) );
+		flush_rewrite_rules( false );
+	}
+	update_option( 'gdhh_permalink_170', '1', false );
+	if ( class_exists( '\RankMath\Sitemap\Cache' ) ) {
+		\RankMath\Sitemap\Cache::invalidate_storage();
+	}
+	do_action( 'cache_enabler_clear_complete_cache' );
+	do_action( 'litespeed_purge_all' );
+}, 99 );
+
+/* Link nội bộ còn ghi cứng /index.php/ trong nội dung, menu, widget: bỏ để tránh chuyển hướng thừa. */
+function gdhh_bo_index_php( $html ) {
+	if ( false === strpos( (string) $html, '/index.php/' ) ) {
+		return $html;
+	}
+	return preg_replace( '#(href=["\'])((?:https?:)?//giaodichhanghoa247\.vn)?/index\.php/(?!wp-json)#i', '$1$2/', $html );
+}
+foreach ( array( 'the_content', 'wp_nav_menu', 'widget_text', 'widget_block_content' ) as $h ) {
+	add_filter( $h, 'gdhh_bo_index_php', 99 );
+}
+
+/* ---------------------------------------------------------------------------
+ * 2g. IndexNow: bài, trang vừa đăng hoặc sửa được gửi ngay tới Bing, Yandex, Seznam, Naver.
+ *     Tệp khóa /<khóa>.txt do plugin trả về (không cần tệp trên máy chủ).
+ * ------------------------------------------------------------------------- */
+
+const GDHH_INDEXNOW_KEY = 'a7f3c1e9d4b2486f9e0c5d7a1b3f8e62';
+
+add_action( 'init', function () {
+	$path = (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '', PHP_URL_PATH );
+	if ( '/' . GDHH_INDEXNOW_KEY . '.txt' === $path ) {
+		status_header( 200 );
+		header( 'Content-Type: text/plain; charset=utf-8' );
+		echo GDHH_INDEXNOW_KEY; // phpcs:ignore
+		exit;
+	}
+}, 1 );
+
+add_action( 'wp_after_insert_post', function ( $post_id, $post ) {
+	if ( 'publish' !== $post->post_status || ! in_array( $post->post_type, array( 'post', 'page' ), true )
+		|| wp_is_post_revision( $post_id ) || gdhh_is_data_page( $post_id ) ) {
+		return;
+	}
+	$url = get_permalink( $post_id );
+	if ( ! $url || get_transient( 'gdhh_inx_' . md5( $url ) ) ) {
+		return;
+	}
+	set_transient( 'gdhh_inx_' . md5( $url ), 1, 10 * MINUTE_IN_SECONDS );
+	wp_remote_get( add_query_arg( array( 'url' => rawurlencode( $url ), 'key' => GDHH_INDEXNOW_KEY ), 'https://api.indexnow.org/indexnow' ),
+		array( 'blocking' => false, 'timeout' => 2 ) );
+}, 20, 2 );
+
+/* ---------------------------------------------------------------------------
+ * 2h. LiteSpeed Cache: không cache REST (khối JS đọc trang dữ liệu qua REST) và trang thành viên.
+ * ------------------------------------------------------------------------- */
+
+add_action( 'rest_api_init', function () {
+	do_action( 'litespeed_control_set_nocache', 'GDHH247: REST' );
+} );
+add_action( 'template_redirect', function () {
+	if ( gdhh_is_pms_page() ) {
+		do_action( 'litespeed_control_set_nocache', 'GDHH247: trang thanh vien' );
+	}
 } );
 
 /* ---------------------------------------------------------------------------
