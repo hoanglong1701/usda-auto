@@ -13,12 +13,13 @@ import wp
 BASE = "https://giaodichhanghoa247.vn"
 DOMAIN = "giaodichhanghoa247.vn"
 H = {"User-Agent": wp.UA}
+# tien to /index.php them luc chay neu trang chua bo khoi dia chi (wp.tien_to)
 TRANG = [
-    "/", "/index.php/tin-tuc-nhanh/", "/index.php/dashboard-tong-hop/", "/index.php/gia-the-gioi-truc-tuyen/",
-    "/index.php/phan-tich-chuyen-sau/", "/index.php/khuyen-nghi/", "/index.php/ket-qua-khuyen-nghi/",
-    "/index.php/kim-loai-quy/", "/index.php/kien-thuc-dau-tu/", "/index.php/phan-tich-nong-san/",
-    "/index.php/phan-tich-kim-loai/", "/index.php/phan-tich-nguyen-lieu-cong-nghiep/",
-    "/index.php/tong-quat-kinh-te-the-gioi/", "/index.php/category/kim-loai/", "/index.php/category/tin-tuc-vi-mo/",
+    "/", "/tin-tuc-nhanh/", "/dashboard-tong-hop/", "/gia-the-gioi-truc-tuyen/",
+    "/phan-tich-chuyen-sau/", "/khuyen-nghi/", "/ket-qua-khuyen-nghi/",
+    "/kim-loai-quy/", "/kien-thuc-dau-tu/", "/phan-tich-nong-san/",
+    "/phan-tich-kim-loai/", "/phan-tich-nguyen-lieu-cong-nghiep/",
+    "/tong-quat-kinh-te-the-gioi/", "/category/kim-loai/", "/category/tin-tuc-vi-mo/",
 ]
 # trang du lieu: (id, truong thoi gian, so gio toi da; so am = chi canh bao, khong bao loi).
 # "modified" = gio sua trang tren WordPress
@@ -71,7 +72,9 @@ def kiem_dns():
 
 def kiem_trang():
     loi, cham = [], []
+    tt = wp.tien_to()
     for p in TRANG:
+        p = p if p == "/" else tt + p
         try:
             r = requests.get(BASE + p, headers=H, timeout=45)
             if r.status_code != 200:

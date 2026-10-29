@@ -34,6 +34,9 @@ import imf_no_cong
 import wto_thue
 import gia_nhap_khau
 import cuoc_bien
+import tom_tat
+import doi_cache
+import indexnow_all
 from names import unmapped
 
 JOBS = {
@@ -75,6 +78,11 @@ JOBS = {
     "gia_nhap_khau_thu": gia_nhap_khau.thu,
     "cuoc_bien": cuoc_bien.run,
     "cuoc_bien_thu": cuoc_bien.thu,
+    "tom_tat": tom_tat.run,
+    "tom_tat_thu": tom_tat.run_dry,
+    "doi_cache": doi_cache.run,
+    "doi_cache_lai": doi_cache.run_back,
+    "indexnow_all": indexnow_all.run,
 }
 
 

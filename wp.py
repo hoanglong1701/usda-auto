@@ -17,6 +17,21 @@ def _cfg():
     return base, user, pw
 
 
+_TIEN_TO = []
+
+
+def tien_to():
+    """"" khi trang da bo /index.php/ khoi dia chi (dot 3), nguoc lai "/index.php". Do mot lan moi lan chay."""
+    if not _TIEN_TO:
+        try:
+            r = requests.get("https://giaodichhanghoa247.vn/phan-tich-nong-san/", headers={"User-Agent": UA},
+                             timeout=45, allow_redirects=False)
+            _TIEN_TO.append("" if r.status_code == 200 else "/index.php")
+        except Exception:  # noqa
+            _TIEN_TO.append("/index.php")
+    return _TIEN_TO[0]
+
+
 def enabled():
     b, u, p = _cfg()
     return bool(b and u and p)

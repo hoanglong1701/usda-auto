@@ -1,4 +1,4 @@
-"""Lam nong cache (Cache Enabler): goi lai cac trang chinh va bai moi nhat de nguoi doc gap ban cache.
+"""Lam nong cache (Cache Enabler hoac LiteSpeed Cache): goi lai cac trang chinh va bai moi nhat de nguoi doc gap ban cache.
 Chay sau moi job du lieu (data.yml) va moi 30 phut (giam-sat.yml).
 """
 import time
@@ -6,19 +6,19 @@ import requests
 import wp
 
 BASE = "https://giaodichhanghoa247.vn"
-# trang chinh: duong dan khong co query (Cache Enabler bo qua URL co query)
+# trang chinh: duong dan khong co query (plugin cache bo qua URL co query); tien to /index.php them luc chay neu can
 TRANG = [
-    "/", "/index.php/tin-tuc-nhanh/", "/index.php/dashboard-tong-hop/", "/index.php/gia-the-gioi-truc-tuyen/",
-    "/index.php/phan-tich-thi-truong/", "/index.php/phan-tich-chuyen-sau/", "/index.php/khuyen-nghi/",
-    "/index.php/ket-qua-khuyen-nghi/", "/index.php/phan-tich-cung-cau-san-pham/", "/index.php/kim-loai-quy/",
-    "/index.php/kien-thuc-dau-tu/", "/index.php/ve-gdhh247/", "/index.php/mo-tai-khoan-gdhh/",
-    "/index.php/phan-tich-nong-san/", "/index.php/phan-tich-kim-loai/", "/index.php/phan-tich-nguyen-lieu-cong-nghiep/",
-    "/index.php/khuyen-nghi-ket-qua-khuyen-nghi/", "/index.php/tong-quat-kinh-te-the-gioi/",
-    "/index.php/category/kim-loai/", "/index.php/category/nong-san/", "/index.php/category/nang-luong/",
-    "/index.php/category/tin-tuc-vi-mo/", "/index.php/category/khuyen-nghi/", "/index.php/phan-tich-nang-luong/",
-    "/index.php/gia-ca-phe/",
+    "/", "/tin-tuc-nhanh/", "/dashboard-tong-hop/", "/gia-the-gioi-truc-tuyen/",
+    "/phan-tich-thi-truong/", "/phan-tich-chuyen-sau/", "/khuyen-nghi/",
+    "/ket-qua-khuyen-nghi/", "/phan-tich-cung-cau-san-pham/", "/kim-loai-quy/",
+    "/kien-thuc-dau-tu/", "/ve-gdhh247/", "/mo-tai-khoan-gdhh/",
+    "/phan-tich-nong-san/", "/phan-tich-kim-loai/", "/phan-tich-nguyen-lieu-cong-nghiep/",
+    "/khuyen-nghi-ket-qua-khuyen-nghi/", "/tong-quat-kinh-te-the-gioi/",
+    "/category/kim-loai/", "/category/nong-san/", "/category/nang-luong/",
+    "/category/tin-tuc-vi-mo/", "/category/khuyen-nghi/", "/phan-tich-nang-luong/",
+    "/gia-ca-phe/",
 ]
-# trinh duyet that (Cache Enabler khong phan biet thiet bi, nhung gui UA nhu nguoi doc)
+# trinh duyet that (plugin cache khong phan biet thiet bi, nhung gui UA nhu nguoi doc)
 HDR = {"User-Agent": wp.UA, "Accept": "text/html", "Accept-Encoding": "gzip"}
 
 
@@ -36,14 +36,16 @@ def goi(path):
     try:
         r = requests.get(BASE + path, headers=HDR, timeout=60)
         ms = round((time.time() - t) * 1000)
-        hit = "cache-enabler" in r.headers.get("X-Cache-Handler", "") or "Cache Enabler by" in r.text[-300:]
+        hit = ("cache-enabler" in r.headers.get("X-Cache-Handler", "") or "Cache Enabler by" in r.text[-300:]
+               or "hit" in r.headers.get("X-LiteSpeed-Cache", "").lower())
         return r.status_code, ms, hit
     except Exception:  # noqa
         return 0, round((time.time() - t) * 1000), False
 
 
 def run():
-    ds = TRANG + bai_moi()
+    tt = wp.tien_to()
+    ds = [p if p == "/" else tt + p for p in TRANG] + bai_moi()
     lan1 = [(p,) + goi(p) for p in ds]
     # lan 2: kiem tra trang da vao cache chua
     lan2 = [(p,) + goi(p) for p in ds]
