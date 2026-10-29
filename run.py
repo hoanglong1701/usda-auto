@@ -67,6 +67,7 @@ JOBS = {
     "gia_fob_thu": gia_fob.thu,
     "imf_no_cong": imf_no_cong.run,
     "imf_no_cong_thu": imf_no_cong.run_dry,
+    "wto_thue": wto_thue.run,
     "wto_thue_thu": wto_thue.thu,
 }
 

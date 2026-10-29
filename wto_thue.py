@@ -28,31 +28,60 @@ def goi(path, **params):
     return r.json()
 
 
-def thu():
-    ds = goi("/indicators", i="all", lang=1)
-    out = []
-    for x in ds:
-        ten = (x.get("name") or "") + " " + (x.get("code") or "")
-        if any(k in ten.lower() for k in ("duty", "duties", "tariff", "mfn")):
-            out.append(x)
-    print("Tong %d chi tieu, %d lien quan thue" % (len(ds), len(out)))
-    for x in out:
-        print(json.dumps({k: x.get(k) for k in ("code", "name", "productClassification", "frequencyCode",
-                                                "startYear", "endYear", "numberReporters")}, ensure_ascii=False))
-    thanh_cong = []
-    for x in out:
-        pcl = str(x.get("productClassification") or "")
-        if "HS" not in pcl.upper():
+# "HS MFN - Simple average ad valorem duty", theo ma HS 6 so, hang nam
+CHI_TIEU = "HS_A_0010"
+
+
+def lay_nuoc(ma):
+    """{ma HS: (thue %, nam)} cua nam moi nhat co so lieu."""
+    d = goi("/data", i=CHI_TIEU, r=ma, ps="2019-2026", pc=",".join(HS.values()), fmt="json", mode="full",
+            lang=1, max=500)
+    rows = d.get("Dataset") or d.get("dataset") or []
+    out = {}
+    for x in rows:
+        pc = str(x.get("ProductOrSectorCode") or x.get("productOrSectorCode") or "")
+        nam = int(x.get("Year") or x.get("year") or 0)
+        v = x.get("Value", x.get("value"))
+        if v is None or pc not in HS.values():
             continue
-        for pc in ("120190", "1201"):
-            try:
-                d = goi("/data", i=x["code"], r="156", p="default", ps="2020-2026", pc=pc, fmt="json", mode="full", lang=1, max=20)
-            except Exception as e:  # noqa
-                print("  %s pc=%s: %s" % (x["code"], pc, str(e)[:160]))
-                continue
-            rows = d.get("Dataset") or d.get("dataset") or d
-            print("  %s pc=%s: %s" % (x["code"], pc, json.dumps(rows, ensure_ascii=False)[:600]))
-            if rows:
-                thanh_cong.append(x["code"])
-                break
-    return "da do %d chi tieu thue, goi duoc du lieu HS: %s" % (len(out), ", ".join(thanh_cong) or "khong")
+        if pc not in out or nam > out[pc][1]:
+            out[pc] = (round(float(v), 1), nam)
+    return out, rows
+
+
+def run():
+    mfn, thieu = {}, []
+    for ten, ma in NUOC.items():
+        try:
+            got, _ = lay_nuoc(ma)
+        except Exception as e:  # noqa
+            thieu.append("%s (%s)" % (ten, str(e)[:60]))
+            continue
+        hang = {}
+        for sp, pc in HS.items():
+            if pc in got:
+                v, nam = got[pc]
+                if not 0 <= v <= 200:
+                    raise RuntimeError("Thue %s %s bat thuong: %s" % (ten, sp, v))
+                hang[sp] = [v, nam]
+        if hang:
+            mfn[ten] = hang
+        else:
+            thieu.append("%s (khong co so)" % ten)
+    if len(mfn) < 4:
+        raise RuntimeError("Chi lay duoc MFN cua %d nuoc: %s" % (len(mfn), "; ".join(thieu)))
+    obj = wp.load(PAGE) or {}
+    if obj.get("mfn") == mfn:
+        return "WTO MFN khong doi (%d nuoc)" % len(mfn)
+    obj["mfn"] = mfn
+    wp.save(PAGE, obj)
+    return "da ghi MFN WTO cho %d nuoc%s" % (len(mfn), ("; thieu: " + "; ".join(thieu)) if thieu else "")
+
+
+def thu():
+    for ten in ("Trung Quốc", "EU"):
+        got, rows = lay_nuoc(NUOC[ten])
+        print(ten, "so dong:", len(rows))
+        print(json.dumps(rows[:3], ensure_ascii=False)[:1200])
+        print(ten, "ket qua:", got)
+    return "chay thu, khong ghi"
