@@ -15,6 +15,7 @@ import wp
 SLUG = "du-lieu-gia-ca-phe"
 RSS = "https://baovanhoa.vn/rss/home.rss"
 UA = {"User-Agent": wp.UA}
+PHIEN = 2  # tang khi doi cach doc bai de doc lai bai hien tai
 LINK = re.compile(r"https://baovanhoa\.vn/[\w/-]*gia-ca-phe-hom-nay-(\d{2,8})[\w-]*\.html")
 
 
@@ -100,9 +101,11 @@ def doc_bai(url):
         if "Đắk Lắk" in chu and not vung:
             m = re.search(r"Giá ngày (\d{1,2}[./]\d{1,2})", " ".join(b[0]))
             ngay_gia = m.group(1).replace(".", "/") if m else ""
+            # tu 29/10/2026 bang co them cot gia hom truoc: tim cot "Thay doi" theo dong tieu de
+            ci = next((i for i, x in enumerate(b[0]) if "Thay đổi" in x), 2)
             for d in b[1:]:
                 if len(d) >= 2 and so(d[1]):
-                    vung.append([d[0], so(d[1]), so(d[2]) if len(d) > 2 else None])
+                    vung.append([d[0], so(d[1]), so(d[ci]) if len(d) > ci else None])
         elif ("Robusta" in chu or "Arabica" in chu) and not tg:
             for d in b[1:]:
                 if len(d) >= 3 and ("Robusta" in d[0] or "Arabica" in d[0]):
@@ -125,7 +128,7 @@ def run():
     url, ngay_bai = bai_moi_nhat()
     if not url:
         return "RSS khong co bai gia ca phe, giu du lieu %s" % obj.get("bai", "-")
-    if obj.get("url") == url:
+    if obj.get("url") == url and obj.get("phien") == PHIEN:
         return "Chua co bai moi (%s)" % ngay_bai.isoformat()
     vung, tg, ngay_gia = doc_bai(url)
     if len(vung) < 3:
@@ -141,6 +144,7 @@ def run():
         "ngay_gia": ngay_gia,
         "url": url,
         "nguon": "Báo Văn Hóa",
+        "phien": PHIEN,
         "vung": vung,
         "tg": tg,
         "tb": tb,
