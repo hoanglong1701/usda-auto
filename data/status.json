@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T08:30:42Z",
-  "msg": "45 trang, lan 1 tb 1724 ms, lan 2 tb 1418 ms, 45/45 trang co cache"
+  "at": "2026-10-29T08:34:46Z",
+  "msg": "45 trang, lan 1 tb 1807 ms, lan 2 tb 1595 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -186,5 +186,10 @@
   "ok": true,
   "at": "2026-10-29T08:14:17Z",
   "msg": "da ghi gia nhap khau theo xuat xu: Đậu tương 2025 (Trung Quốc, Argentina, Thái Lan); Ngô 2025 (Mexico, Nhật Bản, Ai Cập); Lúa mì 2025 (Indonesia, Ai Cập, Ý); Khô đậu tương 2025 (Indonesia, Ba Lan, Tây Ban Nha); Dầu đậu tương 2025 (Ấn Độ, Maroc, Peru); Gạo 2025 (Philippines, Trung Quốc, Bờ Biển Ngà)"
+ },
+ "cuoc_bien_thu": {
+  "ok": true,
+  "at": "2026-10-29T08:34:42Z",
+  "msg": "chay thu, khong ghi"
  }
 }
