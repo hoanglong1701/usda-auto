@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T08:08:13Z",
-  "msg": "45 trang, lan 1 tb 1329 ms, lan 2 tb 1178 ms, 45/45 trang co cache"
+  "at": "2026-10-29T08:30:42Z",
+  "msg": "45 trang, lan 1 tb 1724 ms, lan 2 tb 1418 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -169,8 +169,8 @@
  },
  "wto_thue": {
   "ok": true,
-  "at": "2026-10-29T04:48:55Z",
-  "msg": "da ghi MFN WTO cho 8 nuoc"
+  "at": "2026-10-29T08:30:15Z",
+  "msg": "da ghi MFN WTO cho 17 nuoc; thieu: Argentina (WTO /data tra 400: {\"title\":\"One or more validation errors o)"
  },
  "imf_no_cong": {
   "ok": true,
@@ -181,5 +181,10 @@
   "ok": true,
   "at": "2026-10-29T07:59:28Z",
   "msg": "chay thu, khong ghi"
+ },
+ "gia_nhap_khau": {
+  "ok": true,
+  "at": "2026-10-29T08:14:17Z",
+  "msg": "da ghi gia nhap khau theo xuat xu: Đậu tương 2025 (Trung Quốc, Argentina, Thái Lan); Ngô 2025 (Mexico, Nhật Bản, Ai Cập); Lúa mì 2025 (Indonesia, Ai Cập, Ý); Khô đậu tương 2025 (Indonesia, Ba Lan, Tây Ban Nha); Dầu đậu tương 2025 (Ấn Độ, Maroc, Peru); Gạo 2025 (Philippines, Trung Quốc, Bờ Biển Ngà)"
  }
 }
