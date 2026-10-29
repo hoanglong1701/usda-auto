@@ -6,10 +6,14 @@
   kho dau, dau dau theo cang.
 - FOB theo cang cho ca dau tuong, kho dau, dau dau va ngo, lua mi Nga/Ukraine: bang cong khai cua
   GrainsPrices.com (ban mien phi tre khoang 3 thang).
+- FOB moi nhat dau tuong, kho dau, dau dau, ngo My/Brazil/Argentina: API CommodityScope (CommodityScope
+  cho phep GDHH247 dung tu 10/2026, khoa CS_API_KEY trong GitHub Secrets; tran 48 lan goi/ngay, moi lan
+  chay goi 11 lan). Dieu kien: hien ngay danh gia, ghi nguon CommodityScope, dan link trang chuoi gia.
 - Duong cong ky han: gia cuoi cua cac hop dong CBOT (Yahoo Finance) trong khoang 15 thang toi.
 Che do thu() in noi dung cac trang co bang gia trong PDF de kiem tra bo cuc.
 """
 import io
+import os
 import html
 import re
 import datetime
@@ -112,6 +116,51 @@ def doc_ngo(ps):
                 rows.append([vn] + [so(x) for x in r.groups()])
         return ngay, rows
     return [], []
+
+
+CS_URL = "https://commodityscope.com/desk/api/feed/%s"
+CS = {
+    "ngo": [("CS-GRN-D-CRN-US2YC", "Mỹ (NOLA, 2YC)"), ("CS-GRN-D-CRN-BRZ", "Brazil"),
+            ("CS-GRN-CRN-ARG", "Argentina (Upriver, tuần)")],
+    "dau": [("CS-GRN-D-SOY-US", "Mỹ (NOLA)"), ("CS-GRN-D-SOY-BRZ", "Brazil"), ("CS-GRN-D-SOY-ARG", "Argentina")],
+    "kho": [("CS-GRN-D-SML-US", "Mỹ (NOLA, 48%)"), ("CS-GRN-SML-BRZ", "Brazil (48%, tuần)"),
+            ("CS-GRN-SML-ARG", "Argentina (47%, tuần)")],
+    "dd": [("CS-GRN-SBO-ARG", "Argentina"), ("CS-GRN-SBO-BRZ", "Brazil (Paranaguá)")],
+}
+
+
+def doc_cs(notes):
+    """Gia moi nhat tung chuoi: [ten, gia USD/tan, ngay danh gia, link trang chuoi]."""
+    key = os.environ.get("CS_API_KEY", "").strip()
+    if not key:
+        notes.append("chua co CS_API_KEY")
+        return {}
+    out = {}
+    for k, ds in CS.items():
+        rows = []
+        for sid, vn in ds:
+            try:
+                r = requests.get(CS_URL % sid, headers={"X-Api-Key": key, "User-Agent": wp.UA}, timeout=60)
+                if r.status_code != 200:
+                    notes.append("CommodityScope %s: HTTP %d" % (sid, r.status_code))
+                    continue
+                j = r.json()
+            except Exception as e:  # noqa
+                notes.append("CommodityScope %s: %s" % (sid, str(e)[:80]))
+                continue
+            la = j.get("latest") or {}
+            v = la.get("value", j.get("value"))
+            d = la.get("date", j.get("date"))
+            pg = j.get("page") or la.get("page") or ""
+            if v is None or not d:
+                notes.append("CommodityScope %s: thieu latest (khoa %s)" % (sid, ",".join(list(j)[:8])))
+                continue
+            if not str(pg).startswith("https://commodityscope.com/"):
+                pg = ""
+            rows.append([vn, round(float(v), 2), str(d)[:10], pg])
+        if rows:
+            out[k] = rows
+    return out
 
 
 def bo_the(s):
@@ -230,6 +279,10 @@ def run():
             notes.append("khong doc duoc GrainsPrices")
     except Exception as e:  # noqa
         notes.append("GrainsPrices: %s" % e)
+    cs = doc_cs(notes)
+    so_cs = sum(len(v) for v in cs.values())
+    if so_cs:
+        obj["cs"] = cs
 
     kh = {}
     for k, (goc, tg, ten, dv) in KY_HAN.items():
@@ -248,8 +301,8 @@ def run():
     obj["asof"] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ")
     wp.save(pid, obj)
     tom = ", ".join("%s %s" % (k, v["kq"]["loai"]) for k, v in kh.items())
-    return "FOB lua mi %s (%d nuoc), ngo %s (%d nuoc), GrainsPrices %d dong; ky han: %s%s" % (
-        k_mi, len(mi), ngay_ngo[0] if ngay_ngo else "-", len(ngo), so_gp, tom,
+    return "FOB lua mi %s (%d nuoc), ngo %s (%d nuoc), GrainsPrices %d dong, CommodityScope %d/11; ky han: %s%s" % (
+        k_mi, len(mi), ngay_ngo[0] if ngay_ngo else "-", len(ngo), so_gp, so_cs, tom,
         ("; " + "; ".join(notes)) if notes else "")
 
 
