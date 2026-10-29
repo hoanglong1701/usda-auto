@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T08:41:51Z",
-  "msg": "45 trang, lan 1 tb 1217 ms, lan 2 tb 1045 ms, 45/45 trang co cache"
+  "at": "2026-10-29T08:53:04Z",
+  "msg": "45 trang, lan 1 tb 2155 ms, lan 2 tb 1024 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -144,8 +144,8 @@
  },
  "gia_ca_phe": {
   "ok": true,
-  "at": "2026-10-28T11:35:59Z",
-  "msg": "RSS khong co bai gia ca phe, giu du lieu 2026-10-28"
+  "at": "2026-10-29T08:52:56Z",
+  "msg": "Chua co bai moi (2026-10-28)"
  },
  "gia_fob_thu": {
   "ok": true,
