@@ -64,6 +64,7 @@ jobs:
           FAS_API_KEY: ${{ secrets.FAS_API_KEY }}
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           CS_API_KEY: ${{ secrets.CS_API_KEY }}
+          WTO_API_KEY: ${{ secrets.WTO_API_KEY }}
           INPUT_JOB: ${{ github.event.inputs.job }}
           SCHEDULE: ${{ github.event.schedule }}
           EVENT: ${{ github.event_name }}
