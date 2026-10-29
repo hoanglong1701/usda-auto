@@ -73,6 +73,7 @@ JOBS = {
     "wto_thue_thu": wto_thue.thu,
     "gia_nhap_khau": gia_nhap_khau.run,
     "gia_nhap_khau_thu": gia_nhap_khau.thu,
+    "cuoc_bien": cuoc_bien.run,
     "cuoc_bien_thu": cuoc_bien.thu,
 }
 
