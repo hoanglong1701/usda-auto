@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T04:03:23Z",
-  "msg": "45 trang, lan 1 tb 2382 ms, lan 2 tb 1242 ms, 45/45 trang co cache"
+  "at": "2026-10-29T04:38:58Z",
+  "msg": "45 trang, lan 1 tb 3484 ms, lan 2 tb 1240 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -161,5 +161,10 @@
   "ok": true,
   "at": "2026-10-28T09:24:11Z",
   "msg": "chay thu, khong ghi: no %GDP 0 o doi (max 0.00); no USD 0 o doi (max 0.00); ngan sach 0 o doi (max 0.00); giu so cu do IMF khong co: no cong WEOWORLD 2010-2031, can can ngan sach WEOWORLD 2010-2031"
+ },
+ "wto_thue_thu": {
+  "ok": true,
+  "at": "2026-10-29T04:38:58Z",
+  "msg": "da do 17 chi tieu thue, goi duoc du lieu HS: khong"
  }
 }
