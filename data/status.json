@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T08:53:04Z",
-  "msg": "45 trang, lan 1 tb 2155 ms, lan 2 tb 1024 ms, 45/45 trang co cache"
+  "at": "2026-10-29T09:18:33Z",
+  "msg": "45 trang, lan 1 tb 3147 ms, lan 2 tb 1188 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -184,7 +184,7 @@
  },
  "gia_nhap_khau": {
   "ok": true,
-  "at": "2026-10-29T08:14:17Z",
+  "at": "2026-10-29T09:05:29Z",
   "msg": "da ghi gia nhap khau theo xuat xu: Đậu tương 2025 (Trung Quốc, Argentina, Thái Lan); Ngô 2025 (Mexico, Nhật Bản, Ai Cập); Lúa mì 2025 (Indonesia, Ai Cập, Ý); Khô đậu tương 2025 (Indonesia, Ba Lan, Tây Ban Nha); Dầu đậu tương 2025 (Ấn Độ, Maroc, Peru); Gạo 2025 (Philippines, Trung Quốc, Bờ Biển Ngà)"
  },
  "cuoc_bien_thu": {
@@ -201,5 +201,10 @@
   "ok": true,
   "at": "2026-10-29T09:02:39Z",
   "msg": "(thu) ghi tom tat trang 178, 1519, 1526, 801, 847, 176, 227, 1791"
+ },
+ "tom_tat": {
+  "ok": true,
+  "at": "2026-10-29T09:17:33Z",
+  "msg": "ghi tom tat trang 178, 1519, 1526, 801, 847, 176, 227, 1791"
  }
 }
