@@ -15,23 +15,26 @@ import wp
 SLUG = "du-lieu-gia-ca-phe"
 RSS = "https://baovanhoa.vn/rss/home.rss"
 UA = {"User-Agent": wp.UA}
-LINK = re.compile(r"https://baovanhoa\.vn/[\w/-]*gia-ca-phe-hom-nay-(\d{5,8})[\w-]*\.html")
+LINK = re.compile(r"https://baovanhoa\.vn/[\w/-]*gia-ca-phe-hom-nay-(\d{2,8})[\w-]*\.html")
 
 
 def ngay_tu_so(g):
-    """'28102026' -> 28/10/2026, '2872026' -> 28/7/2026 (thu moi cach tach ngay, thang; lay ngay hop le gan nhat)."""
-    if len(g) < 5:
-        return None
-    nam, dm = int(g[-4:]), g[:-4]
-    hop_le = []
-    for i in (1, 2):
-        d, m = dm[:i], dm[i:]
-        if 1 <= len(m) <= 2:
-            try:
-                hop_le.append(datetime.date(nam, int(m), int(d)))
-            except ValueError:
-                pass
+    """'28102026' -> 28/10/2026, '2872026' -> 28/7/2026, '2910' -> 29/10 nam nay (tu 29/10/2026 bao bo nam khoi
+    dia chi). Thu moi cach tach ngay, thang; lay ngay hop le gan nhat, khong qua ngay mai."""
     hom_nay = datetime.date.today()
+    if len(g) >= 5:
+        cap = [(int(g[-4:]), g[:-4])]
+    else:
+        cap = [(hom_nay.year, g), (hom_nay.year - 1, g)]
+    hop_le = []
+    for nam, dm in cap:
+        for i in (1, 2):
+            d, m = dm[:i], dm[i:]
+            if 1 <= len(m) <= 2:
+                try:
+                    hop_le.append(datetime.date(nam, int(m), int(d)))
+                except ValueError:
+                    pass
     hop_le = [x for x in hop_le if x <= hom_nay + datetime.timedelta(days=1)]
     return max(hop_le) if hop_le else None
 
