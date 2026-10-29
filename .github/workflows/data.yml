@@ -38,7 +38,7 @@ on:
   workflow_dispatch:
     inputs:
       job:
-        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn, ns_enso, gia_vn, gia_vn_thu, lam_nong_cache, chan_doan, lich_kt, lich_kt_thu, anh_chuyen_muc, sua_menu_trang, cot, cot_thu, nang_luong, tuyen_duong, gia_ca_phe, gia_fob, imf_no_cong, imf_no_cong_thu, wto_thue, gia_nhap_khau, gia_nhap_khau_thu, cuoc_bien, cuoc_bien_thu hoac all)"
+        description: "Job can chay (esr, insp, prog, orgs, wasde, probe, fred_test, fred_monthly, yeu_to, dinh_luong, dinh_luong_thu, kl_nlcn, ns_enso, gia_vn, gia_vn_thu, lam_nong_cache, chan_doan, lich_kt, lich_kt_thu, anh_chuyen_muc, sua_menu_trang, cot, cot_thu, nang_luong, tuyen_duong, gia_ca_phe, gia_fob, imf_no_cong, imf_no_cong_thu, wto_thue, gia_nhap_khau, gia_nhap_khau_thu, cuoc_bien, cuoc_bien_thu, tom_tat, tom_tat_thu, doi_cache, doi_cache_lai, indexnow_all hoac all)"
         default: "all"
 
 concurrency:
@@ -102,8 +102,9 @@ jobs:
           echo "Job: $JOB"
           # sau job du lieu, goi lai cac trang chinh de cache duoc tao san
           case "$JOB" in
-            *sua_*|chan_doan|lam_nong_cache) python run.py $JOB;;
-            *) python run.py $JOB lam_nong_cache;;
+            *sua_*|chan_doan|lam_nong_cache|doi_cache*|indexnow_all|tom_tat*|*_thu) python run.py $JOB;;
+            # tom tat bang chu (truong "tt") viet lai sau moi job du lieu
+            *) python run.py $JOB tom_tat lam_nong_cache;;
           esac
       - name: Luu trang thai
         if: always()
