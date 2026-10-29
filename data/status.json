@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-29T08:34:46Z",
-  "msg": "45 trang, lan 1 tb 1807 ms, lan 2 tb 1595 ms, 45/45 trang co cache"
+  "at": "2026-10-29T08:41:51Z",
+  "msg": "45 trang, lan 1 tb 1217 ms, lan 2 tb 1045 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -191,5 +191,10 @@
   "ok": true,
   "at": "2026-10-29T08:34:42Z",
   "msg": "chay thu, khong ghi"
+ },
+ "cuoc_bien": {
+  "ok": true,
+  "at": "2026-10-29T08:41:28Z",
+  "msg": "da ghi cuoc bien GTR 2026-10-22: 10 tuyen"
  }
 }
