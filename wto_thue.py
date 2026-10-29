@@ -14,7 +14,21 @@ PAGE = 1791
 NUOC = {"Trung Quốc": "156", "EU": "918", "Ấn Độ": "356", "Nhật Bản": "392", "Hàn Quốc": "410",
         "Indonesia": "360", "Việt Nam": "704", "Mexico": "484"}
 # san pham tren web -> ma HS 6 so dai dien
-HS = {"dau": "120190", "ngo": "100590", "mi": "100199", "kho": "230400", "dd": "150710"}
+HS = {"dau": "120190", "ngo": "100590", "mi": "100199", "kho": "230400", "dd": "150710", "gao": "100630"}
+# nuoc EU dung bieu thue chung (ma WTO 918); Dai Loan: Comtrade 490, WTO 158
+EU = {528, 724, 276, 380, 250, 56, 620, 616, 40, 208, 752, 246, 372, 300, 642, 100, 348, 203, 703, 191, 705, 440, 428, 233,
+      196, 470, 442}
+
+
+def them_nuoc_nhap(obj):
+    """Them cac nuoc dang nam trong top nhap khau (khoa gnk, job gia_nhap_khau) vao danh sach can lay MFN."""
+    nuoc = dict(NUOC)
+    for v in ((obj.get("gnk") or {}).get("sp") or {}).values():
+        for t in v.get("top", []):
+            c = t.get("ma")
+            if t.get("nuoc") and c and t["nuoc"] not in nuoc:
+                nuoc[t["nuoc"]] = "918" if c in EU else ("158" if c == 490 else str(c))
+    return nuoc
 
 
 def goi(path, **params):
@@ -51,7 +65,8 @@ def lay_nuoc(ma):
 
 def run():
     mfn, thieu = {}, []
-    for ten, ma in NUOC.items():
+    obj = wp.load(PAGE) or {}
+    for ten, ma in them_nuoc_nhap(obj).items():
         try:
             got, _ = lay_nuoc(ma)
         except Exception as e:  # noqa
@@ -71,7 +86,7 @@ def run():
             thieu.append("%s (khong co so)" % ten)
     if len(mfn) < 4:
         raise RuntimeError("Chi lay duoc MFN cua %d nuoc: %s" % (len(mfn), "; ".join(thieu)))
-    obj = wp.load(PAGE) or {}
+    obj = wp.load(PAGE) or {}  # doc lai ngay truoc khi ghi
     if obj.get("mfn") == mfn:
         return "WTO MFN khong doi (%d nuoc)" % len(mfn)
     obj["mfn"] = mfn

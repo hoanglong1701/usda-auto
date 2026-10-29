@@ -32,6 +32,7 @@ import gia_ca_phe
 import gia_fob
 import imf_no_cong
 import wto_thue
+import gia_nhap_khau
 from names import unmapped
 
 JOBS = {
@@ -69,6 +70,8 @@ JOBS = {
     "imf_no_cong_thu": imf_no_cong.run_dry,
     "wto_thue": wto_thue.run,
     "wto_thue_thu": wto_thue.thu,
+    "gia_nhap_khau": gia_nhap_khau.run,
+    "gia_nhap_khau_thu": gia_nhap_khau.thu,
 }
 
 
