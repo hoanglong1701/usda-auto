@@ -18,6 +18,7 @@ PAGE = 1884
 SITEMAP = "https://www.iandmsmith.com/post-sitemap%s.xml"
 CHO = 20  # giay giua 2 lan goi: may chu cua ho tra 429 khi goi 2 giay/lan
 GIOI_HAN = 15 * 60  # giay cho moi lan chay
+SO_NAM = 5  # chi doc bao cao trong 5 nam gan nhat
 THANG = {m: i + 1 for i, m in enumerate(("January", "February", "March", "April", "May", "June", "July", "August",
                                          "September", "October", "November", "December"))}
 
@@ -102,8 +103,12 @@ def chon(ds):
     """Moi tuan 1 bao cao: thu Hai, tuan khong co thi lay bai dau tuan co. 14 ngay gan nhat lay moi bai
     (so ton kho robusta chi xuat hien vai ngay trong tuan)."""
     tuan = {}
-    gan = (datetime.date.today() - datetime.timedelta(days=14)).isoformat()
+    hom_nay = datetime.date.today()
+    gan = (hom_nay - datetime.timedelta(days=14)).isoformat()
+    dau = (hom_nay - datetime.timedelta(days=SO_NAM * 365)).isoformat()
     for d, u in ds:
+        if d < dau:
+            continue
         y, w, _ = datetime.date.fromisoformat(d).isocalendar()
         k = d if d >= gan else (y, w)
         if k not in tuan or d < tuan[k][0]:
