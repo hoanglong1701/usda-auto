@@ -5,6 +5,7 @@ Ghi 2 khoa, widget tren trang 111 doc:
      (thay chuoi noi suy tu binh quan thang o che do "Tu 1970").
   dd {"asof": ngay, "g": [dot...], "s": [dot...]} moi dot [ten, ngay dinh, gia dinh, ngay day, gia day, %] la muc giam
      lon nhat tu dinh den day trong cua so cua dot; dot cuoi tinh den ngay moi nhat.
+     "tg", "ts": cac dot tang, moi dot [ten, ngay day, gia day, ngay dinh, gia dinh, %].
 Truoc 2015 la gia fix LBMA, sau do la gia dong cua cua Metals.dev; dong Thu Bay, Chu Nhat la gia chep lai nen bo.
 """
 import datetime
@@ -17,6 +18,9 @@ D = datetime.date.fromisoformat
 DOT = [("1974-1976", "1974-01-01", "1976-12-31"), ("1980-1999", "1980-01-01", "2001-12-31"),
        ("2008", "2008-01-01", "2008-12-31"), ("2011-2015", "2011-01-01", "2016-01-31"),
        ("2020-2022", "2020-06-01", "2022-12-31"), ("2026", "2026-01-01", "2099-12-31")]
+TANG = [("1970-1974", "1970-01-01", "1974-12-31"), ("1976-1980", "1976-01-01", "1980-12-31"),
+        ("1999-2008", "1999-01-01", "2008-04-30"), ("2008-2011", "2008-10-01", "2011-12-31"),
+        ("2015-2020", "2015-12-01", "2020-12-31"), ("2022-2026", "2022-09-01", "2026-03-31")]
 
 
 def doc(ten):
@@ -62,13 +66,28 @@ def giam_sau(ds, a, b, nd):
     return [tot[0].isoformat(), round(tot[1], nd), tot[2].isoformat(), round(tot[3], nd), round((tot[3] / tot[1] - 1) * 100, 1)]
 
 
+def tang_manh(ds, a, b, nd):
+    """Muc tang lon nhat tu day den dinh trong cua so [a, b]."""
+    day, tot = None, None
+    for d, v in ds:
+        if not D(a) <= d <= D(b):
+            continue
+        if day is None or v < day[1]:
+            day = (d, v)
+        if tot is None or v / day[1] > tot[3] / tot[1]:
+            tot = (day[0], day[1], d, v)
+    return [tot[0].isoformat(), round(tot[1], nd), tot[2].isoformat(), round(tot[3], nd), round((tot[3] / tot[1] - 1) * 100, 1)]
+
+
 def tinh(obj):
     g, s = doc("gold"), doc("silver")
     dau, cuoi = datetime.date(1970, 1, 2), D(obj["w"]["dates"][0])
     hw = {"g": [round(x, 1) for x in thu_sau(g, dau, cuoi)], "s": [round(x, 2) for x in thu_sau(s, dau, cuoi)]}
     dd = {"asof": min(g[-1][0], s[-1][0]).isoformat(),
           "g": [[t] + giam_sau(g, a, b, 1) for t, a, b in DOT],
-          "s": [[t] + giam_sau(s, a, b, 2) for t, a, b in DOT]}
+          "s": [[t] + giam_sau(s, a, b, 2) for t, a, b in DOT],
+          "tg": [[t] + tang_manh(g, a, b, 1) for t, a, b in TANG],
+          "ts": [[t] + tang_manh(s, a, b, 2) for t, a, b in TANG]}
     return hw, dd
 
 
