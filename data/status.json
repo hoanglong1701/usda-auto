@@ -64,8 +64,8 @@
  },
  "dinh_luong": {
   "ok": true,
-  "at": "2026-10-27T06:14:36Z",
-  "msg": "da ghi trang 478 den tuan 2026-10-23: them 2026-10-23; sua 0 diem; giu nguyen CPI, C_*, ev, nf"
+  "at": "2026-10-30T10:26:05Z",
+  "msg": "da ghi trang 478 den tuan 2026-10-23: them khong tuan moi; sua 34 diem; "
  },
  "kl_nlcn": {
   "ok": true,
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-30T09:47:09Z",
-  "msg": "45 trang, lan 1 tb 1798 ms, lan 2 tb 1068 ms, 45/45 trang co cache"
+  "at": "2026-10-30T10:26:35Z",
+  "msg": "45 trang, lan 1 tb 1535 ms, lan 2 tb 1134 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-30T09:46:51Z",
-  "msg": "ghi tom tat trang 178"
+  "at": "2026-10-30T10:26:22Z",
+  "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
   "ok": true,
