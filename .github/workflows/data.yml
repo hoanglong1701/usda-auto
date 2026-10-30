@@ -34,6 +34,7 @@ on:
     - cron: "15 2 * * 1,5"
     - cron: "20 3 9,16,23 * *"
     - cron: "25 16,20 * * *"
+    - cron: "45 1 * * 2-6"
   push:
     paths:
       - data/bao_cao.json
@@ -99,6 +100,7 @@ jobs:
               "15 2 * * 1,5") JOB=cuoc_bien;;
               "20 3 9,16,23 * *") JOB=ico_ton_kho;;
               "25 16,20 * * *") JOB=iandm_ca_phe;;
+              "45 1 * * 2-6") JOB=gia_ngay;;
               *) JOB=orgs;;
             esac
           fi
