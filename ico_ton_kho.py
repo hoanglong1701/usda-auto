@@ -3,7 +3,7 @@ Table 5 "Certified stocks on the New York and London futures markets", don vi tr
 Ghi khoa "thang" cua trang du lieu 1884 ({"ara": [["yyyy-mm", so]...], "rob": [...]}), giu nguyen cac khoa khac.
 
 Moi nam ca phe (thang 10 den thang 9) doc bao cao moi nhat co bang. Bao cao ICO co luc dao nhan 2 dong (bao cao
-2025/26 ghi "New York" cho so London), nen so voi thang lien truoc de phat hien va doi lai.
+2025/26 ghi "New York" cho so London): cac nam da xac nhan nam trong DAO_NHAN, nam moi kiem tra theo thang lien truoc.
 """
 import io
 import re
@@ -17,7 +17,9 @@ import wp
 UA = {"User-Agent": wp.UA}
 PAGE = 1884
 NAM_DAU = 2013
-PHIEN = 2  # tang khi doi cach xu ly de doc lai toan bo lich su
+PHIEN = 3  # tang khi doi cach xu ly de doc lai toan bo lich su
+# nam ca phe co bang ghi nhan nguoc: 2025/26 (loi van cung bao cao ghi 8/2026 London 0,83, My 0,24)
+DAO_NHAN = {2025}
 THANG = {m: i + 1 for i, m in enumerate(("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))}
 
 
@@ -77,17 +79,17 @@ def nam_ca_phe(a, hom_nay):
     return None
 
 
-def ghep(ara, rob, x):
-    """Them 1 bang vao chuoi; dao lai 2 dong neu cach nay khop thang lien truoc hon. Tra ve True neu da dao."""
+def ghep(ara, rob, x, nam):
+    """Them 1 bang vao chuoi; dao lai 2 dong khi bao cao ghi nhan nguoc. Tra ve True neu da dao."""
     th, a, b = x
     truoc = sorted(m for m in ara if m < th[0])[-3:]
-    dao = False
-    if truoc:
-        # trung vi 3 thang truoc: mot thang go sai trong bao cao khong lam sai ket luan (vd New York 9/2020)
+    dao = nam in DAO_NHAN
+    if truoc and nam > max(DAO_NHAN):
+        # nam moi: chi dao khi chenh lech that ro; hai dong gan nhau thi tinh lien tuc khong noi len dieu gi
         pa, pr = median(ara[m] for m in truoc), median(rob[m] for m in truoc)
         d1 = abs(pa - a[0]) + abs(pr - b[0])
         d2 = abs(pa - b[0]) + abs(pr - a[0])
-        dao = d2 < d1
+        dao = d2 < 0.6 * d1
     if dao:
         a, b = b, a
     for m, v1, v2 in zip(th, a, b):
@@ -125,7 +127,7 @@ def run():
         if not x:
             thieu.append(a)
             continue
-        if ghep(ara, rob, x):
+        if ghep(ara, rob, x, a):
             dao.append(a)
     if len(ara) < 24:
         raise RuntimeError("Chi doc duoc %d thang ton kho ICO" % len(ara))
