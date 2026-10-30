@@ -206,5 +206,10 @@
   "ok": true,
   "at": "2026-10-30T08:43:04Z",
   "msg": "ghi tom tat trang 1791"
+ },
+ "ico_ton_kho_thu": {
+  "ok": true,
+  "at": "2026-10-30T09:00:08Z",
+  "msg": "chay thu, khong ghi"
  }
 }
