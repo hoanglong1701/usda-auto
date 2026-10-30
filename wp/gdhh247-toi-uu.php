@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GDHH247 – Tối ưu hiệu năng & SEO
  * Description: Bỏ tài nguyên thừa cho khách, sửa schema/H1, noindex trang dữ liệu, shortcode tin mới render phía server, ảnh đại diện theo chuyên mục, ảnh WebP, watermark, tóm tắt số liệu bằng chữ, URL không /index.php/, IndexNow, LiteSpeed Cache.
- * Version: 1.7.0
+ * Version: 1.7.1
  *
  * Cài đặt: chép file vào wp-content/mu-plugins/ (tạo thư mục nếu chưa có). Gỡ: xóa file.
  */
@@ -814,7 +814,7 @@ const GDHH_TT_MAP = array(
 	111 => array( 178 ),
 	299 => array( 1526, 801, 1791 ),
 	300 => array( 1519 ),
-	301 => array( 1519 ),
+	301 => array( 1519, 1526 ),
 	303 => array( 227 ),
 );
 
