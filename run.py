@@ -86,7 +86,7 @@ JOBS = {
     "doi_cache_lai": doi_cache.run_back,
     "indexnow_all": indexnow_all.run,
     "ico_ton_kho": ico_ton_kho.run,
-    "iandm_ca_phe_thu": iandm_ca_phe.thu,
+    "iandm_ca_phe": iandm_ca_phe.run,
 }
 
 
