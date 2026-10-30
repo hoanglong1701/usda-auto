@@ -8,7 +8,7 @@ Thay tac vu Claude "Cap nhat cong cu dinh luong Vang Bac (Thu 3 12h)" - giu DUNG
    Y10, Y2, BE lay cung mot ngay chung gan nhat; RY = Y10 - BE.
  - CFTC COT Disaggregated (file www.cftc.gov/dea/newcot/f_disagg.txt; API publicreporting chan 403): CG/CS = (Managed Money long - short) / OI x 100 (1 so le),
    bao cao Thu Ba cung tuan. last.CG/CS = [ngay bao cao, MM rong, OI].
- - CPI (FRED CPIAUCSL, % so cung ky): dong Thu Sau tu ngay 16 tro di dung thang lien truoc, truoc ngay 16 dung thang truoc nua.
+ - CPI (FRED CPIAUCNS, % so cung ky): dong Thu Sau tu ngay 16 tro di dung thang lien truoc, truoc ngay 16 dung thang truoc nua.
  - C_DXY_Y10, C_G_RY, C_S_RY: tuong quan 60 phien cua % ngay (DXY, vang, bac) va thay doi diem co ban (Y10, RY).
  - ev (FOMC): them ky hop trong lich FOMC, dien cot con trong. nf (NFP): them ky moi tu ALFRED, dien cot con trong.
  - rx: dong moi cho bang phan ung CPI, PCE loi (10 nam), trang 111 ghep vao cac dong co san.
@@ -208,7 +208,7 @@ def tinh_lai_tuan(w, src, changes):
     n = len(w["dates"])
     for i in range(n - FIX_KEEP, n):
         fri = D(w["dates"][i])
-        moi = {"CPI": cpi_yoy(src["CPIAUCSL"], thang_lui(fri, 1 if fri.day >= 16 else 2)),
+        moi = {"CPI": cpi_yoy(src["CPIAUCNS"], thang_lui(fri, 1 if fri.day >= 16 else 2)),
                "C_DXY_Y10": corr_ngay(src["DX-Y.NYB"], src["DGS10"], fri),
                "C_G_RY": corr_ngay(src["GC=F"], ry, fri),
                "C_S_RY": corr_ngay(src["SI=F"], ry, fri)}
@@ -356,7 +356,7 @@ def run():
     src = {s: yahoo(s) for s in ("GC=F", "SI=F", "DX-Y.NYB")}
     for s in ("DGS10", "DGS2", "T10YIE", "DTWEXBGS", "DFEDTARU"):
         src[s] = fred(s, key, start)
-    src["CPIAUCSL"] = fred("CPIAUCSL", key, last_fri - datetime.timedelta(days=500))
+    src["CPIAUCNS"] = fred("CPIAUCNS", key, last_fri - datetime.timedelta(days=500))
     cf = cot_file()
     for k, code in COT_CODES.items():
         src[k] = cf[code]
