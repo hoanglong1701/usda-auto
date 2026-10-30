@@ -106,16 +106,20 @@ def tt_1526(d):
         s1 += " %s, đợt bắt đầu từ tháng %s/%s" % (e["muc"], e["start"][5:7], e["start"][:4])
     s1 += "."
     ten = {s[0]: s[1] for s in d["sp"]}
-    fut = d.get("fut") or {}
-    f = ["%s %s %s (1 tháng %s, 1 năm %s)" % (ten[k], n1(v["gia"], 2), v["dv"], pc(v["m1"]) if v.get("m1") is not None else "–",
-                                              pc(v["y1"]) if v.get("y1") is not None else "–") for k, v in fut.items()]
-    s2 = ("Giá futures gần nhất (%s): %s." % (dmy(next(iter(fut.values()))["ngay"]), "; ".join(f))) if f else ""
-    tb = d.get("tb", {})
-    el = ["%s %s" % (ten[k], pc(v["el"])) for k, v in tb.items() if v.get("el") is not None]
-    la = ["%s %s" % (ten[k], pc(v["la"])) for k, v in tb.items() if v.get("la") is not None]
-    s3 = ("Từ năm 1970, trung bình 12 tháng sau khi đợt El Niño bắt đầu, giá thay đổi: %s. Sau đợt La Niña: %s."
-          % (", ".join(el), ", ".join(la))) if el else ""
-    return [x for x in (s1, s2, s3) if x]
+
+    def phan(keys):
+        fut = {k: v for k, v in (d.get("fut") or {}).items() if k in keys}
+        f = ["%s %s %s (1 tháng %s, 1 năm %s)" % (ten[k], n1(v["gia"], 2), v["dv"], pc(v["m1"]) if v.get("m1") is not None else "–",
+                                                  pc(v["y1"]) if v.get("y1") is not None else "–") for k, v in fut.items()]
+        s2 = ("Giá futures gần nhất (%s): %s." % (dmy(next(iter(fut.values()))["ngay"]), "; ".join(f))) if f else ""
+        tb = {k: v for k, v in d.get("tb", {}).items() if k in keys}
+        el = ["%s %s" % (ten[k], pc(v["el"])) for k, v in tb.items() if v.get("el") is not None]
+        la = ["%s %s" % (ten[k], pc(v["la"])) for k, v in tb.items() if v.get("la") is not None]
+        s3 = ("Từ năm 1970, trung bình 12 tháng sau khi đợt El Niño bắt đầu, giá thay đổi: %s. Sau đợt La Niña: %s."
+              % (", ".join(el), ", ".join(la))) if el else ""
+        return [x for x in (s1, s2, s3) if x]
+    # trang 299 (nong san) va 301 (ca phe, duong) moi trang mot phan, tu 30/10/2026
+    return {"299": phan(("dau_tuong", "ngo", "lua_mi", "gao")), "301": phan(("arabica", "robusta", "duong"))}
 
 
 # ---------------------------------------------------------------- 801 USDA hang tuan
