@@ -40,7 +40,8 @@ W_KEYS = ["dates", "G", "S", "RY", "Y10", "Y2", "FF", "DXB", "DXI", "BE", "CPI",
           "C_DXY_Y10", "C_G_RY", "C_S_RY"]
 KEEP = ["CPI", "C_DXY_Y10", "C_G_RY", "C_S_RY"]
 D = datetime.date.fromisoformat
-FIX_KEEP = 6  # so tuan gan nhat tinh lai CPI va tuong quan
+FIX_KEEP = 6  # so tuan gan nhat tinh lai tuong quan
+FIX_CPI = 30  # so tuan gan nhat doi chieu CPI voi FRED
 CUA_SO = 60  # phien cua tuong quan truot
 FOMC = ["2026-10-28", "2026-12-09"]  # ngay cong bo; het lich thi msg nhac bo sung
 RX_TU = {"cpi10": "2026-09-11", "pce10": "2026-08-26"}  # bang tren trang 111 da co den cac ngay nay
@@ -203,13 +204,18 @@ def corr_ngay(gia, ls, fri):
 
 
 def tinh_lai_tuan(w, src, changes):
-    """Tinh lai CPI va 3 cot tuong quan cho FIX_KEEP tuan cuoi."""
+    """Tinh lai CPI (FIX_CPI tuan cuoi) va 3 cot tuong quan (FIX_KEEP tuan cuoi)."""
     ry = {d: src["DGS10"][d] - src["T10YIE"][d] for d in set(src["DGS10"]) & set(src["T10YIE"])}
     n = len(w["dates"])
+    for i in range(n - FIX_CPI, n):
+        fri = D(w["dates"][i])
+        x = cpi_yoy(src["CPIAUCNS"], thang_lui(fri, 1 if fri.day >= 16 else 2))
+        if x is not None and abs(w["CPI"][i] - x) > 1e-9:
+            changes.append("%s CPI: %s -> %s" % (w["dates"][i], w["CPI"][i], x))
+            w["CPI"][i] = x
     for i in range(n - FIX_KEEP, n):
         fri = D(w["dates"][i])
-        moi = {"CPI": cpi_yoy(src["CPIAUCNS"], thang_lui(fri, 1 if fri.day >= 16 else 2)),
-               "C_DXY_Y10": corr_ngay(src["DX-Y.NYB"], src["DGS10"], fri),
+        moi = {"C_DXY_Y10": corr_ngay(src["DX-Y.NYB"], src["DGS10"], fri),
                "C_G_RY": corr_ngay(src["GC=F"], ry, fri),
                "C_S_RY": corr_ngay(src["SI=F"], ry, fri)}
         for k, x in moi.items():
