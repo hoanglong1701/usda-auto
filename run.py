@@ -37,6 +37,7 @@ import cuoc_bien
 import tom_tat
 import doi_cache
 import indexnow_all
+import ico_ton_kho
 from names import unmapped
 
 JOBS = {
@@ -83,6 +84,7 @@ JOBS = {
     "doi_cache": doi_cache.run,
     "doi_cache_lai": doi_cache.run_back,
     "indexnow_all": indexnow_all.run,
+    "ico_ton_kho_thu": ico_ton_kho.thu,
 }
 
 
