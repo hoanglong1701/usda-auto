@@ -39,6 +39,7 @@ import doi_cache
 import indexnow_all
 import ico_ton_kho
 import iandm_ca_phe
+import gia_ngay
 from names import unmapped
 
 JOBS = {
@@ -87,6 +88,8 @@ JOBS = {
     "indexnow_all": indexnow_all.run,
     "ico_ton_kho": ico_ton_kho.run,
     "iandm_ca_phe": iandm_ca_phe.run,
+    "gia_ngay": gia_ngay.run,
+    "gia_ngay_thu": gia_ngay.thu,
 }
 
 
