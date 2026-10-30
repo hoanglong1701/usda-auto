@@ -8,7 +8,10 @@ Thay tac vu Claude "Cap nhat cong cu dinh luong Vang Bac (Thu 3 12h)" - giu DUNG
    Y10, Y2, BE lay cung mot ngay chung gan nhat; RY = Y10 - BE.
  - CFTC COT Disaggregated (file www.cftc.gov/dea/newcot/f_disagg.txt; API publicreporting chan 403): CG/CS = (Managed Money long - short) / OI x 100 (1 so le),
    bao cao Thu Ba cung tuan. last.CG/CS = [ngay bao cao, MM rong, OI].
- - CPI, 3 cot tuong quan C_*, ev (FOMC), nf (NFP): GIU NGUYEN (dong moi chep gia tri tuan truoc), chi bao trong msg.
+ - CPI (FRED CPIAUCSL, % so cung ky): dong Thu Sau tu ngay 16 tro di dung thang lien truoc, truoc ngay 16 dung thang truoc nua.
+ - C_DXY_Y10, C_G_RY, C_S_RY: tuong quan 60 phien cua % ngay (DXY, vang, bac) va thay doi diem co ban (Y10, RY).
+ - ev (FOMC): them ky hop trong lich FOMC, dien cot con trong. nf (NFP): them ky moi tu ALFRED, dien cot con trong.
+ - rx: dong moi cho bang phan ung CPI, PCE loi (10 nam), trang 111 ghep vao cac dong co san.
  - Them cac tuan con thieu + sua 3 tuan gan nhat neu nguon da hieu chinh.
 Kiem tra truoc khi ghi (khong dat -> raise, KHONG ghi): cau truc, do dai mang, ngay cach nhau 7 ngay, khong null,
 bien dong bat thuong (vang/bac > 8%/tuan, loi suat > 0,40 diem %/tuan, FF doi ma FRED khong co thay doi lai suat).
@@ -37,6 +40,11 @@ W_KEYS = ["dates", "G", "S", "RY", "Y10", "Y2", "FF", "DXB", "DXI", "BE", "CPI",
           "C_DXY_Y10", "C_G_RY", "C_S_RY"]
 KEEP = ["CPI", "C_DXY_Y10", "C_G_RY", "C_S_RY"]
 D = datetime.date.fromisoformat
+FIX_KEEP = 6  # so tuan gan nhat tinh lai CPI va tuong quan
+CUA_SO = 60  # phien cua tuong quan truot
+FOMC = ["2026-10-28", "2026-12-09"]  # ngay cong bo; het lich thi msg nhac bo sung
+RX_TU = {"cpi10": "2026-09-11", "pce10": "2026-08-26"}  # bang tren trang 111 da co den cac ngay nay
+FRED_SERIES = "https://api.stlouisfed.org/fred/series"
 
 
 def _now():
@@ -48,7 +56,7 @@ def _now():
 def yahoo(symbol):
     """{date: close} chi gom nen da chot (nen ngay D chot sau 22:00 UTC ngay D)."""
     r = requests.get("https://query1.finance.yahoo.com/v8/finance/chart/%s" % symbol,
-                     params={"range": "6mo", "interval": "1d"}, headers={"User-Agent": UA}, timeout=60)
+                     params={"range": "1y", "interval": "1d"}, headers={"User-Agent": UA}, timeout=60)
     r.raise_for_status()
     res = r.json()["chart"]["result"][0]
     cutoff = (_now() - datetime.timedelta(hours=22)).date()
@@ -71,6 +79,26 @@ def fred(series_id, key, start):
     out = {D(o["date"]): float(o["value"]) for o in obs if o.get("value") not in (None, "", ".")}
     if not out:
         raise RuntimeError("FRED %s: khong co du lieu" % series_id)
+    return out
+
+
+def fred_json(path, key, **params):
+    params.update(api_key=key, file_type="json")
+    r = requests.get(FRED_SERIES + path, params=params, headers={"User-Agent": "gdhh247-dinhluong/1.0"}, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def ban_tin(sid, key, tu):
+    """[(ngay cong bo, [gia tri theo thang tai ngay do])] cac lan cong bo them thang moi sau ngay tu (yyyy-mm-dd)."""
+    out, cuoi = [], None
+    for v in fred_json("/vintagedates", key, series_id=sid, realtime_start=tu)["vintage_dates"]:
+        obs = fred_json("/observations", key, series_id=sid, realtime_start=v, realtime_end=v,
+                        observation_start=(D(v) - datetime.timedelta(days=500)).isoformat())["observations"]
+        obs = [o for o in obs if o["value"] != "."]
+        if cuoi is not None and obs[-1]["date"] > cuoi:
+            out.append((v, [(o["date"], float(o["value"])) for o in obs]))
+        cuoi = obs[-1]["date"] if cuoi is None or obs[-1]["date"] > cuoi else cuoi
     return out
 
 
@@ -142,11 +170,146 @@ def week_row(fri, src, need_cot=True):
     return v, used
 
 
+# ---------------------------------------------------------------- cot tinh lai
+
+def thang_lui(day, n):
+    """Ngay 1 cua thang cach thang cua day n thang ve truoc."""
+    k = day.year * 12 + day.month - 1 - n
+    return datetime.date(k // 12, k % 12 + 1, 1)
+
+
+def cpi_yoy(cpi, month):
+    a, b = cpi.get(month), cpi.get(thang_lui(month, 12))
+    return round((a / b - 1) * 100, 2) if a and b else None
+
+
+def tuong_quan(a, b):
+    n = len(a)
+    ma, mb = sum(a) / n, sum(b) / n
+    c = sum((x - ma) * (y - mb) for x, y in zip(a, b))
+    va = sum((x - ma) ** 2 for x in a)
+    vb = sum((y - mb) ** 2 for y in b)
+    return c / (va * vb) ** 0.5 if va and vb else None
+
+
+def corr_ngay(gia, ls, fri):
+    """Tuong quan CUA_SO phien den fri: % ngay cua gia va thay doi diem co ban cua ls."""
+    ds = sorted(d for d in set(gia) & set(ls) if d <= fri)[-(CUA_SO + 1):]
+    if len(ds) <= CUA_SO:
+        return None
+    r = tuong_quan([(gia[y] / gia[x] - 1) * 100 for x, y in zip(ds, ds[1:])],
+                   [(ls[y] - ls[x]) * 100 for x, y in zip(ds, ds[1:])])
+    return round(r, 2) if r is not None else None
+
+
+def tinh_lai_tuan(w, src, changes):
+    """Tinh lai CPI va 3 cot tuong quan cho FIX_KEEP tuan cuoi."""
+    ry = {d: src["DGS10"][d] - src["T10YIE"][d] for d in set(src["DGS10"]) & set(src["T10YIE"])}
+    n = len(w["dates"])
+    for i in range(n - FIX_KEEP, n):
+        fri = D(w["dates"][i])
+        moi = {"CPI": cpi_yoy(src["CPIAUCSL"], thang_lui(fri, 1 if fri.day >= 16 else 2)),
+               "C_DXY_Y10": corr_ngay(src["DX-Y.NYB"], src["DGS10"], fri),
+               "C_G_RY": corr_ngay(src["GC=F"], ry, fri),
+               "C_S_RY": corr_ngay(src["SI=F"], ry, fri)}
+        for k, x in moi.items():
+            if x is not None and abs(w[k][i] - x) > 1e-9:
+                changes.append("%s %s: %s -> %s" % (w["dates"][i], k, w[k][i], x))
+                w[k][i] = x
+
+
+# ---------------------------------------------------------------- phan ung gia sau su kien
+
+def phien(gia):
+    ds = sorted(gia)
+    return ds, {d: i for i, d in enumerate(ds)}
+
+
+def doi(gia, ds, goc, k):
+    """% thay doi tu phien thu goc den phien goc + k; chua du phien thi None."""
+    return round((gia[ds[goc + k]] / gia[ds[goc]] - 1) * 100, 2) if goc + k < len(ds) else None
+
+
+def phan_ung(src, day, moc, lech):
+    """[vang..., bac...] theo cac moc phien, tinh tu phien day + lech."""
+    out = []
+    for sym in ("GC=F", "SI=F"):
+        ds, vt = phien(src[sym])
+        if day not in vt:
+            return None
+        out.append([doi(src[sym], ds, vt[day] + lech, k) for k in moc])
+    return out[0] + out[1]
+
+
+def cap_nhat_ev(data, src, changes, notes):
+    ev = data["ev"]
+    for r in ev[-3:]:
+        x = phan_ung(src, D(r[0]), (1, 5, 20), 0)
+        for j, v in enumerate(x or []):
+            if r[3 + j] is None and v is not None:
+                r[3 + j] = v
+                changes.append("ev %s cot %d: %s" % (r[0], 3 + j, v))
+    co = {r[0] for r in ev}
+    for d in FOMC:
+        if d in co or D(d) + datetime.timedelta(days=2) > max(src["DFEDTARU"]):
+            continue
+        truoc = on_or_before(src["DFEDTARU"], D(d))[1]
+        sau = on_or_before(src["DFEDTARU"], D(d) + datetime.timedelta(days=2))[1]
+        x = phan_ung(src, D(d), (1, 5, 20), 0)
+        if x:
+            bp = int(round((sau - truoc) * 100))
+            ev.append([d, "hike" if bp > 0 else ("cut" if bp < 0 else "hold"), bp] + x)
+            changes.append("ev them %s %+d" % (d, bp))
+    if _now().date() > D(FOMC[-1]):
+        notes.append("HET LICH FOMC trong dinh_luong.py - can bo sung")
+
+
+def cap_nhat_nf(data, src, key, changes):
+    nf = data["nf"]
+    for r in nf[-3:]:
+        x = phan_ung(src, D(r[0]), (1, 5, 20), -1)
+        for j, v in enumerate(x or []):
+            if r[5 + j] is None and v is not None:
+                r[5 + j] = v
+                changes.append("nf %s cot %d: %s" % (r[0], 5 + j, v))
+    tn = fred("UNRATE", key, D(nf[-1][0]) - datetime.timedelta(days=120))
+    for v, o in ban_tin("PAYEMS", key, nf[-1][0]):
+        gt = [x[1] for x in o]
+        moi = round(gt[-1] - gt[-2])
+        tb = round((gt[-2] - gt[-5]) / 3)
+        x = phan_ung(src, D(v), (1, 5, 20), -1)
+        if x is None or D(o[-1][0]) not in tn:
+            continue
+        nf.append([v, "strong" if moi - tb > 50 else ("weak" if moi - tb < -50 else "inline"), moi, tb, tn[D(o[-1][0])]] + x)
+        changes.append("nf them %s %+d" % (v, moi))
+
+
+def cap_nhat_rx(data, src, key, changes):
+    """Them dong bang phan ung khi da du 5 phien: [dd/mm/yyyy, ky nay, ky truoc, vang phien, vang 5p, bac phien, bac 5p]."""
+    rx = data.setdefault("rx", {})
+    for k, sid, nam in (("cpi10", "CPIAUCSL", False), ("pce10", "PCEPILFE", True)):
+        hang = rx.setdefault(k, [])
+        tu = max([RX_TU[k]] + ["%s-%s-%s" % (r[0][6:], r[0][3:5], r[0][:2]) for r in hang])
+        chuoi = fred(sid, key, D(tu) - datetime.timedelta(days=500))
+        for v, o in ban_tin(sid, key, tu):
+            m = D(o[-1][0])
+            if nam:
+                a, b = cpi_yoy(chuoi, m), cpi_yoy(chuoi, thang_lui(m, 1))
+            else:
+                a = round((chuoi[m] / chuoi[thang_lui(m, 1)] - 1) * 100, 1) if m in chuoi else None
+                b = round((chuoi[thang_lui(m, 1)] / chuoi[thang_lui(m, 2)] - 1) * 100, 1)
+            x = phan_ung(src, D(v), (1, 6), -1)
+            if a is None or b is None or x is None or None in x:
+                continue
+            hang.insert(0, [D(v).strftime("%d/%m/%Y"), round(a, 1), round(b, 1)] + x)
+            changes.append("rx %s them %s" % (k, v))
+
+
 # ---------------------------------------------------------------- kiem tra
 
 def check(old, new):
     w = new["w"]
-    if set(new) != set(old) or set(new["w"]) != set(old["w"]) or set(new["last"]) != set(old["last"]):
+    if set(new) - {"rx"} != set(old) - {"rx"} or set(new["w"]) != set(old["w"]) or set(new["last"]) != set(old["last"]):
         raise RuntimeError("Cau truc khoa khac ban cu")
     n = len(w["dates"])
     for k in W_KEYS:
@@ -185,7 +348,7 @@ def run():
     # Thu Sau gan nhat da chot phien (sau 22:00 UTC Thu Sau)
     cut = (_now() - datetime.timedelta(hours=22)).date()
     target = cut - datetime.timedelta(days=(cut.weekday() - 4) % 7)
-    start = last_fri - datetime.timedelta(days=7 * (FIX_WEEKS + 6))
+    start = last_fri - datetime.timedelta(days=200)  # du cho cua so tuong quan
 
     key = os.environ.get("FRED_API_KEY")
     if not key:
@@ -193,6 +356,7 @@ def run():
     src = {s: yahoo(s) for s in ("GC=F", "SI=F", "DX-Y.NYB")}
     for s in ("DGS10", "DGS2", "T10YIE", "DTWEXBGS", "DFEDTARU"):
         src[s] = fred(s, key, start)
+    src["CPIAUCSL"] = fred("CPIAUCSL", key, last_fri - datetime.timedelta(days=500))
     cf = cot_file()
     for k, code in COT_CODES.items():
         src[k] = cf[code]
@@ -222,6 +386,12 @@ def run():
         for k in ("CG", "CS"):
             used.setdefault(k, (D(data["last"][k][0]), data["last"][k][1], data["last"][k][2]))
 
+    notes = []
+    tinh_lai_tuan(w, src, changes)
+    cap_nhat_ev(data, src, changes, notes)
+    cap_nhat_nf(data, src, key, changes)
+    cap_nhat_rx(data, src, key, changes)
+
     data["asof"] = w["dates"][-1]
     L = data["last"]
     i = -1
@@ -238,8 +408,7 @@ def run():
 
     check(old, data)
 
-    # su kien moi chi bao, khong tu them
-    notes = []
+    # hop bat thuong chi bao, khong tu them
     last_ev = D(data["ev"][-1][0]) if data.get("ev") else None
     # FRED ghi muc lai suat moi tu ngay co hieu luc (1-2 ngay sau cuoc hop) nen bo qua 3 ngay sau su kien cuoi
     fed_moves = sorted(d for d in src["DFEDTARU"] if last_ev and d > last_ev + datetime.timedelta(days=3)
@@ -247,7 +416,6 @@ def run():
                        and src["DFEDTARU"][d] != on_or_before(src["DFEDTARU"], d - datetime.timedelta(days=1))[1])
     if fed_moves:
         notes.append("CO THAY DOI LAI SUAT FED MOI (%s) - chua them vao ev" % ", ".join(d.isoformat() for d in fed_moves))
-    notes.append("giu nguyen CPI, C_*, ev, nf")
 
     os.makedirs("data", exist_ok=True)
     with open(os.path.join("data", "dinh_luong.json"), "w", encoding="utf-8") as fh:
@@ -256,7 +424,8 @@ def run():
 
     msg = "them %s; sua %d diem; %s" % (",".join(added) or "khong tuan moi", len(changes), "; ".join(notes))
     if os.environ.get("DINH_LUONG_DRY") or not (added or changes):
-        print(json.dumps({"added": added, "changes": changes, "last": data["last"]}, ensure_ascii=False, indent=1))
+        print(json.dumps({"added": added, "changes": changes, "last": data["last"], "rx": data.get("rx"),
+                          "ev": data["ev"][-2:], "nf": data["nf"][-2:]}, ensure_ascii=False, indent=1))
         return ("chay thu (khong ghi): " if os.environ.get("DINH_LUONG_DRY") else "khong doi: ") + msg
     wp.save(PAGE_ID, data)
     return "da ghi trang %d den tuan %s: %s" % (PAGE_ID, data["asof"], msg)
