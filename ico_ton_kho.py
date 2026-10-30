@@ -9,13 +9,15 @@ import io
 import re
 import time
 import datetime
+from statistics import median
 import requests
 from pypdf import PdfReader
 import wp
 
 UA = {"User-Agent": wp.UA}
 PAGE = 1884
-NAM_DAU = 2012
+NAM_DAU = 2013
+PHIEN = 2  # tang khi doi cach xu ly de doc lai toan bo lich su
 THANG = {m: i + 1 for i, m in enumerate(("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))}
 
 
@@ -78,12 +80,13 @@ def nam_ca_phe(a, hom_nay):
 def ghep(ara, rob, x):
     """Them 1 bang vao chuoi; dao lai 2 dong neu cach nay khop thang lien truoc hon. Tra ve True neu da dao."""
     th, a, b = x
-    truoc = sorted(m for m in ara if m < th[0])
+    truoc = sorted(m for m in ara if m < th[0])[-3:]
     dao = False
     if truoc:
-        p = truoc[-1]
-        d1 = abs(ara[p] - a[0]) + abs(rob[p] - b[0])
-        d2 = abs(ara[p] - b[0]) + abs(rob[p] - a[0])
+        # trung vi 3 thang truoc: mot thang go sai trong bao cao khong lam sai ket luan (vd New York 9/2020)
+        pa, pr = median(ara[m] for m in truoc), median(rob[m] for m in truoc)
+        d1 = abs(pa - a[0]) + abs(pr - b[0])
+        d2 = abs(pa - b[0]) + abs(pr - a[0])
         dao = d2 < d1
     if dao:
         a, b = b, a
@@ -94,10 +97,25 @@ def ghep(ara, rob, x):
     return dao
 
 
+def bo_gai(d):
+    """Bo thang nhay > 40% so voi ca 2 thang ben canh trong khi 2 thang do gan nhau: gan nhu chac la loi go so."""
+    ms = sorted(d)
+    bo = []
+    for i in range(1, len(ms) - 1):
+        a, x, b = d[ms[i - 1]], d[ms[i]], d[ms[i + 1]]
+        if abs(a - b) <= 0.2 * max(a, b) and abs(x - a) > 0.4 * a and abs(x - b) > 0.4 * b:
+            bo.append(ms[i])
+    for m in bo:
+        del d[m]
+    return bo
+
+
 def run():
     hom_nay = datetime.date.today()
     obj = wp.load(PAGE) or {}
     cu = obj.get("thang") or {}
+    if cu.get("phien") != PHIEN:  # doi cach xu ly thi doc lai tu dau
+        cu = {}
     ara, rob = dict(cu.get("ara") or []), dict(cu.get("rob") or [])
     moi = hom_nay.year if hom_nay.month >= 10 else hom_nay.year - 1
     dau = moi - 1 if ara else NAM_DAU
@@ -111,7 +129,8 @@ def run():
             dao.append(a)
     if len(ara) < 24:
         raise RuntimeError("Chi doc duoc %d thang ton kho ICO" % len(ara))
-    thang = {"nguon": "ICO Coffee Market Report", "ara": sorted(ara.items()), "rob": sorted(rob.items())}
+    bo = bo_gai(ara) + bo_gai(rob)
+    thang = {"phien": PHIEN, "nguon": "ICO Coffee Market Report", "ara": sorted(ara.items()), "rob": sorted(rob.items())}
     thang["ara"] = [list(x) for x in thang["ara"]]
     thang["rob"] = [list(x) for x in thang["rob"]]
     obj = wp.load(PAGE) or {}  # doc lai ngay truoc khi ghi, tac vu Claude cung ghi trang nay
@@ -119,5 +138,5 @@ def run():
         return "Ton kho ICO khong doi (%d thang)" % len(ara)
     obj["thang"] = thang
     wp.save(PAGE, obj)
-    return "Ton kho ICO: %d thang, %s den %s; dao nhan nam %s; thieu nam %s" % (
-        len(ara), min(ara), max(ara), dao or "-", thieu or "-")
+    return "Ton kho ICO: %d thang, %s den %s; dao nhan nam %s; thieu nam %s; bo diem %s" % (
+        len(ara), min(ara), max(ara), dao or "-", thieu or "-", bo or "-")
