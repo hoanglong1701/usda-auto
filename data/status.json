@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-30T08:43:24Z",
-  "msg": "45 trang, lan 1 tb 2363 ms, lan 2 tb 1299 ms, 45/45 trang co cache"
+  "at": "2026-10-30T09:06:07Z",
+  "msg": "45 trang, lan 1 tb 1387 ms, lan 2 tb 1085 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,12 +204,17 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-30T08:43:04Z",
-  "msg": "ghi tom tat trang 1791"
+  "at": "2026-10-30T09:05:54Z",
+  "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
   "ok": true,
   "at": "2026-10-30T09:00:08Z",
   "msg": "chay thu, khong ghi"
+ },
+ "ico_ton_kho": {
+  "ok": true,
+  "at": "2026-10-30T09:04:16Z",
+  "msg": "Ton kho ICO: 157 thang, 2013-08 den 2026-09; dao nhan nam [2020, 2025]; thieu nam [2012, 2026]"
  }
 }
