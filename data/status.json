@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-30T07:16:57Z",
-  "msg": "45 trang, lan 1 tb 1848 ms, lan 2 tb 1284 ms, 45/45 trang co cache"
+  "at": "2026-10-30T07:42:01Z",
+  "msg": "45 trang, lan 1 tb 1095 ms, lan 2 tb 1080 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -174,7 +174,7 @@
  },
  "imf_no_cong": {
   "ok": true,
-  "at": "2026-10-29T07:39:03Z",
+  "at": "2026-10-30T07:41:44Z",
   "msg": "IMF chua co so moi, trang 111 giu nguyen"
  },
  "gia_nhap_khau_thu": {
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-30T07:16:37Z",
+  "at": "2026-10-30T07:41:49Z",
   "msg": "khong thay doi"
  }
 }
