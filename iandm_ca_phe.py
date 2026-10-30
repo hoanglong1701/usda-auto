@@ -4,7 +4,7 @@ I & M Smith da dong y cho dung so lieu trong bao cao cong khai (thu cua Michael,
 va dan link, khong chep van ban bao cao. Ghi khoa "im" cua trang du lieu 1884:
   cot [[thu Ba chot so, net lo (am la ban rong), "mm" Managed Money / "nc" Non-Commercial]]
   ara [[ngay, bao]] ton kho arabica New York, rob [[ngay, bao]] ton kho robusta London
-Moi lan chay doc bao cao moi, roi lay tiep lich su cu trong gioi han thoi gian (chi bao cao thu Hai, moi tuan 1 bai).
+Moi lan chay doc tu bao cao moi nhat lui dan trong gioi han thoi gian, nhip cham (moi tuan 1 bai), khoa "da" ghi cac bai da doc.
 """
 import re
 import time
@@ -16,8 +16,8 @@ import wp
 UA = {"User-Agent": wp.UA}
 PAGE = 1884
 SITEMAP = "https://www.iandmsmith.com/post-sitemap%s.xml"
-CHO = 2  # giay giua 2 lan goi, de khong lam phien may chu cua ho
-GIOI_HAN = 20 * 60  # giay cho moi lan chay
+CHO = 20  # giay giua 2 lan goi: may chu cua ho tra 429 khi goi 2 giay/lan
+GIOI_HAN = 15 * 60  # giay cho moi lan chay
 THANG = {m: i + 1 for i, m in enumerate(("January", "February", "March", "April", "May", "June", "July", "August",
                                          "September", "October", "November", "December"))}
 
@@ -36,8 +36,14 @@ def ds_bao_cao():
     return sorted(out)
 
 
+class QuaTai(Exception):
+    """May chu bao 429: dung lan chay nay, de lan sau doc tiep."""
+
+
 def chu(u):
     r = requests.get(u, headers=UA, timeout=60)
+    if r.status_code == 429:
+        raise QuaTai(u)
     r.raise_for_status()
     time.sleep(CHO)
     t = re.sub(r"<(script|style)[\s\S]*?</\1>", " ", r.text)
@@ -93,12 +99,15 @@ def doc(t, ngay):
 
 
 def chon(ds):
-    """Moi tuan 1 bao cao: thu Hai, tuan khong co thi lay bai dau tuan co."""
+    """Moi tuan 1 bao cao: thu Hai, tuan khong co thi lay bai dau tuan co. 14 ngay gan nhat lay moi bai
+    (so ton kho robusta chi xuat hien vai ngay trong tuan)."""
     tuan = {}
+    gan = (datetime.date.today() - datetime.timedelta(days=14)).isoformat()
     for d, u in ds:
         y, w, _ = datetime.date.fromisoformat(d).isocalendar()
-        if (y, w) not in tuan or d < tuan[(y, w)][0]:
-            tuan[(y, w)] = (d, u)
+        k = d if d >= gan else (y, w)
+        if k not in tuan or d < tuan[k][0]:
+            tuan[k] = (d, u)
     return sorted(tuan.values())
 
 
@@ -107,32 +116,37 @@ def run():
     obj = wp.load(PAGE) or {}
     im = obj.get("im") or {}
     bang = {k: {x[0]: x for x in im.get(k, [])} for k in ("cot", "ara", "rob")}
-    moi, cu = im.get("moi", ""), im.get("cu", "")
+    da = set(im.get("da", []))
     ds = chon(ds_bao_cao())
-    viec = [x for x in ds if x[0] > moi][::-1] + [x for x in ds if cu and x[0] < cu][::-1]
-    xong, loi = 0, 0
+    viec = [x for x in ds if x[0] not in da][::-1]  # moi nhat truoc
+    xong, loi, dung = 0, 0, ""
     for d, u in viec:
         if time.time() - bat_dau > GIOI_HAN:
             break
         try:
             r = doc(chu(u), d)
-        except Exception as e:  # noqa  mot bai loi thi bo qua, lan sau khong doc lai
+        except QuaTai:
+            dung = "; dung vi may chu bao 429"
+            break
+        except Exception as e:  # noqa  bai loi thi lan sau doc lai
             print("Loi", u, str(e)[:100])
             loi += 1
-            r = {}
+            if loi >= 5:
+                dung = "; dung vi 5 loi"
+                break
+            continue
         for k, v in r.items():
             bang[k][v[0]] = v
-        moi = max(moi, d)
-        cu = min(cu, d) if cu else d
+        da.add(d)
         xong += 1
     if bang["cot"] and len(bang["cot"]) < 3:
         raise RuntimeError("Qua it diem COT: %s" % list(bang["cot"].values()))
-    im = {"nguon": "I & M Smith", "moi": moi, "cu": cu, "cot": sorted(bang["cot"].values()),
+    im = {"nguon": "I & M Smith", "da": sorted(da), "cot": sorted(bang["cot"].values()),
           "ara": sorted(bang["ara"].values()), "rob": sorted(bang["rob"].values())}
     obj = wp.load(PAGE) or {}  # doc lai ngay truoc khi ghi
     obj["im"] = im
     obj["asof"] = datetime.date.today().isoformat()
     wp.save(PAGE, obj)
-    con = sum(1 for x in ds if x[0] < cu)
-    return "I&M Smith: doc %d bao cao (loi %d), COT %d diem, arabica %d, robusta %d; tu %s den %s; con %d bai cu" % (
-        xong, loi, len(im["cot"]), len(im["ara"]), len(im["rob"]), cu, moi, con)
+    con = sum(1 for x in ds if x[0] not in da)
+    return "I&M Smith: doc %d bao cao (loi %d), COT %d diem, arabica %d, robusta %d; con %d bai chua doc%s" % (
+        xong, loi, len(im["cot"]), len(im["ara"]), len(im["rob"]), con, dung)
