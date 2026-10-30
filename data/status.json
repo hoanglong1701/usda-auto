@@ -1,7 +1,7 @@
 {
  "esr": {
   "ok": true,
-  "at": "2026-10-29T19:44:10Z",
+  "at": "2026-10-30T06:09:44Z",
   "msg": "khong co bao cao moi; tuan 2026-10-22; ok"
  },
  "insp": {
@@ -105,8 +105,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-30T06:02:06Z",
-  "msg": "45 trang, lan 1 tb 1814 ms, lan 2 tb 1150 ms, 45/45 trang co cache"
+  "at": "2026-10-30T06:10:03Z",
+  "msg": "45 trang, lan 1 tb 1291 ms, lan 2 tb 1004 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -205,7 +205,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-30T06:01:51Z",
+  "at": "2026-10-30T06:09:47Z",
   "msg": "khong thay doi"
  }
 }
