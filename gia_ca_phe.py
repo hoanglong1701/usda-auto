@@ -1,10 +1,10 @@
-"""Gia ca phe noi dia theo vung + Robusta London, Arabica New York, lay tu ban tin
-"Gia ca phe hom nay" hang ngay cua Bao Van Hoa (baovanhoa.vn), ghi vao trang du lieu an
+"""Gia ca phe noi dia theo vung + Robusta London, Arabica New York, ghi vao trang du lieu an
 "du-lieu-gia-ca-phe" de trang "Gia ca phe" hien thi.
 
-Tim bai moi nhat qua RSS trang chu, doc 2 bang trong bai: bang gia theo vung (co dong Dak Lak)
-va bang gia the gioi (co dong Robusta/Arabica). Giu lich su gia trung binh 4 vung 180 ngay.
-Khong co bai moi hon thi giu nguyen du lieu cu.
+Nguon chinh: trang cong cu gia ca phe cua Bao Ha Tinh (co gia trong ngay, lich su 30 ngay, bang ky han).
+Du phong: ban tin "Gia ca phe hom nay" cua Bao Van Hoa (baovanhoa.vn): tim bai moi nhat qua RSS trang chu,
+doc bang gia theo vung (co dong Dak Lak) va bang gia the gioi (co dong Robusta/Arabica).
+Giu lich su gia trung binh 4 vung 180 ngay. Khong co so moi hon thi giu nguyen du lieu cu.
 """
 import re
 import datetime
@@ -14,6 +14,7 @@ import wp
 
 SLUG = "du-lieu-gia-ca-phe"
 RSS = "https://baovanhoa.vn/rss/home.rss"
+BHT = "https://baohatinh.vn/cong-cu/gia-ca-phe-hom-nay"
 UA = {"User-Agent": wp.UA}
 PHIEN = 2  # tang khi doi cach doc bai de doc lai bai hien tai
 LINK = re.compile(r"https://baovanhoa\.vn/[\w/-]*gia-ca-phe-hom-nay-(\d{2,8})[\w-]*\.html")
@@ -113,6 +114,100 @@ def doc_bai(url):
     return vung, tg, ngay_gia
 
 
+def vn(x, nd=0):
+    return ("{:,.%df}" % nd).format(x).replace(",", "#").replace(".", ",").replace("#", ".")
+
+
+def doi(t):
+    """'▼ 1.000' -> -1000, '▲ 200' -> 200, '—' -> 0."""
+    m = re.search(r"\d[\d.]*", t)
+    v = int(m.group(0).replace(".", "")) if m else 0
+    return -v if "▼" in t else v
+
+
+def hop_dong(b, ten, dv, nd):
+    """Bang ky han -> 2 ky han gan nhat chua dao han: [san, 'Thang 11.2026', gia, thay doi] nhu bang Bao Van Hoa."""
+    t = datetime.date.today()
+    out = []
+    for d in b[1:]:
+        m = re.match(r"(\d{2})/(\d{2})$", d[1]) if len(d) >= 5 else None
+        if not m or (2000 + int(m.group(2)), int(m.group(1))) < (t.year, t.month):
+            continue
+        gia = float(d[2].replace(",", ""))
+        tang = float(re.sub(r"[^\d.]", "", d[3]) or 0)
+        pt = float(re.sub(r"[^\d.]", "", d[4]) or 0)
+        dau = "−" if "▼" in d[3] else ("+" if tang else "")
+        out.append([ten, "Tháng %s.20%s" % (m.group(1), m.group(2)), "%s %s" % (vn(gia, nd), dv),
+                    "%s%s %s; %s%s%%" % (dau, vn(tang, nd), dv.split("/")[0], dau, vn(pt, 2))])
+        if len(out) == 2:
+            break
+    return out
+
+
+def doc_bht():
+    """Trang Bao Ha Tinh -> (vung, tg, ls moi nhat truoc): vung [[ten, gia, thay doi]], ls [[ngay, trung binh, cao nhat]]."""
+    r = requests.get(BHT, headers=UA, timeout=60)
+    r.raise_for_status()
+    p = Bang()
+    p.feed(r.text)
+    vung, tg, ls = [], [], []
+    for b in p.bang:
+        dau = b[0][0] if b and b[0] else ""
+        if dau == "Vùng":
+            for d in b[1:]:
+                if len(d) >= 4 and "Trung bình" not in d[0] and so(d[2]):
+                    vung.append([d[0], so(d[2]), doi(d[3])])
+        elif dau == "Ngày":
+            for d in b[1:]:
+                m = re.match(r"(\d{2})/(\d{2})/(\d{4})$", d[0])
+                gia = [so(x) for x in d[2:6]]
+                if m and len(gia) == 4 and all(gia):
+                    ls.append(["%s-%s-%s" % (m.group(3), m.group(2), m.group(1)), round(sum(gia) / 4), max(gia)])
+        elif dau == "Hợp đồng" and len(b) > 1 and len(b[1]) > 1:
+            if b[1][0].startswith("RM"):
+                tg += hop_dong(b, "Robusta London", "USD/tấn", 0)
+            elif b[1][0].startswith("KC"):
+                tg += hop_dong(b, "Arabica New York", "cent/lb", 2)
+    return vung, tg, sorted(ls, reverse=True)
+
+
+def ghi_bht(pid, obj):
+    """Tra ve thong bao neu dung duoc nguon Bao Ha Tinh, None neu nguon nay khong dung duoc (chuyen sang du phong)."""
+    try:
+        vung, tg, ls = doc_bht()
+    except Exception as e:  # noqa  loi nguon chinh thi chuyen du phong
+        print("Bao Ha Tinh loi:", str(e)[:120])
+        return None
+    hom_nay = datetime.date.today()
+    if len(vung) < 3 or not ls or ls[0][0] < (hom_nay - datetime.timedelta(days=3)).isoformat():
+        print("Bao Ha Tinh thieu so:", len(vung), ls[:1])
+        return None
+    if not all(70000 <= v[1] <= 200000 for v in vung):
+        raise RuntimeError("Gia Bao Ha Tinh bat thuong: %s" % vung)
+    ngay = ls[0][0]
+    if obj.get("bai", "") > ngay:
+        return None
+    tg = tg or obj.get("tg", [])
+    if obj.get("url") == BHT and obj.get("bai") == ngay and obj.get("vung") == vung and obj.get("tg") == tg:
+        return "Gia ca phe khong doi (%s)" % ngay
+    gop = {x[0]: x for x in obj.get("ls", [])}
+    gop.update({x[0]: x for x in ls})
+    obj.update({
+        "asof": hom_nay.isoformat(),
+        "bai": ngay,
+        "ngay_gia": "%s/%s" % (ngay[8:10], ngay[5:7]),
+        "url": BHT,
+        "nguon": "Báo Hà Tĩnh",
+        "phien": PHIEN,
+        "vung": vung,
+        "tg": tg,
+        "tb": round(sum(v[1] for v in vung) / len(vung)),
+        "ls": sorted(gop.values())[-180:],
+    })
+    wp.save(pid, obj)
+    return "Gia ca phe %s (Bao Ha Tinh): %d vung, TB %s d/kg, %d dong the gioi" % (ngay, len(vung), format(obj["tb"], ","), len(tg))
+
+
 def run():
     if not wp.enabled():
         raise RuntimeError("Thieu WP_URL/WP_USER/WP_APP_PASSWORD")
@@ -125,11 +220,17 @@ def run():
     pid = r.json()[0]["id"]
     obj = wp.load(pid) or {}
 
+    msg = ghi_bht(pid, obj)
+    if msg:
+        return msg
+
     url, ngay_bai = bai_moi_nhat()
     if not url:
         return "RSS khong co bai gia ca phe, giu du lieu %s" % obj.get("bai", "-")
     if obj.get("url") == url and obj.get("phien") == PHIEN:
         return "Chua co bai moi (%s)" % ngay_bai.isoformat()
+    if obj.get("bai", "") >= ngay_bai.isoformat():  # du lieu dang co moi hon bai nay
+        return "Bai %s khong moi hon du lieu %s" % (ngay_bai.isoformat(), obj.get("bai"))
     vung, tg, ngay_gia = doc_bai(url)
     if len(vung) < 3:
         raise RuntimeError("Bai %s: chi doc duoc %d vung" % (url, len(vung)))
