@@ -39,7 +39,7 @@
  },
  "probe": {
   "ok": true,
-  "at": "2026-10-30T07:00:09Z",
+  "at": "2026-10-31T06:55:20Z",
   "msg": "ghi data/probe.json, tat ca nguon OK"
  },
  "fred_test": {
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-31T06:17:14Z",
-  "msg": "45 trang, lan 1 tb 1955 ms, lan 2 tb 1427 ms, 45/45 trang co cache"
+  "at": "2026-10-31T06:55:57Z",
+  "msg": "45 trang, lan 1 tb 1331 ms, lan 2 tb 1131 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-31T06:16:58Z",
+  "at": "2026-10-31T06:55:21Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
