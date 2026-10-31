@@ -29,7 +29,7 @@
  ],
  "orgs": {
   "ok": true,
-  "at": "2026-10-30T15:11:00Z",
+  "at": "2026-10-31T07:05:30Z",
   "msg": "khong thay doi"
  },
  "wasde": {
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-31T06:55:57Z",
-  "msg": "45 trang, lan 1 tb 1331 ms, lan 2 tb 1131 ms, 45/45 trang co cache"
+  "at": "2026-10-31T07:05:53Z",
+  "msg": "45 trang, lan 1 tb 1714 ms, lan 2 tb 1323 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-31T06:55:21Z",
+  "at": "2026-10-31T07:05:40Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
