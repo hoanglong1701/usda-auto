@@ -69,12 +69,12 @@
  },
  "kl_nlcn": {
   "ok": true,
-  "at": "2026-10-30T02:09:20Z",
-  "msg": "da ghi trang 1519: LME 2026-10-29; USGS 2026; PSD ca phe 2026; bao cao 13 muc"
+  "at": "2026-10-31T01:51:27Z",
+  "msg": "da ghi trang 1519: LME 2026-10-30; USGS 2026; PSD ca phe 2026; bao cao 13 muc"
  },
  "ns_enso": {
   "ok": true,
-  "at": "2026-10-30T02:10:22Z",
+  "at": "2026-10-31T01:52:22Z",
   "msg": "da ghi trang 1526: WB den 2026-09; ONI 2026-08=2.16; 34 dot ENSO; futures 2026-10-30"
  },
  "gia_vn_thu": {
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-10-31T00:26:53Z",
-  "msg": "45 trang, lan 1 tb 1778 ms, lan 2 tb 1338 ms, 45/45 trang co cache"
+  "at": "2026-10-31T01:52:56Z",
+  "msg": "45 trang, lan 1 tb 1723 ms, lan 2 tb 1114 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-10-31T00:26:40Z",
-  "msg": "khong thay doi"
+  "at": "2026-10-31T01:52:31Z",
+  "msg": "ghi tom tat trang 1519, 1526"
  },
  "ico_ton_kho_thu": {
   "ok": true,
