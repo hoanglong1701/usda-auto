@@ -4,6 +4,8 @@ Nguon: tep lich su theo nam cua CFTC (cftc.gov/files/dea/history/fut_disagg_txt_
 Ghi vao trang du lieu an "du-lieu-cot" (tu tao neu chua co), 104 tuan gan nhat cho moi hop dong.
 Lan dau (va khi thieu) chen khoi bieu do COT vao trang hien thi cua tung nhom.
 CFTC cong bo chieu thu Sau (gio My), so lieu chot ngay thu Ba cung tuan.
+Rieng robusta London khong co o CFTC: lay tep COT cua ICE Futures Europe (ice.com/publicdocs/futures/COTHist<nam>.csv),
+dong Futures Only, anh Long quyet dinh dung va chiu trach nhiem (02/11/2026); tren web ghi dung nguon ICE.
 """
 import io
 import csv
@@ -27,7 +29,13 @@ SP = [
     ("075651", "paladi", "Palađi (NYMEX)", "kl"),
     ("088691", "vang", "Vàng (COMEX)", "vb"), ("084691", "bac", "Bạc (COMEX)", "vb"),
     ("067651", "wti", "Dầu thô WTI (NYMEX)", "nl"), ("023651", "khi", "Khí tự nhiên Henry Hub (NYMEX)", "nl"),
+    ("ICE_RC", "robusta", "Cà phê robusta (ICE London)", "cp"),
 ]
+ICE_URL = "https://www.ice.com/publicdocs/futures/COTHist%d.csv"
+COT_ICE = {"oi": "Open_Interest_All", "pml": "Prod_Merc_Positions_Long_All", "pms": "Prod_Merc_Positions_Short_All",
+           "swl": "Swap_Positions_Long_All", "sws": "Swap_Positions_Short_All", "mml": "M_Money_Positions_Long_All",
+           "mms": "M_Money_Positions_Short_All", "orl": "Other_Rept_Positions_Long_All", "ors": "Other_Rept_Positions_Short_All",
+           "nrl": "NonRept_Positions_Long_All", "nrs": "NonRept_Positions_Short_All"}
 # cot trong tep CFTC (khong tieu de): 2 ngay, 3 ma HD, 7 OI, 8-9 nha SX long/short, 10-11 swap long/short,
 # 13-14 quy dau co long/short, 16-17 to chuc khac long/short, 21-22 nho le long/short
 COL = {"oi": 7, "pml": 8, "pms": 9, "swl": 10, "sws": 11, "mml": 13, "mms": 14, "orl": 16, "ors": 17, "nrl": 21, "nrs": 22}
@@ -70,6 +78,28 @@ def tai():
                 out.setdefault(c, {})[d] = {k: int(float(r[i].strip() or 0)) for k, i in COL.items()}
             except ValueError:
                 continue
+    try:
+        out["ICE_RC"] = ice_robusta()
+    except Exception as e:  # noqa  ICE loi thi van ghi phan CFTC
+        print("ICE robusta loi:", str(e)[:150])
+    return out
+
+
+def ice_robusta():
+    """{ngay: {truong: so}} cua robusta London, Futures Only."""
+    out = {}
+    nam = datetime.date.today().year
+    for y in (nam - 2, nam - 1, nam):
+        r = requests.get(ICE_URL % y, headers=UA, timeout=120)
+        if r.status_code != 200:
+            continue
+        dong = list(csv.reader(io.StringIO(r.text)))
+        cot = {x.strip(): i for i, x in enumerate(dong[0])}
+        for x in dong[1:]:
+            if len(x) < len(cot) or "Robusta Coffee" not in x[0] or x[cot["FutOnly_or_Combined"]].strip() != "FutOnly":
+                continue
+            d = datetime.datetime.strptime(x[cot["As_of_Date_Form_MM/DD/YYYY"]].strip(), "%m/%d/%Y").date().isoformat()
+            out[d] = {k: int(float(x[cot[t]].strip() or 0)) for k, t in COT_ICE.items()}
     return out
 
 
