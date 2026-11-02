@@ -57,9 +57,13 @@ TEN = [
     (r"^Pending Home Sales m/m$", "Doanh số nhà chờ bán (tháng/tháng)"), (r"^Employment Cost Index q/q$", "Chỉ số chi phí lao động (quý/quý)"),
     (r"^Federal Budget Balance$", "Cán cân ngân sách liên bang"), (r"^Caixin Manufacturing PMI$", "PMI sản xuất Caixin"),
     (r"^Caixin Services PMI$", "PMI dịch vụ Caixin"), (r"^FOMC Member .* Speaks$", "Thành viên FOMC phát biểu"),
+    (r"^BOE Monetary Policy Report$", "Báo cáo chính sách tiền tệ BoE"), (r"^Monetary Policy Summary$", "Tóm tắt chính sách tiền tệ"),
+    (r"^MPC Official Bank Rate Votes$", "Kết quả bỏ phiếu lãi suất BoE"), (r"^BOE Gov .* Speaks$", "Thống đốc BoE phát biểu"),
+    (r"^BOJ Gov .* Speaks$", "Thống đốc BoJ phát biểu"), (r"^ECB President .* Speaks$", "Chủ tịch ECB phát biểu"),
 ]
 # dien giai ngan theo ten tin; khong dung chu "cong bo" vi dien_thuc_te bo qua dong co chu do
 MO_TA = [
+    (r"(Gov|President) .* Speaks", "Phát biểu có thể hé lộ hướng đi lãi suất, tác động tới tỷ giá và USD."),
     (r"CPI|PPI|PCE", "Thước đo lạm phát, ảnh hưởng tới kỳ vọng lãi suất, USD và vàng."),
     (r"^Non-Farm|^ADP|Unemployment|Earnings|Claims|JOLTS|Employment Cost", "Số liệu thị trường lao động, ảnh hưởng tới kỳ vọng lãi suất của Fed."),
     (r"Federal Funds|FOMC|Fed Chair", "Tín hiệu chính sách tiền tệ của Fed, tác động mạnh tới USD, lợi suất và vàng."),
