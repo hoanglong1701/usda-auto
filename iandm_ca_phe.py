@@ -23,7 +23,7 @@ HET_TUAN = 730  # so ngay gan nhat doc moi bai (COT co the nam o bai bat ky tron
 # Bai co lastmod trong khoang nay bi luu lai hang loat tren trang cua ho nen lastmod khong phai ngay bao cao:
 # chi lay so tu ghi ngay kem nam (COT, ton kho robusta), bo ton kho arabica vi can ngay bao cao
 LOI_DAU, LOI_CUOI = "2025-03-01", "2026-07-31"
-PHIEN_BAN = 2  # doi so nay de doc lai cac bai gan day
+PHIEN_BAN = 3  # doi so nay de doc lai cac bai gan day
 THANG = {m: i + 1 for i, m in enumerate(("January", "February", "March", "April", "May", "June", "July", "August",
                                          "September", "October", "November", "December"))}
 
@@ -107,6 +107,11 @@ def doc(t, ngay):
         n = int(r.group(1).replace(",", ""))
         if x and 50000 <= n <= 8000000:
             out["rob"] = [x.isoformat(), n]
+    r = re.search(r"[Rr]obusta (?:inventories|stocks)[^.]{0,160}?[\d,]{5,} [Ll]ots,? or the equivalent of ([\d,]{7,}) [Bb]ags", t)
+    if r and tin_ngay and "rob" not in out:  # cach viet thu 2, khong ghi ngay nen lay ngay bao cao
+        n = int(r.group(1).replace(",", ""))
+        if 50000 <= n <= 8000000:
+            out["rob"] = [ngay, n]
     return out
 
 
