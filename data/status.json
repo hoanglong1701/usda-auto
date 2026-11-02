@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-02T05:24:23Z",
-  "msg": "45 trang, lan 1 tb 1767 ms, lan 2 tb 1361 ms, 45/45 trang co cache"
+  "at": "2026-11-02T05:28:14Z",
+  "msg": "45 trang, lan 1 tb 1557 ms, lan 2 tb 1457 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-02T05:24:05Z",
+  "at": "2026-11-02T05:27:56Z",
   "msg": "ghi tom tat trang 176"
  },
  "ico_ton_kho_thu": {
@@ -239,7 +239,7 @@
  },
  "lich_kt_lai": {
   "ok": true,
-  "at": "2026-11-02T05:23:58Z",
-  "msg": "dung khung Tuần 02/11 – 06/11/2026 (24 dong)"
+  "at": "2026-11-02T05:27:51Z",
+  "msg": "dung khung Tuần 02/11 – 06/11/2026 (19 dong)"
  }
 }
