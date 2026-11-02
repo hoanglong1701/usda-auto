@@ -23,7 +23,12 @@ UA = {"User-Agent": wp.UA}
 FF = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
 FRED = "https://api.stlouisfed.org/fred/series"
 THU = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"]
-NUOC = {"USD": "Mỹ", "CNY": "Trung Quốc", "EUR": "khu vực euro", "GBP": "Anh", "JPY": "Nhật"}
+NUOC = {"USD": "Mỹ", "CNY": "Trung Quốc", "EUR": "khu vực euro", "GBP": "Anh", "JPY": "Nhật", "AUD": "Úc"}
+# bao cao theo lich chinh thuc da xac nhan (usda.gov/wasde, eia.gov/outlooks/steo/release_schedule.php), gio ET; het lich thi msg nhac bo sung
+WASDE = "<b>Báo cáo cung cầu WASDE của USDA</b> – Cập nhật cung cầu thế giới và sản lượng Mỹ, tác động mạnh tới ngô, đậu tương, lúa mì."
+STEO = "<b>Triển vọng năng lượng ngắn hạn STEO (EIA)</b> – Dự báo cung cầu và giá dầu, khí của Mỹ và thế giới."
+BAO_CAO = [("2026-11-10", 12, 0, "Nông sản", WASDE, 1), ("2026-12-10", 12, 0, "Nông sản", WASDE, 1),
+           ("2026-11-10", 12, 0, "Dầu thô, ngô", STEO, 0), ("2026-12-08", 12, 0, "Dầu thô, ngô", STEO, 0)]
 # ten tin ForexFactory -> tieng Viet
 TEN = [
     (r"^Core CPI m/m$", "CPI lõi (tháng/tháng)"), (r"^CPI m/m$", "CPI (tháng/tháng)"), (r"^CPI y/y$", "CPI (năm/năm)"),
@@ -57,6 +62,7 @@ TEN = [
     (r"^Pending Home Sales m/m$", "Doanh số nhà chờ bán (tháng/tháng)"), (r"^Employment Cost Index q/q$", "Chỉ số chi phí lao động (quý/quý)"),
     (r"^Federal Budget Balance$", "Cán cân ngân sách liên bang"), (r"^Caixin Manufacturing PMI$", "PMI sản xuất Caixin"),
     (r"^Caixin Services PMI$", "PMI dịch vụ Caixin"), (r"^FOMC Member .* Speaks$", "Thành viên FOMC phát biểu"),
+    (r"^Cash Rate$", "Quyết định lãi suất RBA"), (r"^CPI Flash Estimate y/y$", "CPI sơ bộ (năm/năm)"),
     (r"^BOE Monetary Policy Report$", "Báo cáo chính sách tiền tệ BoE"), (r"^Monetary Policy Summary$", "Tóm tắt chính sách tiền tệ"),
     (r"^MPC Official Bank Rate Votes$", "Kết quả bỏ phiếu lãi suất BoE"), (r"^BOE Gov .* Speaks$", "Thống đốc BoE phát biểu"),
     (r"^BOJ Gov .* Speaks$", "Thống đốc BoJ phát biểu"), (r"^ECB President .* Speaks$", "Chủ tịch ECB phát biểu"),
@@ -71,7 +77,7 @@ MO_TA = [
     (r"PMI|Philly|Empire|Industrial|Durable", "Phản ánh sức khỏe sản xuất, dịch vụ và cầu nguyên liệu."),
     (r"Retail|Consumer|Sentiment|UoM", "Phản ánh sức mua và tâm lý người tiêu dùng."),
     (r"Home|Housing|Building", "Phản ánh thị trường nhà ở, liên quan tới cầu đồng và gỗ."),
-    (r"Main Refinancing|ECB|Official Bank Rate|BOJ|Monetary Policy", "Quyết định chính sách của ngân hàng trung ương, tác động tới tỷ giá và USD."),
+    (r"Main Refinancing|ECB|Official Bank Rate|BOJ|Monetary Policy|Cash Rate", "Quyết định chính sách của ngân hàng trung ương, tác động tới tỷ giá và USD."),
     (r"Trade Balance|Budget", "Phản ánh dòng thương mại và tình hình tài khóa."),
     (r"Election", "Sự kiện chính trị có thể làm thị trường biến động mạnh."),
 ]
@@ -117,6 +123,10 @@ def co_dinh(mon):
     out.append(dong(et_to_vn(d(2), 10, 30), "Dầu thô, ngô", "<b>Tồn kho dầu thô (EIA)</b> – Báo cáo năng lượng hằng tuần của Mỹ, tác động tới giá dầu và cầu ngô (ethanol).", 1))
     out.append(dong(et_to_vn(d(3), 8, 30), "Nông sản", "<b>Doanh số xuất khẩu hàng tuần của USDA</b> – Doanh số bán nông sản Mỹ ra thế giới, nhất là đơn từ Trung Quốc.", 0))
     out.append(dong(et_to_vn(d(3), 10, 30), "Dầu thô, ngô", "<b>Tồn kho khí tự nhiên (EIA)</b> – Lượng khí tự nhiên lưu kho hằng tuần của Mỹ.", 0))
+    for ngay, h, m, nhom, mo_ta, qt in BAO_CAO:
+        x = datetime.date.fromisoformat(ngay)
+        if mon <= x <= d(6):
+            out.append(dong(et_to_vn(x, h, m), nhom, mo_ta, qt))
     return out
 
 
@@ -258,13 +268,15 @@ def dien_thuc_te(rows, nam, key, now):
     return n
 
 
-def run(dry=False):
+def run(dry=False, lai=False):
     now = datetime.datetime.now(VN)
     mon = monday(now.date())
     key = os.environ.get("FRED_API_KEY", "")
     obj = wp.load(PAGE)
     notes, changed = [], False
-    if obj.get("w") != nhan_tuan(mon) and now.weekday() <= 4:
+    if now.date().isoformat() > max(x[0] for x in BAO_CAO):
+        notes.append("HET LICH BAO_CAO trong lich_kt.py - can bo sung")
+    if (lai or obj.get("w") != nhan_tuan(mon)) and now.weekday() <= 4:
         new = khung_tuan(mon)
         if len(new["D"]) < 5:
             raise RuntimeError("Khung lich tuan qua it dong (%d)" % len(new["D"]))
@@ -278,6 +290,11 @@ def run(dry=False):
     if changed and not dry:
         wp.save(PAGE, obj)
     return ("(thu) " if dry else "") + ("; ".join(notes) or "khong thay doi")
+
+
+def run_lai():
+    """Dung lai khung tuan hien tai du trang da co lich cua tuan nay."""
+    return run(lai=True)
 
 
 def run_dry():

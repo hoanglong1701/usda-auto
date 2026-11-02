@@ -64,6 +64,7 @@ JOBS = {
     "chan_doan": chan_doan.run,
     "lich_kt": lich_kt.run,
     "lich_kt_thu": lich_kt.run_dry,
+    "lich_kt_lai": lich_kt.run_lai,
     "anh_chuyen_muc": anh_chuyen_muc.run,
     "sua_menu_trang": sua_menu_trang.run,
     "cot": cot.run,
