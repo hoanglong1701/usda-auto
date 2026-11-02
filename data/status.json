@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-02T07:46:04Z",
-  "msg": "45 trang, lan 1 tb 1631 ms, lan 2 tb 1245 ms, 45/45 trang co cache"
+  "at": "2026-11-02T09:17:53Z",
+  "msg": "45 trang, lan 1 tb 1392 ms, lan 2 tb 1142 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -139,8 +139,8 @@
  },
  "cot": {
   "ok": true,
-  "at": "2026-11-02T05:34:07Z",
-  "msg": "COT tuan 2026-10-27, 19 hop dong; ghi trang 1639"
+  "at": "2026-11-02T09:17:24Z",
+  "msg": "COT tuan 2026-10-27, 19 hop dong; khong doi"
  },
  "gia_ca_phe": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-02T07:45:48Z",
+  "at": "2026-11-02T09:17:39Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
