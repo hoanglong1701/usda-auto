@@ -49,7 +49,29 @@ TEN = [
     (r"^Main Refinancing Rate$", "Quyết định lãi suất ECB"), (r"^ECB Press Conference$", "Họp báo ECB"),
     (r"^Official Bank Rate$", "Quyết định lãi suất BoE"), (r"^BOJ Policy Rate$", "Quyết định lãi suất BoJ"),
     (r"^Monetary Policy Statement$", "Tuyên bố chính sách tiền tệ"),
+    (r"^ADP Non-Farm Employment Change$", "Việc làm khu vực tư nhân ADP"), (r"^Congressional Elections$", "Bầu cử Quốc hội giữa kỳ"),
+    (r"^Presidential Election$", "Bầu cử Tổng thống"), (r"^CB Consumer Confidence$", "Niềm tin tiêu dùng Conference Board"),
+    (r"^Core Durable Goods Orders m/m$", "Đơn hàng lâu bền lõi (tháng/tháng)"), (r"^Philly Fed Manufacturing Index$", "Chỉ số sản xuất Fed Philadelphia"),
+    (r"^Empire State Manufacturing Index$", "Chỉ số sản xuất Empire State"), (r"^Building Permits$", "Giấy phép xây dựng"),
+    (r"^Housing Starts$", "Nhà ở khởi công"), (r"^New Home Sales$", "Doanh số nhà mới"), (r"^Existing Home Sales$", "Doanh số nhà đã qua sử dụng"),
+    (r"^Pending Home Sales m/m$", "Doanh số nhà chờ bán (tháng/tháng)"), (r"^Employment Cost Index q/q$", "Chỉ số chi phí lao động (quý/quý)"),
+    (r"^Federal Budget Balance$", "Cán cân ngân sách liên bang"), (r"^Caixin Manufacturing PMI$", "PMI sản xuất Caixin"),
+    (r"^Caixin Services PMI$", "PMI dịch vụ Caixin"), (r"^FOMC Member .* Speaks$", "Thành viên FOMC phát biểu"),
 ]
+# dien giai ngan theo ten tin; khong dung chu "cong bo" vi dien_thuc_te bo qua dong co chu do
+MO_TA = [
+    (r"CPI|PPI|PCE", "Thước đo lạm phát, ảnh hưởng tới kỳ vọng lãi suất, USD và vàng."),
+    (r"^Non-Farm|^ADP|Unemployment|Earnings|Claims|JOLTS|Employment Cost", "Số liệu thị trường lao động, ảnh hưởng tới kỳ vọng lãi suất của Fed."),
+    (r"Federal Funds|FOMC|Fed Chair", "Tín hiệu chính sách tiền tệ của Fed, tác động mạnh tới USD, lợi suất và vàng."),
+    (r"GDP", "Thước đo tăng trưởng kinh tế, ảnh hưởng tới cầu hàng hóa."),
+    (r"PMI|Philly|Empire|Industrial|Durable", "Phản ánh sức khỏe sản xuất, dịch vụ và cầu nguyên liệu."),
+    (r"Retail|Consumer|Sentiment|UoM", "Phản ánh sức mua và tâm lý người tiêu dùng."),
+    (r"Home|Housing|Building", "Phản ánh thị trường nhà ở, liên quan tới cầu đồng và gỗ."),
+    (r"Main Refinancing|ECB|Official Bank Rate|BOJ|Monetary Policy", "Quyết định chính sách của ngân hàng trung ương, tác động tới tỷ giá và USD."),
+    (r"Trade Balance|Budget", "Phản ánh dòng thương mại và tình hình tài khóa."),
+    (r"Election", "Sự kiện chính trị có thể làm thị trường biến động mạnh."),
+]
+
 # tin USD muc Medium van dua vao lich
 USD_MEDIUM = re.compile(r"Claims|PMI|PPI|Retail Sales|Durable|Consumer Sentiment|JOLTS|GDP|PCE", re.I)
 # ForexFactory co cac tin nay nhung lich dung dong co dinh ben duoi
@@ -118,6 +140,10 @@ def ff_rows(mon):
         f, p = [re.sub(r"(\d)\.(\d)", r"\1,\2", x.get(k) or "") for k in ("forecast", "previous")]
         if f or p:
             mo += " – " + ", ".join(s for s in (("dự báo " + f) if f else "", ("kỳ trước " + p) if p else "") if s) + "."
+        for pat, gt in MO_TA:
+            if re.search(pat, title):
+                mo += (" " if mo.endswith(".") else " – ") + gt
+                break
         out.append(dong(t, "Tin tức chung", mo, 1 if imp == "High" else 0))
     return out
 
@@ -251,4 +277,6 @@ def run(dry=False):
 
 
 def run_dry():
+    for r in ff_rows(monday(datetime.datetime.now(VN).date())):  # in dong tin de doc lai cach viet
+        print(r[0], r[2], r[4])
     return run(dry=True)
