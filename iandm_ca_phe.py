@@ -4,7 +4,7 @@ I & M Smith da dong y cho dung so lieu trong bao cao cong khai (thu cua Michael,
 va dan link, khong chep van ban bao cao. Ghi khoa "im" cua trang du lieu 1884:
   cot [[thu Ba chot so, net lo (am la ban rong), "mm" Managed Money / "nc" Non-Commercial]]
   ara [[ngay, bao]] ton kho arabica New York, rob [[ngay, bao]] ton kho robusta London
-Moi lan chay doc tu bao cao moi nhat lui dan trong gioi han thoi gian, nhip cham (moi tuan 1 bai), khoa "da" ghi cac bai da doc.
+Moi lan chay doc tu bao cao moi nhat lui dan trong gioi han thoi gian, nhip cham, khoa "da" ghi cac bai da doc.
 """
 import re
 import time
@@ -19,6 +19,11 @@ SITEMAP = "https://www.iandmsmith.com/post-sitemap%s.xml"
 CHO = 20  # giay giua 2 lan goi: may chu cua ho tra 429 khi goi 2 giay/lan
 GIOI_HAN = 15 * 60  # giay cho moi lan chay
 SO_NAM = 5  # chi doc bao cao trong 5 nam gan nhat
+HET_TUAN = 730  # so ngay gan nhat doc moi bai (COT co the nam o bai bat ky trong tuan), cu hon moi tuan 1 bai
+# Bai co lastmod trong khoang nay bi luu lai hang loat tren trang cua ho nen lastmod khong phai ngay bao cao:
+# chi lay so tu ghi ngay kem nam (COT, ton kho robusta), bo ton kho arabica vi can ngay bao cao
+LOI_DAU, LOI_CUOI = "2025-03-01", "2026-07-31"
+PHIEN_BAN = 2  # doi so nay de doc lai cac bai gan day
 THANG = {m: i + 1 for i, m in enumerate(("January", "February", "March", "April", "May", "June", "July", "August",
                                          "September", "October", "November", "December"))}
 
@@ -27,7 +32,10 @@ def ds_bao_cao():
     """[(ngay yyyy-mm-dd, url)] tu sitemap, cu nhat truoc."""
     out = []
     for n in ("", "2", "3", "4"):
-        r = requests.get(SITEMAP % n, headers=UA, timeout=60)
+        try:
+            r = requests.get(SITEMAP % n, headers=UA, timeout=60)
+        except requests.RequestException:
+            continue
         time.sleep(CHO)
         if r.status_code != 200:
             continue
@@ -46,6 +54,8 @@ def chu(u):
     if r.status_code == 429:
         raise QuaTai(u)
     r.raise_for_status()
+    if "being verified" in r.text:  # trang kiem tra cua may chu, khong phai bao cao
+        raise QuaTai(u)
     time.sleep(CHO)
     t = re.sub(r"<(script|style)[\s\S]*?</\1>", " ", r.text)
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", t)).split())
@@ -73,19 +83,20 @@ def thu_ba(x):
 def doc(t, ngay):
     """Chu bao cao -> {"cot": [...], "ara": [...], "rob": [...]} (khoa nao khong co thi thieu)."""
     goc = datetime.date.fromisoformat(ngay)
+    tin_ngay = not LOI_DAU <= ngay <= LOI_CUOI
     out = {}
     i = re.search(r"Commitment of Traders report from the London [Rr]obusta", t)
     if i:
         s = t[i.start():i.start() + 560]
         v = re.search(r"net[ -](long|short)(?: sold)? position of ([\d,]+)\s*[Ll]ots", s)
         d = re.search(r"Tuesday,?\s+(\d{1,2})\s*(?:st|nd|rd|th)?\.?\s+(?:of\s+)?([A-Z][a-z]+)\.?(?:\s+(20\d\d))?", s)
-        if v and d:
+        if v and d and (tin_ngay or d.group(3)):
             x = ngay_chu(d.group(1), d.group(2), d.group(3), goc)
             n = int(v.group(2).replace(",", ""))
             if x and n <= 100000:
                 out["cot"] = [thu_ba(x).isoformat(), -n if v.group(1) == "short" else n, "mm" if "Managed Money" in s else "nc"]
     a = re.search(r"[Cc]ertified washed [Aa]rabica coffee stocks.{0,160}?to register these stocks at ([\d,]+) bags", t)
-    if a:
+    if a and tin_ngay:
         n = int(a.group(1).replace(",", ""))
         if 100000 <= n <= 4000000:
             lui = 3 if goc.weekday() == 0 else 1  # bao cao thu Hai ghi so cua thu Sau
@@ -100,17 +111,16 @@ def doc(t, ngay):
 
 
 def chon(ds):
-    """Moi tuan 1 bao cao: thu Hai, tuan khong co thi lay bai dau tuan co. 14 ngay gan nhat lay moi bai
-    (so ton kho robusta chi xuat hien vai ngay trong tuan)."""
+    """HET_TUAN ngay gan nhat lay moi bai; cu hon moi tuan 1 bao cao: thu Hai, tuan khong co thi lay bai dau tuan co."""
     tuan = {}
     hom_nay = datetime.date.today()
-    gan = (hom_nay - datetime.timedelta(days=14)).isoformat()
+    gan = (hom_nay - datetime.timedelta(days=HET_TUAN)).isoformat()
     dau = (hom_nay - datetime.timedelta(days=SO_NAM * 365)).isoformat()
     for d, u in ds:
         if d < dau:
             continue
         y, w, _ = datetime.date.fromisoformat(d).isocalendar()
-        k = d if d >= gan else (y, w)
+        k = u if d >= gan else (y, w)
         if k not in tuan or d < tuan[k][0]:
             tuan[k] = (d, u)
     return sorted(tuan.values())
@@ -122,8 +132,13 @@ def run():
     im = obj.get("im") or {}
     bang = {k: {x[0]: x for x in im.get(k, [])} for k in ("cot", "ara", "rob")}
     da = set(im.get("da", []))
+    gan = (datetime.date.today() - datetime.timedelta(days=HET_TUAN)).isoformat()
+    if im.get("ver") != PHIEN_BAN:  # bo so ghi sai ngay va doc lai cac bai gan day (da ghi theo url, khong theo lastmod)
+        for k in ("cot", "ara"):
+            bang[k] = {d: v for d, v in bang[k].items() if not LOI_DAU <= d <= LOI_CUOI}
+        da = {x for x in da if x < gan}
     ds = chon(ds_bao_cao())
-    viec = [x for x in ds if x[0] not in da][::-1]  # moi nhat truoc
+    viec = [x for x in ds if x[1] not in da and not (x[0] < gan and x[0] in da)][::-1]  # moi nhat truoc
     xong, loi, dung = 0, 0, ""
     for d, u in viec:
         if time.time() - bat_dau > GIOI_HAN:
@@ -142,16 +157,16 @@ def run():
             continue
         for k, v in r.items():
             bang[k][v[0]] = v
-        da.add(d)
+        da.add(u)
         xong += 1
     if bang["cot"] and len(bang["cot"]) < 3:
         raise RuntimeError("Qua it diem COT: %s" % list(bang["cot"].values()))
-    im = {"nguon": "I & M Smith", "da": sorted(da), "cot": sorted(bang["cot"].values()),
+    im = {"nguon": "I & M Smith", "ver": PHIEN_BAN, "da": sorted(da), "cot": sorted(bang["cot"].values()),
           "ara": sorted(bang["ara"].values()), "rob": sorted(bang["rob"].values())}
     obj = wp.load(PAGE) or {}  # doc lai ngay truoc khi ghi
     obj["im"] = im
     obj["asof"] = datetime.date.today().isoformat()
     wp.save(PAGE, obj)
-    con = sum(1 for x in ds if x[0] not in da)
+    con = sum(1 for x in ds if x[1] not in da and not (x[0] < gan and x[0] in da))
     return "I&M Smith: doc %d bao cao (loi %d), COT %d diem, arabica %d, robusta %d; con %d bai chua doc%s" % (
         xong, loi, len(im["cot"]), len(im["ara"]), len(im["rob"]), con, dung)
