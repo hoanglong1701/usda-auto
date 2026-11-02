@@ -126,6 +126,16 @@ def chon(ds):
     return sorted(tuan.values())
 
 
+def thu():
+    """In cac cau noi ve ton kho robusta cua vai bai moi nhat de do cach viet, khong ghi."""
+    for d, u in ds_bao_cao()[-8:]:
+        t = chu(u)
+        print(d, u)
+        for x in re.findall(r".{60}[Rr]obusta[^.]{0,60}(?:stocks|inventor).{200}", t)[:3]:
+            print("  >", x)
+    return "(thu) xong"
+
+
 def run():
     bat_dau = time.time()
     obj = wp.load(PAGE) or {}
