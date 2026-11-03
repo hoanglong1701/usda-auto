@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-03T10:38:04Z",
-  "msg": "45 trang, lan 1 tb 1640 ms, lan 2 tb 1291 ms, 45/45 trang co cache"
+  "at": "2026-11-03T18:41:12Z",
+  "msg": "25 trang, lan 1 tb 1749 ms, lan 2 tb 1752 ms, 13/25 trang co cache; loi: /, /index.php/tin-tuc-nhanh/, /index.php/dashboard-tong-hop/, /index.php/gia-the-gioi-truc-tuyen/, /index.php/phan-tich-thi-truong/"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -142,9 +142,10 @@
   "msg": "COT tuan 2026-10-27, 19 hop dong; khong doi"
  },
  "gia_ca_phe": {
-  "ok": true,
-  "at": "2026-11-03T10:03:49Z",
-  "msg": "Gia ca phe 2026-11-03 (Bao Ha Tinh): 4 vung, TB 84,375 d/kg, 4 dong the gioi"
+  "ok": false,
+  "at": "2026-11-03T18:40:35Z",
+  "error": "RuntimeError: WordPress tra 503 khi ghi trang 1665: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 223, in run\n    msg = ghi_bht(pid, obj)\n          ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 207, in ghi_bht\n    wp.save(pid, obj)\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 78, in save\n    raise RuntimeError(\"WordPress tra %d khi ghi trang %d: %s\" % (r.status_code, pid, r.text[:200].replace(\"\\n\", \" \")))\nRuntimeError: WordPress tra 503 khi ghi trang 1665: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}\n"
  },
  "gia_fob_thu": {
   "ok": true,
@@ -202,9 +203,10 @@
   "msg": "(thu) ghi tom tat trang 178, 1519, 1526, 801, 847, 176, 227, 1791"
  },
  "tom_tat": {
-  "ok": true,
-  "at": "2026-11-03T10:37:45Z",
-  "msg": "ghi tom tat trang 178"
+  "ok": false,
+  "at": "2026-11-03T18:41:04Z",
+  "error": "RuntimeError: khong thay doi | LOI 178: RuntimeError WordPress tra 503 khi doc trang 178: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1519: RuntimeError WordPress tra 503 khi doc trang 1519: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 1526: RuntimeError WordPress tra 503 khi doc trang 1526: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 801: RuntimeError WordPress tra 503 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 847: RuntimeError WordPress tra 503 khi doc trang 847: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 176: RuntimeError WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 227: RuntimeError WordPress tra 503 khi doc trang 227: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1791: RuntimeError WordPress tra 503 khi doc trang 1791: {\"code\":\"wp_die\",\"message\":\"Briefly unavai",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/tom_tat.py\", line 298, in run\n    raise RuntimeError(msg + \" | LOI \" + \" | \".join(loi))\nRuntimeError: khong thay doi | LOI 178: RuntimeError WordPress tra 503 khi doc trang 178: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1519: RuntimeError WordPress tra 503 khi doc trang 1519: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 1526: RuntimeError WordPress tra 503 khi doc trang 1526: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 801: RuntimeError WordPress tra 503 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 847: RuntimeError WordPress tra 503 khi doc trang 847: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 176: RuntimeError WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 227: RuntimeError WordPress tra 503 khi doc trang 227: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1791: RuntimeError WordPress tra 503 khi doc trang 1791: {\"code\":\"wp_die\",\"message\":\"Briefly unavai\n"
  },
  "ico_ton_kho_thu": {
   "ok": true,
