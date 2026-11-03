@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-03T18:41:12Z",
-  "msg": "25 trang, lan 1 tb 1749 ms, lan 2 tb 1752 ms, 13/25 trang co cache; loi: /, /index.php/tin-tuc-nhanh/, /index.php/dashboard-tong-hop/, /index.php/gia-the-gioi-truc-tuyen/, /index.php/phan-tich-thi-truong/"
+  "at": "2026-11-03T19:51:53Z",
+  "msg": "45 trang, lan 1 tb 1910 ms, lan 2 tb 1199 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -118,7 +118,7 @@
  },
  "lich_kt": {
   "ok": true,
-  "at": "2026-11-03T06:59:39Z",
+  "at": "2026-11-03T19:51:05Z",
   "msg": "khong thay doi"
  },
  "sua_menu_trang": {
@@ -203,10 +203,9 @@
   "msg": "(thu) ghi tom tat trang 178, 1519, 1526, 801, 847, 176, 227, 1791"
  },
  "tom_tat": {
-  "ok": false,
-  "at": "2026-11-03T18:41:04Z",
-  "error": "RuntimeError: khong thay doi | LOI 178: RuntimeError WordPress tra 503 khi doc trang 178: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1519: RuntimeError WordPress tra 503 khi doc trang 1519: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 1526: RuntimeError WordPress tra 503 khi doc trang 1526: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 801: RuntimeError WordPress tra 503 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 847: RuntimeError WordPress tra 503 khi doc trang 847: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 176: RuntimeError WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 227: RuntimeError WordPress tra 503 khi doc trang 227: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1791: RuntimeError WordPress tra 503 khi doc trang 1791: {\"code\":\"wp_die\",\"message\":\"Briefly unavai",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/tom_tat.py\", line 298, in run\n    raise RuntimeError(msg + \" | LOI \" + \" | \".join(loi))\nRuntimeError: khong thay doi | LOI 178: RuntimeError WordPress tra 503 khi doc trang 178: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1519: RuntimeError WordPress tra 503 khi doc trang 1519: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 1526: RuntimeError WordPress tra 503 khi doc trang 1526: {\"code\":\"wp_die\",\"message\":\"Briefly unavai | 801: RuntimeError WordPress tra 503 khi doc trang 801: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 847: RuntimeError WordPress tra 503 khi doc trang 847: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 176: RuntimeError WordPress tra 503 khi doc trang 176: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 227: RuntimeError WordPress tra 503 khi doc trang 227: {\"code\":\"wp_die\",\"message\":\"Briefly unavail | 1791: RuntimeError WordPress tra 503 khi doc trang 1791: {\"code\":\"wp_die\",\"message\":\"Briefly unavai\n"
+  "ok": true,
+  "at": "2026-11-03T19:51:38Z",
+  "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
   "ok": true,
