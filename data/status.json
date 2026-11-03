@@ -6,7 +6,7 @@
  },
  "insp": {
   "ok": true,
-  "at": "2026-11-03T09:54:54Z",
+  "at": "2026-11-03T22:24:59Z",
   "msg": "khong co bao cao moi (tuan 2026-10-29)"
  },
  "prog": {
@@ -103,8 +103,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-03T22:08:13Z",
-  "msg": "45 trang, lan 1 tb 1955 ms, lan 2 tb 1542 ms, 45/45 trang co cache"
+  "at": "2026-11-03T22:25:15Z",
+  "msg": "45 trang, lan 1 tb 1094 ms, lan 2 tb 1087 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-03T22:07:58Z",
+  "at": "2026-11-03T22:25:04Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
