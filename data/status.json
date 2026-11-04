@@ -52,8 +52,8 @@
  },
  "yeu_to": {
   "ok": true,
-  "at": "2026-11-03T07:14:06Z",
-  "msg": "da cap nhat trang 111: vang 3.970 (2026-11-02)"
+  "at": "2026-11-04T06:57:50Z",
+  "msg": "trang 111 khong con doan so lieu, chi ghi data/yeu_to.json"
  },
  "dinh_luong_thu": {
   "ok": true,
@@ -102,8 +102,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-04T06:42:22Z",
-  "msg": "45 trang, lan 1 tb 1938 ms, lan 2 tb 1222 ms, 45/45 trang co cache"
+  "at": "2026-11-04T06:58:15Z",
+  "msg": "45 trang, lan 1 tb 1352 ms, lan 2 tb 1424 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -203,7 +203,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-04T06:42:07Z",
+  "at": "2026-11-04T06:57:58Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
