@@ -102,8 +102,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-04T20:05:26Z",
-  "msg": "45 trang, lan 1 tb 1864 ms, lan 2 tb 1092 ms, 45/45 trang co cache"
+  "at": "2026-11-04T22:15:32Z",
+  "msg": "45 trang, lan 1 tb 1721 ms, lan 2 tb 1442 ms, 45/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -202,8 +202,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-04T20:05:09Z",
-  "msg": "ghi tom tat trang 176"
+  "at": "2026-11-04T22:15:16Z",
+  "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
   "ok": true,
@@ -222,8 +222,8 @@
  },
  "iandm_ca_phe": {
   "ok": true,
-  "at": "2026-11-03T21:52:47Z",
-  "msg": "I&M Smith: doc 35 bao cao (loi 0), COT 112 diem, arabica 175, robusta 2; con 191 bai chua doc"
+  "at": "2026-11-04T21:59:37Z",
+  "msg": "I&M Smith: doc 36 bao cao (loi 0), COT 118 diem, arabica 175, robusta 2; con 155 bai chua doc"
  },
  "gia_ngay": {
   "ok": true,
