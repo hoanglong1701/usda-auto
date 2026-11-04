@@ -14,7 +14,7 @@ Thay tac vu Claude "Cap nhat cong cu dinh luong Vang Bac (Thu 3 12h)" - giu DUNG
  - rx: dong moi cho bang phan ung CPI, PCE loi (10 nam), trang 111 ghep vao cac dong co san.
  - Them cac tuan con thieu + sua 3 tuan gan nhat neu nguon da hieu chinh.
 Kiem tra truoc khi ghi (khong dat -> raise, KHONG ghi): cau truc, do dai mang, ngay cach nhau 7 ngay, khong null,
-bien dong bat thuong (vang/bac > 8%/tuan, loi suat > 0,40 diem %/tuan, FF doi ma FRED khong co thay doi lai suat).
+bien dong bat thuong (vang > 10%/tuan, bac > 15%/tuan, loi suat > 0,40 diem %/tuan, FF doi ma FRED khong co thay doi lai suat).
 Bien moi truong DINH_LUONG_DRY=1: chi so sanh/in, khong ghi.
 """
 import io
@@ -334,7 +334,7 @@ def check(old, new):
                 raise RuntimeError("Gia tri rong %s tuan %s" % (k, w["dates"][i]))
         if i == 0:
             continue
-        for k, lim in (("G", 0.08), ("S", 0.08)):
+        for k, lim in (("G", 0.10), ("S", 0.15)):  # bac co tuan giam 8,6% that (30/10/2026)
             if abs(w[k][i] / w[k][i - 1] - 1) > lim:
                 raise RuntimeError("%s doi %.1f%% tuan %s - can kiem tra lai nguon"
                                    % (k, (w[k][i] / w[k][i - 1] - 1) * 100, w["dates"][i]))

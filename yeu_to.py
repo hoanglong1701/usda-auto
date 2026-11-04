@@ -250,6 +250,9 @@ def run():
 
     raw = wp.get_raw(PAGE_ID)
     pat = re.compile(re.escape(START) + r".*?" + re.escape(END), re.S)
+    if START not in raw and END not in raw:
+        # anh Long bo doan so lieu nay khoi trang 111 (04/11/2026): chi giu yeu_to.json cho tac vu soan nhan dinh
+        return "trang %d khong con doan so lieu, chi ghi data/yeu_to.json%s" % (PAGE_ID, warn)
     if len(pat.findall(raw)) != 1:
         raise RuntimeError("Trang %d khong co dung 1 cap marker %s ... %s (co the tac vu khac da ghi de trang)"
                            % (PAGE_ID, START, END))
