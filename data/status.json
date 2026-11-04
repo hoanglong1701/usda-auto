@@ -61,10 +61,9 @@
   "msg": "chay thu (khong ghi): them khong tuan moi; sua 25 diem; "
  },
  "dinh_luong": {
-  "ok": false,
-  "at": "2026-11-03T07:53:31Z",
-  "error": "RuntimeError: S doi -8.6% tuan 2026-10-30 - can kiem tra lai nguon",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 415, in run\n    check(old, data)\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 339, in check\n    raise RuntimeError(\"%s doi %.1f%% tuan %s - can kiem tra lai nguon\"\nRuntimeError: S doi -8.6% tuan 2026-10-30 - can kiem tra lai nguon\n"
+  "ok": true,
+  "at": "2026-11-04T03:50:59Z",
+  "msg": "da ghi trang 478 den tuan 2026-10-30: them 2026-10-30; sua 4 diem; "
  },
  "kl_nlcn": {
   "ok": true,
@@ -103,8 +102,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-04T03:08:09Z",
-  "msg": "45 trang, lan 1 tb 1916 ms, lan 2 tb 1363 ms, 45/45 trang co cache"
+  "at": "2026-11-04T03:51:31Z",
+  "msg": "45 trang, lan 1 tb 2359 ms, lan 2 tb 1630 ms, 24/45 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +203,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-04T03:07:49Z",
-  "msg": "ghi tom tat trang 1791"
+  "at": "2026-11-04T03:51:11Z",
+  "msg": "ghi tom tat trang 178"
  },
  "ico_ton_kho_thu": {
   "ok": true,
