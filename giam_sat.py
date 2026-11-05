@@ -16,7 +16,7 @@ H = {"User-Agent": wp.UA}
 # tien to /index.php them luc chay neu trang chua bo khoi dia chi (wp.tien_to)
 TRANG = [
     "/", "/tin-tuc-nhanh/", "/dashboard-tong-hop/", "/gia-the-gioi-truc-tuyen/",
-    "/phan-tich-chuyen-sau/", "/khuyen-nghi/", "/ket-qua-khuyen-nghi/",
+    "/phan-tich-chuyen-sau/", "/khuyen-nghi/", "/khuyen-nghi-ket-qua-khuyen-nghi/",
     "/kim-loai-quy/", "/kien-thuc-dau-tu/", "/phan-tich-nong-san/",
     "/phan-tich-kim-loai/", "/phan-tich-nguyen-lieu-cong-nghiep/",
     "/tong-quat-kinh-te-the-gioi/", "/category/kim-loai/", "/category/tin-tuc-vi-mo/",

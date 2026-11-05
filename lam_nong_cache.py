@@ -10,7 +10,7 @@ BASE = "https://giaodichhanghoa247.vn"
 TRANG = [
     "/", "/tin-tuc-nhanh/", "/dashboard-tong-hop/", "/gia-the-gioi-truc-tuyen/",
     "/phan-tich-thi-truong/", "/phan-tich-chuyen-sau/", "/khuyen-nghi/",
-    "/ket-qua-khuyen-nghi/", "/phan-tich-cung-cau-san-pham/", "/kim-loai-quy/",
+    "/phan-tich-cung-cau-san-pham/", "/kim-loai-quy/",
     "/kien-thuc-dau-tu/", "/ve-gdhh247/", "/mo-tai-khoan-gdhh/",
     "/phan-tich-nong-san/", "/phan-tich-kim-loai/", "/phan-tich-nguyen-lieu-cong-nghiep/",
     "/khuyen-nghi-ket-qua-khuyen-nghi/", "/tong-quat-kinh-te-the-gioi/",
