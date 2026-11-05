@@ -1,8 +1,8 @@
 {
  "esr": {
   "ok": true,
-  "at": "2026-10-30T06:09:44Z",
-  "msg": "khong co bao cao moi; tuan 2026-10-22; ok"
+  "at": "2026-11-05T20:16:17Z",
+  "msg": "co cap nhat; tuan 2026-10-29; ok"
  },
  "insp": {
   "ok": true,
@@ -16,10 +16,12 @@
  },
  "_ten_nuoc_chua_dich": [
   "AMERICAN SAMOA                 ",
+  "BAHRAIN                        ",
   "FEDERATED STATES OF MICRONESIA ",
   "GUAM                           ",
   "LEEWARD-WINDWARD ISLANDS       ",
   "NORTHERN MARIANA ISLANDS       ",
+  "OMAN                           ",
   "OTHER PACIFIC ISLANDS, NEC     ",
   "TURKS AND CAICOS ISLANDS       ",
   "URUGUAY                        ",
@@ -102,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-05T18:58:57Z",
-  "msg": "44 trang, lan 1 tb 2157 ms, lan 2 tb 1274 ms, 44/44 trang co cache"
+  "at": "2026-11-05T20:17:19Z",
+  "msg": "44 trang, lan 1 tb 1894 ms, lan 2 tb 1157 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -202,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-05T18:58:43Z",
-  "msg": "khong thay doi"
+  "at": "2026-11-05T20:16:57Z",
+  "msg": "ghi tom tat trang 801"
  },
  "ico_ton_kho_thu": {
   "ok": true,
