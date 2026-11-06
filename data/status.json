@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-06T08:32:44Z",
-  "msg": "44 trang, lan 1 tb 1707 ms, lan 2 tb 1161 ms, 44/44 trang co cache"
+  "at": "2026-11-06T09:28:48Z",
+  "msg": "44 trang, lan 1 tb 2328 ms, lan 2 tb 1105 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -194,8 +194,8 @@
  },
  "cuoc_bien": {
   "ok": true,
-  "at": "2026-11-02T09:34:09Z",
-  "msg": "Cuoc bien khong doi (GTR 2026-10-29)"
+  "at": "2026-11-06T09:27:44Z",
+  "msg": "da ghi cuoc bien GTR 2026-11-05: 10 tuyen"
  },
  "tom_tat_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-06T08:32:32Z",
+  "at": "2026-11-06T09:28:31Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
