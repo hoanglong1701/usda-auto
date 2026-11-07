@@ -29,8 +29,8 @@
  ],
  "orgs": {
   "ok": true,
-  "at": "2026-11-06T16:07:03Z",
-  "msg": "FAO: FFPI tháng 10/2026 = 133,9"
+  "at": "2026-11-07T07:18:05Z",
+  "msg": "khong thay doi"
  },
  "wasde": {
   "ok": true,
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-07T07:02:22Z",
-  "msg": "44 trang, lan 1 tb 1739 ms, lan 2 tb 1309 ms, 44/44 trang co cache"
+  "at": "2026-11-07T07:18:28Z",
+  "msg": "44 trang, lan 1 tb 2415 ms, lan 2 tb 1347 ms, 43/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-07T07:01:59Z",
+  "at": "2026-11-07T07:18:12Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
