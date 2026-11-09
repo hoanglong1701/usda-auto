@@ -12,8 +12,10 @@ import wp
 
 PAGE = 1791
 CT = "https://comtradeapi.un.org/public/v1/preview/C/%s/HS"
-SP = {"dau": ("1201", "Đậu tương"), "ngo": ("1005", "Ngô"), "mi": ("1001", "Lúa mì"), "kho": ("2304", "Khô đậu tương"),
+SP = {"dau": ("1201", "Đậu tương"), "mi": ("1001", "Lúa mì"), "kho": ("2304", "Khô đậu tương"),
       "dd": ("1507", "Dầu đậu tương"), "gao": ("1006", "Gạo")}
+# 09/11/2026 anh Long chon co dinh nuoc nhap khau cho tung mat hang (bo ngo); khong con lay top 3
+CHON = {"dau": [156], "kho": [156], "dd": [699, 156], "mi": [818, 360], "gao": [156, 608]}
 TEN = {156: "Trung Quốc", 484: "Mexico", 392: "Nhật Bản", 410: "Hàn Quốc", 704: "Việt Nam", 360: "Indonesia", 608: "Philippines",
        528: "Hà Lan", 724: "Tây Ban Nha", 276: "Đức", 380: "Ý", 250: "Pháp", 56: "Bỉ", 620: "Bồ Đào Nha", 616: "Ba Lan",
        826: "Anh", 792: "Thổ Nhĩ Kỳ", 818: "Ai Cập", 12: "Algeria", 504: "Maroc", 788: "Tunisia", 682: "Ả Rập Xê Út",
@@ -100,7 +102,7 @@ def xep_hang(hs):
             elif gia and gt(x):
                 ds.append((gt(x) / gia / 1e9, x["reporterCode"], True))
         ds.sort(reverse=True)
-        return y, ds[:3]
+        return y, ds
     raise RuntimeError("Comtrade chua co du lieu nhap khau %s" % hs)
 
 
@@ -187,8 +189,10 @@ def thang_moi(nhap_list, cmds):
 def lay():
     res, tops = {}, {}
     for sp, (hs, tsp) in SP.items():
-        y, top = xep_hang(hs)
-        tops[sp] = (y, top)
+        y, ds = xep_hang(hs)
+        co = {c: (tr, c, uoc) for tr, c, uoc in ds}
+        # nuoc chon ma khong co dong tong (vd Trung Quoc chi bao theo doi tac) van lay, khoi luong tinh lai tu bang xuat xu
+        tops[sp] = (y, [co.get(c, (0.0, c, True)) for c in CHON[sp]])
     nhap_all = sorted({c for _, top in tops.values() for _, c, _ in top})
     moi = thang_moi(nhap_all, [hs for hs, _ in SP.values()])
     thang = {}  # (nuoc, thang) -> rows theo doi tac, moi nuoc goi chung cac ma
@@ -226,8 +230,9 @@ def lay():
 def run():
     gnk = lay()
     du = sum(1 for v in gnk.values() for t in v["top"] if t["nam"])
-    if du < 12:
-        raise RuntimeError("Chi co so lieu xuat xu cho %d/18 cap nuoc-mat hang" % du)
+    tong = sum(len(v) for v in CHON.values())
+    if du < tong - 2:
+        raise RuntimeError("Chi co so lieu xuat xu cho %d/%d cap nuoc-mat hang" % (du, tong))
     obj = wp.load(PAGE) or {}
     gnk = {"asof": datetime.date.today().isoformat(), "sp": gnk}
     old = obj.get("gnk") or {}
