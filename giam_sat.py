@@ -29,7 +29,8 @@ DU_LIEU = [
     (178, "u", 48),
     # 227 chi canh bao: so lieu dung khi chua nhap lenh moi vao Log khuyen nghi (viec cua anh Long)
     (227, "updated_at", -10 * 24),
-    (478, "asof", 9 * 24),
+    # 478: job dinh_luong chay thu Ba/thu Tu them tuan ket thuc thu Sau truoc do, nen asof co the cu toi ~11 ngay
+    (478, "asof", 12 * 24),
     (801, "asof", 8 * 24),
     (847, "asof", 10 * 24),
     (1519, "asof", 4 * 24),
