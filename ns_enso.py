@@ -128,6 +128,46 @@ def futures():
     return out
 
 
+CA_PHE = 1665  # trang du lieu gia ca phe (job gia_ca_phe), co gia ky han Robusta London (ICE chau Au) hang ngay
+
+
+def robusta(obj, old):
+    """09/11/2026: Yahoo khong co ma robusta London, truoc day bang 'Gia futures hien tai' phai dung gia thang World Bank.
+    Nay lay gia hop dong gan nhat Robusta London tu trang ca phe (job gia_ca_phe, nguon Bao Ha Tinh) va tu luu lich su
+    hang ngay (khoa rb_ls, toi da 400 ngay) de tinh bien dong 1 tuan, 1 thang, tu dau nam, 1 nam khi du so."""
+    cp = wp.load(CA_PHE) or {}
+    rb = next((x for x in cp.get("tg", []) if str(x[0]).startswith("Robusta")), None)
+    if not rb or not cp.get("bai"):
+        return "robusta: trang ca phe chua co gia Robusta London"
+    gia = float(re.sub(r"[^\d]", "", str(rb[2]).split(" ")[0]))
+    if not 500 <= gia <= 20000:
+        raise RuntimeError("gia robusta bat thuong: %s" % rb)
+    ngay = cp["bai"]
+    ls = {d: g for d, g in old.get("rb_ls", [])}
+    ls[ngay] = gia
+    pts = sorted(ls.items())[-400:]
+    obj["rb_ls"] = [list(p) for p in pts]
+    d0 = datetime.date.fromisoformat(ngay)
+
+    def back(days):
+        lim = (d0 - datetime.timedelta(days=days)).isoformat()
+        c = [g for d, g in pts if d <= lim]
+        # chi tinh khi diem tim duoc khong cach moc qua 5 ngay (lich su con ngan thi de trong)
+        ok = [d for d, g in pts if d <= lim]
+        if not c or (datetime.date.fromisoformat(lim) - datetime.date.fromisoformat(ok[-1])).days > 5:
+            return None
+        return c[-1]
+    y0 = [g for d, g in pts if d[:4] < ngay[:4]]
+
+    def pc(a):
+        return round((gia / a - 1) * 100, 1) if a else None
+    fut = obj.setdefault("fut", {})
+    fut["robusta"] = {"ten": "ICE châu Âu robusta (RC), kỳ hạn " + str(rb[1]).replace("Tháng ", "").replace(".", "/"),
+                      "dv": "USD/tấn", "ngay": ngay, "gia": gia, "w1": pc(back(7)), "m1": pc(back(30)),
+                      "ytd": pc(y0[-1] if y0 else None), "y1": pc(back(365)), "hd": str(rb[1])}
+    return "robusta %s %s USD/tan" % (ngay, gia)
+
+
 # ---------------- phan tich ----------------
 def episodes(o):
     keys = sorted(o)
@@ -302,12 +342,17 @@ def run():
     if not wp.enabled():
         raise RuntimeError("Thieu WP_URL/WP_USER/WP_APP_PASSWORD")
     obj, notes = build()
+    old = {}
     try:
-        old = wp.load(PAGE)
+        old = wp.load(PAGE) or {}
         if "fut" not in obj and "fut" in old:
             obj["fut"] = old["fut"]
     except RuntimeError:
         pass
+    try:
+        notes.append(robusta(obj, old))
+    except Exception as e:  # noqa
+        notes.append("CANH BAO robusta: %s" % e)
     wp.save(PAGE, obj)
     return "da ghi trang %d: %s" % (PAGE, "; ".join(notes))
 
