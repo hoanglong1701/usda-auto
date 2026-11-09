@@ -128,6 +128,37 @@ def futures():
     return out
 
 
+NOI_KC = "2000-01"  # 09/11/2026 anh Long: arabica tu 2000 dung gia ngay ICE US (Yahoo KC=F), truoc do gia thang World Bank
+
+
+def kc_daily():
+    """Gia dong cua ngay hop dong lien tuc gan nhat ICE US arabica (KC=F, US cent/lb) tu 03/01/2000.
+    range=max cua Yahoo tra ve gia thang nen phai goi bang period1/period2."""
+    p2 = int(datetime.datetime.now(datetime.timezone.utc).timestamp())
+    j = requests.get("https://query1.finance.yahoo.com/v8/finance/chart/KC=F",
+                     params={"period1": 946684800, "period2": p2, "interval": "1d"}, headers=UA, timeout=90).json()
+    res = j["chart"]["result"][0]
+    out = [(datetime.datetime.fromtimestamp(a, datetime.timezone.utc).date().isoformat(), round(c, 2))
+           for a, c in zip(res["timestamp"], res["indicators"]["quote"][0]["close"]) if c]
+    if len(out) < 5000 or out[0][0] > "2000-02-01":
+        raise RuntimeError("KC=F gia ngay thieu: %d phien tu %s" % (len(out), out[0][0] if out else "-"))
+    return out
+
+
+def ghep_kc(px, kc):
+    """Thay gia thang World Bank cua arabica tu NOI_KC bang gia dong cua phien cuoi moi thang (sat gia san, khong lay
+    binh quan) de cac thong ke dot ENSO, su kien, tuong quan tinh theo gia san. Tra ve du lieu ngay cho bieu do."""
+    cuoi = {}
+    for d, c in kc:
+        cuoi[d[:7]] = c  # kc da xep tang dan theo ngay: gia tri cuoi cung la phien cuoi thang
+    s = {m: v for m, v in px["arabica"].items() if m < NOI_KC}
+    s.update({m: v for m, v in cuoi.items() if m >= NOI_KC})
+    px["arabica"] = s
+    d0 = datetime.date(2000, 1, 1)
+    return {"noi": NOI_KC, "nguon": "ICE US (KC=F, Yahoo Finance)",
+            "t": [(datetime.date.fromisoformat(d) - d0).days for d, _ in kc], "c": [c for _, c in kc]}
+
+
 CA_PHE = 1665  # trang du lieu gia ca phe (job gia_ca_phe), co gia ky han Robusta London (ICE chau Au) hang ngay
 
 
@@ -313,12 +344,17 @@ def analyse(px, o, eps):
 
 def build():
     px = wb_prices()
+    last = max(px["ngo"])
+    ngay = {}
+    try:
+        ngay["arabica"] = ghep_kc(px, kc_daily())
+    except Exception as e:  # noqa  loi Yahoo thi giu gia thang World Bank, khong dung ca job
+        print("CANH BAO KC=F:", e)
     o = oni()
     eps = episodes(o)
     an = analyse(px, o, eps)
-    last = max(px["ngo"])
     m0 = _m("%d-01" % Y0)
-    n = _m(last) - m0 + 1
+    n = max(_m(max(v)) for v in px.values()) - m0 + 1
     obj = {
         "asof": datetime.date.today().isoformat(),
         "y0": "%d-01" % Y0,
@@ -327,9 +363,10 @@ def build():
         "oni": [o.get(_s(m0 + i)) for i in range(_m(max(o)) - m0 + 1)],
         "oni_last": [max(o), o[max(o)]],
         "wb_last": last,
+        "ngay": ngay,
     }
     obj.update(an)
-    notes = ["WB den %s" % last, "ONI %s=%s" % (max(o), o[max(o)]), "%d dot ENSO" % len(eps)]
+    notes = ["WB den %s" % last, "KC ngay %s phien" % len(ngay.get("arabica", {}).get("t", [])), "ONI %s=%s" % (max(o), o[max(o)]), "%d dot ENSO" % len(eps)]
     try:
         obj["fut"] = futures()
         notes.append("futures %s" % obj["fut"]["ngo"]["ngay"])
@@ -353,6 +390,12 @@ def run():
         notes.append(robusta(obj, old))
     except Exception as e:  # noqa
         notes.append("CANH BAO robusta: %s" % e)
+    ls = obj.get("rb_ls") or []
+    if ls:  # gia ngay Robusta London tu luu (tu 08/11/2026) de bieu do noi tiep sau gia thang World Bank
+        d0 = datetime.date(2000, 1, 1)
+        obj.setdefault("ngay", {})["robusta"] = {
+            "noi": ls[0][0][:7], "nguon": "ICE châu Âu (bảng kỳ hạn Báo Hà Tĩnh)",
+            "t": [(datetime.date.fromisoformat(d) - d0).days for d, _ in ls], "c": [g for _, g in ls]}
     wp.save(PAGE, obj)
     return "da ghi trang %d: %s" % (PAGE, "; ".join(notes))
 
