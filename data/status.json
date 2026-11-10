@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-10T08:29:44Z",
-  "msg": "44 trang, lan 1 tb 1603 ms, lan 2 tb 2251 ms, 19/44 trang co cache"
+  "at": "2026-11-10T08:51:43Z",
+  "msg": "44 trang, lan 1 tb 1664 ms, lan 2 tb 1080 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-10T08:29:17Z",
+  "at": "2026-11-10T08:51:23Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
@@ -229,8 +229,8 @@
  },
  "gia_ngay": {
   "ok": true,
-  "at": "2026-11-07T07:48:39Z",
-  "msg": "1902 tuan; den 2026-11-04; vang 2026 -28.3%, bac 2026 -58.5%"
+  "at": "2026-11-10T08:51:07Z",
+  "msg": "1902 tuan; den 2026-11-06; vang 2026 -28.3%, bac 2026 -58.5%"
  },
  "iandm_thu": {
   "ok": true,
