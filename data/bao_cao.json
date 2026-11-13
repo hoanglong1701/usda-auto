@@ -1,5 +1,5 @@
 {
- "cap_nhat": "2026-10-22",
+ "cap_nhat": "2026-11-13",
  "ds": [
   {
    "sp": "cu", "nhom": "kl", "org": "ICSG",
@@ -14,12 +14,12 @@
   {
    "sp": "al", "nhom": "kl", "org": "IAI",
    "ten": "Sản lượng nhôm nguyên sinh thế giới",
-   "ngay": "2026-07", "xu_huong": "thieu",
-   "so": [["Sản lượng tháng 6/2026", "5,98 triệu tấn (−1,5% so với cùng kỳ)"], ["Bình quân mỗi ngày", "199,3 nghìn tấn"], ["Cả năm 2025", "73,78 triệu tấn (+1,1%)"]],
-   "y": "Nguồn cung nhôm đi xuống so với cùng kỳ do gián đoạn sản xuất ở vùng Vịnh (khoảng 9% công suất thế giới). Trung Quốc gần chạm trần 45 triệu tấn/năm nên khó bù phần thiếu hụt.",
-   "ke_tiep": "IAI công bố số liệu tháng khoảng ngày 20 hằng tháng",
+   "ngay": "2026-10", "xu_huong": "thieu",
+   "so": [["Sản lượng tháng 9/2026", "6,014 triệu tấn (−1,4% so với cùng kỳ)"], ["Bình quân mỗi ngày", "200,5 nghìn tấn (tháng 8: 199,6 nghìn tấn)"], ["Quý 3/2026", "18,377 triệu tấn (+2,1% so với quý 2, −1,6% so với cùng kỳ)"], ["9 tháng đầu năm 2026", "54,76 triệu tấn (khoảng −1%)"], ["Trung Quốc quý 3/2026", "11,481 triệu tấn (+2,75% so với cùng kỳ)"]],
+   "y": "Sản lượng nhôm thế giới quý 3 hồi phục so với quý 2 nhờ các nhà máy vùng Vịnh khởi động lại (sản lượng vùng Vịnh quý 3 +8,1%), nhưng vẫn thấp hơn cùng kỳ và chưa về mức trước xung đột. Trung Quốc lập kỷ lục quý dù gần chạm trần công suất.",
+   "ke_tiep": "IAI công bố số liệu tháng khoảng ngày 20 hằng tháng (số liệu tháng 10 khoảng cuối tháng 11/2026)",
    "link": "https://international-aluminium.org/statistics/primary-aluminium-production/",
-   "nguon": ["https://www.sunsirs.com/commodity-news/petail-34604.html", "https://aluminium-journal.com/strong-start-for-metal-prices-in-2026"]
+   "nguon": ["https://www.alcircle.com/news/global-primary-aluminium-output-rebounds-2-1-in-q3-2026-despite-september-slump-is-supply-deficit-easing-121830"]
   },
   {
    "sp": "zn", "nhom": "kl", "org": "ILZSG",
@@ -93,13 +93,13 @@
   },
   {
    "sp": "cf", "nhom": "nl", "org": "Cecafé",
-   "ten": "Xuất khẩu cà phê Brazil tháng 9/2026",
-   "ngay": "2026-10-09", "xu_huong": "du",
-   "so": [["Tháng 9/2026", "3,894 triệu bao (+3,1%)"], ["Kim ngạch tháng 9", "1,282 tỷ USD (−7,1%)"], ["Quý đầu niên vụ (7–9/2026)", "11,21 triệu bao (+15,5%)"], ["Sang Mỹ tháng 9", "625 nghìn bao (+86,4%)"], ["Arabica / robusta tháng 9", "2,77 triệu bao (−7,1%) / 0,81 triệu bao (+65,1%)"]],
-   "y": "Xuất khẩu sang Mỹ phục hồi mạnh sau khi Mỹ bỏ thuế với cà phê Brazil từ tháng 7. Robusta tăng mạnh, arabica giảm.",
-   "ke_tiep": "Cecafé công bố khoảng ngày 10 hằng tháng",
+   "ten": "Xuất khẩu cà phê Brazil tháng 10/2026",
+   "ngay": "2026-11-11", "xu_huong": "du",
+   "so": [["Tháng 10/2026", "5,327 triệu bao (+28,4%, kỷ lục mọi tháng)"], ["Kim ngạch tháng 10", "1,786 tỷ USD (+7,8%, kỷ lục)"], ["4 tháng đầu niên vụ (7–10/2026)", "16,591 triệu bao (+19,7%)"], ["10 tháng 2026", "34,478 triệu bao (+3,5%), kim ngạch 11,917 tỷ USD (−6,3%)"], ["Arabica / canephora 10 tháng", "24,9 triệu bao (−6,4%) / 6,065 triệu bao (+72,5%)"], ["Sang Mỹ", "tháng 10 +119%; 10 tháng 4,575 triệu bao (−2,9%)"]],
+   "y": "Hàng vụ mới về muộn do mưa làm chậm thu hoạch nên tháng 10 lập kỷ lục xuất khẩu, cho thấy nguồn cung Brazil dồi dào. Robusta/conilon chiếm khoảng 18% xuất khẩu (năm ngoái dưới 11%), giá bình quân 345,64 USD/bao (−9,5%). Xuất sang Mỹ phục hồi sau khi Mỹ bỏ hẳn thuế.",
+   "ke_tiep": "Cecafé công bố khoảng ngày 10 hằng tháng (số liệu tháng 11 khoảng 10/12/2026)",
    "link": "https://www.cecafe.com.br/publicacoes/relatorio-de-exportacoes/",
-   "nguon": ["https://www.cecafe.com.br/sem-categoria/exportacao-cafe-39-mi-sacas-setembro-20261009/"]
+   "nguon": ["https://www.cecafe.com.br/publicacoes/noticias/brasil-exporta-recorde-cafe-outubro-20261111/"]
   },
   {
    "sp": "su", "nhom": "nl", "org": "ISO",
