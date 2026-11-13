@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-13T08:48:54Z",
-  "msg": "44 trang, lan 1 tb 1323 ms, lan 2 tb 1163 ms, 44/44 trang co cache"
+  "at": "2026-11-13T09:36:57Z",
+  "msg": "44 trang, lan 1 tb 1501 ms, lan 2 tb 1429 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -194,8 +194,8 @@
  },
  "cuoc_bien": {
   "ok": true,
-  "at": "2026-11-09T09:52:41Z",
-  "msg": "Cuoc bien khong doi (GTR 2026-11-05)"
+  "at": "2026-11-13T09:35:52Z",
+  "msg": "da ghi cuoc bien GTR 2026-11-12: 10 tuyen; bo qua vung xuat: Quebec N. China"
  },
  "tom_tat_thu": {
   "ok": true,
@@ -204,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-13T08:48:42Z",
-  "msg": "khong thay doi"
+  "at": "2026-11-13T09:36:36Z",
+  "msg": "ghi tom tat trang 1791"
  },
  "ico_ton_kho_thu": {
   "ok": true,
