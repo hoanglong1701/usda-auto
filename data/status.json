@@ -105,8 +105,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-15T09:54:57Z",
-  "msg": "44 trang, lan 1 tb 1058 ms, lan 2 tb 1161 ms, 44/44 trang co cache"
+  "at": "2026-11-15T11:31:08Z",
+  "msg": "44 trang, lan 1 tb 1123 ms, lan 2 tb 1401 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -185,8 +185,8 @@
  },
  "gia_nhap_khau": {
   "ok": true,
-  "at": "2026-11-08T10:42:11Z",
-  "msg": "Gia nhap khau Comtrade khong doi"
+  "at": "2026-11-15T11:24:50Z",
+  "msg": "da ghi gia nhap khau theo xuat xu: Đậu tương 2025 (Trung Quốc); Lúa mì 2025 (Ai Cập, Indonesia); Khô đậu tương 2025 (Trung Quốc); Dầu đậu tương 2025 (Ấn Độ, Trung Quốc); Gạo 2025 (Trung Quốc, Philippines)"
  },
  "cuoc_bien_thu": {
   "ok": true,
@@ -205,7 +205,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-15T09:54:46Z",
+  "at": "2026-11-15T11:30:54Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
