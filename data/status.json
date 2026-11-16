@@ -83,10 +83,9 @@
   "msg": "chay thu OK: vang SJC (theo Phú Quý) 138000000/141800000 (QT 4019.4), bac 1852000/1909000 (QT 54.122), ty gia 25835, 257/258 diem so sanh; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; loi: {\"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}"
  },
  "gia_vn": {
-  "ok": false,
-  "at": "2026-11-14T09:57:40Z",
-  "error": "RuntimeError: Thieu nguon cot loi: {\"gold-api XAU\": \"HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolutionError(\\\"HTTPSConnection(host='api.gold\", \"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_vn.py\", line 242, in run\n    obj, notes, err = collect()\n                      ^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_vn.py\", line 195, in collect\n    raise RuntimeError(\"Thieu nguon cot loi: %s\" % json.dumps(err, ensure_ascii=False))\nRuntimeError: Thieu nguon cot loi: {\"gold-api XAU\": \"HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolutionError(\\\"HTTPSConnection(host='api.gold\", \"SJC\": \"Expecting value: line 1 column 1 (char 0)\", \"SJC lich su\": \"Expecting value: line 1 column 1 (char 0)\"}\n"
+  "ok": true,
+  "at": "2026-11-16T10:50:40Z",
+  "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 134500000/137500000, bac 1461000/1506000, ty gia 25745; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
  },
  "sua_trang_gia": {
   "ok": true,
@@ -105,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-16T10:11:22Z",
-  "msg": "44 trang, lan 1 tb 1282 ms, lan 2 tb 1369 ms, 44/44 trang co cache"
+  "at": "2026-11-16T10:51:37Z",
+  "msg": "44 trang, lan 1 tb 1172 ms, lan 2 tb 1206 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -205,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-16T10:11:11Z",
-  "msg": "khong thay doi"
+  "at": "2026-11-16T10:51:21Z",
+  "msg": "ghi tom tat trang 178"
  },
  "ico_ton_kho_thu": {
   "ok": true,
