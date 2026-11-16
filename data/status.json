@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-16T21:14:53Z",
-  "msg": "44 trang, lan 1 tb 1030 ms, lan 2 tb 1059 ms, 44/44 trang co cache"
+  "at": "2026-11-16T22:34:13Z",
+  "msg": "44 trang, lan 1 tb 1382 ms, lan 2 tb 1145 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -119,8 +119,8 @@
  },
  "lich_kt": {
   "ok": true,
-  "at": "2026-11-16T01:30:18Z",
-  "msg": "dung khung Tuần 16/11 – 20/11/2026 (16 dong)"
+  "at": "2026-11-16T22:33:30Z",
+  "msg": "khong thay doi"
  },
  "sua_menu_trang": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-16T21:14:44Z",
+  "at": "2026-11-16T22:33:58Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
