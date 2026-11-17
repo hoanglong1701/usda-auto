@@ -11,8 +11,8 @@
  },
  "prog": {
   "ok": true,
-  "at": "2026-11-11T00:35:09Z",
-  "msg": "khong co bao cao moi (phat hanh 2026-11-09)"
+  "at": "2026-11-17T02:53:36Z",
+  "msg": "da cap nhat phat hanh 2026-11-16, tuan 2026-11-15"
  },
  "_ten_nuoc_chua_dich": [
   "AMERICAN SAMOA                 ",
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-17T00:55:01Z",
-  "msg": "44 trang, lan 1 tb 1406 ms, lan 2 tb 1344 ms, 44/44 trang co cache"
+  "at": "2026-11-17T02:53:56Z",
+  "msg": "44 trang, lan 1 tb 1310 ms, lan 2 tb 1112 ms, 41/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-17T00:54:40Z",
-  "msg": "ghi tom tat trang 801"
+  "at": "2026-11-17T02:53:45Z",
+  "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
   "ok": true,
