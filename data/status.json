@@ -64,8 +64,8 @@
  },
  "dinh_luong": {
   "ok": true,
-  "at": "2026-11-17T09:10:52Z",
-  "msg": "da ghi trang 478 den tuan 2026-11-13: them 2026-11-13; sua 5 diem; "
+  "at": "2026-11-18T08:30:32Z",
+  "msg": "da ghi trang 478 den tuan 2026-11-13: them khong tuan moi; sua 1 diem; "
  },
  "kl_nlcn": {
   "ok": true,
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-18T08:28:30Z",
-  "msg": "44 trang, lan 1 tb 1268 ms, lan 2 tb 1086 ms, 44/44 trang co cache"
+  "at": "2026-11-18T08:30:59Z",
+  "msg": "44 trang, lan 1 tb 962 ms, lan 2 tb 901 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-18T08:28:10Z",
+  "at": "2026-11-18T08:30:48Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
