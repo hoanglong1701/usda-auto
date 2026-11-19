@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-19T04:11:17Z",
-  "msg": "44 trang, lan 1 tb 933 ms, lan 2 tb 2413 ms, 12/44 trang co cache"
+  "at": "2026-11-19T04:24:55Z",
+  "msg": "44 trang, lan 1 tb 1850 ms, lan 2 tb 1168 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -155,7 +155,7 @@
  },
  "gia_fob": {
   "ok": true,
-  "at": "2026-11-18T04:39:06Z",
+  "at": "2026-11-19T04:24:18Z",
   "msg": "FOB lua mi 2026-11 (6 nuoc), ngo 2026-11-05 (4 nuoc), GrainsPrices 22 dong, CommodityScope 11/11; ky han: ngo contango, dau contango, kho backwardation, dd contango, mi contango, mic contango"
  },
  "imf_no_cong_thu": {
@@ -205,7 +205,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-19T04:11:04Z",
+  "at": "2026-11-19T04:24:40Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
