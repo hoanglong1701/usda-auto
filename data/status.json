@@ -84,8 +84,8 @@
  },
  "gia_vn": {
   "ok": true,
-  "at": "2026-11-18T11:22:39Z",
-  "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 133200000/137200000, bac 1397000/1440000, ty gia 25695; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
+  "at": "2026-11-19T11:20:45Z",
+  "msg": "da ghi trang 178: vang SJC (theo Phú Quý) 132500000/136200000, bac 1385000/1428000, ty gia 25735; CANH BAO: SJC loi, dung gia SJC theo Phu Quy; CANH BAO nguon loi: SJC, SJC lich su"
  },
  "sua_trang_gia": {
   "ok": true,
@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-19T10:45:50Z",
-  "msg": "44 trang, lan 1 tb 1145 ms, lan 2 tb 1072 ms, 44/44 trang co cache"
+  "at": "2026-11-19T11:21:19Z",
+  "msg": "44 trang, lan 1 tb 1082 ms, lan 2 tb 1077 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +204,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-19T10:45:37Z",
-  "msg": "khong thay doi"
+  "at": "2026-11-19T11:21:00Z",
+  "msg": "ghi tom tat trang 178"
  },
  "ico_ton_kho_thu": {
   "ok": true,
