@@ -1,8 +1,8 @@
 {
  "esr": {
   "ok": true,
-  "at": "2026-11-19T04:07:41Z",
-  "msg": "co cap nhat; tuan 2026-11-05; ok"
+  "at": "2026-11-19T20:58:42Z",
+  "msg": "co cap nhat; tuan 2026-11-12; ok"
  },
  "insp": {
   "ok": true,
@@ -23,8 +23,10 @@
   "NORTHERN MARIANA ISLANDS       ",
   "OMAN                           ",
   "OTHER PACIFIC ISLANDS, NEC     ",
+  "SYRIA                          ",
   "TURKS AND CAICOS ISLANDS       ",
   "URUGUAY                        ",
+  "VIRGIN ISLANDS OF THE U.S.     ",
   "YUGOSLAVIA                     "
  ],
  "orgs": {
@@ -104,8 +106,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-19T19:38:09Z",
-  "msg": "44 trang, lan 1 tb 918 ms, lan 2 tb 956 ms, 44/44 trang co cache"
+  "at": "2026-11-19T20:59:39Z",
+  "msg": "44 trang, lan 1 tb 1107 ms, lan 2 tb 1028 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -204,8 +206,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-19T19:37:58Z",
-  "msg": "khong thay doi"
+  "at": "2026-11-19T20:59:23Z",
+  "msg": "ghi tom tat trang 801"
  },
  "ico_ton_kho_thu": {
   "ok": true,
