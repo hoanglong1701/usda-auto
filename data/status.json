@@ -104,8 +104,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-19T09:32:11Z",
-  "msg": "44 trang, lan 1 tb 1006 ms, lan 2 tb 918 ms, 44/44 trang co cache"
+  "at": "2026-11-19T10:45:50Z",
+  "msg": "44 trang, lan 1 tb 1145 ms, lan 2 tb 1072 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -143,10 +143,9 @@
   "msg": "COT tuan 2026-11-10, 19 hop dong; ghi trang 1639"
  },
  "gia_ca_phe": {
-  "ok": false,
-  "at": "2026-11-18T19:35:10Z",
-  "error": "RuntimeError: WordPress tra 503 khi doc trang 1665: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 223, in run\n    msg = ghi_bht(pid, obj)\n          ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 207, in ghi_bht\n    wp.save(pid, obj)\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 80, in save\n    back = load(pid)\n           ^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/wp.py\", line 64, in load\n    raise RuntimeError(\"WordPress tra %d khi doc trang %d: %s\" % (r.status_code, pid, r.text[:200].replace(\"\\n\", \" \")))\nRuntimeError: WordPress tra 503 khi doc trang 1665: {\"code\":\"wp_die\",\"message\":\"Briefly unavailable for scheduled maintenance. Check back in a minute.\",\"data\":{\"status\":503},\"additional_errors\":[]}\n"
+  "ok": true,
+  "at": "2026-11-19T10:45:28Z",
+  "msg": "Gia ca phe 2026-11-19 (Bao Ha Tinh): 4 vung, TB 74,700 d/kg, 4 dong the gioi"
  },
  "gia_fob_thu": {
   "ok": true,
@@ -205,7 +204,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-19T09:32:00Z",
+  "at": "2026-11-19T10:45:37Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
