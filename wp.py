@@ -4,6 +4,8 @@ import re
 import json
 import datetime
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
@@ -45,6 +47,9 @@ def _sess():
     _, u, p = _cfg()
     s = requests.Session()
     s.auth = (u, p)
+    # WordPress dang bao tri/cap nhat (503 'Briefly unavailable') hoac hosting nghen: thu lai toi 4 lan, cho 30-60-120 giay
+    retry = Retry(total=4, status_forcelist=(502, 503, 504), backoff_factor=15, allowed_methods=None, raise_on_status=False)
+    s.mount('https://', HTTPAdapter(max_retries=retry))
     s.headers.update({"User-Agent": UA, "Accept": "application/json"})
     return s
 

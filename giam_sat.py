@@ -26,7 +26,8 @@ TRANG = [
 DU_LIEU = [
     (176, "modified", 9 * 24),
     (177, "upd", 10 * 24),
-    (178, "u", 48),
+    # 178: gia vang trong nuoc khong doi cuoi tuan (Chu nhat khong chay), nen cho toi 80 gio
+    (178, "u", 80),
     # 227 chi canh bao: so lieu dung khi chua nhap lenh moi vao Log khuyen nghi (viec cua anh Long)
     (227, "updated_at", -10 * 24),
     # 478: job dinh_luong chay thu Ba/thu Tu them tuan ket thuc thu Sau truoc do, nen asof co the cu toi ~11 ngay
