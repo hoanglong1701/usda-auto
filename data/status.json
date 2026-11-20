@@ -106,8 +106,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-20T03:45:15Z",
-  "msg": "44 trang, lan 1 tb 1679 ms, lan 2 tb 1217 ms, 44/44 trang co cache"
+  "at": "2026-11-20T04:12:35Z",
+  "msg": "44 trang, lan 1 tb 1281 ms, lan 2 tb 1295 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -156,8 +156,8 @@
  },
  "gia_fob": {
   "ok": true,
-  "at": "2026-11-19T04:24:18Z",
-  "msg": "FOB lua mi 2026-11 (6 nuoc), ngo 2026-11-05 (4 nuoc), GrainsPrices 22 dong, CommodityScope 11/11; ky han: ngo contango, dau contango, kho backwardation, dd contango, mi contango, mic contango"
+  "at": "2026-11-20T04:11:49Z",
+  "msg": "FOB lua mi 2026-11 (6 nuoc), ngo 2026-11-05 (4 nuoc), GrainsPrices 0 dong, CommodityScope 11/11; ky han: ngo contango, dau contango, kho backwardation, dd contango, mi contango, mic contango; GrainsPrices: HTTPSConnectionPool(host='grainsprices.com', port=443): Max retries exceeded with url: /markets/fob (Caused by NameResolutionError(\"HTTPSConnection(host='grainsprices.com', port=443): Failed to resolve 'grainsprices.com' ([Errno -3] Temporary failure in name resolution)\"))"
  },
  "imf_no_cong_thu": {
   "ok": true,
@@ -206,8 +206,8 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-20T03:44:47Z",
-  "msg": "ghi tom tat trang 178, 1519, 1526"
+  "at": "2026-11-20T04:12:17Z",
+  "msg": "ghi tom tat trang 1791"
  },
  "ico_ton_kho_thu": {
   "ok": true,
