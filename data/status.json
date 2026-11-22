@@ -107,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-22T10:17:50Z",
-  "msg": "44 trang, lan 1 tb 1231 ms, lan 2 tb 1080 ms, 44/44 trang co cache"
+  "at": "2026-11-22T11:57:50Z",
+  "msg": "44 trang, lan 1 tb 2735 ms, lan 2 tb 1234 ms, 44/44 trang co cache; loi: /2026/11/19/citic-va-cicc-wealth-vang-2027-van-hap-dan-nhung-thanh-khoan-dang-la-luc-keo/"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -187,7 +187,7 @@
  },
  "gia_nhap_khau": {
   "ok": true,
-  "at": "2026-11-15T11:24:50Z",
+  "at": "2026-11-22T11:52:12Z",
   "msg": "da ghi gia nhap khau theo xuat xu: Đậu tương 2025 (Trung Quốc); Lúa mì 2025 (Ai Cập, Indonesia); Khô đậu tương 2025 (Trung Quốc); Dầu đậu tương 2025 (Ấn Độ, Trung Quốc); Gạo 2025 (Trung Quốc, Philippines)"
  },
  "cuoc_bien_thu": {
@@ -207,7 +207,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-22T10:17:38Z",
+  "at": "2026-11-22T11:57:35Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
