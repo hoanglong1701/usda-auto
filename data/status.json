@@ -107,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-23T12:44:54Z",
-  "msg": "44 trang, lan 1 tb 1528 ms, lan 2 tb 1032 ms, 44/44 trang co cache"
+  "at": "2026-11-23T22:55:25Z",
+  "msg": "44 trang, lan 1 tb 1028 ms, lan 2 tb 916 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -147,8 +147,8 @@
  },
  "gia_ca_phe": {
   "ok": true,
-  "at": "2026-11-23T11:16:11Z",
-  "msg": "Gia ca phe 2026-11-23 (Bao Ha Tinh): 4 vung, TB 71,500 d/kg, 4 dong the gioi"
+  "at": "2026-11-23T22:55:02Z",
+  "msg": "Gia ca phe 2026-11-24 (Bao Ha Tinh): 4 vung, TB 71,500 d/kg, 4 dong the gioi"
  },
  "gia_fob_thu": {
   "ok": true,
@@ -207,7 +207,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-23T12:44:42Z",
+  "at": "2026-11-23T22:55:14Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
