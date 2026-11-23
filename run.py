@@ -24,6 +24,7 @@ import lam_nong_cache
 import chan_doan
 import lich_kt
 import anh_chuyen_muc
+import ban_tin_anh
 import sua_menu_trang
 import cot
 import nang_luong
@@ -66,6 +67,7 @@ JOBS = {
     "lich_kt_thu": lich_kt.run_dry,
     "lich_kt_lai": lich_kt.run_lai,
     "anh_chuyen_muc": anh_chuyen_muc.run,
+    "ban_tin_anh": ban_tin_anh.run,
     "sua_menu_trang": sua_menu_trang.run,
     "cot": cot.run,
     "cot_thu": cot.run_dry,
