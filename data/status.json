@@ -56,7 +56,7 @@
  },
  "yeu_to": {
   "ok": true,
-  "at": "2026-11-21T07:41:26Z",
+  "at": "2026-11-24T10:24:58Z",
   "msg": "trang 111 khong con doan so lieu, chi ghi data/yeu_to.json"
  },
  "dinh_luong_thu": {
@@ -107,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-24T10:06:25Z",
-  "msg": "44 trang, lan 1 tb 1301 ms, lan 2 tb 1219 ms, 44/44 trang co cache"
+  "at": "2026-11-24T10:25:17Z",
+  "msg": "44 trang, lan 1 tb 1025 ms, lan 2 tb 1109 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -207,7 +207,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-24T10:06:10Z",
+  "at": "2026-11-24T10:25:03Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
