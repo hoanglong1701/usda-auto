@@ -66,9 +66,9 @@
  },
  "dinh_luong": {
   "ok": false,
-  "at": "2026-11-21T08:17:19Z",
+  "at": "2026-11-24T10:55:14Z",
   "error": "RuntimeError: S doi -16.3% tuan 2026-11-20 - can kiem tra lai nguon",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 114, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 415, in run\n    check(old, data)\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 339, in check\n    raise RuntimeError(\"%s doi %.1f%% tuan %s - can kiem tra lai nguon\"\nRuntimeError: S doi -16.3% tuan 2026-11-20 - can kiem tra lai nguon\n"
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 116, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 415, in run\n    check(old, data)\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 339, in check\n    raise RuntimeError(\"%s doi %.1f%% tuan %s - can kiem tra lai nguon\"\nRuntimeError: S doi -16.3% tuan 2026-11-20 - can kiem tra lai nguon\n"
  },
  "kl_nlcn": {
   "ok": true,
@@ -107,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-24T10:50:35Z",
-  "msg": "44 trang, lan 1 tb 1179 ms, lan 2 tb 1049 ms, 44/44 trang co cache"
+  "at": "2026-11-24T10:55:41Z",
+  "msg": "44 trang, lan 1 tb 1342 ms, lan 2 tb 1228 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -207,7 +207,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-24T10:50:19Z",
+  "at": "2026-11-24T10:55:23Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
