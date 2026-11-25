@@ -322,6 +322,26 @@ def kiem_tra(bai):
     return loi
 
 
+def kiem_token():
+    """Chỉ đọc: token có quản lý đúng Page không. Không đăng gì."""
+    tok = os.environ.get("FB_PAGE_TOKEN")
+    if not tok:
+        return "chưa có FB_PAGE_TOKEN"
+    try:
+        me = json.loads(lay(GRAPH + "/me?fields=id,name&access_token=" + urllib.parse.quote(tok)))
+        if TEN_PAGE in me.get("name", ""):
+            return "OK, token của Page %s" % me["name"]
+        acc = json.loads(lay(GRAPH + "/me/accounts?fields=name&limit=100&access_token=" + urllib.parse.quote(tok)))
+        ten = [p.get("name", "") for p in acc.get("data", [])]
+        if any(TEN_PAGE in t for t in ten):
+            return "OK, token người dùng %s quản lý Page %s" % (me.get("name"), TEN_PAGE)
+        return "LỖI: token không quản lý Page %s (thấy: %s)" % (TEN_PAGE, ", ".join(ten) or me.get("name"))
+    except urllib.error.HTTPError as e:
+        return "LỖI token: HTTP %s %s" % (e.code, e.read()[:200].decode("utf-8", "ignore"))
+    except Exception as e:  # noqa
+        return "LỖI token: %s" % e
+
+
 def dang_fb(bai):
     tok = os.environ.get("FB_PAGE_TOKEN")
     me = json.loads(lay(GRAPH + "/me?fields=id,name&access_token=" + urllib.parse.quote(tok)))
@@ -378,6 +398,10 @@ def main():
         thu_ngay = sys.argv[sys.argv.index("--thu") + 1]
     thu_ngay = thu_ngay or os.environ.get("TIN_NHANH_THU") or None
     bay_gio = dt.datetime.now(VN)
+    if thu_ngay:
+        kt = kiem_token()
+        ghi("Kiểm tra token: " + kt)
+        tom_tat_job("**Kiểm tra token Facebook (chỉ đọc, không đăng):** " + kt + "\n")
     ev = chon_su_kien(doc_lich(), bay_gio, thu_ngay)
     if not ev:
         ghi("Không có sự kiện trong khung giờ này, dừng.")
