@@ -107,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-25T10:32:10Z",
-  "msg": "44 trang, lan 1 tb 1046 ms, lan 2 tb 997 ms, 44/44 trang co cache"
+  "at": "2026-11-25T11:43:31Z",
+  "msg": "44 trang, lan 1 tb 1158 ms, lan 2 tb 1123 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -146,9 +146,10 @@
   "msg": "COT tuan 2026-11-17, 19 hop dong; khong doi"
  },
  "gia_ca_phe": {
-  "ok": true,
-  "at": "2026-11-24T12:56:14Z",
-  "msg": "Gia ca phe 2026-11-24 (Bao Ha Tinh): 4 vung, TB 70,950 d/kg, 4 dong the gioi"
+  "ok": false,
+  "at": "2026-11-25T11:43:11Z",
+  "error": "RuntimeError: Gia Bao Ha Tinh bat thuong: [['Đắk Lắk', 70000, -1000], ['Lâm Đồng', 69500, -1000], ['Gia Lai', 70000, -1000], ['Đắk Nông', 70300, -1000]]",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 116, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 223, in run\n    msg = ghi_bht(pid, obj)\n          ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 186, in ghi_bht\n    raise RuntimeError(\"Gia Bao Ha Tinh bat thuong: %s\" % vung)\nRuntimeError: Gia Bao Ha Tinh bat thuong: [['Đắk Lắk', 70000, -1000], ['Lâm Đồng', 69500, -1000], ['Gia Lai', 70000, -1000], ['Đắk Nông', 70300, -1000]]\n"
  },
  "gia_fob_thu": {
   "ok": true,
@@ -207,7 +208,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-25T10:31:55Z",
+  "at": "2026-11-25T11:43:16Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
