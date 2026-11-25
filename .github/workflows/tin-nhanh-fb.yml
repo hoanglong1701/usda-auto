@@ -1,0 +1,52 @@
+name: Tin nhanh Facebook (du lieu My)
+
+# Gio UTC. Du lieu My 8:30 ET = 13:30 UTC (mua dong) / 12:30 UTC (mua he).
+# Fed 14:00 ET -> dang buoi sang VN (lich ghi 07:30 VN = 00:30 UTC).
+# Script tu kiem tra lich data/lich_du_lieu_my.csv, ngoai khung gio thi dung ngay.
+on:
+  schedule:
+    - cron: "45 12,13 * * 1-5"
+    - cron: "15 13,14,15 * * 1-5"
+    - cron: "45 14 * * 1-5"
+    - cron: "45 0 * * *"
+    - cron: "15 1,2 * * *"
+  workflow_dispatch:
+    inputs:
+      thu:
+        description: "Chay thu cho ngay (YYYY-MM-DD) trong lich, chi soan nhap, khong dang. Bo trong = chay that."
+        default: ""
+
+concurrency:
+  group: tin-nhanh-fb
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Soan va dang tin nhanh
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          # Bat tu dang: Settings -> Secrets and variables -> Actions -> Variables -> FB_TU_DANG = 1
+          FB_TU_DANG: ${{ vars.FB_TU_DANG }}
+          TIN_NHANH_THU: ${{ github.event.inputs.thu }}
+        run: python tin_nhanh_fb.py
+      - name: Luu trang thai
+        if: always() && github.event.inputs.thu == ''
+        run: |
+          git config user.name "gd-bot"
+          git config user.email "gd-bot@users.noreply.github.com"
+          git add data/tin_nhanh_trang_thai.json data/tin_nhanh_nhap 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "tin nhanh: $(date -u +%FT%TZ)"
+            for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+          fi
