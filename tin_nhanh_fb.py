@@ -322,11 +322,27 @@ def kiem_tra(bai):
     return loi
 
 
+def lay_token():
+    """Lấy token từ secret, bỏ ngoặc kép, dấu cách, xuống dòng, chữ thừa phía trước (vd "access_token": )."""
+    tho = os.environ.get("FB_PAGE_TOKEN") or ""
+    m = re.search(r"EAA[A-Za-z0-9]+", tho)
+    return (m.group(0) if m else tho.strip().strip('"').strip("'")), tho
+
+
+def chan_doan_token(tho):
+    """Mô tả chuỗi trong secret mà không lộ token."""
+    return ("dài %d ký tự; bắt đầu bằng EAA: %s; có ngoặc kép: %s; có dấu cách/xuống dòng: %s"
+            % (len(tho), "có" if tho.strip().strip('"').startswith("EAA") else "không",
+               "có" if '"' in tho or "'" in tho else "không",
+               "có" if re.search(r"\s", tho) else "không"))
+
+
 def kiem_token():
     """Chỉ đọc: token có quản lý đúng Page không. Không đăng gì."""
-    tok = os.environ.get("FB_PAGE_TOKEN")
-    if not tok:
+    tok, tho = lay_token()
+    if not tho:
         return "chưa có FB_PAGE_TOKEN"
+    ghi("Chẩn đoán secret: " + chan_doan_token(tho))
     try:
         me = json.loads(lay(GRAPH + "/me?fields=id,name&access_token=" + urllib.parse.quote(tok)))
         if TEN_PAGE in me.get("name", ""):
@@ -337,13 +353,14 @@ def kiem_token():
             return "OK, token người dùng %s quản lý Page %s" % (me.get("name"), TEN_PAGE)
         return "LỖI: token không quản lý Page %s (thấy: %s)" % (TEN_PAGE, ", ".join(ten) or me.get("name"))
     except urllib.error.HTTPError as e:
-        return "LỖI token: HTTP %s %s" % (e.code, e.read()[:200].decode("utf-8", "ignore"))
+        return "LỖI token: HTTP %s %s (secret %s)" % (e.code, e.read()[:200].decode("utf-8", "ignore"),
+                                                        chan_doan_token(tho))
     except Exception as e:  # noqa
         return "LỖI token: %s" % e
 
 
 def dang_fb(bai):
-    tok = os.environ.get("FB_PAGE_TOKEN")
+    tok, _ = lay_token()
     me = json.loads(lay(GRAPH + "/me?fields=id,name&access_token=" + urllib.parse.quote(tok)))
     if TEN_PAGE not in me.get("name", ""):
         # Token của người dùng hệ thống: đổi sang token của Page qua /me/accounts
