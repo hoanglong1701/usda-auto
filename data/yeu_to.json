@@ -1,11 +1,11 @@
 {
- "asof": "2026-11-25",
+ "asof": "2026-11-26",
  "gold": {
-  "date": "2026-11-24",
-  "close": 3561.89990234375,
+  "date": "2026-11-25",
+  "close": 3535.800048828125,
   "month_ago": [
-   "2026-10-23",
-   4007.89990234375
+   "2026-10-26",
+   4038.39990234375
   ],
   "record_close": [
    "2026-01-29",
@@ -17,25 +17,25 @@
   ]
  },
  "silver": {
-  "date": "2026-11-24",
-  "close": 40.7599983215332,
+  "date": "2026-11-25",
+  "close": 40.051998138427734,
   "month_ago": [
-   "2026-10-23",
-   53.71099853515625
+   "2026-10-26",
+   54.108001708984375
   ]
  },
- "ratio": 87.38714546173141,
+ "ratio": 88.28024101588369,
  "fred": {
   "DGS10": {
-   "date": "2026-11-23",
-   "value": 4.92,
+   "date": "2026-11-24",
+   "value": 4.91,
    "month_ago": [
     "2026-10-23",
     5.0
    ]
   },
   "DFII10": {
-   "date": "2026-11-23",
+   "date": "2026-11-24",
    "value": 2.79,
    "month_ago": [
     "2026-10-23",
@@ -51,22 +51,22 @@
    ]
   },
   "DFEDTARL": {
-   "date": "2026-11-24",
+   "date": "2026-11-25",
    "value": 3.75,
    "month_ago": [
-    "2026-10-25",
+    "2026-10-26",
     3.75
    ]
   },
   "DFEDTARU": {
-   "date": "2026-11-24",
+   "date": "2026-11-25",
    "value": 4.0,
    "month_ago": [
-    "2026-10-25",
+    "2026-10-26",
     4.0
    ]
   }
  },
  "fred_errors": {},
- "html": "<!-- gd:so-lieu-vang:start -->\n<p class=\"wp-block-paragraph\"><strong>Cập nhật ngày 25/11/2026</strong> (số liệu tự động, giá đóng cửa phiên 24/11). Giá vàng thế giới (hợp đồng tương lai COMEX) quanh 3.562 USD/oz, giảm 11,1% so với một tháng trước và thấp hơn 33,0% so với mức đóng cửa cao kỷ lục 5.318 USD/oz (29/01/2026). Bạc quanh 40,76 USD/oz (giảm 24,1% trong một tháng), tỷ lệ vàng/bạc khoảng 87 lần.</p>\n<p class=\"wp-block-paragraph\">Lợi suất trái phiếu Mỹ kỳ hạn 10 năm 4,92% (23/11; giảm 0,08 điểm % so với một tháng trước), lợi suất thực 10 năm 2,79%, chỉ số USD rộng của Fed 123,6 (20/11; tăng 1,9% trong một tháng), lãi suất mục tiêu của Fed 3,75–4,00%.</p>\n<p class=\"has-small-font-size wp-block-paragraph\"><em>Nguồn: Yahoo Finance (COMEX GC=F, SI=F), FRED (DGS10, DFII10, DTWEXBGS, DFEDTARL/DFEDTARU). Đoạn số liệu tự động cập nhật mỗi sáng thứ Ba–thứ Bảy; phần nhận định bên dưới do GDHH247 biên soạn hằng tuần.</em></p>\n<!-- gd:so-lieu-vang:end -->"
+ "html": "<!-- gd:so-lieu-vang:start -->\n<p class=\"wp-block-paragraph\"><strong>Cập nhật ngày 26/11/2026</strong> (số liệu tự động, giá đóng cửa phiên 25/11). Giá vàng thế giới (hợp đồng tương lai COMEX) quanh 3.536 USD/oz, giảm 12,4% so với một tháng trước và thấp hơn 33,5% so với mức đóng cửa cao kỷ lục 5.318 USD/oz (29/01/2026). Bạc quanh 40,05 USD/oz (giảm 26,0% trong một tháng), tỷ lệ vàng/bạc khoảng 88 lần.</p>\n<p class=\"wp-block-paragraph\">Lợi suất trái phiếu Mỹ kỳ hạn 10 năm 4,91% (24/11; giảm 0,09 điểm % so với một tháng trước), lợi suất thực 10 năm 2,79%, chỉ số USD rộng của Fed 123,6 (20/11; tăng 1,9% trong một tháng), lãi suất mục tiêu của Fed 3,75–4,00%.</p>\n<p class=\"has-small-font-size wp-block-paragraph\"><em>Nguồn: Yahoo Finance (COMEX GC=F, SI=F), FRED (DGS10, DFII10, DTWEXBGS, DFEDTARL/DFEDTARU). Đoạn số liệu tự động cập nhật mỗi sáng thứ Ba–thứ Bảy; phần nhận định bên dưới do GDHH247 biên soạn hằng tuần.</em></p>\n<!-- gd:so-lieu-vang:end -->"
 }
