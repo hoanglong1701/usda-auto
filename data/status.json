@@ -65,10 +65,9 @@
   "msg": "chay thu (khong ghi): them khong tuan moi; sua 25 diem; "
  },
  "dinh_luong": {
-  "ok": false,
-  "at": "2026-11-25T09:51:42Z",
-  "error": "RuntimeError: S doi -16.3% tuan 2026-11-20 - can kiem tra lai nguon",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 116, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 415, in run\n    check(old, data)\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 339, in check\n    raise RuntimeError(\"%s doi %.1f%% tuan %s - can kiem tra lai nguon\"\nRuntimeError: S doi -16.3% tuan 2026-11-20 - can kiem tra lai nguon\n"
+  "ok": true,
+  "at": "2026-11-26T08:03:18Z",
+  "msg": "da ghi trang 478 den tuan 2026-11-20: them 2026-11-20; sua 5 diem; "
  },
  "kl_nlcn": {
   "ok": true,
@@ -107,8 +106,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-26T05:20:19Z",
-  "msg": "44 trang, lan 1 tb 1295 ms, lan 2 tb 1187 ms, 44/44 trang co cache"
+  "at": "2026-11-26T08:03:50Z",
+  "msg": "44 trang, lan 1 tb 1044 ms, lan 2 tb 1069 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -146,10 +145,9 @@
   "msg": "COT tuan 2026-11-17, 19 hop dong; khong doi"
  },
  "gia_ca_phe": {
-  "ok": false,
-  "at": "2026-11-25T11:43:11Z",
-  "error": "RuntimeError: Gia Bao Ha Tinh bat thuong: [['Đắk Lắk', 70000, -1000], ['Lâm Đồng', 69500, -1000], ['Gia Lai', 70000, -1000], ['Đắk Nông', 70300, -1000]]",
-  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 116, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 223, in run\n    msg = ghi_bht(pid, obj)\n          ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/gia_ca_phe.py\", line 186, in ghi_bht\n    raise RuntimeError(\"Gia Bao Ha Tinh bat thuong: %s\" % vung)\nRuntimeError: Gia Bao Ha Tinh bat thuong: [['Đắk Lắk', 70000, -1000], ['Lâm Đồng', 69500, -1000], ['Gia Lai', 70000, -1000], ['Đắk Nông', 70300, -1000]]\n"
+  "ok": true,
+  "at": "2026-11-26T08:03:30Z",
+  "msg": "Gia ca phe 2026-11-26 (Bao Ha Tinh): 4 vung, TB 69,650 d/kg, 4 dong the gioi"
  },
  "gia_fob_thu": {
   "ok": true,
@@ -208,7 +206,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-26T05:20:03Z",
+  "at": "2026-11-26T08:03:39Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
