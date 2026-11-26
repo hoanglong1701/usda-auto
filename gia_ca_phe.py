@@ -182,7 +182,7 @@ def ghi_bht(pid, obj):
     if len(vung) < 3 or not ls or ls[0][0] < (hom_nay - datetime.timedelta(days=3)).isoformat():
         print("Bao Ha Tinh thieu so:", len(vung), ls[:1])
         return None
-    if not all(70000 <= v[1] <= 200000 for v in vung):
+    if not all(40000 <= v[1] <= 200000 for v in vung):  # 25/11/2026 Lam Dong 69.500 la gia that
         raise RuntimeError("Gia Bao Ha Tinh bat thuong: %s" % vung)
     ngay = ls[0][0]
     if obj.get("bai", "") > ngay:

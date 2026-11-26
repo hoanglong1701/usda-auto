@@ -334,7 +334,7 @@ def check(old, new):
                 raise RuntimeError("Gia tri rong %s tuan %s" % (k, w["dates"][i]))
         if i == 0:
             continue
-        for k, lim in (("G", 0.10), ("S", 0.15)):  # bac co tuan giam 8,6% that (30/10/2026)
+        for k, lim in (("G", 0.15), ("S", 0.25)):  # bac co tuan giam 16,3% that (20/11/2026)
             if abs(w[k][i] / w[k][i - 1] - 1) > lim:
                 raise RuntimeError("%s doi %.1f%% tuan %s - can kiem tra lai nguon"
                                    % (k, (w[k][i] / w[k][i - 1] - 1) * 100, w["dates"][i]))
