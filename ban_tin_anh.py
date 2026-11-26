@@ -3,7 +3,7 @@
 Bai trong chuyen muc ban-tin chua thong so anh dang chu thich HTML o dau noi dung:
   <!-- bt-anh {"nhom_key":"nong-san","sp":"ngo","nhom":"Nông sản","ngay":"23/11/2026",
               "nhan":"Thị trường nông sản ngày 23/11:","tieu_de":"...","o":[["Ngô",-1.03],["Đậu tương",1.10]]} -->
-  - nhom_key: nong-san | nguyen-lieu-cn | kim-loai-quy | kim-loai-cn | nang-luong
+  - nhom_key: nong-san | nguyen-lieu-cn | kim-loai-quy | kim-loai-cn | nang-luong | vi-mo (sp: thue-quan, fed, chinh-tri, chung)
   - sp: san pham chinh cua tin de chon anh nen (vd ngo, dau-tuong, lua-mi, kho-dau, dau-dau, ca-phe, duong, bong,
         vang, bac, dong, nhom, kim-loai-khac, dau-tho, khi); khong co thi lay anh chung cua nhom
   - o: toi da 5 o % thay doi [ten, %] (dang cu [ten, gia, %] van doc duoc)
@@ -29,7 +29,7 @@ DO, DO_SAM, CAM, XANH, NAVY, XAM = (192, 0, 0), (120, 8, 16), (214, 96, 22), (10
 W, H = 1200, 630
 SPEC = re.compile(r"<!--\s*bt-anh\s+(\{.*?\})\s*-->", re.S)
 ANH_MAC_DINH = {1449, 1593, 1594, 1595, 1596, 1597}
-NHOM_THU_TU = ["nong-san", "nguyen-lieu-cn", "kim-loai-quy", "kim-loai-cn", "nang-luong"]
+NHOM_THU_TU = ["nong-san", "nguyen-lieu-cn", "kim-loai-quy", "kim-loai-cn", "nang-luong", "vi-mo"]
 _FONT = {}
 
 
