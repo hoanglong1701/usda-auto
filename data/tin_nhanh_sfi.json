@@ -4,16 +4,26 @@
   "SFI - Báo cáo hàng hóa": -1004381395597
  },
  "last": {
-  "SFI Thông tin FA": 11237,
+  "SFI Thông tin FA": 11242,
   "SFI - Báo cáo hàng hóa": 336
  },
  "hash": [
+  "a16c195e9228",
   "f7449c92e25a",
-  "ade1cb155b8b"
+  "70aa502942f3",
+  "c80be9c825ba",
+  "f2aab191d641",
+  "ade1cb155b8b",
+  "a7aa10b8c09b",
+  "7fe154c107d9"
  ],
- "luot": "2026-11-27 19:25",
+ "luot": "2026-11-27 20:30",
  "bai": [
   "Vĩ mô 3709 (1 tin): Dolenc (ECB): Hai lần tăng lãi suất cho đến nay vẫn chưa đủ để kiềm chế lạm phát",
-  "Nguyên liệu công nghiệp 3710 (1 tin): Nhu cầu đường của Ấn Độ ở mức 300 lakh tấn, sản lượng ước tính 265 lakh tấn: Rahil Shaikh"
+  "Nguyên liệu công nghiệp 3710 (1 tin): Nhu cầu đường của Ấn Độ ở mức 300 lakh tấn, sản lượng ước tính 265 lakh tấn: Rahil Shaikh",
+  "Nông sản 3714 (1 tin): Argentina tăng xuất khẩu thịt bò khi giá toàn cầu tăng mạnh",
+  "Năng lượng 3715 (3 tin): Giá khí tự nhiên nội địa của Nga có thể gây khó khăn cho các cuộc đàm phán với Trung Quốc, theo một nhà phân tích",
+  "Vĩ mô 3716 (1 tin): Nagel (ECB):",
+  "Nguyên liệu công nghiệp 3717 (1 tin): Giá dầu cọ Malaysia tăng cùng đà tăng của các loại dầu thực vật khác"
  ]
 }
