@@ -125,7 +125,11 @@ async def lay_tin(st):
     from telethon.sessions import StringSession
 
     api_id = int(os.environ["TG_API_ID"])
-    client = TelegramClient(StringSession(os.environ["TG_SESSION"]), api_id, os.environ["TG_API_HASH"])
+    # bo khoang trang, xuong dong, dau nhay lo dinh khi copy tu PowerShell (chuoi bi ngat dong)
+    ses = re.sub(r"[\s\"'`=]+", "", os.environ["TG_SESSION"])
+    ses += "=" * (-(len(ses) - 1) % 4)
+    print("Do dai TG_SESSION:", len(ses), "(chuan ~353, bat dau bang 1:", ses[:1] == "1", ")")
+    client = TelegramClient(StringSession(ses), api_id, os.environ["TG_API_HASH"].strip())
     await client.connect()
     if not await client.is_user_authorized():
         raise RuntimeError("TG_SESSION het han hoac bi thu hoi: tao lai bang tao_session_telegram.py")
