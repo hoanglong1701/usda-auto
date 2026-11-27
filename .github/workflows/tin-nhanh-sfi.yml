@@ -33,12 +33,23 @@ jobs:
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: python tin_nhanh_sfi.py
+      - name: Ket qua bot tin hieu (trang /bot-giao-dich/)
+        if: always()
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: python bot_tin_hieu.py
       - name: Luu trang thai
         if: always()
         run: |
           git config user.name "gd-bot"
           git config user.email "gd-bot@users.noreply.github.com"
           git add data/tin_nhanh_sfi.json 2>/dev/null || true
+          git add data/bot_tin_hieu.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "tin nhanh sfi: $(date -u +%FT%TZ)"
             for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
