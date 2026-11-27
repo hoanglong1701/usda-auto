@@ -1,0 +1,45 @@
+name: Tin nhanh SFI (Telegram -> web)
+
+# 15 phut/lan (GitHub co the tre vai phut). Doc 2 nhom Telegram SFI cua anh Long, dang tin nhanh len web.
+# Secrets: TG_API_ID, TG_API_HASH, TG_SESSION (tao bang tao_session_telegram.py), WP_URL, WP_USER, WP_APP_PASSWORD.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: tin-nhanh-sfi
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests telethon
+      - name: Doc Telegram va dang tin nhanh
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: python tin_nhanh_sfi.py
+      - name: Luu trang thai
+        if: always()
+        run: |
+          git config user.name "gd-bot"
+          git config user.email "gd-bot@users.noreply.github.com"
+          git add data/tin_nhanh_sfi.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "tin nhanh sfi: $(date -u +%FT%TZ)"
+            for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+          fi
