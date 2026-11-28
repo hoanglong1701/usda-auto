@@ -65,9 +65,10 @@
   "msg": "chay thu (khong ghi): them khong tuan moi; sua 25 diem; "
  },
  "dinh_luong": {
-  "ok": true,
-  "at": "2026-11-26T08:03:18Z",
-  "msg": "da ghi trang 478 den tuan 2026-11-20: them 2026-11-20; sua 5 diem; "
+  "ok": false,
+  "at": "2026-11-28T08:54:44Z",
+  "error": "RuntimeError: CFTC CG: khong co bao cao cho tuan 2026-11-27",
+  "trace": "Traceback (most recent call last):\n  File \"/home/runner/work/usda-auto/usda-auto/run.py\", line 116, in main\n    msg = fn()\n          ^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 384, in run\n    v, used = week_row(fri, src)\n              ^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/usda-auto/usda-auto/dinh_luong.py\", line 167, in week_row\n    raise RuntimeError(\"CFTC %s: khong co bao cao cho tuan %s\" % (k, fri))\nRuntimeError: CFTC CG: khong co bao cao cho tuan 2026-11-27\n"
  },
  "kl_nlcn": {
   "ok": true,
@@ -106,8 +107,8 @@
  },
  "lam_nong_cache": {
   "ok": true,
-  "at": "2026-11-28T08:51:28Z",
-  "msg": "44 trang, lan 1 tb 1245 ms, lan 2 tb 1052 ms, 44/44 trang co cache"
+  "at": "2026-11-28T08:55:07Z",
+  "msg": "44 trang, lan 1 tb 1139 ms, lan 2 tb 1117 ms, 44/44 trang co cache"
  },
  "lich_kt_thu": {
   "ok": true,
@@ -206,7 +207,7 @@
  },
  "tom_tat": {
   "ok": true,
-  "at": "2026-11-28T08:51:08Z",
+  "at": "2026-11-28T08:54:51Z",
   "msg": "khong thay doi"
  },
  "ico_ton_kho_thu": {
